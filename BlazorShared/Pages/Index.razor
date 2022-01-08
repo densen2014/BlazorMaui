@@ -1,0 +1,50 @@
+﻿@page "/"
+@using BlazorShared.Models
+
+<h1>Blazor Demo</h1>
+<TimerAme />
+
+<Tab>
+    <TabItem Text="PC">
+        <Table TItem="PcStatus"
+               Items="@pcStatuss"
+               AutoGenerateColumns="true" />
+        <TableLazyHero @ref="list1"
+                       TItem="PC"
+                       ShowColumnList="true"
+                       刷新="刷新数据"
+                       TableSize="TableSize.Normal"
+                       DoubleClickToEdit="false"
+                       HeaderStyle=TableHeaderStyle.None
+                       IsPagination="false"
+                       ShowRefresh="false"
+                       IsStriped="false"
+                       RenderMode="TableRenderMode.Auto" />
+    </TabItem>
+    <TabItem Text="Items">
+        <Table TItem="Item"
+               Items="@records"
+               AutoGenerateColumns="true" />
+    </TabItem>
+    <TabItem Text="build008">
+        <Badge Color="Color.Primary">
+            ID: @IPAddressManager.GetIdentifier();
+        </Badge>
+        <Badge Color="Color.Success">
+            IP: @WebClientInfo.ClientIpAddress;
+        </Badge>
+        <Badge Color="Color.Warning">
+            IP: @IPAddressManager.GetIPAddress();
+        </Badge>
+        @foreach (var item in IPAddressManager.GetIPAddresList())
+        {
+            <Badge Color="Color.Info">
+                IPs: @item;
+            </Badge>
+
+        }
+        <Button Text="粘贴" OnClick="粘贴" />
+        <span>@文字</span>
+    </TabItem>
+
+</Tab>

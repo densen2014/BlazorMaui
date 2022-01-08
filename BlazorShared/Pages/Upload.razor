@@ -1,0 +1,39 @@
+﻿@page "/Upload"
+
+<Button Text="全屏" OnClick="ToggleFullScreen"></Button>
+
+<div class="row g-3">
+    <div class="col-12 col-sm-6">
+        <label for="text1" class="form-label">姓名:</label>
+        <input id="text1" class="form-control">
+    </div>
+    <div class="col-12 col-sm-6">
+        <label for="text2" class="form-label">地址:</label>
+        <input id="text2" class="form-control">
+    </div>
+    <div class="col-12">
+        <label for="text3" class="form-label">照片:</label>
+        <InputUpload TValue="string" Id="text3" ShowDeleteButton="true" OnChange="@OnFileChange" OnDelete="@OnFileDelete"></InputUpload>
+    </div>
+</div>
+
+
+
+<div class="row g-3">
+    <div class="col-12 col-sm-6">
+        <p>点击 <code>浏览按钮</code> 选择文件上传，本例中设置 <code>IsMultiple=true</code> 可多选文件进行上传</p>
+        <ButtonUpload TValue="string" IsMultiple="true" ShowProgress="true" OnChange="@OnClickToUpload" OnDelete="@(fileName => Task.FromResult(true))"></ButtonUpload>
+    </div>
+</div>
+<p class="mt-3">设置 <code>IsSingle</code> 时，仅可以上传一张图片或者文件</p>
+<ButtonUpload TValue="string" IsSingle="true" OnChange="@OnClickToUpload" OnDelete="@(fileName => Task.FromResult(true))" class="mt-3"></ButtonUpload>
+
+
+<ColorPicker @bind-Value="@Value3" />
+<div class="mt-3">Value3: @Value3</div>
+
+
+<Button OnClick="DownloadFileAsync">点我下载文件</Button>
+
+
+ <Timer OnTimeout="@OnTimeout" OnCancel="OnCancel" />

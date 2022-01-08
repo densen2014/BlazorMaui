@@ -1,0 +1,88 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
+		<OutputType>Exe</OutputType>
+		<RootNamespace>BlazorMaui</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
+		<EnableDefaultCssItems>false</EnableDefaultCssItems>
+        <PublishTrimmed>false</PublishTrimmed>
+		
+        <!-- Display name -->
+		<ApplicationTitle>BlazorMaui</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.companyname.BlazorMaui</ApplicationId>
+
+		<!-- Versions -->
+		<ApplicationVersion>1</ApplicationVersion>
+
+		<!-- Required for C# Hot Reload -->
+		<UseInterpreter Condition="'$(Configuration)' == 'Debug'">True</UseInterpreter>
+
+		<SingleProject>true</SingleProject>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);net6.0-windows10.0.19041</TargetFrameworks>
+		<SupportedOSPlatformVersion Condition="'$(TargetFramework)' == 'net6.0-ios'">14.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="'$(TargetFramework)' == 'net6.0-maccatalyst'">14.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="'$(TargetFramework)' == 'net6.0-android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$(TargetFramework.Contains('-windows'))">10.0.17763.0</TargetPlatformMinVersion>
+		<ImplicitUsings>enable</ImplicitUsings>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\appicon.svg" ForegroundFile="Resources\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+	</ItemGroup>
+
+	<ItemGroup>
+        <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+        <PackageReference Include="SQLitePCLRaw.core" Version="2.0.7" />
+        <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.0.7" />
+        <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.0.7" />
+    </ItemGroup>
+
+	<ItemGroup Condition="$(TargetFramework.Contains('-windows'))">
+		<!-- Required - WinUI does not yet have buildTransitive for everything -->
+		<PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.0" />
+		<PackageReference Include="Microsoft.Graphics.Win2D" Version="1.0.0.30" />
+	</ItemGroup>
+
+	<PropertyGroup Condition="$(TargetFramework.Contains('-windows'))">
+		<OutputType>WinExe</OutputType>
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Remove="C:\Users\Administrator\.nuget\packages\bootstrapblazor\6.1.0\contentFiles\any\net6.0\wwwroot\css\bootstrap.blazor.bundle.min.css" />
+		<Content Remove="C:\Users\Administrator\.nuget\packages\bootstrapblazor\6.1.0\contentFiles\any\net6.0\wwwroot\css\motronic.min.css" />
+		<Content Remove="C:\Users\Administrator\.nuget\packages\bootstrapblazor\6.1.0\contentFiles\any\net6.0\wwwroot\js\bootstrap.blazor.bundle.min.js" />
+		<Content Remove="C:\Users\Administrator\.nuget\packages\bootstrapblazor\6.1.0\contentFiles\any\net6.0\wwwroot\lib\summernote\font\summernote.eot" />
+		<Content Remove="C:\Users\Administrator\.nuget\packages\bootstrapblazor\6.1.0\contentFiles\any\net6.0\wwwroot\lib\summernote\font\summernote.ttf" />
+		<Content Remove="C:\Users\Administrator\.nuget\packages\bootstrapblazor\6.1.0\contentFiles\any\net6.0\wwwroot\lib\summernote\font\summernote.woff" />
+		<Content Remove="C:\Users\Administrator\.nuget\packages\bootstrapblazor\6.1.0\contentFiles\any\net6.0\wwwroot\lib\summernote\font\summernote.woff2" />
+		<Content Remove="C:\Users\Alex\.nuget\packages\bootstrapblazor\6.1.0\contentFiles\any\net6.0\wwwroot\css\bootstrap.blazor.bundle.min.css" />
+		<Content Remove="C:\Users\Alex\.nuget\packages\bootstrapblazor\6.1.0\contentFiles\any\net6.0\wwwroot\css\motronic.min.css" />
+		<Content Remove="C:\Users\Alex\.nuget\packages\bootstrapblazor\6.1.0\contentFiles\any\net6.0\wwwroot\js\bootstrap.blazor.bundle.min.js" />
+		<Content Remove="C:\Users\Alex\.nuget\packages\bootstrapblazor\6.1.0\contentFiles\any\net6.0\wwwroot\lib\summernote\font\summernote.eot" />
+		<Content Remove="C:\Users\Alex\.nuget\packages\bootstrapblazor\6.1.0\contentFiles\any\net6.0\wwwroot\lib\summernote\font\summernote.ttf" />
+		<Content Remove="C:\Users\Alex\.nuget\packages\bootstrapblazor\6.1.0\contentFiles\any\net6.0\wwwroot\lib\summernote\font\summernote.woff" />
+		<Content Remove="C:\Users\Alex\.nuget\packages\bootstrapblazor\6.1.0\contentFiles\any\net6.0\wwwroot\lib\summernote\font\summernote.woff2" />
+		<Content Remove="Properties\launchSettings.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\BlazorShared\BlazorShared.csproj" />
+	</ItemGroup> 
+
+</Project>
