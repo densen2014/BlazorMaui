@@ -59,3 +59,10 @@ Based on the Bootstrap style library, it is carefully built, and 100 a variety o
 
 .NET Multi-platform App UI (.NET MAUI) is a cross-platform framework for creating native mobile and desktop apps with C# and XAML.
 Using .NET MAUI, you can develop apps that can run on Android, iOS, macOS, and Windows from a single shared code-base.
+
+
+![UWP](https://user-images.githubusercontent.com/8428709/148663562-3ecca526-38a0-430b-b0d9-58875bcc7887.png)
+![BlazorMaui_Android](https://user-images.githubusercontent.com/8428709/148663564-e850ed36-d6e1-4c51-b958-068fcfff2ad0.png)
+![BlazorSSR](https://user-images.githubusercontent.com/8428709/148663565-9647cecf-60f5-4543-b8f8-87b55a1a593e.png)
+![BlazorWinForms](https://user-images.githubusercontent.com/8428709/148663566-5e35fbdb-1669-4967-8803-2763c3c6d2cd.png)
+![BlazorWpf](https://user-images.githubusercontent.com/8428709/148663568-95cfdec8-3778-4f74-aa84-db4f08bafe09.png)
