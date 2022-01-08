@@ -1,39 +1,39 @@
-							Blazor.BB.Maui , ÕûºÏBlazor,BootstrapBlazor UI×é¼þ¿â,MauiµÄ¹²Ïí¿çÆ½Ì¨¹¤³ÌÊ¾Àý
+    Blazor.BB.Maui , æ•´åˆBlazor,BootstrapBlazor UIç»„ä»¶åº“,Mauiçš„å…±äº«è·¨å¹³å°å·¥ç¨‹ç¤ºä¾‹
 
-ÓÃ c # ºÍ Razor ´´½¨±¾»úÒÆ¶¯Ó¦ÓÃºÍ×ÀÃæÓ¦ÓÃ¡£Ê¹ÓÃ Blazor.BB.Maui£¬¿ÉÒÔ¿ìËÙ¿ª·¢¹²Ïí´úÂë¿âÔËÐÐÓÚ Windows (Winforms/WPF/UWP)¡¢Android¡¢iOS¡¢macOS µÄÓ¦ÓÃ¡£(LinuxÉÔºó¼ÓÈë) 
+ç”¨ c # å’Œ Razor åˆ›å»ºæœ¬æœºç§»åŠ¨åº”ç”¨å’Œæ¡Œé¢åº”ç”¨ã€‚ä½¿ç”¨ Blazor.BB.Mauiï¼Œå¯ä»¥å¿«é€Ÿå¼€å‘å…±äº«ä»£ç åº“è¿è¡ŒäºŽ Windows (Winforms/WPF/UWP)ã€Androidã€iOSã€macOS çš„åº”ç”¨ã€‚(Linuxç¨åŽåŠ å…¥) 
 
-1.Blazor ¼ò½é  
+1.Blazor ç®€ä»‹  
 
-Blazor ÊÇÒ»¸öÊ¹ÓÃ .NET Éú³É½»»¥Ê½¿Í»§¶Ë Web UI µÄ¿ò¼Ü£º
+Blazor æ˜¯ä¸€ä¸ªä½¿ç”¨ .NET ç”Ÿæˆäº¤äº’å¼å®¢æˆ·ç«¯ Web UI çš„æ¡†æž¶ï¼š
 
-Ê¹ÓÃ C# ´úÌæ JavaScript À´´´½¨ÐÅÏ¢·á¸»µÄ½»»¥Ê½ UI¡£
-¹²ÏíÊ¹ÓÃ .NET ±àÐ´µÄ·þÎñÆ÷¶ËºÍ¿Í»§¶ËÓ¦ÓÃÂß¼­¡£
-½« UI ³ÊÏÖÎª HTML ºÍ CSS£¬ÒÔÖ§³ÖÖÚ¶àä¯ÀÀÆ÷£¬ÆäÖÐ°üÀ¨ÒÆ¶¯ä¯ÀÀÆ÷¡£
-ÓëÐÂÊ½ÍÐ¹ÜÆ½Ì¨£¨Èç Docker£©¼¯³É¡£
-Ê¹ÓÃ .NET ½øÐÐ¿Í»§¶Ë Web ¿ª·¢¿ÉÌá¹©ÒÔÏÂÓÅÊÆ£º
+ä½¿ç”¨ C# ä»£æ›¿ JavaScript æ¥åˆ›å»ºä¿¡æ¯ä¸°å¯Œçš„äº¤äº’å¼ UIã€‚
+å…±äº«ä½¿ç”¨ .NET ç¼–å†™çš„æœåŠ¡å™¨ç«¯å’Œå®¢æˆ·ç«¯åº”ç”¨é€»è¾‘ã€‚
+å°† UI å‘ˆçŽ°ä¸º HTML å’Œ CSSï¼Œä»¥æ”¯æŒä¼—å¤šæµè§ˆå™¨ï¼Œå…¶ä¸­åŒ…æ‹¬ç§»åŠ¨æµè§ˆå™¨ã€‚
+ä¸Žæ–°å¼æ‰˜ç®¡å¹³å°ï¼ˆå¦‚ Dockerï¼‰é›†æˆã€‚
+ä½¿ç”¨ .NET è¿›è¡Œå®¢æˆ·ç«¯ Web å¼€å‘å¯æä¾›ä»¥ä¸‹ä¼˜åŠ¿ï¼š
 
-Ê¹ÓÃ C# ´úÌæ JavaScript À´±àÐ´´úÂë¡£
-ÀûÓÃÏÖÓÐµÄ .NET ¿âÉúÌ¬ÏµÍ³¡£
-ÔÚ·þÎñÆ÷ºÍ¿Í»§¶ËÖ®¼ä¹²ÏíÓ¦ÓÃÂß¼­¡£
-ÊÜÒæÓÚ .NET µÄÐÔÄÜ¡¢¿É¿¿ÐÔºÍ°²È«ÐÔ¡£
-ÔÚ Windows¡¢Linux ºÍ macOS ÉÏÊ¹ÓÃ Visual Studio ±£³Ö¸ßÐ§¹¤×÷¡£
-ÒÔÒ»×éÎÈ¶¨¡¢¹¦ÄÜ·á¸»ÇÒÒ×ÓÃµÄÍ¨ÓÃÓïÑÔ¡¢¿ò¼ÜºÍ¹¤¾ßÎª»ù´¡À´½øÐÐÉú³É
-
-
-2.Bootstrap ·ç¸ñµÄ Blazor UI ×é¼þ¿â, ÒÔÏÂ¼ò³ÆBB
-
-»ùÓÚ Bootstrap ÑùÊ½¿â¾«ÐÄ´òÔì£¬²¢ÇÒ¶îÍâÔö¼ÓÁË 100 ¶àÖÖ³£ÓÃµÄ×é¼þ£¬ÎªÄú¿ìËÙ¿ª·¢ÏîÄ¿´øÀ´·ÇÒ»°ãµÄ¸Ð¾õ,ÖÂÁ¦ÓÚ´òÔìÈ«Íø×îºÃÓÃµÄ,×îºÃÍæµÄ×é¼þ¿â¡£
+ä½¿ç”¨ C# ä»£æ›¿ JavaScript æ¥ç¼–å†™ä»£ç ã€‚
+åˆ©ç”¨çŽ°æœ‰çš„ .NET åº“ç”Ÿæ€ç³»ç»Ÿã€‚
+åœ¨æœåŠ¡å™¨å’Œå®¢æˆ·ç«¯ä¹‹é—´å…±äº«åº”ç”¨é€»è¾‘ã€‚
+å—ç›ŠäºŽ .NET çš„æ€§èƒ½ã€å¯é æ€§å’Œå®‰å…¨æ€§ã€‚
+åœ¨ Windowsã€Linux å’Œ macOS ä¸Šä½¿ç”¨ Visual Studio ä¿æŒé«˜æ•ˆå·¥ä½œã€‚
+ä»¥ä¸€ç»„ç¨³å®šã€åŠŸèƒ½ä¸°å¯Œä¸”æ˜“ç”¨çš„é€šç”¨è¯­è¨€ã€æ¡†æž¶å’Œå·¥å…·ä¸ºåŸºç¡€æ¥è¿›è¡Œç”Ÿæˆ
 
 
-3.Ê²Ã´ÊÇ .NET MAUI£¿  
+2.Bootstrap é£Žæ ¼çš„ Blazor UI ç»„ä»¶åº“, ä»¥ä¸‹ç®€ç§°BB
 
-.NET ¶àÆ½Ì¨Ó¦ÓÃ UI ( .NET MAUI) ÊÇÒ»¸ö¿çÆ½Ì¨¿ò¼Ü£¬ÓÃÓÚÊ¹ÓÃ c # ºÍ XAML ´´½¨±¾»úÒÆ¶¯Ó¦ÓÃºÍ×ÀÃæÓ¦ÓÃ¡£
-Ê¹ÓÃ .net MAUI£¬¿ÉÒÔ¿ª·¢¿ÉÔÚ Android¡¢iOS¡¢macOS ÉÏÔËÐÐµÄÓ¦ÓÃ£¬Windows ÒÔ¼°´Óµ¥¸ö¹²Ïí´úÂë¿âÔËÐÐµÄÓ¦ÓÃ¡£
+åŸºäºŽ Bootstrap æ ·å¼åº“ç²¾å¿ƒæ‰“é€ ï¼Œå¹¶ä¸”é¢å¤–å¢žåŠ äº† 100 å¤šç§å¸¸ç”¨çš„ç»„ä»¶ï¼Œä¸ºæ‚¨å¿«é€Ÿå¼€å‘é¡¹ç›®å¸¦æ¥éžä¸€èˆ¬çš„æ„Ÿè§‰,è‡´åŠ›äºŽæ‰“é€ å…¨ç½‘æœ€å¥½ç”¨çš„,æœ€å¥½çŽ©çš„ç»„ä»¶åº“ã€‚
 
 
-4.Ê²Ã´ÊÇ Blazor.BB.Maui
+3.ä»€ä¹ˆæ˜¯ .NET MAUIï¼Ÿ  
 
-ÓÃ c # ºÍ Razor ´´½¨±¾»úÒÆ¶¯Ó¦ÓÃºÍ×ÀÃæÓ¦ÓÃ¡£Ê¹ÓÃ Blazor.BB.Maui£¬¿ÉÒÔ¿ìËÙ¿ª·¢¹²Ïí´úÂë¿âÔËÐÐÓÚ Windows (Winforms/WPF/UWP)¡¢Android¡¢iOS¡¢macOS µÄÓ¦ÓÃ¡£(LinuxÉÔºó¼ÓÈë) 
+.NET å¤šå¹³å°åº”ç”¨ UI ( .NET MAUI) æ˜¯ä¸€ä¸ªè·¨å¹³å°æ¡†æž¶ï¼Œç”¨äºŽä½¿ç”¨ c # å’Œ XAML åˆ›å»ºæœ¬æœºç§»åŠ¨åº”ç”¨å’Œæ¡Œé¢åº”ç”¨ã€‚
+ä½¿ç”¨ .net MAUIï¼Œå¯ä»¥å¼€å‘å¯åœ¨ Androidã€iOSã€macOS ä¸Šè¿è¡Œçš„åº”ç”¨ï¼ŒWindows ä»¥åŠä»Žå•ä¸ªå…±äº«ä»£ç åº“è¿è¡Œçš„åº”ç”¨ã€‚
+
+
+4.ä»€ä¹ˆæ˜¯ Blazor.BB.Maui
+
+ç”¨ c # å’Œ Razor åˆ›å»ºæœ¬æœºç§»åŠ¨åº”ç”¨å’Œæ¡Œé¢åº”ç”¨ã€‚ä½¿ç”¨ Blazor.BB.Mauiï¼Œå¯ä»¥å¿«é€Ÿå¼€å‘å…±äº«ä»£ç åº“è¿è¡ŒäºŽ Windows (Winforms/WPF/UWP)ã€Androidã€iOSã€macOS çš„åº”ç”¨ã€‚(Linuxç¨åŽåŠ å…¥) 
 
 
 ------------------------------------
