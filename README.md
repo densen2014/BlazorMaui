@@ -1,6 +1,6 @@
-    Blazor.BB.Maui , 整合Blazor,BootstrapBlazor UI组件库,Maui的共享跨平台工程示例
+    BlazorMaui , 整合Blazor,BootstrapBlazor UI组件库,Maui的共享跨平台工程示例
 
-用 c # 和 Razor 创建本机移动应用和桌面应用。使用 Blazor.BB.Maui，可以快速开发共享代码库运行于 Windows (Winforms/WPF/UWP)、Android、iOS、macOS 的应用。(Linux稍后加入) 
+用 c # 和 Razor 创建本机移动应用和桌面应用。可以快速开发共享代码库运行于 Windows (Winforms/WPF/UWP)、Android、iOS、macOS 的应用。(Linux稍后加入) 
 
 1.Blazor 简介  
 
@@ -30,10 +30,6 @@ Blazor 是一个使用 .NET 生成交互式客户端 Web UI 的框架：
 .NET 多平台应用 UI ( .NET MAUI) 是一个跨平台框架，用于使用 c # 和 XAML 创建本机移动应用和桌面应用。
 使用 .net MAUI，可以开发可在 Android、iOS、macOS 上运行的应用，Windows 以及从单个共享代码库运行的应用。
 
-
-4.什么是 Blazor.BB.Maui
-
-用 c # 和 Razor 创建本机移动应用和桌面应用。使用 Blazor.BB.Maui，可以快速开发共享代码库运行于 Windows (Winforms/WPF/UWP)、Android、iOS、macOS 的应用。(Linux稍后加入) 
 
 
 ------------------------------------
