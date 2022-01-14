@@ -9,6 +9,13 @@ namespace BlazorWinForms
         {
             InitializeComponent();
 
+            //默认全屏
+            //this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            //this.FormBorderStyle =FormBorderStyle.None;
+            //this.TopMost = true;
+            //this.KeyPreview = true;
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyUp);
+
             var blazor = new BlazorWebView()
             {
                 Dock = DockStyle.Fill,
@@ -18,6 +25,25 @@ namespace BlazorWinForms
 
             blazor.RootComponents.Add<App>("#app");
             Controls.Add(blazor);
+            blazor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyUp);
+
+        }
+
+        private void MainForm_KeyUp(object sender, KeyEventArgs e)
+        {
+             if (e.KeyCode == Keys.Escape)
+            {
+                if (this.WindowState == System.Windows.Forms.FormWindowState.Normal)
+                {
+                    this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+                    this.FormBorderStyle = FormBorderStyle.None;
+                }
+                else
+                {
+                    this.WindowState = System.Windows.Forms.FormWindowState.Normal;
+                    this.FormBorderStyle = FormBorderStyle.Sizable;
+                }
+            }
         }
     }
 }
