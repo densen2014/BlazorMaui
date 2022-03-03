@@ -1,0 +1,18 @@
+﻿@page "/"
+
+<Counter />
+
+<Button Color="Color.Primary" Icon="fa fa-fa" Text="测试" />
+
+<BarcodeReader OnResult="@OnResult"  />
+
+<Calendar />
+@code{
+    [Inject] protected ToastService? ToastService { get; set; }
+
+    private Task OnResult(string barcode)
+    {
+        ToastService.Success($"ScanCodeLog{barcode}");
+        return Task.CompletedTask;
+    }
+}
