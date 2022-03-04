@@ -1,4 +1,5 @@
 ﻿@page "/Upload"
+@attribute [TabItemOption(Text = "上传", Icon = "fa fa-upload")]
 
 <Button Text="全屏" OnClick="ToggleFullScreen"></Button>
 
@@ -36,4 +37,4 @@
 <Button OnClick="DownloadFileAsync">点我下载文件</Button>
 
 
- <Timer OnTimeout="@OnTimeout" OnCancel="OnCancel" />
+<Timer OnTimeout="@OnTimeout" OnCancel="OnCancel" />

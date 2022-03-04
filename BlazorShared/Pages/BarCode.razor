@@ -1,4 +1,5 @@
 ﻿@page "/barcode"
+@attribute [TabItemOption(Text = "扫码", Icon = "fa fa-barcode")]
 
 <BarcodeReader OnInit="@OnInit" OnResult="@OnResult" OnStart="@OnStart" OnClose="@OnClose" OnError="@OnError" />
 

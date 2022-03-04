@@ -1,13 +1,17 @@
 ﻿@inherits LayoutComponentBase
+@using System.Reflection
 
 <div class="page">
-	<div class="sidebar">
-		<NavMenu />
-	</div>
-     <main> 
-         <article class="content px-4">
-             @*@Body*@
-             <Tab ClickTabToNavigation="true" ShowExtendButtons="true" ShowClose="true" Body=@Body></Tab>
-         </article>
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+    <main>
+        <article class="content px-4">
+            <Tab ClickTabToNavigation="true" 
+                 ShowExtendButtons="true" 
+                 ShowClose="true" 
+                 Body=@Body 
+                 AdditionalAssemblies=' new[] { Assembly.Load("BlazorShared")! }'></Tab>
+        </article>
     </main>
 </div>
