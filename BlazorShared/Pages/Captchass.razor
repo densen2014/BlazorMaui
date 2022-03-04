@@ -1,0 +1,24 @@
+﻿@page "/captchass"
+@attribute [TabItemOption(Text = "滑块验证码")]
+
+<Captcha ImagesPath="@ImagesPath" @ref="Captcha" OnValid="@OnValid" ImagesName="test.jpg" />
+
+@code{
+    [Inject] protected ToastService ToastService { get; set; }
+    public string ImagesPath { get; set; } = "_content/BlazorShared";
+    private Captcha? Captcha { get; set; }
+
+    private void OnValid(bool ret)
+    {
+        var result = ret ? "成功" : "失败";
+        ToastService.Success ($"验证码结果 -> {result}");
+        if (ret)
+        {
+            Task.Run(async () =>
+            {
+                await Task.Delay(1000);
+                Captcha?.Reset();
+            });
+        }
+    }
+}

@@ -21,6 +21,15 @@
         <SupportedPlatform Include="browser" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Update="wwwroot\test.jpg">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\test.png">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
     <ProjectExtensions>
         <VisualStudio>
             <UserProperties wwwroot_4manifest_1json__JsonSchema="" />

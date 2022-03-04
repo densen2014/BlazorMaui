@@ -1,0 +1,4 @@
+﻿@page "/qrcode"
+@attribute [TabItemOption(Text = "二维码", Icon = "fa fa-qrcode")]
+
+<QRCode Content="https://www.blazor.zone" OnGenerated="@OnGenerated" ShowButtons="true" />
