@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Components.Web;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 namespace BlazorWinForms
@@ -18,7 +19,7 @@ namespace BlazorWinForms
         private static void WireupServices(HostBuilderContext context, IServiceCollection services)
         {
             services.AddBlazorWebView();
-            services.AddMvc();
+            services.AddSingleton<IErrorBoundaryLogger, MyErrorBoundaryLogger>();
             services.AddSharedExtensions();
         }
     }

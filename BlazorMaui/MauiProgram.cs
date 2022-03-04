@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components.WebView.Maui;
+﻿using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Components.WebView.Maui;
 using System.Globalization;
 
 namespace BlazorMaui
@@ -18,6 +19,7 @@ namespace BlazorMaui
                 });
 
             builder.Services.AddBlazorWebView();
+            builder.Services.AddSingleton<IErrorBoundaryLogger, MyErrorBoundaryLogger>();
             builder.Services.AddSharedExtensions();
             return builder.Build();
         }
