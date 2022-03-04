@@ -18,6 +18,7 @@ namespace BlazorWinForms
         private static void WireupServices(HostBuilderContext context, IServiceCollection services)
         {
             services.AddBlazorWebView();
+            services.AddMvc();
             services.AddSharedExtensions();
         }
     }
