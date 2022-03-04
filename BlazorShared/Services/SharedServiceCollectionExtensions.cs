@@ -10,6 +10,7 @@ using Shared.DependencyServices;
 //using System.Data.SQLite;
 using System.Diagnostics;
 using System.Globalization;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -35,6 +36,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
             services.AddDensenExtensions();
             services.AddSingleton<IIPAddressManager, IPAddressManager>();
+            services.AddSingleton<IErrorBoundaryLogger, MyErrorBoundaryLogger>();
             //fsql = new TestSqlite().test();
             //if (fsql != null) services.AddSingleton(fsql);
             return services;
@@ -43,6 +45,8 @@ namespace Microsoft.Extensions.DependencyInjection
     }
 
 }
+
+
 
 //public class TestSqlite
 //{

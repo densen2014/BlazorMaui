@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Components.Web;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace BlazorWinForms
+namespace BlazorWinForms1
 {
     public static class Startup
     {
@@ -19,7 +18,7 @@ namespace BlazorWinForms
         private static void WireupServices(HostBuilderContext context, IServiceCollection services)
         {
             services.AddBlazorWebView();
-            services.AddSharedExtensions();
+            services.AddBootstrapBlazor();
         }
     }
 }

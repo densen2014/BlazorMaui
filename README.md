@@ -66,3 +66,22 @@ Using .NET MAUI, you can develop apps that can run on Android, iOS, macOS, and W
 ![BlazorSSR](https://user-images.githubusercontent.com/8428709/148663565-9647cecf-60f5-4543-b8f8-87b55a1a593e.png)
 ![BlazorWinForms](https://user-images.githubusercontent.com/8428709/148663566-5e35fbdb-1669-4967-8803-2763c3c6d2cd.png)
 ![BlazorWpf](https://user-images.githubusercontent.com/8428709/148663568-95cfdec8-3778-4f74-aa84-db4f08bafe09.png)
+
+
+------------------------------------
+
+2-24
+
+Maui blazor 最新preview版本发布ok了,只是还不能打非依赖包和裁剪. 
+发布后 安装net6 desktop rumtime + webview2 x64就能运行.
+
+net6 desktop rumtime
+
+https://download.visualstudio.microsoft.com/download/pr/efa32b7a-6eec-4d97-9cdc-c7336a29a749/3df4296170397cf60884dae1be3d103b/windowsdesktop-runtime-6.0.2-win-x64.exe
+
+webview2
+
+https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/4182949e-08fa-48c6-9845-edf4ff44767b/MicrosoftEdgeWebView2RuntimeInstallerX64.exe
+
+![image](https://user-images.githubusercontent.com/8428709/155608453-b9eca2a9-7862-4ff2-b78f-c57ce1c3dad4.png)
+
