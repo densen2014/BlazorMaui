@@ -19,7 +19,6 @@ namespace BlazorMaui
                 });
 
             builder.Services.AddBlazorWebView();
-            builder.Services.AddSingleton<IErrorBoundaryLogger, MyErrorBoundaryLogger>();
             builder.Services.AddSharedExtensions();
             return builder.Build();
         }

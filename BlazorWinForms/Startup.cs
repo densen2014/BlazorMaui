@@ -19,7 +19,6 @@ namespace BlazorWinForms
         private static void WireupServices(HostBuilderContext context, IServiceCollection services)
         {
             services.AddBlazorWebView();
-            services.AddSingleton<IErrorBoundaryLogger, MyErrorBoundaryLogger>();
             services.AddSharedExtensions();
         }
     }
