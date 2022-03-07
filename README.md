@@ -1,7 +1,9 @@
     BlazorMaui , 整合Blazor,BootstrapBlazor UI组件库,Maui的共享跨平台工程示例
 
-用 c # 和 Razor 创建本机移动应用和桌面应用。可以快速开发共享代码库运行于 Windows (Winforms/WPF/UWP)、Android、iOS、macOS 的应用。(Linux稍后加入) 
+用 c # 和 Razor 创建本机移动应用和桌面应用。可以快速开发共享代码库运行于 Windows (Winforms/WPF/UWP)、Android、iOS、macOS 的应用。
 
+ <a href="https://github.com/densen2014/BlazorMaui"> github </a> | <a href="https://gitee.com/alexchow/BlazorMaui"> gitee(mirror only) </a>
+ 
 1.Blazor 简介  
 
 Blazor 是一个使用 .NET 生成交互式客户端 Web UI 的框架：
