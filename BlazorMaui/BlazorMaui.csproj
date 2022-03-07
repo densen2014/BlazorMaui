@@ -58,6 +58,11 @@
         <RuntimeIdentifier>win10-x64</RuntimeIdentifier>
     </PropertyGroup>
 
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-android|AnyCPU'">
+      <CodesignKey>Apple Development: zhou chuanglin %28W9D8HB5VZK%29</CodesignKey>
+      <CodesignProvision>VS: WildCard Development</CodesignProvision>
+    </PropertyGroup>
+
 
     <ItemGroup>
 		<Content Remove="Properties\launchSettings.json" />
@@ -65,6 +70,8 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\BlazorShared\BlazorShared.csproj" />
-	</ItemGroup> 
+	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadEntryPointExceptionBlazorMauiHideInfoBar="True" /></VisualStudio></ProjectExtensions> 
 
 </Project>

@@ -1,7 +1,7 @@
 ﻿using Foundation;
 using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
-using SQLitePCL;
+//using SQLitePCL;
 
 namespace BlazorMaui
 {
@@ -11,7 +11,7 @@ namespace BlazorMaui
         protected override MauiApp CreateMauiApp()
         {
             //对于 iOS/MacCatalyst，我们需要设置 SQLite 提供程序。我们可以做到AppDelegate
-            raw.SetProvider(new SQLite3Provider_sqlite3());
+            //raw.SetProvider(new SQLite3Provider_sqlite3());
            return MauiProgram.CreateMauiApp();
         }
     }
