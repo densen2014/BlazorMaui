@@ -7,8 +7,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <ItemGroup>
-        <PackageReference Include="Microsoft.Maui.Graphics" Version="6.0.200-preview.13.935" />
-        <PackageReference Include="Microsoft.Maui.Graphics.Skia" Version="6.0.200-preview.13.935" />
+    <ItemGroup> 
+        <PackageReference Include="Microsoft.Maui.Graphics.Skia" Version="6.0.200-preview.14.1092" />
+        <PackageReference Include="SkiaSharp" Version="2.88.0-preview.224" />
     </ItemGroup>
 </Project>

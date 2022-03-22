@@ -68,6 +68,11 @@
 		<Content Remove="Properties\launchSettings.json" />
 	</ItemGroup>
 
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.1" />
+    </ItemGroup>
+
 	<ItemGroup>
 	  <ProjectReference Include="..\BlazorShared\BlazorShared.csproj" />
 	</ItemGroup>

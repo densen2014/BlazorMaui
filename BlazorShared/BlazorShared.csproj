@@ -13,8 +13,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Densen.Extensions.BootstrapBlazor" Version="6.1.20-preview" />
-      <PackageReference Include="FreeSql" Version="3.0.100" />
+      <PackageReference Include="Densen.Extensions.BootstrapBlazor" Version="6.3.2-preview" />
+      <PackageReference Include="FreeSql" Version="3.2.100" />
     </ItemGroup>
 
     <ItemGroup>
