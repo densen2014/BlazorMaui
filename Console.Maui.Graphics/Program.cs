@@ -52,7 +52,7 @@ namespace GraphicsTester.Scenarios
 {
     public static class ScenarioList
     {
-        private static List<AbstractScenario> _scenarios;
+        private static List<AbstractScenario>? _scenarios;
 
         public static List<AbstractScenario> Scenarios
         {
@@ -174,7 +174,7 @@ namespace GraphicsTester.Scenarios
     }
     public abstract class AbstractScenario : IPicture, IDrawable
     {
-        public static readonly float[] SOLID = null;
+        public static readonly float[]? SOLID = null;
         public static readonly float[] DOT_DOT = { 1, 1 };
         public static readonly float[] DOTTED = { 2, 2 };
         public static readonly float[] DASHED = { 4, 4 };
@@ -189,7 +189,7 @@ namespace GraphicsTester.Scenarios
         private float y;
         private float width;
         private float height;
-        private string hash;
+        private string? hash;
 
         public float X
         {
@@ -241,7 +241,7 @@ namespace GraphicsTester.Scenarios
 
         public string Hash
         {
-            get => hash;
+            get => hash!;
             set => hash = value;
         }
 
@@ -329,7 +329,7 @@ namespace ClassLibrary1
             yield return $"{Environment.CurrentDirectory}";
             yield return $"{Directory.GetCurrentDirectory()}";
             yield return $"{GetType().Assembly.Location}";
-            yield return $"{Process.GetCurrentProcess().MainModule.FileName}";
+            yield return $"{Process.GetCurrentProcess().MainModule!.FileName}";
             yield return $"{AppDomain.CurrentDomain.BaseDirectory}";
         }
 
