@@ -1,0 +1,26 @@
+﻿@page "/FreesqlPage"
+@attribute [TabItemOption(Text = "Freesql")]
+
+<h3>FreesqlPage</h3>
+
+<h1>Hello, freesql!</h1>
+
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group mr-2" role="group" aria-label="First group">
+        <button type="button" class="btn btn-secondary" @onclick="OnAddClicked">Add</button>
+        <button type="button" class="btn btn-secondary" @onclick="OnModifyClicked">Modify</button>
+        <button type="button" class="btn btn-secondary" @onclick="OnDeleteClicked">Delete</button>
+    </div>
+    <div class="btn-group mr-2" role="group" aria-label="Second group">
+        <button type="button" class="btn btn-secondary" @onclick="OnRefreshClicked">Refresh</button>
+    </div>
+</div>
+
+@foreach (var item in ItemList)
+{
+    <p> @(item.ToString()) </p>
+}
+
+@code {
+
+}

@@ -1,0 +1,18 @@
+﻿@namespace BlazorShared.Pages
+@page "/geolocations"
+@attribute [TabItemOption(Text = "定位/持续定位")]
+
+<h3>定位/持续定位 Geolocation</h3>
+
+<p>@message</p>
+
+<AmeBlazor.Components.Geolocation OnResult="@OnResult" OnUpdateStatus="@OnUpdateStatus" OnError="@OnError" />
+
+<Badge Color="Color.Warning">@status</Badge>
+
+<Table TItem="Geolocationitem" Items="Items" AutoGenerateColumns="true">
+</Table>
+
+
+
+<AttributeTable Items="@GetAttributes()" />

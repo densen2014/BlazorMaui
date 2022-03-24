@@ -1,0 +1,17 @@
+﻿@namespace BlazorShared.Pages
+@page "/webapis"
+@attribute [TabItemOption(Text = "浏览器Api")]
+
+<h3>系统信息</h3>
+
+<p>@message</p>
+
+<WebApi OnBatteryResult="@OnBatteryResult" OnNetworkInfoResult="@OnNetworkInfoResult" OnError="@OnError" />
+
+<h5>电池</h5>
+<Table TItem="BatteryStatus" Items="batteryStatus" AutoGenerateColumns="true" />
+
+<h5>网络</h5>
+<Table TItem="NetworkInfoStatus" Items="networkInfoStatus" AutoGenerateColumns="true" />
+
+<AttributeTable Items="@GetAttributes()" />

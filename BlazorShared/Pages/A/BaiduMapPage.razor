@@ -1,0 +1,10 @@
+﻿@namespace BlazorShared.Pages
+@page "/baidumap"
+@attribute [TabItemOption(Text = "百度地图 BaiduMap")]
+
+<h3>百度地图 Baidu Map</h3>
+
+<p>@message</p>
+
+<BaiduMap OnError="@OnError" OnResult="@OnResult" BaiduKey="DD279b2a90afdf0ae7a3796787a0742e" />
+<AttributeTable Items="@GetAttributes()" />

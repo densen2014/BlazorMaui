@@ -1,0 +1,77 @@
+﻿@namespace BlazorShared.Pages
+@page "/onscreenkeyboards"
+@attribute [TabItemOption(Text = "屏幕键盘")]
+
+<input class="@ClassName"
+       data-kioskboard-type="@KeyboardType.all.ToString()"
+       data-kioskboard-specialcharacters="true"
+       placeholder="全键盘" />
+<input class="@ClassName"
+       data-kioskboard-type="@KeyboardType.keyboard.ToString()"
+       data-kioskboard-placement="@KeyboardPlacement.bottom.ToString()"
+       placeholder="字母键盘" />
+<input class="@ClassName"
+       data-kioskboard-type="@KeyboardType.numpad.ToString()"
+       data-kioskboard-placement="@(KeyboardPlacement.bottom.ToString())"
+       placeholder="数字键盘" />
+<OnScreenKeyboard ClassName="@ClassName" KeyboardKeys="KeyboardKeysType.spanish" />
+
+
+<input class="@ClassName1"
+       data-kioskboard-type="@KeyboardType.keyboard.ToString()"
+       placeholder="黑主题" />
+<OnScreenKeyboard ClassName="@ClassName1" Option="Option1" />
+
+
+<input class="@ClassName2"
+       data-kioskboard-specialcharacters="true"
+       placeholder="特殊符号II" />
+<OnScreenKeyboard ClassName="@ClassName2" Option="Option2" />
+
+
+<input class="@ClassName3" data-kioskboard-specialcharacters="true" placeholder="特殊符号自定义" />
+<OnScreenKeyboard ClassName="@ClassName3" Option="Option3" />
+
+<p>BootstrapBlazor组件</p>
+<div class="form-control textarea-demo">双绑 @BindValue</div>
+<BootstrapInput class="@ClassName" placeholder="BootstrapInput" @bind-Value="@BindValue" />
+<BootstrapPassword class="@ClassName" placeholder="BootstrapPassword" @bind-Value="@BindValue" />
+<Textarea class="@ClassName" placeholder="Textarea" rows="4" @bind-Value="@BindValue" />
+
+@code{
+
+    string BindValue = "virtualkeyboard";
+    string ClassName = "virtualkeyboard";
+    string ClassName1 = "virtualkeyboard1";
+    string ClassName2 = "virtualkeyboard2";
+    string ClassName3 = "virtualkeyboard3";
+
+    static Dictionary<string, string> keys1 = new Dictionary<string, string>() { { "0", "L" }, { "1", "O" } };
+    static Dictionary<string, string> keys2 = new Dictionary<string, string>() { { "0", "V" }, { "1", "E" } };
+    static List<Dictionary<string, string>> keysArray = new List<Dictionary<string, string>>() { keys1, keys2 };
+    KeyboardOption Option1 = new KeyboardOption()
+    {
+        //keysArrayOfObjects = keysArray,
+        keysFontFamily = "Barlow",
+        keysFontWeight = "500",
+        Theme = KeyboardTheme.dark,
+    };
+    KeyboardOption Option2 = new KeyboardOption()
+    {
+        KeyboardSpecialcharacters = KeyboardSpecialcharacters.europe
+    };
+    KeyboardOption Option3 = new KeyboardOption()
+    {
+        CustomerKeyboardSpecialcharacters = new string[] { "中", "国", "女", "足", "牛啊" }
+    };
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+    }
+}
+<style>
+    .kioskboard-body-padding {
+        padding-top: unset !important;
+    }
+</style>

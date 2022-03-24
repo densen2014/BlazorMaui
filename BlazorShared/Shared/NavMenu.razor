@@ -8,43 +8,78 @@
 </div>
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-	<nav class="flex-column">
-		<div class="nav-item px-3">
-			<NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-				Home
-			</NavLink>
-		</div>
-		<div class="nav-item px-3">
-			<NavLink class="nav-link" href="barcode">
-				Barcode
-			</NavLink>
-		</div>
-		<div class="nav-item px-3">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                Home
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="barcode">
+                Barcode
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
             <NavLink class="nav-link" href="qrcode">
                 二维码
             </NavLink>
-		</div>
-		<div class="nav-item px-3">
+        </div>
+        <div class="nav-item px-3">
             <NavLink class="nav-link" href="circle">
                 进度环
             </NavLink>
-		</div>
-		<div class="nav-item px-3">
+        </div>
+        <div class="nav-item px-3">
             <NavLink class="nav-link" href="captchass">
                 滑块验证码
             </NavLink>
-		</div>
-		<div class="nav-item px-3">
-			<NavLink class="nav-link" href="Upload">
-				Upload
-			</NavLink>
-		</div>
+        </div>
         <div class="nav-item px-3">
-			<NavLink class="nav-link" href="files">
-				Files
-			</NavLink>
-		</div>
-	</nav>
+            <NavLink class="nav-link" href="signaturepad">
+                <span aria-hidden="true"></span> 签名 SignaturePad
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="geolocations">
+                <span aria-hidden="true"></span> 定位 Geolocation
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="viewer">
+                <span aria-hidden="true"></span> 图片浏览 Viewer
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="webapis">
+                <span aria-hidden="true"></span> 系统信息 System info
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="onscreenkeyboards">
+                <span aria-hidden="true"></span> 屏幕键盘 OSK
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="baidumap">
+                <span aria-hidden="true"></span> 百度地图 Baidu Map
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="maps">
+                <span aria-hidden="true"></span> 谷歌地图 Maps
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="Upload">
+                Upload
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="FreesqlPage">
+                Freesql
+            </NavLink>
+        </div>
+    </nav>
 </div>
 
 @code {

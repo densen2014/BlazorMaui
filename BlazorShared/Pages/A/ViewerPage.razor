@@ -1,0 +1,124 @@
+﻿@namespace BlazorShared.Pages
+@page "/viewer"
+@attribute [TabItemOption(Text = "图片浏览器")]
+
+<Tab>
+    <TabItem Text="多图片">
+        &lt;Viewerjs Images="imagesList" /&gt;
+        <Viewerjs Images="imagesList" />
+    </TabItem>
+    <TabItem Text="多图片+简化工具条">
+        &lt;Viewerjs Images="imagesList" toolbarlite="true" /&gt;
+        <Viewerjs Images="imagesList" toolbarlite="true" />
+    </TabItem>
+    <TabItem Text="多图片+简化工具条+自定义DIV">
+        &lt;div class="docs-galley22 mb-3"&gt;
+        &lt;ul id="immmmm" class="docs-pictures22 clearfix"&gt;
+        @@{
+        var i = 0;
+        foreach (var item in imagesList)
+        {
+        &lt; li & gt; &lt; img src = "@@item" & gt; &lt; / li&gt;
+        i++;
+        }
+        }
+        &lt;/ul&gt;
+        &lt;/div&gt;
+
+        <Viewerjs ID="immmmm" Images="imagesList" UseBuiltinImageDiv="false" toolbarlite="true" />
+        <div class="docs-galley22 mb-3">
+            <ul id="immmmm" class="docs-pictures22 clearfix">
+                @{
+                    var i = 0;
+                    foreach (var item in imagesList)
+                    {
+                        <li><img src="@item"></li>
+                        i++;
+                    }
+                }
+            </ul>
+        </div>
+        <Viewerjs ID="immmmm" Images="imagesList" UseBuiltinImageDiv="false" toolbarlite="true" />
+    </TabItem>
+    <TabItem Text="单图片">
+        &lt;Viewerjs Src="@imagesList[2]" Width="600px" Height="300px" /&gt;
+        <Viewerjs Src="@imagesList[2]" Width="600px" Height="300px" />
+    </TabItem>
+    <TabItem Text="单图片+简化工具条">
+        &lt;Viewerjs Src="@imagesList[4]" Width="600px" Height="300px" toolbarlite="true" /&gt;
+        <Viewerjs Src="@imagesList[4]" Width="600px" Height="300px" toolbarlite="true" />
+    </TabItem>
+</Tab>
+
+
+<AttributeTable Items="@GetAttributes()" />
+
+<style>
+    .docs-galley22 {
+        padding: 20px;
+        width: 700px;
+    }
+
+    .docs-pictures22 {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+        .docs-pictures22 > li {
+            border: 1px solid transparent;
+            float: left;
+            height: calc(100% / 6);
+            margin: 0 -1px -1px 0;
+            overflow: hidden;
+            width: calc(100% / 6);
+        }
+
+            .docs-pictures22 > li > img {
+                cursor: -webkit-zoom-in;
+                cursor: zoom-in;
+                width: 100%;
+            }
+
+    img {
+        vertical-align: middle;
+        border-style: none;
+    }
+</style>
+
+
+@code{
+    List<string> imagesList;
+
+    protected override void OnInitialized()
+    {
+
+        imagesList = new List<string>();
+        if (!imagesList.Any())
+        {
+            for (int i = 1; i <= 9; i++)
+            {
+                imagesList.Add($"https://fengyuanchen.github.io/viewerjs/images/thumbnails/tibet-{i}.jpg");
+            }
+        }
+    }
+
+
+
+    /// <summary>
+    /// 获得属性方法
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerable<AttributeItem> GetAttributes() => new AttributeItem[]
+    {
+            new AttributeItem("UseBuiltinImageDiv","使用内置图片DIV", "true","bool"),
+            new AttributeItem("Images","图片列表","new List<string>","List<string>"),
+            new AttributeItem("Alts","图片名称列表","null","List<string>?"),
+            new AttributeItem("Src","单图片","null","string?"),
+            new AttributeItem("Options","组件初始化参数", "new ViewerOptions()","ViewerOptions"),
+            new AttributeItem("toolbarlite","简化版工具条", "null","bool?"),
+            new AttributeItem("Height","高", "400px","string?"),
+            new AttributeItem("ID","组件ID", "null","string?"),
+            new AttributeItem("Width","宽", "400px","string?"),
+            };
+}

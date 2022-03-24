@@ -13,15 +13,20 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Densen.Component.Blazor" Version="0.0.15" />
       <PackageReference Include="FreeSql" Version="3.2.100" />
     </ItemGroup>
     
     <ItemGroup Condition="'$(Configuration)'!='Preview'">
-      <PackageReference Include="Densen.Extensions.BootstrapBlazor" Version="6.3.2-preview" />
+      <PackageReference Include="Densen.Extensions.BootstrapBlazor" Version="6.3.3-preview" />
     </ItemGroup>
     
     <ItemGroup Condition="'$(Configuration)'=='Preview'">
       <ProjectReference Include="..\..\Densen.Extensions\Blazor\Densen.Extensions.BootstrapBlazor.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\LibraryShared\LibraryShared.csproj" />
     </ItemGroup>
 
     <ItemGroup>

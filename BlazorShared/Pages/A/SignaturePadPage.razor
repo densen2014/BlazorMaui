@@ -1,0 +1,129 @@
+﻿@namespace BlazorShared.Pages
+@page "/signaturepad"
+@attribute [TabItemOption(Text = "手写签名")]
+
+<h3>SignaturePad 签名</h3>
+
+@if (Result != null)
+{
+    <div>
+        <p></p>
+        <p>您的签名:</p>
+        <img src="@Result" style="background-color: beige ; max-width: 80%; " />
+        <p></p>
+        <p>签名Base64</p>
+        <textarea type="text" class="form-control" style="min-width: 100px;max-width: 80%;" rows="6"
+                  @bind="Result"
+                  placeholder="Base64" />
+    </div>
+    <button class="btn btn-primary"
+            type="button"
+            @onclick="(() => Result = null)">
+        返回前页
+    </button>
+
+}
+else
+{
+<pre>基础用法:
+<code style="color:gray">
+&lt;SignaturePad OnResult="((e) =>  Result=e)" BtnCssClass="btn btn-outline-success" /&gt;
+</code>
+</pre>
+
+    <SignaturePad OnResult="((e) => Result = e)" />
+
+<pre>按钮CSS式样:
+<code style="color:gray">
+&lt;SignaturePad OnResult="((e) =>  Result=e)" BtnCssClass="btn btn-outline-success" /&gt;
+        </code>
+    </pre>
+    <SignaturePad OnResult="((e) => Result = e)" BtnCssClass="btn btn-outline-success" />
+
+<pre>自定义按钮文本:
+<code style="color:gray">
+&lt;SignaturePad OnResult="((e) =>  Result=e)"
+                            SignAboveLabel="Sign above"
+                            UndoBtnTitle="Undo"
+                            SaveBase64BtnTitle="OK"
+                            ChangeColorBtnTitle="Change color"
+                            ClearBtnTitle="Clear" /&gt;
+</code>
+</pre>
+    <SignaturePad OnResult="((e) => Result = e)"
+                  SignAboveLabel="Sign above"
+                  UndoBtnTitle="Undo"
+                  SaveBase64BtnTitle="OK"
+                  ChangeColorBtnTitle="Change color"
+                  ClearBtnTitle="Clear" />
+
+    <a class="btn btn-primary"
+       type="button"
+       href="signaturepadResponsive">
+        响应式签名界面
+    </a>
+
+    <p style="color:red;margin-top:50px">
+        Tips: 复杂签名会导致传输数据量大ssr会出现断流显示reload错误,启用以下配置解决这个问题.
+    </p>
+
+<pre>
+<code style="color:gray">
+            builder.Services.AddServerSideBlazor(a =>
+            {
+                //异步调用JavaScript函数的最大等待时间
+                a.JSInteropDefaultCallTimeout = TimeSpan.FromMinutes(2);
+            }).AddHubOptions(o =>
+            {
+                //单个传入集线器消息的最大大小。默认 32 KB
+                o.MaximumReceiveMessageSize = null;
+                //可为客户端上载流缓冲的最大项数。 如果达到此限制，则会阻止处理调用，直到服务器处理流项。
+                o.StreamBufferCapacity = 20;
+            });
+        </code>
+    </pre>
+    <AttributeTable Items="@GetAttributes()" />
+}
+
+
+@code{
+
+    /// <summary>
+    /// 签名Base64
+    /// </summary>
+    public string? Result { get; set; }
+
+    /// <summary>
+    /// 获得属性方法
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerable<AttributeItem> GetAttributes() => new AttributeItem[]
+    {
+        new AttributeItem("OnResult","签名结果回调方法",  "","EventCallback<string>") ,
+        new AttributeItem("OnAlert","手写签名警告信息回调",  "","EventCallback<string>") ,
+        new AttributeItem("OnError","错误回调方法",  "","Func<string, Task>") ,
+        new AttributeItem("OnClose","手写签名关闭信息回调",  "","EventCallback") ,
+
+        new AttributeItem("SignAboveLabel","在框内签名标签文本",  "在框内签名") ,
+        new AttributeItem("ClearBtnTitle","清除按钮文本",  "清除") ,
+        new AttributeItem("SignatureAlertText","请先签名提示文本",  "请先签名") ,
+        new AttributeItem("ChangeColorBtnTitle","换颜色按钮文本",  "换颜色") ,
+        new AttributeItem("UndoBtnTitle","撤消按钮文本",  "撤消") ,
+        new AttributeItem("SaveBase64BtnTitle","保存为base64按钮文本",  "确定") ,
+        new AttributeItem("SavePNGBtnTitle","保存为PNG按钮文本",  "PNG") ,
+        new AttributeItem("SaveJPGBtnTitle","保存为JPG按钮文本",  "JPG") ,
+        new AttributeItem("SaveSVGBtnTitle","保存为SVG按钮文本",  "SVG") ,
+
+        new AttributeItem("EnableChangeColorBtn","启用换颜色按钮",  "true","bool") ,
+        new AttributeItem("EnableAlertJS","启用JS错误弹窗",  "true","bool") ,
+        new AttributeItem("EnableSaveBase64Btn","启用保存为base64按钮",  "true","bool") ,
+        new AttributeItem("EnableSavePNGBtn","启用保存为PNG按钮文本",  "false","bool") ,
+        new AttributeItem("EnableSaveJPGBtn","启用保存为JPG按钮文本",  "false","bool") ,
+        new AttributeItem("EnableSaveSVGBtn","启用保存为SVG按钮文本",  "false","bool") ,
+
+        new AttributeItem("CssClass","组件CSS式样",  "signature-pad-body") ,
+        new AttributeItem("BtnCssClass","按钮CSS式样",  "btn btn-light") ,
+        new AttributeItem("Responsive","响应式css界面,为所有用户设计最佳体验",  "false","bool") ,
+        new AttributeItem("BackgroundColor","组件背景",  "rgb(255, 255, 255),设置 rgba(0,0,0,0)为透明") ,
+        };
+}

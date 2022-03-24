@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net6.0;net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
+        <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);net6.0-windows10.0.19041</TargetFrameworks>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Configurations>Debug;Release;DebugFsql</Configurations>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="FreeSql" Version="3.2.100" />
+        <PackageReference Include="Microsoft.Data.Sqlite" Version="6.0.3" />
+        <PackageReference Include="FreeSql.Provider.SqliteCore" Version="3.2.100" />
+
+        <!--<PackageReference Include="FreeSql.Provider.Sqlite" Version="3.2.100" />-->
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(Configuration)' != 'DebugFsql'">
+    </ItemGroup>
+
+    <!--<ItemGroup Condition="'$(Configuration)' == 'DebugFsql'">
+		<ProjectReference Include="..\..\FreeSql\FreeSql\FreeSql.csproj" />
+		<ProjectReference Include="..\..\FreeSql\Providers\FreeSql.Provider.Sqlite\FreeSql.Provider.Sqlite.csproj" />
+	</ItemGroup>-->
+
+</Project>

@@ -10,14 +10,17 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
         <EnableDefaultCssItems>false</EnableDefaultCssItems>
+        <UserSecretsId>102ba2ce-c240-49cd-a064-deee597f8998</UserSecretsId>
 
         <!-- Display name -->
         <ApplicationTitle>BlazorMaui</ApplicationTitle>
 
         <!-- App Identifier -->
         <ApplicationId>com.companyname.BlazorMaui</ApplicationId>
+        <ApplicationId Condition="$(TargetFramework.Contains('-windows'))">8A5ACBCC-764A-4675-BC2D-C7CE9EEC290D</ApplicationId>
 
         <!-- Versions -->
+        <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
         <ApplicationVersion>1</ApplicationVersion>
 
         <!-- Required for C# Hot Reload -->
@@ -67,11 +70,6 @@
     <ItemGroup>
 		<Content Remove="Properties\launchSettings.json" />
 	</ItemGroup>
-
-
-    <ItemGroup>
-      <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.0.1" />
-    </ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\BlazorShared\BlazorShared.csproj" />

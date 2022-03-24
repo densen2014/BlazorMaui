@@ -20,6 +20,7 @@ namespace BlazorMaui
 
             builder.Services.AddBlazorWebView();
             builder.Services.AddSharedExtensions();
+
             return builder.Build();
         }
     }

@@ -1,0 +1,11 @@
+﻿@namespace BlazorShared.Pages
+@page "/maps"
+@attribute [TabItemOption(Text = "谷歌地图 Maps")]
+
+<h3>谷歌地图 Maps</h3>
+
+<p>@message</p>
+
+<Map OnError="@OnError" GoogleKey="AIzaSyD8qpTqFtgS-HF2AJBwbnnNWN8mjfX0Mew" />
+
+<AttributeTable Items="@GetAttributes()" />
