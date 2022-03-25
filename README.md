@@ -2,13 +2,21 @@
 
 用 c # 和 Razor 创建本机移动应用和桌面应用。可以快速开发共享代码库运行于 Windows (Winforms/WPF/UWP)、Android、iOS、macOS 的应用。
 
- [GitHub](https://github.com/densen2014/BlazorMaui) | [Gitee(仅副本)](https://gitee.com/alexchow/BlazorMaui")
- 
+ [GitHub](https://github.com/densen2014/BlazorMaui) | [Gitee(仅副本)](https://gitee.com/alexchow/BlazorMaui)
+
+----
+> FreeSql QQ群：4336577(已满)、8578575(已满)、52508226(在线)
+> 
+> BA & Blazor QQ群：795206915、675147445
+----
+> 
 > 在 Mac 上开发 .NET MAUI（全）<https://www.cnblogs.com/densen2014/p/16057571.html>
-
+> 
 > 在 M1 Mac 上开发 .NET MAUI (iOS) <https://www.cnblogs.com/densen2014/p/16057563.html>
-
+> 
 > 在 Windows 上开发 .NET MAUI <https://docs.microsoft.com/zh-cn/dotnet/maui/get-started/installation>
+
+----
  
 1.Blazor 简介  
 
