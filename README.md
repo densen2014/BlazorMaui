@@ -2,7 +2,7 @@
 
 用 c # 和 Razor 创建本机移动应用和桌面应用。可以快速开发共享代码库运行于 Windows (Winforms/WPF/UWP)、Android、iOS、macOS 的应用。
 
- <a href="https://github.com/densen2014/BlazorMaui"> github </a> | <a href="https://gitee.com/alexchow/BlazorMaui"> gitee(mirror only) </a>
+ [GitHub](https://github.com/densen2014/BlazorMaui") | [Gitee(mirror only)](https://gitee.com/alexchow/BlazorMaui")
  
 1.Blazor 简介  
 
