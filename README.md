@@ -4,6 +4,12 @@
 
  [GitHub](https://github.com/densen2014/BlazorMaui") | [Gitee(mirror only)](https://gitee.com/alexchow/BlazorMaui")
  
+> 在 Mac 上开发 .NET MAUI（全）<https://www.cnblogs.com/densen2014/p/16057571.html>
+
+> 在 M1 Mac 上开发 .NET MAUI (iOS) <https://www.cnblogs.com/densen2014/p/16057563.html>
+
+> 在 Windows 上开发 .NET MAUI <https://docs.microsoft.com/zh-cn/dotnet/maui/get-started/installation>
+ 
 1.Blazor 简介  
 
 Blazor 是一个使用 .NET 生成交互式客户端 Web UI 的框架：
