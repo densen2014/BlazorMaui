@@ -56,7 +56,7 @@ namespace Microsoft.Extensions.DependencyInjection
 //            });
 
             // 增加 Table 数据服务操作类
-            services.AddTableDemoDataService();
+            //services.AddTableDemoDataService();
             return services;
         }
 
