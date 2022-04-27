@@ -1,0 +1,14 @@
+﻿@page "/table"
+@attribute [TabItemOption(Text = "Table")]
+<PageTitle>Table</PageTitle>
+
+<h1>Table - 固定标签页</h1>
+
+<Table TItem="BlazorShared.Data.Foo" IsPagination="true" PageItemsSource="PageItemsSource"
+       IsStriped="true" IsBordered="true" ShowSkeleton="true" IsMultipleSelect="true"
+       ShowToolbar="true" ShowSearch="true" ShowExtendButtons="true"
+       AutoGenerateColumns="true" EditMode="EditMode.Popup">
+    <TableColumns>
+        <TableColumn @bind-Field="@context.Hobby" Items="GetHobbys(context)" />
+    </TableColumns>
+</Table>

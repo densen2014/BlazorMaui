@@ -11,6 +11,7 @@ using Shared.DependencyServices;
 using System.Diagnostics;
 using System.Globalization;
 using Microsoft.AspNetCore.Components.Web;
+using BlazorShared.Data;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -39,6 +40,23 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddSingleton<IErrorBoundaryLogger, MyErrorBoundaryLogger>();
             //fsql = new TestSqlite().test();
             //if (fsql != null) services.AddSingleton(fsql);
+
+//            builder.Services.AddFreeSql(option =>
+//            {
+//                //demo演示的是Sqlite驱动,FreeSql支持多种数据库，MySql/SqlServer/PostgreSQL/Oracle/Sqlite/Firebird/达梦/神通/人大金仓/翰高/华为GaussDB/MsAccess
+//                option.UseConnectionString(FreeSql.DataType.Sqlite, "Data Source=test.db;")  //也可以写到配置文件中
+//#if DEBUG
+//                     //开发环境:自动同步实体
+//                     .UseAutoSyncStructure(true)
+//                     .UseNoneCommandParameter(true)
+//                     //调试sql语句输出
+//                     .UseMonitorCommand(cmd => System.Console.WriteLine(cmd.CommandText))
+//#endif
+//                ;
+//            });
+
+            // 增加 Table 数据服务操作类
+            services.AddTableDemoDataService();
             return services;
         }
 
