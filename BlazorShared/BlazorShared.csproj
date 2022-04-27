@@ -13,8 +13,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Densen.Component.Blazor" Version="0.0.15" />
-      <PackageReference Include="FreeSql" Version="3.2.100" />
+      <PackageReference Include="Densen.Component.Blazor" Version="0.0.18" />
+      <PackageReference Include="FreeSql" Version="3.2.600" />
     </ItemGroup>
     
     <ItemGroup Condition="'$(Configuration)'!='Preview'">
