@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:blazor="clr-namespace:Microsoft.AspNetCore.Components.WebView.Wpf;assembly=Microsoft.AspNetCore.Components.WebView.Wpf"
+        xmlns:b="clr-namespace:Microsoft.AspNetCore.Components.WebView.Wpf;assembly=Microsoft.AspNetCore.Components.WebView.Wpf"
         xmlns:local="clr-namespace:BlazorWpf"
         xmlns:shared="clr-namespace:BlazorShared;assembly=BlazorShared"
         mc:Ignorable="d"
@@ -13,12 +13,12 @@
         Height="900"
         Width="1300">
 	<Grid>
-		<blazor:BlazorWebView HostPage="wwwroot/index.html"
+		<b:BlazorWebView HostPage="wwwroot/index.html"
 		                      Services="{StaticResource services}">
-			<blazor:BlazorWebView.RootComponents>
-                <blazor:RootComponent ComponentType="{x:Type shared:App}"
+			<b:BlazorWebView.RootComponents>
+                <b:RootComponent ComponentType="{x:Type shared:App}"
 				                      Selector="#app"/>
-			</blazor:BlazorWebView.RootComponents>
-		</blazor:BlazorWebView>
+			</b:BlazorWebView.RootComponents>
+		</b:BlazorWebView>
 	</Grid>
 </Window>

@@ -18,8 +18,11 @@ namespace BlazorWpf
 
         private static void WireupServices(HostBuilderContext context, IServiceCollection services)
         {
-            services.AddBlazorWebView();
+            services.AddWpfBlazorWebView();
             services.AddSharedExtensions();
+#if DEBUG
+            services.AddBlazorWebViewDeveloperTools();
+#endif
         }
     }
 }
