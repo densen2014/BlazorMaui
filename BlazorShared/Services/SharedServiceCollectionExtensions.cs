@@ -37,7 +37,10 @@ namespace Microsoft.Extensions.DependencyInjection
 
             services.AddDensenExtensions();
             services.AddSingleton<IIPAddressManager, IPAddressManager>();
-            services.AddSingleton<IErrorBoundaryLogger, MyErrorBoundaryLogger>();
+
+            //据说已经修复
+            //services.AddSingleton<IErrorBoundaryLogger, MyErrorBoundaryLogger>();
+
             //fsql = new TestSqlite().test();
             //if (fsql != null) services.AddSingleton(fsql);
 

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 using System.Collections.Concurrent;
 using System.Diagnostics.CodeAnalysis;
+using LibraryShared;
 
 namespace BlazorShared.Pages;
 
@@ -24,4 +25,16 @@ public partial class TableDemo : ComponentBase
     /// 
     /// </summary>
     private static IEnumerable<int> PageItemsSource => new int[] { 20, 40 };
+    protected override void OnInitialized()
+    {
+        DataService dataService = new DataService();
+        var fsql = dataService.Initfsql();
+        if (fsql.Select<Foo>().Count() < 4)
+        {
+            var itemList = Foo.GenerateFoo(Localizer).Cast<Foo>().ToList();
+            fsql.Insert<Foo>().AppendData(itemList).ExecuteAffrows();
+        } 
+
+    }
+
 }

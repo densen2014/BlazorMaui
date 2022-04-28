@@ -13,6 +13,28 @@ namespace LibraryShared
         }
 
 
+        public IFreeSql Initfsql()
+        {
+
+#if WINDOWS
+            string dbpath = Path.Combine(ApplicationData.Current.LocalFolder.Path, "sqliteSample.db");
+#elif ANDROID || IOS || MACCATALYST 
+            string dbpath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "sqliteSample.db");
+#else 
+            string dbpath = "sqliteSample.db";
+#endif
+
+            //Microsoft.Data.Sqlite.SqliteConnection _database = new Microsoft.Data.Sqlite.SqliteConnection($"Data Source={dbpath}");
+
+            fsql ??= new FreeSql.FreeSqlBuilder()
+            .UseConnectionString(FreeSql.DataType.Sqlite, $"Data Source={dbpath};")
+            //.UseConnectionFactory(FreeSql.DataType.Sqlite, () => _database, typeof(FreeSql.Sqlite.SqliteProvider<>))
+            .UseAutoSyncStructure(true)
+            .UseMonitorCommand(cmd => Console.Write(cmd.CommandText))
+            .Build();
+             
+            return fsql;
+        }
         public List<TaskItem> Init(IFreeSql fsqlt = null, bool initdemodatas = false)
         {
 
@@ -39,7 +61,7 @@ namespace LibraryShared
                 {
                     var itemList = TaskItem.GenerateDatas();
                     fsql.Insert<TaskItem>().AppendData(itemList.Take(4)).ExecuteAffrows();
-                }
+                } 
             }
             var ItemList = fsql.Select<TaskItem>().ToList();
 
