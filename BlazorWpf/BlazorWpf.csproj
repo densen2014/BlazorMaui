@@ -9,7 +9,7 @@
         <UserSecretsId>102ba2ce-c240-49cd-a064-deee597f8998</UserSecretsId>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebView.Wpf" Version="6.0.300-rc.2.5513" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebView.Wpf" Version="6.0.424" />
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
 	</ItemGroup>
     <ItemGroup>
