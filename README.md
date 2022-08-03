@@ -105,8 +105,7 @@ https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/418294
 
 2022-8-3
 
-跟着官方改动更新了一下maui+bb的工程, 定位于内置浏览器不能授权,目前还没摸清.
-加了直接定位获取的功能和显示app设置页, 拍照等按钮功能
+跟着官方改动更新了一下maui+bb的工程, 加了直接定位获取的功能和显示app设置页, 拍照等按钮功能
 
 ![Screenshot_1659559973](https://user-images.githubusercontent.com/8428709/182711516-5b82a9ef-f31d-403e-9f2a-143e85405fcb.png)
 
