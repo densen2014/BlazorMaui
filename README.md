@@ -88,7 +88,7 @@ Using .NET MAUI, you can develop apps that can run on Android, iOS, macOS, and W
 
 ------------------------------------
 
-2-24
+2022-2-24
 
 Maui blazor 最新preview版本发布ok了,只是还不能打非依赖包和裁剪. 
 发布后 安装net6 desktop rumtime + webview2 x64就能运行.
@@ -103,3 +103,6 @@ https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/418294
 
 ![image](https://user-images.githubusercontent.com/8428709/155608453-b9eca2a9-7862-4ff2-b78f-c57ce1c3dad4.png)
 
+2022-8-3
+
+![Screenshot_1659559973](https://user-images.githubusercontent.com/8428709/182709957-722bb510-2c53-4fb0-ad36-57e4dd662dee.png)
