@@ -23,12 +23,19 @@ namespace BlazorShared.Pages
         [Inject] protected WebClientInfoProvider WebClientInfo { get; set; }
         [Inject] protected ClipboardService ClipboardService { get; set; }
         [Inject] protected IIPAddressManager IPAddressManager { get; set; }
+        [Inject] protected ITools Tools { get; set; }
         //[Inject] protected IFreeSql fsql { get; set; }
 
         private List<PcStatus> pcStatuss;
         private List<PC> pcs;
         private List<Item> records;
         private string 文字;
+        private string Locations;
+        private string PhotoFilename;
+        private string version;
+        private string 定位权限;
+        private string 摄像机权限;
+
         private bool isBusy;
         TableLazyHero<PC> list1 { get; set; }
         private List<string> ComponentItems { get; set; } = new List<string>();
@@ -41,6 +48,7 @@ namespace BlazorShared.Pages
             {
                 worker();
                 //records = fsql.Select<Item>().ToList();
+                version= Tools.GetAppInfo();
             }
         }
 
@@ -144,7 +152,11 @@ namespace BlazorShared.Pages
             {
             }
         }
-
+        async Task 获取定位() => Locations = await Tools.GetCurrentLocation();
+        async Task TakePhoto() => PhotoFilename = await Tools.TakePhoto();
+        async Task 检查定位权限() => 定位权限 = await Tools.CheckPermissionsLocation();
+        async Task 检查摄像机权限() => 摄像机权限 = await Tools.CheckPermissionsCamera();
+        void ShowSettingsUI() =>   Tools.ShowSettingsUI();
 
     }
 }

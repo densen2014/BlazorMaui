@@ -6,6 +6,18 @@
 <TimerAme />
 
 <Tab>
+    <TabItem Text="平台测试">
+        <Button Text="定位权限" OnClick="检查定位权限" />
+        <span>@定位权限</span>
+        <Button Text="摄像机权限" OnClick="检查摄像机权限" />
+        <span>@摄像机权限</span>
+        <Button Text="定位" OnClick="获取定位" />
+        <span>@Locations</span>
+        <Button Text="TakePhoto" OnClick="TakePhoto" />
+        <span>@PhotoFilename</span>
+        <Button Text="ShowSettings" OnClick="ShowSettingsUI" />
+        <span>@version</span>
+    </TabItem>
     <TabItem Text="PC">
         <Table TItem="PcStatus"
                Items="@pcStatuss"

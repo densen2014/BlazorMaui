@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Components.Web;
+﻿using BlazorShared.Services;
+using LibraryShared;
+using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebView.Maui;
 using System.Globalization;
 
@@ -22,6 +24,7 @@ namespace BlazorMaui
             builder.Services.AddBlazorWebViewDeveloperTools();
 #endif
             builder.Services.AddSharedExtensions();
+            builder.Services.AddSingleton<ITools, TestService>();
 
             return builder.Build();
         }

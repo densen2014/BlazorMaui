@@ -54,8 +54,6 @@
     <Capabilities>
         <rescap:Capability Name="runFullTrust" />
         <Capability Name="internetClient"/>
-        <Capability Name="musicLibrary"/>
-        <Capability Name="videosLibrary"/>
         <DeviceCapability Name="location"/>
         <DeviceCapability Name="microphone"/>
         <DeviceCapability Name="webcam"/>
