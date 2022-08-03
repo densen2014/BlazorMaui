@@ -7,7 +7,7 @@
              x:Class="BlazorMaui.MainPage"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
 
-    <BlazorWebView HostPage="wwwroot/index.html" BlazorWebViewInitialized="BlazorWebView_BlazorWebViewInitialized">
+    <BlazorWebView x:Name="_blazorWebView" HostPage="wwwroot/index.html">
         <BlazorWebView.RootComponents>
             <RootComponent Selector="#app" ComponentType="{x:Type shared:App}" />
         </BlazorWebView.RootComponents>
