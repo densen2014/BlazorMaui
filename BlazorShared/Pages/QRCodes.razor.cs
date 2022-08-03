@@ -21,7 +21,7 @@ namespace BlazorShared.Pages
 
         private Task OnGenerated()
         {
-            ToastService.Information("Generated");
+            ToastService.Information("Info","Generated");
             return Task.CompletedTask;
         }
     }

@@ -46,7 +46,7 @@ namespace BlazorShared.Pages
 
         private Task OnResult(string barcode)
         {
-            ToastService.Success(barcode);
+            ToastService.Success("Scan result", barcode);
             return Task.CompletedTask;
         }
 
