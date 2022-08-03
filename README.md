@@ -109,3 +109,11 @@ https://msedge.sf.dl.delivery.mp.microsoft.com/filestreamingservice/files/418294
 加了直接定位获取的功能和显示app设置页, 拍照等按钮功能
 
 ![Screenshot_1659559973](https://user-images.githubusercontent.com/8428709/182711516-5b82a9ef-f31d-403e-9f2a-143e85405fcb.png)
+
+定位搞定
+需要 提供了一个PermissionManagingBlazorWebChromeClient将 Webkit 资源映射到 Android 权限并执行推荐的请求权限的工作流。
+https://github.com/MackinnonBuck/MauiBlazorPermissionsExample
+
+![image](https://user-images.githubusercontent.com/8428709/182727798-66421002-73b5-4fd2-9290-ef3027f8b8fb.png)
+
+
