@@ -6,12 +6,12 @@
   <uses-feature android:name="android.hardware.camera.autofocus" />
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-  
+
   <uses-feature android:name="android.hardware.location" android:required="false" />
   <uses-feature android:name="android.hardware.location.gps" android:required="false" />
   <uses-feature android:name="android.hardware.location.network" android:required="false" />
   <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-  
+
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
   <uses-permission android:name="android.permission.CALL_PHONE" />
@@ -25,4 +25,12 @@
   <uses-permission android:name="android.permission.CAPTURE_AUDIO_OUTPUT" />
   <uses-permission android:name="android.permission.CaptureSecureVideoOutput" />
   <uses-permission android:name="android.permission.CaptureVideoOutput" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.BATTERY_STATS" />
+  <queries>
+    <intent>
+      <action android:name="android.media.action.IMAGE_CAPTURE" />
+    </intent>
+  </queries>
 </manifest>
