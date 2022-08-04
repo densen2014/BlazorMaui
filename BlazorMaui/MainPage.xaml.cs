@@ -12,7 +12,6 @@ namespace BlazorMaui
 {
     public partial class MainPage : ContentPage
     {
-        TestService TestService=new TestService();
         public MainPage()
         {
             InitializeComponent();
