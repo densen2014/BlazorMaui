@@ -18,7 +18,7 @@
         <ApplicationTitle>BlazorMaui</ApplicationTitle>
 
         <!-- App Identifier -->
-        <ApplicationId>com.companyname.BlazorMaui</ApplicationId>
+        <ApplicationId>es.app1.BlazorMaui</ApplicationId>
         <ApplicationId Condition="$(TargetFramework.Contains('-windows'))">8A5ACBCC-764A-4675-BC2D-C7CE9EEC290D</ApplicationId>
 
         <!-- Versions -->
