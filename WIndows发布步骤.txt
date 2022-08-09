@@ -1,9 +1,9 @@
 https://docs.microsoft.com/zh-cn/dotnet/maui/windows/deployment/overview
 
 New-SelfSignedCertificate -Type Custom `
-                          -Subject "CN=BlazorMaui " `
+                          -Subject "CN=BlazorMaui" `
                           -KeyUsage DigitalSignature `
-                          -FriendlyName "BlazorMaui  dev cert" `
+                          -FriendlyName "BlazorMaui dev cert" `
                           -CertStoreLocation "Cert:\CurrentUser\My" `
                           -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.3", "2.5.29.19={text}")
 
