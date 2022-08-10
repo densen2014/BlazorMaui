@@ -13,16 +13,16 @@ namespace LibraryShared
     public class TestService : ITools
     {
 
-        public async void BlazorWebView_BlazorWebViewInitialized(object sender, Microsoft.AspNetCore.Components.WebView.BlazorWebViewInitializedEventArgs e)
-        {
+//        public async void BlazorWebView_BlazorWebViewInitialized(object sender, Microsoft.AspNetCore.Components.WebView.BlazorWebViewInitializedEventArgs e)
+//        {
 
-#if ANDROID
-            e.WebView.SetWebChromeClient(new MauiWebChromeClient());
-            await CheckAndRequestLocationPermission();
-#endif 
+//#if ANDROID
+//            e.WebView.SetWebChromeClient(new MauiWebChromeClient());
+//            await CheckAndRequestLocationPermission();
+//#endif 
 
 
-        }
+//        }
         public void ShowSettingsUI()
         {
             //显示应用设置
@@ -176,6 +176,14 @@ namespace LibraryShared
 
                     await sourceStream.CopyToAsync(localFileStream);
                     return localFilePath;
+                }
+                else
+                {
+                    photo = await MediaPicker.Default.PickPhotoAsync();
+                    if (photo != null)
+                    {
+                        return photo.FullPath;
+                    }
                 }
                 return "photo null";
 

@@ -26,8 +26,9 @@ namespace BlazorShared.Pages
 
         [Inject]
         [NotNull]
+#nullable enable
         private ToastService? ToastService { get; set; }
-
+#nullable disable 
 
         private List<UploadFile> PreviewFileList { get; } = new(new[] { new UploadFile { PrevUrl = "_content/BootstrapBlazor.Shared/images/Argo.png" } });
 
@@ -69,14 +70,16 @@ namespace BlazorShared.Pages
             }
         }
 
+#nullable enable
         private CancellationTokenSource? UploadFolderToken { get; set; }
+        private CancellationTokenSource? ReadAvatarToken { get; set; }
+#nullable disable 
         private async Task OnUploadFolder(UploadFile file)
         {
             // 上传文件夹时会多次回调此方法
             await SaveToFile(file);
         }
 
-        private CancellationTokenSource? ReadAvatarToken { get; set; }
         private async Task OnAvatarUpload(UploadFile file)
         {
             // 示例代码，使用 base64 格式
@@ -107,7 +110,9 @@ namespace BlazorShared.Pages
             }
         }
 
+#nullable enable
         private CancellationTokenSource? ReadToken { get; set; }
+#nullable disable 
 
         private static long MaxFileLength => 200 * 1024 * 1024;
 
@@ -203,12 +208,16 @@ namespace BlazorShared.Pages
 
             [Required]
             [FileValidation(Extensions = new string[] { ".png", ".jpg", ".jpeg" }, FileSize = 50 * 1024)]
+#nullable enable
             public IBrowserFile? Picture { get; set; }
+#nullable disable
         }
 
         [Inject]
         [NotNull]
+#nullable enable
         private FullScreenService? FullScreenService { get; set; }
+#nullable disable
 
         private async Task ToggleFullScreen()
         {
@@ -219,7 +228,9 @@ namespace BlazorShared.Pages
 
         [Inject]
         [NotNull]
+#nullable enable
         private DownloadService? downloadService { get; set; }
+#nullable disable
         private async Task DownloadFileAsync()
         {
             var content = await GenerateFileAsync();
