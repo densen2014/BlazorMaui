@@ -13,22 +13,23 @@ namespace LibraryShared
     public class TestService : ITools
     {
 
-//        public async void BlazorWebView_BlazorWebViewInitialized(object sender, Microsoft.AspNetCore.Components.WebView.BlazorWebViewInitializedEventArgs e)
-//        {
+        //        public async void BlazorWebView_BlazorWebViewInitialized(object sender, Microsoft.AspNetCore.Components.WebView.BlazorWebViewInitializedEventArgs e)
+        //        {
 
-//#if ANDROID
-//            e.WebView.SetWebChromeClient(new MauiWebChromeClient());
-//            await CheckAndRequestLocationPermission();
-//#endif 
+        //#if ANDROID
+        //            e.WebView.SetWebChromeClient(new MauiWebChromeClient());
+        //            await CheckAndRequestLocationPermission();
+        //#endif 
 
 
-//        }
+        //        }
         public void ShowSettingsUI()
         {
             //显示应用设置
             AppInfo.Current.ShowSettingsUI();
         }
-        public string GetAppInfo() {
+        public string GetAppInfo()
+        {
             //读取应用信息
             string name = AppInfo.Current.Name;
             string package = AppInfo.Current.PackageName;
@@ -343,6 +344,133 @@ namespace LibraryShared
         public double DistanceBetweenTwoLocations()
         {
             return Location.CalculateDistance(boston, sanFrancisco, DistanceUnits.Miles);
+        }
+
+        /// <summary>
+        /// 使用地图
+        /// </summary>
+        /// <returns></returns>
+        public async Task<string> NavigateToBuilding25()
+        {
+            var location = new Location(47.645160, -122.1306032);
+            var options = new MapLaunchOptions { Name = "Microsoft Building 25" };
+
+            try
+            {
+                if (await Map.Default.TryOpenAsync(location, options) == false)
+                {
+                    return "Map failed to open";
+                }
+                return "ok";
+            }
+            catch (Exception ex)
+            {
+                return $"No map application available to open, Message: {ex.Message}";
+            }
+        }
+
+        /// <summary>
+        /// 使用 a Placemark 打开地图时，需要更多信息。 此信息可帮助地图应用搜索要查找的位置。
+        /// </summary>
+        /// <returns></returns>
+        public async Task<string> NavigateToBuilding()
+        {
+            var placemark = new Placemark
+            {
+                CountryName = "United States",
+                AdminArea = "WA",
+                Thoroughfare = "Microsoft Building 25",
+                Locality = "Redmond"
+            };
+            var options = new MapLaunchOptions { Name = "Microsoft Building 25" };
+
+            try
+            {
+                await Map.Default.OpenAsync(placemark, options);
+                return "ok";
+            }
+            catch (Exception ex)
+            {
+                return $"No map application available to open or placemark can not be located, Message: {ex.Message}";
+            }
+        }
+
+        /// <summary>
+        /// 扩展方法
+        /// </summary>
+        /// <returns></returns>
+        public async Task<string> NavigateToBuildingByPlacemark()
+        {
+            var placemark = new Placemark
+            {
+                CountryName = "United States",
+                AdminArea = "WA",
+                Thoroughfare = "Microsoft Building 25",
+                Locality = "Redmond"
+            };
+
+            var options = new MapLaunchOptions { Name = "Microsoft Building 25" };
+
+            try
+            {
+                await placemark.OpenMapsAsync(options);
+                return "ok";
+            }
+            catch (Exception ex)
+            {
+                return $"No map application available to open or placemark can not be located, Message: {ex.Message}";
+            }
+        }
+
+
+
+        /// <summary>
+        /// 添加导航
+        /// <para></para>
+        /// 打开地图时，可以计算从设备的当前位置到指定位置的路由。 将 MapLaunchOptions 类型传递给 Map.OpenAsync 方法，指定导航模式。 以下示例打开地图应用并指定驾驶导航模式：
+        /// </summary>
+        /// <returns></returns>
+        public async Task<string> DriveToBuilding25()
+        {
+            var location = new Location(47.645160, -122.1306032);
+            var options = new MapLaunchOptions
+            {
+                Name = "Microsoft Building 25",
+                NavigationMode = NavigationMode.Driving
+            };
+
+            try
+            {
+                await Map.Default.OpenAsync(location, options);
+                return "ok";
+            }
+            catch (Exception ex)
+            {
+                return $"No map application available to open, Message: {ex.Message}";
+            }
+        }
+
+        /// <summary>
+        /// 捕获屏幕快照
+        /// </summary>
+        /// <returns></returns>
+        public async Task<string> TakeScreenshotAsync()
+        {
+            if (Screenshot.Default.IsCaptureSupported)
+            {
+                IScreenshotResult screen = await Screenshot.Default.CaptureAsync();
+
+                Stream stream = await screen.OpenReadAsync();
+
+                //var imageSource= ImageSource.FromStream(() => stream);
+                string localFilePath = Path.Combine(FileSystem.CacheDirectory, $"{Guid.NewGuid()}.png");
+                using FileStream localFileStream = File.OpenWrite(localFilePath);
+
+                await stream.CopyToAsync(localFileStream);
+                return localFilePath; 
+            }
+
+            return null;
         }
 
     }

@@ -35,6 +35,7 @@ namespace BlazorShared.Pages
         private string version;
         private string 定位权限;
         private string 摄像机权限;
+        private string 导航消息;
 
         private bool isBusy;
         TableLazyHero<PC> list1 { get; set; }
@@ -158,6 +159,11 @@ namespace BlazorShared.Pages
         async Task 检查摄像机权限() => 摄像机权限 = await Tools.CheckPermissionsCamera();
         void ShowSettingsUI() =>   Tools.ShowSettingsUI();
 
+        async Task NavigateToBuilding25() => 导航消息 = await Tools.NavigateToBuilding25();
+        async Task NavigateToBuilding() => 导航消息 = await Tools.NavigateToBuilding();
+        async Task NavigateToBuildingByPlacemark() => 导航消息 = await Tools.NavigateToBuildingByPlacemark();
+        async Task DriveToBuilding25() => 导航消息 = await Tools.DriveToBuilding25();
+        async Task TakeScreenshotAsync() => 导航消息 = await Tools.TakeScreenshotAsync();
     }
 }
 

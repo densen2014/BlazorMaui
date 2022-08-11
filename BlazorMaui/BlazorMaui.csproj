@@ -96,6 +96,24 @@
         <Folder Include="wwwroot\images\" />
     </ItemGroup>
     
+    <ItemGroup>
+      <Compile Update="SensorsPage.xaml.cs">
+        <DependentUpon>SensorsPage.xaml</DependentUpon>
+      </Compile>
+      <Compile Update="AppModelPage.xaml.cs">
+        <DependentUpon>AppModelPage.xaml</DependentUpon>
+      </Compile>
+    </ItemGroup>
+    
+    <ItemGroup>
+      <MauiXaml Update="SensorsPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+      <MauiXaml Update="AppModelPage.xaml">
+        <Generator>MSBuild:Compile</Generator>
+      </MauiXaml>
+    </ItemGroup>
+    
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionBlazorMauiHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>

@@ -8,15 +8,19 @@
 <Tab>
     <TabItem Text="平台测试">
         <Button Text="定位权限" OnClick="检查定位权限" />
-        <span>@定位权限</span><br/><br/>
+        <span>@定位权限</span><br /><br />
         <Button Text="摄像机权限" OnClick="检查摄像机权限" />
         <span>@摄像机权限</span><br /><br />
         <Button Text="定位" OnClick="获取定位" />
         <span>@Locations</span><br /><br />
         <Button Text="TakePhoto" OnClick="TakePhoto" />
         <span>@PhotoFilename</span><br /><br />
-        <Button Text="ShowSettings" OnClick="ShowSettingsUI" />
-        <span>@version</span><br /><br />
+        <Button Text="NavigateToBuilding25" OnClick="NavigateToBuilding25" />
+        <span>@导航消息</span><br /><br />
+        <Button Text="NavigateToBuilding" OnClick="NavigateToBuilding" />
+        <Button Text="NavigateToBuildingByPlacemark" OnClick="NavigateToBuildingByPlacemark" />
+        <Button Text="DriveToBuilding25" OnClick="DriveToBuilding25" />
+        <Button Text="截屏" OnClick="TakeScreenshotAsync" />
     </TabItem>
     <TabItem Text="PC">
         <Table TItem="PcStatus"

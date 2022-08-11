@@ -17,7 +17,14 @@ namespace BlazorMaui
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                });
+                })
+                .ConfigureEssentials(essentials =>
+                {
+                    essentials
+                        .AddAppAction("app_info", "App Info", icon: "app_info_action_icon")
+                        .AddAppAction("battery_info", "Battery Info")
+                        .OnAppAction(App.HandleAppActions);
+                }); ;
 
             builder.Services.AddMauiBlazorWebView();
 #if DEBUG
@@ -28,5 +35,7 @@ namespace BlazorMaui
 
             return builder.Build();
         }
+
+
     }
 }
