@@ -40,7 +40,8 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddSingleton<ITools, NullService>();
 
             //据说已经修复
-            //services.AddSingleton<IErrorBoundaryLogger, MyErrorBoundaryLogger>();
+            //2022/8/11 测试fsql是不是这个问题
+            services.AddSingleton<IErrorBoundaryLogger, MyErrorBoundaryLogger>();
 
             //fsql = new TestSqlite().test();
             //if (fsql != null) services.AddSingleton(fsql);

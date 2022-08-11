@@ -9,7 +9,7 @@
     <Identity
       Name="31A0A253-CFA3-4CF9-AB61-727488C167C2"
       Publisher="CN=User Name"
-      Version="1.0.0.0" />
+      Version="1.0.1.0" />
 
     <Properties>
         <DisplayName>BlazorMaui</DisplayName>
