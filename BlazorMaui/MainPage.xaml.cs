@@ -45,9 +45,6 @@ namespace BlazorMaui
 #endif
 
             e.WebView.CoreWebView2.PermissionRequested += permissionHandler.OnPermissionRequested;
-#elif IOS
-        e.Configuration.AllowsInlineMediaPlayback = true;
-        e.Configuration.MediaTypesRequiringUserActionForPlayback = WebKit.WKAudiovisualMediaTypes.None;
 #endif
         }
 
