@@ -27,10 +27,10 @@ namespace BlazorMaui
                 }); ;
 
             builder.Services.AddMauiBlazorWebView();
+            builder.Services.AddSharedExtensions();
 #if DEBUG
             builder.Services.AddBlazorWebViewDeveloperTools();
 #endif
-            builder.Services.AddSharedExtensions();
             builder.Services.AddSingleton<ITools, TestService>();
 
             return builder.Build();

@@ -101,10 +101,6 @@
 	</ItemGroup>
     
     <ItemGroup>
-        <Folder Include="wwwroot\images\" />
-    </ItemGroup>
-    
-    <ItemGroup>
       <Compile Update="SensorsPage.xaml.cs">
         <DependentUpon>SensorsPage.xaml</DependentUpon>
       </Compile>

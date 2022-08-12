@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Components.Web;
+﻿using BlazorShared.Services;
+using LibraryShared;
+using Microsoft.AspNetCore.Components.Web;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -23,6 +25,7 @@ namespace BlazorWinForms
 #if DEBUG
             services.AddBlazorWebViewDeveloperTools();
 #endif
+            services.AddSingleton<ITools, TestService>();
         }
     }
 }

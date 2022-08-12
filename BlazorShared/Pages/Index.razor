@@ -17,10 +17,10 @@
         <span>@PhotoFilename</span><br /><br />
         <Button Text="NavigateToBuilding25" OnClick="NavigateToBuilding25" />
         <span>@导航消息</span><br /><br />
-        <Button Text="NavigateToBuilding" OnClick="NavigateToBuilding" />
-        <Button Text="NavigateToBuildingByPlacemark" OnClick="NavigateToBuildingByPlacemark" />
-        <Button Text="DriveToBuilding25" OnClick="DriveToBuilding25" />
-        <Button Text="截屏" OnClick="TakeScreenshotAsync" />
+        <Button Text="NavigateToBuilding" OnClick="NavigateToBuilding" /><br /><br />
+        <Button Text="NavigateToBuildingByPlacemark" OnClick="NavigateToBuildingByPlacemark" /><br /><br />
+        <Button Text="DriveToBuilding25" OnClick="DriveToBuilding25" /><br /><br />
+        <Button Text="截屏" OnClick="TakeScreenshotAsync" /><br /><br />
     </TabItem>
     <TabItem Text="PC">
         <Table TItem="PcStatus"
@@ -43,7 +43,7 @@
                Items="@records"
                AutoGenerateColumns="true" />
     </TabItem>
-    <TabItem Text="build008">
+    <TabItem Text="@version">
         <Badge Color="Color.Primary">
             ID: @IPAddressManager.GetIdentifier();
         </Badge>
