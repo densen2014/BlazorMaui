@@ -11,8 +11,6 @@
         <PackageReference Include="FreeSql" Version="3.2.665" />
         <PackageReference Include="Microsoft.Data.Sqlite" Version="6.0.8" />
         <PackageReference Include="FreeSql.Provider.SqliteCore" Version="3.2.665" />
-
-        <!--<PackageReference Include="FreeSql.Provider.Sqlite" Version="3.2.100" />-->
     </ItemGroup>
 
     <ItemGroup Condition="'$(Configuration)' != 'DebugFsql'">
