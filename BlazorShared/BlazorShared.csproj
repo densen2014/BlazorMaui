@@ -13,20 +13,22 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Densen.Component.Blazor" Version="6.8.3" />
-      <PackageReference Include="FreeSql" Version="3.2.665" />
+        <PackageReference Include="BootstrapBlazor.Chart" Version="6.0.0" />
+        <PackageReference Include="Densen.Component.Blazor" Version="6.8.3" />
+        <PackageReference Include="FreeSql" Version="3.2.680" />
+        <PackageReference Include="BootstrapBlazor.FontAwesome" Version="6.2.0" />
     </ItemGroup>
-    
+
     <ItemGroup Condition="'$(Configuration)'!='Preview'">
-      <PackageReference Include="Densen.Extensions.BootstrapBlazor" Version="6.8.3" />
+        <PackageReference Include="Densen.Extensions.BootstrapBlazor" Version="6.8.3" />
     </ItemGroup>
-    
+
     <ItemGroup Condition="'$(Configuration)'=='Preview'">
-      <ProjectReference Include="..\..\Densen.Extensions\Blazor\Densen.Extensions.BootstrapBlazor.csproj" />
+        <ProjectReference Include="..\..\Densen.Extensions\Blazor\Densen.Extensions.BootstrapBlazor.csproj" />
     </ItemGroup>
-    
+
     <ItemGroup>
-      <ProjectReference Include="..\LibraryShared\LibraryShared.csproj" />
+        <ProjectReference Include="..\LibraryShared\LibraryShared.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -34,12 +36,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Update="wwwroot\test.jpg">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
-      <Content Update="wwwroot\test.png">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
+        <Content Update="wwwroot\test.jpg">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Update="wwwroot\test.png">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 
     <ProjectExtensions>

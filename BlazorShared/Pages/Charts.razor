@@ -1,0 +1,37 @@
+﻿@page "/charts"
+@attribute [TabItemOption(Text = "图表", Icon = "fa fa-chart")]
+
+<PageTitle>图表</PageTitle>
+
+<p>折线图</p>
+
+<Chart @ref="LineChart" OnInitAsync="() => OnInit(0.4f, false)" Width="50%" />
+
+<button class="btn btn-primary" @onclick="e => UtilityChart.RandomData(LineChart)"><i class="fa fa-line-chart"></i><span>随机数据</span></button>
+
+@code{
+    private Random Randomer { get; } = new Random();
+    private int LineDatasetCount = 2;
+    private int LineDataCount = 7;
+
+    private Chart? LineChart { get; set; }
+
+    private Task<ChartDataSource> OnInit(float tension, bool hasNull)
+    {
+        var ds = new ChartDataSource();
+        ds.Options.Title = "Line 折线图";
+        ds.Options.X.Title = "天数";
+        ds.Options.Y.Title = "数值";
+        ds.Labels = Enumerable.Range(1, LineDataCount).Select(i => i.ToString());
+        for (var index = 0; index < LineDatasetCount; index++)
+        {
+            ds.Data.Add(new ChartDataset()
+            {
+                Tension = tension,
+                Label = $"数据集 {index}",
+                Data = Enumerable.Range(1, LineDataCount).Select((i, index) => (index == 2 && hasNull) ? null! : (object)Randomer.Next(20, 37))
+            });
+        }
+        return Task.FromResult(ds);
+    }
+} 

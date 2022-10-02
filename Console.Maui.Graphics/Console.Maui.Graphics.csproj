@@ -8,9 +8,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="2.88.1-preview.91" />
-        <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="2.88.1-preview.91" />
-        <PackageReference Include="Microsoft.Maui.Graphics.Skia" Version="6.0.403" />
-        <PackageReference Include="SkiaSharp" Version="2.88.1-preview.91" />
+        <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="2.88.2" />
+        <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="2.88.2" />
+        <PackageReference Include="Microsoft.Maui.Graphics.Skia" Version="6.0.501" />
+        <PackageReference Include="SkiaSharp" Version="2.88.2" />
     </ItemGroup>
 </Project>

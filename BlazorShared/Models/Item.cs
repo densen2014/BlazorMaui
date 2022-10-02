@@ -3,18 +3,17 @@
 using FreeSql.DataAnnotations;
 #endif
 
-namespace BlazorShared.Models
+namespace BlazorShared.Models;
+
+public class Item
 {
-    public class Item
-    {
 
 #if (WINDOWS && NET6_0)
-  [Column(IsPrimary = false)]
+[Column(IsPrimary = false)]
 #endif
-        public string fId { get; set; }
+    public string fId { get; set; }
 
-        public string Id { get; set; }
-        public string Text { get; set; }
-        public string Description { get; set; }
-    }
+    public string Id { get; set; }
+    public string Text { get; set; }
+    public string Description { get; set; }
 }
