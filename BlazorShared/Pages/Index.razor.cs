@@ -47,7 +47,7 @@ namespace BlazorShared.Pages
         {
             if (firstRender)
             {
-                worker();
+                //worker();
                 //records = fsql.Select<Item>().ToList();
                 version= Tools.GetAppInfo();
             }

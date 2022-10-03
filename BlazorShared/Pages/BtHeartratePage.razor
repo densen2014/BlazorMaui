@@ -1,0 +1,63 @@
+﻿@page "/BtHeartrate"
+@attribute [TabItemOption(Text = "蓝牙心率带")]
+
+<h4>蓝牙心率带</h4>
+<button class="btn btn-outline-secondary" @onclick="GetHeartrate ">查询心率</button>
+<button class="btn btn-outline-secondary" @onclick="StopHeartrate ">停止读取</button>
+<Heartrate @ref="heartrate" OnUpdateValue="OnUpdateValue" OnUpdateStatus="OnUpdateStatus" OnUpdateError="OnError" />
+<h2 style="color:red" data-action="heartrate"/>
+<pre>@message</pre>
+<pre style="color:green">@statusmessage</pre>
+<pre style="color:red">@errmessage</pre>
+
+@code{
+    string heartrateIcon;// { get => (heartrateIcon == "&#10084;" ? "&hearts;" : "&#10084;"); }
+
+    Heartrate heartrate { get; set; } = new Heartrate();
+
+    private string? message;
+    private int? value;
+    private string? statusmessage;
+    private string? errmessage;
+
+    private Task OnResult(string message)
+    {
+        this.message = message;
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    private Task OnUpdateValue(int value)
+    {
+        this.value = value;
+        this.statusmessage = $"心率{value}";
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+
+    private Task OnUpdateStatus(BluetoothDevice device)
+    {
+        this.statusmessage = device.Status;
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    private Task OnError(string message)
+    {
+        this.errmessage = message;
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    public async void GetHeartrate()
+    {
+        await heartrate.GetHeartrate();
+    }
+
+    public async void StopHeartrate()
+    {
+        await heartrate.StopHeartrate();
+    }
+
+}

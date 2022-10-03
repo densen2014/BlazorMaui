@@ -13,6 +13,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="BootstrapBlazor" Version="6.10.10" />
+        <PackageReference Include="BootstrapBlazor.Bluetooth" Version="6.0.6" />
         <PackageReference Include="BootstrapBlazor.Chart" Version="6.0.0" />
         <PackageReference Include="Densen.Component.Blazor" Version="6.8.3" />
         <PackageReference Include="FreeSql" Version="3.2.680" />

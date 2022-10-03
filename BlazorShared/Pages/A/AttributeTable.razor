@@ -1,12 +1,10 @@
-﻿@namespace BlazorShared.Pages
-
-<br />
+﻿<br />
 <br />
 <br />
 <br />
 <div class="table-attr d-none d-md-block">
 
-    <h4>事件 Events</h4>
+    <h4>@Title</h4>
 
     <div class="table-container">
 
@@ -59,6 +57,11 @@
     [Parameter]
     public IEnumerable<AttributeItem> Items { get; set; } = new AttributeItem[] { };
 
+    /// <summary>
+    /// 
+    /// </summary>
+    [Parameter]
+    public string? Title { get; set; } = "事件 Events";
 
 
 } 

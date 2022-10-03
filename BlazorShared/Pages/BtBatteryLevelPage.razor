@@ -1,0 +1,57 @@
+﻿@page "/BtBatteryLevel"
+@attribute [TabItemOption(Text = "蓝牙设备电量")]
+
+<h4>蓝牙设备电量</h4>
+<button class="btn btn-outline-secondary" @onclick="GetBatteryLevel ">查询电量</button>
+<BatteryLevel @ref="batteryLevel" OnUpdateValue="OnUpdateValue" OnUpdateStatus="OnUpdateStatus" OnUpdateError="OnError" />
+<br/>
+<progress max="100" value="@value"> @value % </progress>
+<pre>@message</pre>
+<pre style="color:green">@statusmessage</pre>
+<pre style="color:red">@errmessage</pre>
+
+@code{
+
+    BatteryLevel batteryLevel { get; set; } = new BatteryLevel();
+
+    private decimal? value=0;
+    private string? message;
+    private string? statusmessage;
+    private string? errmessage;
+
+    private Task OnResult(string message)
+    {
+        this.message = message;
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    private Task OnUpdateValue(decimal value)
+    {
+        this.value = value;
+        this.statusmessage = $"设备电量{value}%";
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+
+    private Task OnUpdateStatus(BluetoothDevice device)
+    {
+        this.statusmessage = device.Status;
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    private Task OnError(string message)
+    {
+        this.errmessage = message;
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    public async void GetBatteryLevel()
+    {
+        await batteryLevel.GetBatteryLevel();
+    }
+
+}
