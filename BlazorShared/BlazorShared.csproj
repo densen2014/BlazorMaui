@@ -13,12 +13,20 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="BootstrapBlazor" Version="6.10.10" />
-        <PackageReference Include="BootstrapBlazor.Bluetooth" Version="6.0.6" />
+        <PackageReference Include="BootstrapBlazor" Version="6.11.7" />
         <PackageReference Include="BootstrapBlazor.Chart" Version="6.0.0" />
         <PackageReference Include="Densen.Component.Blazor" Version="6.8.3" />
-        <PackageReference Include="FreeSql" Version="3.2.680" />
+        <PackageReference Include="FreeSql" Version="3.2.681" />
         <PackageReference Include="BootstrapBlazor.FontAwesome" Version="6.2.0" />
+        <PackageReference Include="BootstrapBlazor.BaiduMap" Version="6.2.1" />
+        <PackageReference Include="BootstrapBlazor.Geolocation" Version="6.2.1" />
+        <PackageReference Include="BootstrapBlazor.Viewer" Version="6.2.1" />
+        <PackageReference Include="BootstrapBlazor.WebAPI" Version="6.2.1" />
+        <PackageReference Include="BootstrapBlazor.Maps" Version="6.2.1" />
+        <PackageReference Include="BootstrapBlazor.Bluetooth" Version="6.2.1" />
+        <PackageReference Include="BootstrapBlazor.OCR" Version="6.2.1" />
+        <PackageReference Include="BootstrapBlazor.OnScreenKeyboard" Version="6.2.1" />
+        <PackageReference Include="BootstrapBlazor.SignaturePad" Version="6.2.1" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(Configuration)'!='Preview'">
