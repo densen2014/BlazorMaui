@@ -29,6 +29,7 @@
         <PackageReference Include="BootstrapBlazor.OCR" Version="6.2.1" />
         <PackageReference Include="BootstrapBlazor.OnScreenKeyboard" Version="6.2.1" />
         <PackageReference Include="BootstrapBlazor.SignaturePad" Version="6.2.1" />
+        <PackageReference Include="BootstrapBlazor.FileSystem" Version="6.0.0" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(Configuration)'!='Preview'">
