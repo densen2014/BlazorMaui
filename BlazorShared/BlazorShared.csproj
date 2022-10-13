@@ -13,13 +13,15 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="AME.Extensions" Version="6.10.0" />
         <PackageReference Include="BootstrapBlazor" Version="6.11.7" />
+        <PackageReference Include="BootstrapBlazor.BarCode" Version="6.0.4" />
         <PackageReference Include="BootstrapBlazor.Chart" Version="6.0.0" />
-        <PackageReference Include="Densen.Component.Blazor" Version="6.8.3" />
+        <PackageReference Include="Densen.Component.Blazor" Version="6.10.0" />
         <PackageReference Include="FreeSql" Version="3.2.681" />
         <PackageReference Include="BootstrapBlazor.FontAwesome" Version="6.2.0" />
         <PackageReference Include="BootstrapBlazor.BaiduMap" Version="6.2.1" />
-        <PackageReference Include="BootstrapBlazor.Geolocation" Version="6.2.1" />
+        <PackageReference Include="BootstrapBlazor.Geolocation" Version="6.2.2" />
         <PackageReference Include="BootstrapBlazor.Viewer" Version="6.2.1" />
         <PackageReference Include="BootstrapBlazor.WebAPI" Version="6.2.1" />
         <PackageReference Include="BootstrapBlazor.Maps" Version="6.2.1" />
@@ -30,7 +32,7 @@
     </ItemGroup>
 
     <ItemGroup Condition="'$(Configuration)'!='Preview'">
-        <PackageReference Include="Densen.Extensions.BootstrapBlazor" Version="6.8.3" />
+        <PackageReference Include="Densen.Extensions.BootstrapBlazor" Version="6.10.0" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(Configuration)'=='Preview'">

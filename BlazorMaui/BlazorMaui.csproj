@@ -110,6 +110,12 @@
     </ItemGroup>
     
     <ItemGroup>
+      <Content Update="wwwroot\appsettings.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+    
+    <ItemGroup>
       <MauiXaml Update="SensorsPage.xaml">
         <Generator>MSBuild:Compile</Generator>
       </MauiXaml>

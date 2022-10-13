@@ -1,6 +1,6 @@
-﻿@namespace BlazorShared.Pages
-@page "/signaturepadResponsive"
+﻿@page "/signaturepadResponsive"
 @attribute [TabItemOption(Text = "响应式手写签名")]
+@namespace BlazorShared.Pages
 
 <h3>Responsive 响应式手写签名</h3>
 <pre>设备宽度小于640px(例如手机)自动置顶无边框,宽度小于500px按钮自动旋转. 可选透明背景.
@@ -11,7 +11,7 @@
 
 @if (ShowSignaturePad)
 {
-    <SignaturePad OnResult="((e) => { Result=e; ShowSignaturePad = (Result==null); })" EnableChangeColorBtn="false" Responsive="true" BackgroundColor="rgba(0,0,0,0)" SignAboveLabel="" OnClose="() => ShowSignaturePad =false" />
+    <SignaturePad OnResult="OnResult" EnableChangeColorBtn="false" Responsive="true" BackgroundColor="rgba(0,0,0,0)" SignAboveLabel="" OnClose="OnClose" />
 }
 else if (Result != null)
 {
@@ -56,6 +56,21 @@ else
     /// 签名Base64
     /// </summary>
     public string? Result { get; set; }
+
+    private Task OnResult(string value)
+    {
+        ShowSignaturePad = (Result == null);
+        Result = value;
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    private Task OnClose()
+    {
+        ShowSignaturePad = false;
+        return Task.CompletedTask;
+    }
+
 
     /// <summary>
     /// 显示响应式签名界面

@@ -1,4 +1,4 @@
-﻿using AmeBlazor.Components;
+﻿using BootstrapBlazor.Components;
 
 namespace BlazorShared.Pages;
 
@@ -34,6 +34,7 @@ public sealed partial class BaiduMapPage
     /// <returns></returns>
     private IEnumerable<AttributeItem> GetAttributes() => new AttributeItem[]
     {
+            new AttributeItem("BaiduKey",@"为空则在 IConfiguration 服务获取 ""BaiduKey"" , 默认在 appsettings.json 文件配置",  ""),
             new AttributeItem("Style","地图大小",  "height:700px;width:100%;","string"),
             new AttributeItem("Init","初始化",  "-","Task<bool>"),
             new AttributeItem("ResetMaps","复位",  "-","Task"),

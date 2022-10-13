@@ -1,109 +1,14 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="">MauiMultiApp</a>
-		<button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-	</div>
+﻿@inherits BootstrapModuleComponentBase
+
+<div class="navbar d-flex d-md-none px-3" id="@Id">
+    <a class="navbar-brand" href="">Demo</a>
+    <button class="navbar-toggler" aria-label="toggle">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 </div>
 
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="barcode">
-                Barcode
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="charts">
-                图表
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="Bluetooth">
-                蓝牙和打印 Bluetooth & Printer
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="signaturepad">
-                <span aria-hidden="true"></span> 签名 SignaturePad
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="geolocations">
-                <span aria-hidden="true"></span> 定位 Geolocation
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="viewer">
-                <span aria-hidden="true"></span> 图片浏览 Viewer
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="webapis">
-                <span aria-hidden="true"></span> 系统信息 System info
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="onscreenkeyboards">
-                <span aria-hidden="true"></span> 屏幕键盘 OSK
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="baidumap">
-                <span aria-hidden="true"></span> 百度地图 Baidu Map
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="maps">
-                <span aria-hidden="true"></span> 谷歌地图 Maps
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="Upload">
-                Upload
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="FreesqlPage">
-                Freesql
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="table">
-                Table
-            </NavLink>
-        </div> 
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="qrcode">
-                二维码
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="circle">
-                进度环
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="captchass">
-                滑块验证码
-            </NavLink>
-        </div>
-    </nav>
+<div class="sidebar-content collapse d-md-block">
+    <div class="scroll">
+        <Menu Items="@Menus" IsVertical="true" IsAccordion="true" IsExpandAll="true" />
+    </div>
 </div>
-
-@code {
-	private bool collapseNavMenu = true;
-
-	private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-	private void ToggleNavMenu()
-	{
-		collapseNavMenu = !collapseNavMenu;
-	}
-}

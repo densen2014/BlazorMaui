@@ -1,5 +1,4 @@
-﻿@namespace BlazorShared.Pages
-@page "/signaturepad"
+﻿@page "/signaturepad"
 @attribute [TabItemOption(Text = "手写签名")]
 
 <h3>SignaturePad 签名</h3>
@@ -31,14 +30,14 @@ else
 </code>
 </pre>
 
-    <SignaturePad OnResult="((e) => Result = e)" />
+    <SignaturePad OnResult="OnResult" />
 
 <pre>按钮CSS式样:
 <code style="color:gray">
 &lt;SignaturePad OnResult="((e) =>  Result=e)" BtnCssClass="btn btn-outline-success" /&gt;
         </code>
     </pre>
-    <SignaturePad OnResult="((e) => Result = e)" BtnCssClass="btn btn-outline-success" />
+    <SignaturePad OnResult="OnResult" BtnCssClass="btn btn-outline-success" />
 
 <pre>自定义按钮文本:
 <code style="color:gray">
@@ -50,7 +49,7 @@ else
                             ClearBtnTitle="Clear" /&gt;
 </code>
 </pre>
-    <SignaturePad OnResult="((e) => Result = e)"
+    <SignaturePad OnResult="OnResult"
                   SignAboveLabel="Sign above"
                   UndoBtnTitle="Undo"
                   SaveBase64BtnTitle="OK"
@@ -93,12 +92,21 @@ else
     /// </summary>
     public string? Result { get; set; }
 
+    private Task OnResult(string value)
+    {
+        Result = value;
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+
+
     /// <summary>
     /// 获得属性方法
     /// </summary>
     /// <returns></returns>
     private IEnumerable<AttributeItem> GetAttributes() => new AttributeItem[]
-    {
+{
         new AttributeItem("OnResult","签名结果回调方法",  "","EventCallback<string>") ,
         new AttributeItem("OnAlert","手写签名警告信息回调",  "","EventCallback<string>") ,
         new AttributeItem("OnError","错误回调方法",  "","Func<string, Task>") ,

@@ -1,4 +1,4 @@
-﻿using AmeBlazor.Components;
+﻿using BootstrapBlazor.Components;
 
 namespace BlazorShared.Pages;
 
