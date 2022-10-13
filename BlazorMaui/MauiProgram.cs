@@ -2,16 +2,20 @@
 using LibraryShared;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebView.Maui;
+using Microsoft.Extensions.Configuration;
 using System.Globalization;
 
 namespace BlazorMaui
 {
     public static class MauiProgram
     {
+        public class ConfigFake { }
         public static MauiApp CreateMauiApp()
         {
 
             var builder = MauiApp.CreateBuilder();
+            builder.Configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+            builder.Configuration.AddUserSecrets<ConfigFake>();
             builder
                 .UseMauiApp<App>()
                 .ConfigureFonts(fonts =>

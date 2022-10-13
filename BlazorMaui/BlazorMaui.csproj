@@ -110,7 +110,7 @@
     </ItemGroup>
     
     <ItemGroup>
-      <Content Update="wwwroot\appsettings.json">
+      <Content Update="appsettings.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
     </ItemGroup>
