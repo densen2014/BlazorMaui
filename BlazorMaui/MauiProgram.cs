@@ -32,6 +32,7 @@ namespace BlazorMaui
 
             builder.Services.AddMauiBlazorWebView();
             builder.Services.AddSharedExtensions();
+            builder.Services.AddFileSystemExtensions();
             builder.Services.AddOcrExtensions(builder.Configuration["AzureCvKey"], builder.Configuration["AzureCvUrl"]);
             builder.Services.AddAIFormExtensions(builder.Configuration["AzureAiFormKey"], builder.Configuration["AzureAiFormUrl"]);
 #if DEBUG
