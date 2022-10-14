@@ -14,7 +14,7 @@
 
     <ItemGroup>
         <PackageReference Include="AME.Extensions" Version="6.10.0" />
-        <PackageReference Include="BootstrapBlazor" Version="6.11.7" />
+        <!--<PackageReference Include="BootstrapBlazor" Version="6.11.7" />-->
         <PackageReference Include="BootstrapBlazor.BarCode" Version="6.0.4" />
         <PackageReference Include="BootstrapBlazor.Chart" Version="6.0.0" />
         <PackageReference Include="Densen.Component.Blazor" Version="6.10.0" />
@@ -42,6 +42,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\LibraryShared\LibraryShared.csproj" />
+        <ProjectReference Include="..\..\BootstrapBlazor\src\BootstrapBlazor\BootstrapBlazor.csproj" />
     </ItemGroup>
 
     <ItemGroup>
