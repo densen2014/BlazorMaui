@@ -4,16 +4,17 @@
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
-  IgnorableNamespaces="uap rescap">
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  IgnorableNamespaces="uap rescap mp">
 
     <Identity
-      Name="31A0A253-CFA3-4CF9-AB61-727488C167C2"
-      Publisher="CN=BlazorMaui"
-      Version="1.0.6.0" />
+      Name="563DensenInformatica.561953A1AE0C6"
+      Publisher="CN=177A29A1-9641-45E4-886A-B94A29629FA6"
+      Version="1.1.0.0" />
 
     <Properties>
-        <DisplayName>BlazorMaui</DisplayName>
-        <PublisherDisplayName>Microsoft</PublisherDisplayName>
+        <DisplayName>BlazorMauiDemoWithBootstrapBlazor</DisplayName>
+        <PublisherDisplayName>中讯科技 Densen Informatica</PublisherDisplayName>
         <Logo>appiconStoreLogo.png</Logo>
     </Properties>
 
@@ -31,7 +32,7 @@
           Executable="$targetnametoken$.exe"
           EntryPoint="$targetentrypoint$">
             <uap:VisualElements
-              DisplayName="BlazorMaui"
+              DisplayName="BlazorMauiDemoWithBootstrapBlazor"
               Description="BlazorMaui"
               BackgroundColor="transparent"
               Square150x150Logo="appiconMediumTile.png"
@@ -58,4 +59,6 @@
         <DeviceCapability Name="microphone"/>
         <DeviceCapability Name="webcam"/>
     </Capabilities>
+
+    <mp:PhoneIdentity PhoneProductId="4c57104a-47dc-427b-8b72-1d15a8e52d92"/>
 </Package>
