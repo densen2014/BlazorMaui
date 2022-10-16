@@ -115,4 +115,17 @@ https://github.com/MackinnonBuck/MauiBlazorPermissionsExample
 
 ![image](https://user-images.githubusercontent.com/8428709/182727798-66421002-73b5-4fd2-9290-ef3027f8b8fb.png)
 
+2022-10-17
+
+运行截图
+
+![pwa](https://user-images.githubusercontent.com/8428709/196064427-3c526b9f-4302-4a99-9e7e-0437551c7948.jpg)
+![QQ截图20221017013739](https://user-images.githubusercontent.com/8428709/196064428-bb10c23d-97c1-44b8-9a0c-d2e5beedf100.jpg)
+![QQ截图20221017013836](https://user-images.githubusercontent.com/8428709/196064429-69f468a5-c9b2-435b-a37f-e46b5de1c28c.jpg)
+![QQ截图20221017013845](https://user-images.githubusercontent.com/8428709/196064431-56555d33-3e20-4f7f-a906-4ebb81520a3b.jpg)
+![ssr](https://user-images.githubusercontent.com/8428709/196064432-64b62338-aa95-405b-b240-4a8bb6aab16c.jpg)
+![uwp](https://user-images.githubusercontent.com/8428709/196064434-fa395145-1572-4b2d-994d-7a94ad0484c1.jpg)
+![winform](https://user-images.githubusercontent.com/8428709/196064435-8b064b60-1e37-410f-bbbd-6c5fed0e57f5.jpg)
+![wpf](https://user-images.githubusercontent.com/8428709/196064436-974fad42-14fc-4ed4-8f1d-098d87624fd5.jpg)
+
 
