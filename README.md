@@ -128,4 +128,13 @@ https://github.com/MackinnonBuck/MauiBlazorPermissionsExample
 ![winform](https://user-images.githubusercontent.com/8428709/196064435-8b064b60-1e37-410f-bbbd-6c5fed0e57f5.jpg)
 ![wpf](https://user-images.githubusercontent.com/8428709/196064436-974fad42-14fc-4ed4-8f1d-098d87624fd5.jpg)
 
+BlazorMauiDemoWithBootstrapBlazor
+运行在win10沙盒
+BlazorMauiDemoWithBootstrapBlazor
+运行在win10沙盒
 
+只需要安装net6desktop runtime和webview2 runtime即可 
+
+![image](https://user-images.githubusercontent.com/8428709/196066465-db6581f8-32fd-45d9-88b7-97a26ac4b694.png)
+
+![image](https://user-images.githubusercontent.com/8428709/196066458-86918351-3915-4798-b65a-ce4911c7e2fd.png)
