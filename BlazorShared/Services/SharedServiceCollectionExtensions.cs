@@ -12,6 +12,7 @@ using System.Diagnostics;
 using System.Globalization;
 using Microsoft.AspNetCore.Components.Web;
 using BlazorShared.Data;
+using System.Reflection;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
@@ -36,6 +37,20 @@ public static class SharedServiceCollectionExtensions
         CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
 
         services.AddDensenExtensions();
+        services.ConfigureJsonLocalizationOptions(op =>
+        {
+            // 忽略文化信息丢失日志
+            op.IgnoreLocalizerMissing = true;
+
+            // 附加自己的 json 多语言文化资源文件 如 zh-TW.json
+            op.AdditionalJsonAssemblies = new Assembly[]
+            {
+                //typeof(BootstrapBlazor.Shared.App).Assembly,
+                typeof(BootstrapBlazor.Components.Chart).Assembly,
+                //typeof(BootstrapBlazor.Components.SignaturePad).Assembly
+            };
+        });
+
         services.AddSingleton<IIPAddressManager, IPAddressManager>();
         services.AddSingleton<ITools, NullService>();
 
