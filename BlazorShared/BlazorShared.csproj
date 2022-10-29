@@ -13,12 +13,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AME.Extensions" Version="6.10.1" />
-        <PackageReference Include="BootstrapBlazor" Version="6.11.14" />
-        <PackageReference Include="BootstrapBlazor.BarCode" Version="6.0.4" />
+        <PackageReference Include="AME.Extensions" Version="6.10.2" />
+        <PackageReference Include="BootstrapBlazor" Version="6.11.29" />
+        <PackageReference Include="BootstrapBlazor.BarCode" Version="6.3.0" />
         <PackageReference Include="BootstrapBlazor.Chart" Version="6.0.0" />
         <PackageReference Include="Densen.Component.Blazor" Version="6.10.0" />
-        <PackageReference Include="FreeSql" Version="3.2.681" />
+        <PackageReference Include="FreeSql" Version="3.2.682" />
         <PackageReference Include="BootstrapBlazor.FontAwesome" Version="6.3.0" />
         <PackageReference Include="BootstrapBlazor.BaiduMap" Version="6.2.1" />
         <PackageReference Include="BootstrapBlazor.Geolocation" Version="6.2.2" />
@@ -26,14 +26,14 @@
         <PackageReference Include="BootstrapBlazor.WebAPI" Version="6.2.1" />
         <PackageReference Include="BootstrapBlazor.Maps" Version="6.2.1" />
         <PackageReference Include="BootstrapBlazor.Bluetooth" Version="6.2.1" />
-        <PackageReference Include="BootstrapBlazor.OCR" Version="6.2.1" />
+        <PackageReference Include="BootstrapBlazor.OCR" Version="6.2.4" />
         <PackageReference Include="BootstrapBlazor.OnScreenKeyboard" Version="6.2.1" />
         <PackageReference Include="BootstrapBlazor.SignaturePad" Version="6.2.1" />
         <PackageReference Include="BootstrapBlazor.FileSystem" Version="6.0.0" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(Configuration)'!='Preview'">
-        <PackageReference Include="Densen.Extensions.BootstrapBlazor" Version="6.10.1" />
+        <PackageReference Include="Densen.Extensions.BootstrapBlazor" Version="6.10.2" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(Configuration)'=='Preview'">

@@ -234,7 +234,7 @@ namespace BlazorShared.Pages
         private async Task DownloadFileAsync()
         {
             var content = await GenerateFileAsync();
-            await downloadService.DownloadAsync("测试文件", content);
+            await downloadService.DownloadFromByteArrayAsync("测试文件", content);
 
             static async Task<byte[]> GenerateFileAsync()
             {
