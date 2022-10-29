@@ -26,12 +26,21 @@ public partial class NavMenu
             new MenuItem() { Text = "谷歌地图 Maps", Url = "/maps" },
             new MenuItem() { Text = "系统信息 System info", Url = "/webapis" },
             new MenuItem() { Text = "图表", Url = "/charts" },
-            new MenuItem() { Text = "Barcode", Url = "/barcode" },
-            new MenuItem() { Text = "Upload", Url = "/Upload" },
-            new MenuItem() { Text = "Freesql", Url = "/FreesqlPage" },
-            new MenuItem() { Text = "Table", Url = "/table" },
-            new MenuItem() { Text = "二维码", Url = "/qrcode" },
-            new MenuItem() { Text = "进度环", Url = "/circle" },
-            new MenuItem() { Text = "滑块验证码", Url = "/captchass" },
+            new MenuItem() { Text = "其他" ,Items= new List<MenuItem>
+                {
+                    new MenuItem() { Text = "Barcode", Url = "/barcode" },
+                    new MenuItem() { Text = "Upload", Url = "/Upload" },
+                    new MenuItem() { Text = "Freesql", Url = "/FreesqlPage" },
+                    new MenuItem() { Text = "Table", Url = "/table" },
+                    new MenuItem() { Text = "二维码", Url = "/qrcode" },
+                    new MenuItem() { Text = "进度环", Url = "/circle" },
+                    new MenuItem() { Text = "滑块验证码", Url = "/captchass" },
+                }
+            },
+            new MenuItem() { Text = "硬件" ,Items= new List<MenuItem>
+                {
+                    new MenuItem() { Text = "串口", Url = "/serials" },
+                }
+            }
     };
 }

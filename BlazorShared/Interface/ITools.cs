@@ -21,6 +21,7 @@
         Task<string> NavigateToBuildingByPlacemark();
         Task<string> DriveToBuilding25();
         Task<string> TakeScreenshotAsync();
+        List<string> GetPortlist();
     }
 
     public class NullService : ITools
@@ -42,6 +43,42 @@
         public Task<string> NavigateToBuildingByPlacemark() => Task.FromResult("未实现");
         public Task<string> DriveToBuilding25() => Task.FromResult("未实现");
         public Task<string> TakeScreenshotAsync() => Task.FromResult("未实现");
+
+#if WINDOWS
+        public List<string> GetPortlist()
+        {
+            return System.IO.Ports.SerialPort.GetPortNames().ToList();
+        }
+#elif ANDROID || IOS || MACCATALYST
+        public List<string> GetPortlist()
+        {
+            if (OperatingSystem.IsIOS() || OperatingSystem.IsMacCatalyst())
+            {
+                return null;
+            }
+            else if (OperatingSystem.IsAndroid())
+            {
+                return null;
+            }
+            else
+            {
+                return null;
+            } 
+            
+        }
+#else
+        public List<string> GetPortlist()
+        {
+            if (OperatingSystem.IsWindows())
+            {
+                return System.IO.Ports.SerialPort.GetPortNames().ToList();
+            }
+            else
+            {
+                return null;
+            }
+        }
+#endif
 
     }
 }

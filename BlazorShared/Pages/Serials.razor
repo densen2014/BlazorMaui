@@ -1,0 +1,16 @@
+﻿@page "/serials"
+@using BlazorShared.Models
+@attribute [TabItemOption(Text = "串口")]
+
+<Button Text="列出串口" OnClick="GetPortlist" />
+<Badge IsPill="true">@Status</Badge>
+
+@if (PortList != null && PortList.Any())
+{
+    <ul>
+        @foreach (var item in PortList)
+        {
+            <li>@item</li>
+        }
+    </ul>
+}

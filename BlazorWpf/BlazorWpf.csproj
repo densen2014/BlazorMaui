@@ -11,8 +11,7 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebView.Wpf" Version="6.0.541" />
 		<PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
-	</ItemGroup>
-    <ItemGroup>
+        <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.1" />
         <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
     </ItemGroup>
     <ItemGroup>

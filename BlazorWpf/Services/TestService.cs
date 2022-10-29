@@ -22,8 +22,11 @@ namespace LibraryShared
         public Task<string> NavigateToBuildingByPlacemark() => Task.FromResult("未实现");
         public Task<string> DriveToBuilding25() => Task.FromResult("未实现");
         public Task<string> TakeScreenshotAsync() => Task.FromResult("未实现");
+        public List<string> GetPortlist()
+        {
+            return System.IO.Ports.SerialPort.GetPortNames().ToList();
+        }
 
-       
     }
 
 

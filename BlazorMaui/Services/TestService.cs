@@ -473,6 +473,41 @@ namespace LibraryShared
             return null;
         }
 
+#if WINDOWS
+        public List<string> GetPortlist()
+        {
+            return System.IO.Ports.SerialPort.GetPortNames().ToList();
+        }
+#elif ANDROID || IOS || MACCATALYST
+        public List<string> GetPortlist()
+        {
+            if (OperatingSystem.IsIOS() || OperatingSystem.IsMacCatalyst())
+            {
+                return null;
+            }
+            else if (OperatingSystem.IsAndroid())
+            {
+                return null;
+            }
+            else
+            {
+                return null;
+            }
+
+        }
+#else
+        public List<string> GetPortlist()
+        {
+            if (OperatingSystem.IsWindows())
+            {
+                return System.IO.Ports.SerialPort.GetPortNames().ToList();
+            }
+            else
+            {
+                return null;
+            }
+        }
+#endif
     }
 
 
