@@ -49,6 +49,7 @@
         <GenerateTestArtifacts>True</GenerateTestArtifacts>
         <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
         <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
+        <ProvisioningType>automatic</ProvisioningType>
     </PropertyGroup>
     
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-android|AnyCPU'">
@@ -62,6 +63,11 @@
         <PackageCertificateThumbprint>B9114BEA32366AB6BD03E3101F0C223B71CD966F</PackageCertificateThumbprint>
         <!--dev mac-->
         <!--<PackageCertificateThumbprint>D4E5589AA51C416803316B8D756DBDEBE48116EF</PackageCertificateThumbprint>-->
+    </PropertyGroup>
+    
+    <PropertyGroup Condition="'$(TargetFramework)'=='net6.0-ios'">
+      <CodesignKey>Apple Development: zhou chuanglin (W9D8HB5VZK)</CodesignKey>
+      <CodesignProvision>VS: es.app1.BlazorMaui Development</CodesignProvision>
     </PropertyGroup>
     
     <ItemGroup>
@@ -96,6 +102,14 @@
         <Compile Remove="**\*.Windows.cs" />
         <None Include="**\*.Windows.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="appsettings.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="appsettings.json" />
+    </ItemGroup>
     
 	<ItemGroup>
 	  <ProjectReference Include="..\BlazorShared\BlazorShared.csproj" />
@@ -110,11 +124,11 @@
       </Compile>
     </ItemGroup>
     
-    <ItemGroup>
+    <!--<ItemGroup>
       <Content Update="appsettings.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
-    </ItemGroup>
+    </ItemGroup>-->
     
     <ItemGroup>
       <MauiXaml Update="SensorsPage.xaml">
