@@ -59,9 +59,9 @@
     <PropertyGroup Condition="$(TargetFramework.Contains('-windows')) and '$(Configuration)' == 'Release'">
         <GenerateAppxPackageOnBuild>true</GenerateAppxPackageOnBuild>
         <AppxPackageSigningEnabled>true</AppxPackageSigningEnabled>
-        <!--<PackageCertificateThumbprint>B9114BEA32366AB6BD03E3101F0C223B71CD966F</PackageCertificateThumbprint>-->
+        <PackageCertificateThumbprint>B9114BEA32366AB6BD03E3101F0C223B71CD966F</PackageCertificateThumbprint>
         <!--dev mac-->
-        <PackageCertificateThumbprint>D4E5589AA51C416803316B8D756DBDEBE48116EF</PackageCertificateThumbprint>
+        <!--<PackageCertificateThumbprint>D4E5589AA51C416803316B8D756DBDEBE48116EF</PackageCertificateThumbprint>-->
     </PropertyGroup>
     
     <ItemGroup>

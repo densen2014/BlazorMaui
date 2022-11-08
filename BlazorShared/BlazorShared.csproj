@@ -14,8 +14,8 @@
 
     <ItemGroup>
         <PackageReference Include="AME.Extensions" Version="6.10.2" />
-        <PackageReference Include="BootstrapBlazor" Version="6.11.29" />
-        <PackageReference Include="BootstrapBlazor.BarCode" Version="6.3.0" />
+        <PackageReference Include="BootstrapBlazor" Version="6.12.0" />
+        <PackageReference Include="BootstrapBlazor.BarCode" Version="6.4.0" />
         <PackageReference Include="BootstrapBlazor.Chart" Version="6.0.0" />
         <PackageReference Include="Densen.Component.Blazor" Version="6.10.0" />
         <PackageReference Include="FreeSql" Version="3.2.682" />
