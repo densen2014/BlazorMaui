@@ -70,16 +70,12 @@
 
         <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
         <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
-    </ItemGroup>
 
+    </ItemGroup>
+    
     <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
     </ItemGroup>
-
-    <PropertyGroup Condition="'$(TargetFramework)'=='net7.0-ios'">
-        <CodesignKey>Apple Development: zhou chuanglin (W9D8HB5VZK)</CodesignKey>
-        <CodesignProvision>VS: es.app1.BlazorMaui Development</CodesignProvision>
-    </PropertyGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net7.0-android')) != true">
         <Compile Remove="**\**\*.Android.cs" />
@@ -110,12 +106,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Update="appsettings.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </Content>
-    </ItemGroup>
-
-    <ItemGroup>
         <MauiXaml Update="SensorsPage.xaml">
             <Generator>MSBuild:Compile</Generator>
         </MauiXaml>
@@ -123,5 +113,12 @@
             <Generator>MSBuild:Compile</Generator>
         </MauiXaml>
     </ItemGroup>
+
+    <!-- iOS附加文件不成功,待修复 -->
+    <!--<ItemGroup>
+        <Content Update="appsettings.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>-->
 
 </Project>
