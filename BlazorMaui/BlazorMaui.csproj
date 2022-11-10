@@ -1,10 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
     <PropertyGroup>
-        <TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
-        <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
+        <TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
+        <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
         <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
-        <!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
+        <!-- <TargetFrameworks>$(TargetFrameworks);net7.0-tizen</TargetFrameworks> -->
         <OutputType>Exe</OutputType>
         <RootNamespace>BlazorMaui</RootNamespace>
         <UseMaui>true</UseMaui>
@@ -52,7 +52,7 @@
         <ProvisioningType>automatic</ProvisioningType>
     </PropertyGroup>
     
-    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-android|AnyCPU'">
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android|AnyCPU'">
         <CodesignKey>Apple Development: zhou chuanglin %28W9D8HB5VZK%29</CodesignKey>
         <CodesignProvision>VS: WildCard Development</CodesignProvision>
     </PropertyGroup>
@@ -65,7 +65,7 @@
         <!--<PackageCertificateThumbprint>D4E5589AA51C416803316B8D756DBDEBE48116EF</PackageCertificateThumbprint>-->
     </PropertyGroup>
     
-    <PropertyGroup Condition="'$(TargetFramework)'=='net6.0-ios'">
+    <PropertyGroup Condition="'$(TargetFramework)'=='net7.0-ios'">
       <CodesignKey>Apple Development: zhou chuanglin (W9D8HB5VZK)</CodesignKey>
       <CodesignProvision>VS: es.app1.BlazorMaui Development</CodesignProvision>
     </PropertyGroup>
@@ -88,12 +88,12 @@
         <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
     </ItemGroup>
     
-    <ItemGroup Condition="$(TargetFramework.StartsWith('net6.0-android')) != true">
+    <ItemGroup Condition="$(TargetFramework.StartsWith('net7.0-android')) != true">
         <Compile Remove="**\**\*.Android.cs" />
         <None Include="**\**\*.Android.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
     </ItemGroup>
 
-    <ItemGroup Condition="$(TargetFramework.StartsWith('net6.0-ios')) != true AND $(TargetFramework.StartsWith('net6.0-maccatalyst')) != true">
+    <ItemGroup Condition="$(TargetFramework.StartsWith('net7.0-ios')) != true AND $(TargetFramework.StartsWith('net7.0-maccatalyst')) != true">
         <Compile Remove="**\**\*.iOS.cs" />
         <None Include="**\**\*.iOS.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
     </ItemGroup>

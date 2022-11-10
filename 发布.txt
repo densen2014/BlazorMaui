@@ -11,9 +11,9 @@ New-SelfSignedCertificate -Type Custom `
 Get-ChildItem "Cert:\CurrentUser\My"
 
 cd BlazorMaui 
-dotnet publish -f net6.0-windows10.0.19041.0 -c Release
+dotnet publish -f net7.0-windows10.0.19041.0 -c Release
 
-发布应用生成和打包，将签名包复制到 bin\Release\net6.0-windows10.0.19041.0\win10-x64\AppPackages\<appname>\ 文件夹。 其中 <appname> 是一个以项目和版本命名的文件夹。 在此文件夹中，有 一个 msix 文件，即应用包。
+发布应用生成和打包，将签名包复制到 bin\Release\net7.0-windows10.0.19041.0\win10-x64\AppPackages\<appname>\ 文件夹。 其中 <appname> 是一个以项目和版本命名的文件夹。 在此文件夹中，有 一个 msix 文件，即应用包。
 
 
-dotnet publish -f:net6.0-android -c:Release
+dotnet publish -f:net7.0-android -c:Release
