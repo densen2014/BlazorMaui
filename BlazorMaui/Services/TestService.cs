@@ -331,9 +331,9 @@ namespace LibraryShared
             return "null";
         }
 
-        //美国波士顿和旧金山美国之间的距离
-        Location boston = new Location(42.358056, -71.063611);
-        Location sanFrancisco = new Location(37.783333, -122.416667);
+        //马德里市中心到西班牙广场之间的距离
+        Location boston = new Location(40.4381311, -3.8196197);
+        Location sanFrancisco = new Location(40.3989384, -3.6907709);
 
         /// <summary>
         /// 两个位置之间的距离
@@ -350,10 +350,10 @@ namespace LibraryShared
         /// 使用地图
         /// </summary>
         /// <returns></returns>
-        public async Task<string> NavigateToBuilding25()
+        public async Task<string> NavigateToMadrid()
         {
-            var location = new Location(47.645160, -122.1306032);
-            var options = new MapLaunchOptions { Name = "Microsoft Building 25" };
+            var location = new Location(40.4381311, -3.8196197);
+            var options = new MapLaunchOptions { Name = "Madrid 马德里" };
 
             try
             {
@@ -373,16 +373,16 @@ namespace LibraryShared
         /// 使用 a Placemark 打开地图时，需要更多信息。 此信息可帮助地图应用搜索要查找的位置。
         /// </summary>
         /// <returns></returns>
-        public async Task<string> NavigateToBuilding()
+        public async Task<string> NavigateToPlazaDeEspana()
         {
             var placemark = new Placemark
             {
-                CountryName = "United States",
-                AdminArea = "WA",
-                Thoroughfare = "Microsoft Building 25",
-                Locality = "Redmond"
+                CountryName = "Spain",
+                AdminArea = "MA",
+                Thoroughfare = "Plaza de España",
+                Locality = "Madrid"
             };
-            var options = new MapLaunchOptions { Name = "Microsoft Building 25" };
+            var options = new MapLaunchOptions { Name = "Plaza de España 西班牙广场" };
 
             try
             {
@@ -391,7 +391,7 @@ namespace LibraryShared
             }
             catch (Exception ex)
             {
-                return $"No map application available to open or placemark can not be located, Message: {ex.Message}";
+                return $"No map application available to open or placemark can not be located , 没有可打开的地图应用程序或无法找到地标 , Message: {ex.Message}";
             }
         }
 
@@ -399,17 +399,17 @@ namespace LibraryShared
         /// 扩展方法
         /// </summary>
         /// <returns></returns>
-        public async Task<string> NavigateToBuildingByPlacemark()
+        public async Task<string> NavigateToPlazaDeEspanaByPlacemark()
         {
             var placemark = new Placemark
             {
-                CountryName = "United States",
-                AdminArea = "WA",
-                Thoroughfare = "Microsoft Building 25",
-                Locality = "Redmond"
+                CountryName = "Spain",
+                AdminArea = "MA",
+                Thoroughfare = "Plaza de España",
+                Locality = "Madrid"
             };
 
-            var options = new MapLaunchOptions { Name = "Microsoft Building 25" };
+            var options = new MapLaunchOptions { Name = "Plaza de España 西班牙广场" };
 
             try
             {
@@ -418,7 +418,7 @@ namespace LibraryShared
             }
             catch (Exception ex)
             {
-                return $"No map application available to open or placemark can not be located, Message: {ex.Message}";
+                return $"No map application available to open or placemark can not be located , 没有可打开的地图应用程序或无法找到地标 , Message: {ex.Message}";
             }
         }
 
@@ -430,12 +430,12 @@ namespace LibraryShared
         /// 打开地图时，可以计算从设备的当前位置到指定位置的路由。 将 MapLaunchOptions 类型传递给 Map.OpenAsync 方法，指定导航模式。 以下示例打开地图应用并指定驾驶导航模式：
         /// </summary>
         /// <returns></returns>
-        public async Task<string> DriveToBuilding25()
+        public async Task<string> DriveToPlazaDeEspana()
         {
-            var location = new Location(47.645160, -122.1306032);
+            var location = new Location(40.3989384, -3.6907709);
             var options = new MapLaunchOptions
             {
-                Name = "Microsoft Building 25",
+                Name = "Plaza de España 西班牙广场",
                 NavigationMode = NavigationMode.Driving
             };
 
@@ -446,7 +446,7 @@ namespace LibraryShared
             }
             catch (Exception ex)
             {
-                return $"No map application available to open, Message: {ex.Message}";
+                return $"No map application available to open , 没有可打开的地图应用程序或无法找到地标 , Message: {ex.Message}";
             }
         }
 

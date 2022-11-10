@@ -16,10 +16,10 @@
 
         void ShowSettingsUI();
         string GetAppInfo();
-        Task<string> NavigateToBuilding25();
-        Task<string> NavigateToBuilding();
-        Task<string> NavigateToBuildingByPlacemark();
-        Task<string> DriveToBuilding25();
+        Task<string> NavigateToMadrid();
+        Task<string> NavigateToPlazaDeEspana();
+        Task<string> NavigateToPlazaDeEspanaByPlacemark();
+        Task<string> DriveToPlazaDeEspana();
         Task<string> TakeScreenshotAsync();
         List<string> GetPortlist();
     }
@@ -38,10 +38,10 @@
         public Task<string> TakePhoto() => Task.FromResult("未实现");
         public void ShowSettingsUI() { }
         public string GetAppInfo() => "未实现";
-        public Task<string> NavigateToBuilding25() => Task.FromResult("未实现");
-        public Task<string> NavigateToBuilding() => Task.FromResult("未实现");
-        public Task<string> NavigateToBuildingByPlacemark() => Task.FromResult("未实现");
-        public Task<string> DriveToBuilding25() => Task.FromResult("未实现");
+        public Task<string> NavigateToMadrid() => Task.FromResult("未实现");
+        public Task<string> NavigateToPlazaDeEspana() => Task.FromResult("未实现");
+        public Task<string> NavigateToPlazaDeEspanaByPlacemark() => Task.FromResult("未实现");
+        public Task<string> DriveToPlazaDeEspana() => Task.FromResult("未实现");
         public Task<string> TakeScreenshotAsync() => Task.FromResult("未实现");
 
 #if WINDOWS

@@ -19,7 +19,7 @@
 
         <!-- App Identifier -->
         <ApplicationId>es.app1.BlazorMaui</ApplicationId>
-        <ApplicationId Condition="$(TargetFramework.Contains('-windows'))">8A5ACBCC-764A-4675-BC2D-C7CE9EEC290D</ApplicationId>
+        <ApplicationId>8A5ACBCC-764A-4675-BC2D-C7CE9EEC290D</ApplicationId>
 
         <!-- Versions -->
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -34,14 +34,16 @@
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
         <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
-        
+
         <!-- Comment out the line below to display a permission request dialog on Windows instead of handling permissions silently -->
         <DefineConstants Condition="$(TargetFramework.Contains('-windows'))">HANDLE_WEBVIEW2_PERMISSIONS_SILENTLY</DefineConstants>
-        
+
         <CodesignKey>Apple Development: zhou chuanglin (W9D8HB5VZK)</CodesignKey>
         <CodesignProvision>VS: WildCard Development</CodesignProvision>
         <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
         <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+        <!--dev mac-->
+        <!--<PackageCertificateThumbprint>D4E5589AA51C416803316B8D756DBDEBE48116EF</PackageCertificateThumbprint>-->
         <PackageCertificateThumbprint>D4E5589AA51C416803316B8D756DBDEBE48116EF</PackageCertificateThumbprint>
         <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
         <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
@@ -51,31 +53,13 @@
         <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
         <ProvisioningType>automatic</ProvisioningType>
     </PropertyGroup>
-    
-    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-android|AnyCPU'">
-        <CodesignKey>Apple Development: zhou chuanglin %28W9D8HB5VZK%29</CodesignKey>
-        <CodesignProvision>VS: WildCard Development</CodesignProvision>
-    </PropertyGroup>
-    
-    <PropertyGroup Condition="$(TargetFramework.Contains('-windows')) and '$(Configuration)' == 'Release'">
-        <GenerateAppxPackageOnBuild>true</GenerateAppxPackageOnBuild>
-        <AppxPackageSigningEnabled>true</AppxPackageSigningEnabled>
-        <PackageCertificateThumbprint>B9114BEA32366AB6BD03E3101F0C223B71CD966F</PackageCertificateThumbprint>
-        <!--dev mac-->
-        <!--<PackageCertificateThumbprint>D4E5589AA51C416803316B8D756DBDEBE48116EF</PackageCertificateThumbprint>-->
-    </PropertyGroup>
-    
-    <PropertyGroup Condition="'$(TargetFramework)'=='net7.0-ios'">
-      <CodesignKey>Apple Development: zhou chuanglin (W9D8HB5VZK)</CodesignKey>
-      <CodesignProvision>VS: es.app1.BlazorMaui Development</CodesignProvision>
-    </PropertyGroup>
-    
+
     <ItemGroup>
         <!-- App Icon -->
-        <MauiIcon Include="Resources\appicon.svg" ForegroundFile="Resources\appiconfg.svg" Color="#512BD4" />
+        <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
         <!-- Splash Screen -->
-        <MauiSplashScreen Include="Resources\appiconfg.svg" Color="#512BD4" />
+        <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
 
         <!-- Images -->
         <MauiImage Include="Resources\Images\*" />
@@ -87,7 +71,16 @@
         <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
         <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
     </ItemGroup>
-    
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+    </ItemGroup>
+
+    <PropertyGroup Condition="'$(TargetFramework)'=='net7.0-ios'">
+        <CodesignKey>Apple Development: zhou chuanglin (W9D8HB5VZK)</CodesignKey>
+        <CodesignProvision>VS: es.app1.BlazorMaui Development</CodesignProvision>
+    </PropertyGroup>
+
     <ItemGroup Condition="$(TargetFramework.StartsWith('net7.0-android')) != true">
         <Compile Remove="**\**\*.Android.cs" />
         <None Include="**\**\*.Android.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
@@ -104,41 +97,31 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Remove="appsettings.json" />
+        <ProjectReference Include="..\BlazorShared\BlazorShared.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Include="appsettings.json" />
+        <Compile Update="SensorsPage.xaml.cs">
+            <DependentUpon>SensorsPage.xaml</DependentUpon>
+        </Compile>
+        <Compile Update="AppModelPage.xaml.cs">
+            <DependentUpon>AppModelPage.xaml</DependentUpon>
+        </Compile>
     </ItemGroup>
-    
-	<ItemGroup>
-	  <ProjectReference Include="..\BlazorShared\BlazorShared.csproj" />
-	</ItemGroup>
-    
+
     <ItemGroup>
-      <Compile Update="SensorsPage.xaml.cs">
-        <DependentUpon>SensorsPage.xaml</DependentUpon>
-      </Compile>
-      <Compile Update="AppModelPage.xaml.cs">
-        <DependentUpon>AppModelPage.xaml</DependentUpon>
-      </Compile>
-    </ItemGroup>
-    
-    <!--<ItemGroup>
       <Content Update="appsettings.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
-    </ItemGroup>-->
-    
-    <ItemGroup>
-      <MauiXaml Update="SensorsPage.xaml">
-        <Generator>MSBuild:Compile</Generator>
-      </MauiXaml>
-      <MauiXaml Update="AppModelPage.xaml">
-        <Generator>MSBuild:Compile</Generator>
-      </MauiXaml>
     </ItemGroup>
-    
-	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionBlazorMauiHideInfoBar="True" /></VisualStudio></ProjectExtensions>
+
+    <ItemGroup>
+        <MauiXaml Update="SensorsPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="AppModelPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+    </ItemGroup>
 
 </Project>

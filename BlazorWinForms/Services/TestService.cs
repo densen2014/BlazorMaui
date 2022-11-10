@@ -17,10 +17,10 @@ namespace LibraryShared
         public Task<string> TakePhoto() => Task.FromResult("未实现");
         public void ShowSettingsUI() { }
         public string GetAppInfo() => $"{Assembly.GetExecutingAssembly().GetName().Name}-{Assembly.GetExecutingAssembly().GetName().Version}";
-        public Task<string> NavigateToBuilding25() => Task.FromResult("未实现");
-        public Task<string> NavigateToBuilding() => Task.FromResult("未实现");
-        public Task<string> NavigateToBuildingByPlacemark() => Task.FromResult("未实现");
-        public Task<string> DriveToBuilding25() => Task.FromResult("未实现");
+        public Task<string> NavigateToMadrid() => Task.FromResult("未实现");
+        public Task<string> NavigateToPlazaDeEspana() => Task.FromResult("未实现");
+        public Task<string> NavigateToPlazaDeEspanaByPlacemark() => Task.FromResult("未实现");
+        public Task<string> DriveToPlazaDeEspana() => Task.FromResult("未实现");
         public Task<string> TakeScreenshotAsync() => Task.FromResult("未实现");
 
         public List<string> GetPortlist()

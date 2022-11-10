@@ -15,12 +15,13 @@
         <span>@Locations</span><br /><br />
         <Button Text="TakePhoto" OnClick="TakePhoto" />
         <span>@PhotoFilename</span><br /><br />
-        <Button Text="NavigateToBuilding25" OnClick="NavigateToBuilding25" />
+        <Button Text="Navigate To Madrid 马德里" OnClick="NavigateToMadrid" />
         <span>@导航消息</span><br /><br />
-        <Button Text="NavigateToBuilding" OnClick="NavigateToBuilding" /><br /><br />
-        <Button Text="NavigateToBuildingByPlacemark" OnClick="NavigateToBuildingByPlacemark" /><br /><br />
-        <Button Text="DriveToBuilding25" OnClick="DriveToBuilding25" /><br /><br />
+        <Button Text="Navigate To Plaza de España 西班牙广场" OnClick="NavigateToPlazaDeEspana" /><br /><br />
+        <Button Text="NavigateTo Plaza de España 西班牙广场 ByPlacemark" OnClick="NavigateToPlazaDeEspanaByPlacemark" /><br /><br />
+        <Button Text="导航到西班牙广场" OnClick="DriveToPlazaDeEspana" /><br /><br />
         <Button Text="截屏" OnClick="TakeScreenshotAsync" /><br /><br />
+        <span>@截屏消息</span><br /><br />
     </TabItem>
     <TabItem Text="PC">
         <Table TItem="PcStatus"
@@ -59,7 +60,7 @@
     </TabItem>
     <TabItem Text="@version">
         <Badge Color="Color.Primary">
-            ID: @IPAddressManager.GetIdentifier();
+            机器码 ID: @IPAddressManager.GetIdentifier();
         </Badge>
         <Badge Color="Color.Success">
             IP: @WebClientInfo.ClientIpAddress;

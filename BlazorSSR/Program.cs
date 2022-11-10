@@ -18,7 +18,7 @@ builder.Services.AddResponseCompression(options =>
 });
 builder.Services.Configure<BrotliCompressionProviderOptions>(options =>
 {
-    options.Level = (CompressionLevel)4;
+    options.Level = CompressionLevel.Optimal;
 });
 
 builder.Services.AddRazorPages();
