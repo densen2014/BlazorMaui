@@ -47,7 +47,7 @@
         <PackageCertificateThumbprint>D4E5589AA51C416803316B8D756DBDEBE48116EF</PackageCertificateThumbprint>
         <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
         <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
-        <AppxSymbolPackageEnabled>True</AppxSymbolPackageEnabled>
+        <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
         <GenerateTestArtifacts>True</GenerateTestArtifacts>
         <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
         <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>

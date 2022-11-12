@@ -8,14 +8,14 @@
   IgnorableNamespaces="uap rescap mp">
 
     <Identity
-      Name="563DensenInformatica.561953A1AE0C6"
+      Name="563DensenInformatica.MauiBlazorDemoBootstrapBlazor"
       Publisher="CN=177A29A1-9641-45E4-886A-B94A29629FA6"
-      Version="1.1.3.0" />
+      Version="1.1.1.0" />
     
-    <mp:PhoneIdentity PhoneProductId="4c57104a-47dc-427b-8b72-1d15a8e52d92" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+    <mp:PhoneIdentity PhoneProductId="62d65236-07ff-4d64-a056-6f1fea4c355a" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
     <Properties>
-        <DisplayName>$placeholder$</DisplayName>
+        <DisplayName>MauiBlazorDemo (BootstrapBlazor)</DisplayName>
         <PublisherDisplayName>中讯科技 Densen Informatica</PublisherDisplayName>
         <Logo>$placeholder$.png</Logo>
     </Properties>
@@ -32,7 +32,7 @@
     <Applications>
         <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="$targetentrypoint$">
             <uap:VisualElements
-              DisplayName="$placeholder$"
+              DisplayName="MauiBlazorDemo (BootstrapBlazor)"
               Description="$placeholder$"
               Square150x150Logo="$placeholder$.png"
               Square44x44Logo="$placeholder$.png"
