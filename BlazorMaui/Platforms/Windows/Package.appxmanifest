@@ -10,7 +10,7 @@
     <Identity
       Name="563DensenInformatica.561953A1AE0C6"
       Publisher="CN=177A29A1-9641-45E4-886A-B94A29629FA6"
-      Version="1.1.1.0" />
+      Version="1.1.3.0" />
     
     <mp:PhoneIdentity PhoneProductId="4c57104a-47dc-427b-8b72-1d15a8e52d92" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
