@@ -52,8 +52,13 @@
         <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
         <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
         <ProvisioningType>automatic</ProvisioningType>
+        <DefaultLanguage>zh-cn</DefaultLanguage>
     </PropertyGroup>
 
+    <PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows' and '$(RuntimeIdentifierOverride)' != ''">
+        <RuntimeIdentifier>$(RuntimeIdentifierOverride)</RuntimeIdentifier>
+    </PropertyGroup>
+    
     <ItemGroup>
         <!-- App Icon -->
         <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
