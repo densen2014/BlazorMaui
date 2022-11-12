@@ -3,7 +3,7 @@
 // 作者：Alex Chow
 // e-mail:zhouchuanglin@gmail.com 
 // **********************************
-# if (WINDOWS && NET6_0)
+# if (WINDOWS && NET6_0_OR_GREATER)
 using FreeSql.DataAnnotations;
 #endif
 using BootstrapBlazor.Components;
@@ -15,7 +15,7 @@ namespace AmeApi;
 [AutoGenerateClass(Searchable = true, Filterable = true, Sortable = true)]
 public class PC
 {
-#if (WINDOWS && NET6_0)
+#if (WINDOWS && NET6_0_OR_GREATER)
    [Column(IsIdentity = true)]
 #endif
     [DisplayName("序号")]
@@ -53,7 +53,7 @@ public class PC
     [AutoGenerateColumn(TextWrap = true)]
     public string Description { get; set; }
 
-#if (WINDOWS && NET6_0)
+#if (WINDOWS && NET6_0_OR_GREATER)
    [Navigate(nameof(Record.PcID))]
 #endif
     [AutoGenerateColumn(Ignore = true)]
@@ -63,7 +63,7 @@ public class PC
 [AutoGenerateClass(Searchable = true, Filterable = true, Sortable = true)]
 public class Record
 {
-#if (WINDOWS && NET6_0)
+#if (WINDOWS && NET6_0_OR_GREATER)
    [Column(IsIdentity = true)]
 #endif
     [DisplayName("序号")]
@@ -90,7 +90,7 @@ public class Record
     [DisplayName("描述")]
     public string Description { get; set; }
 
-#if (WINDOWS && NET6_0)
+#if (WINDOWS && NET6_0_OR_GREATER)
 [Navigate(nameof(PcID))]
 #endif
     [AutoGenerateColumn(Ignore = true)]
