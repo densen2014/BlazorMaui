@@ -103,6 +103,10 @@
     </ItemGroup>
 
     <ItemGroup>
+        <EmbeddedResource Include="appsettings.json" />
+    </ItemGroup>
+
+    <ItemGroup>
         <Compile Update="SensorsPage.xaml.cs">
             <DependentUpon>SensorsPage.xaml</DependentUpon>
         </Compile>
@@ -118,13 +122,6 @@
         <MauiXaml Update="AppModelPage.xaml">
             <Generator>MSBuild:Compile</Generator>
         </MauiXaml>
-    </ItemGroup>
-
-    <!-- iOS附加文件不成功,待修复 -->
-    <!--<ItemGroup>
-        <Content Update="appsettings.json">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
-    </ItemGroup>-->
+    </ItemGroup> 
 
 </Project>

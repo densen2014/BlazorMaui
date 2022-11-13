@@ -15,12 +15,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AME.Extensions" Version="7.0.0" />
+        <PackageReference Include="AME.Extensions" Version="7.0.2" />
         <PackageReference Include="BootstrapBlazor" Version="7.0.0" />
         <PackageReference Include="BootstrapBlazor.BarCode" Version="7.0.0" />
         <PackageReference Include="BootstrapBlazor.Chart" Version="7.0.0" />
-        <PackageReference Include="Densen.Component.Blazor" Version="7.0.0" />
-        <PackageReference Include="FreeSql" Version="3.2.682" />
         <PackageReference Include="BootstrapBlazor.FontAwesome" Version="7.0.0" />
         <PackageReference Include="BootstrapBlazor.BaiduMap" Version="7.0.0" />
         <PackageReference Include="BootstrapBlazor.Geolocation" Version="7.0.0" />
@@ -28,15 +26,17 @@
         <PackageReference Include="BootstrapBlazor.WebAPI" Version="7.0.0" />
         <PackageReference Include="BootstrapBlazor.Maps" Version="7.0.0" />
         <PackageReference Include="BootstrapBlazor.Bluetooth" Version="7.0.0" />
-        <PackageReference Include="BootstrapBlazor.OCR" Version="7.0.0" />
+        <PackageReference Include="BootstrapBlazor.OCR" Version="7.0.2" />
         <PackageReference Include="BootstrapBlazor.OnScreenKeyboard" Version="7.0.0" />
         <PackageReference Include="BootstrapBlazor.SignaturePad" Version="7.0.0" />
         <PackageReference Include="BootstrapBlazor.FileSystem" Version="7.0.0" />
+        <PackageReference Include="Densen.Component.Blazor" Version="7.0.2" />
+        <PackageReference Include="FreeSql" Version="3.2.682" />
         <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.0" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(Configuration)'!='Preview'">
-        <PackageReference Include="Densen.Extensions.BootstrapBlazor" Version="7.0.0" />
+        <PackageReference Include="Densen.Extensions.BootstrapBlazor" Version="7.0.2" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(Configuration)'=='Preview'">

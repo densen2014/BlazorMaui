@@ -1,11 +1,8 @@
-﻿@page "/ocr"
+﻿@namespace BlazorShared.Pages
+@page "/ocr"
 @attribute [TabItemOption(Text = "OCR")]
 
 <h4>光学字符识别 OCR</h4>
+<span style="color:gainsboro">@AzureCvKey</span>
 <OCR ShowUI="true" ShowUI_Capture="true" ShowUI_Url="true" Debug="true" />
 
-
-@code{
-    
-
-}

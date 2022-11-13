@@ -14,86 +14,86 @@ using BlazorShared.Models;
 using Newtonsoft.Json;
 using AME.Services;
 
-namespace BlazorShared.Pages
+namespace BlazorShared.Pages;
+
+public partial class Index
 {
-    public partial class Index
+    [Inject] protected HttpClient? Http { get; set; }
+    [Inject] protected ILogger<Index>? Logger { get; set; }
+    [Inject] protected WebClientInfoProvider? WebClientInfo { get; set; }
+    [Inject] protected ClipboardService? ClipboardService { get; set; }
+    [Inject] protected IIPAddressManager? IPAddressManager { get; set; }
+    [Inject] protected ITools? Tools { get; set; }
+    //[Inject] protected IFreeSql fsql { get; set; }
+
+    private List<PcStatus> pcStatuss;
+    private List<PC> pcs;
+    private List<Item> records;
+    private string 文字;
+    private string Locations;
+    private string PhotoFilename;
+    private string version;
+    private string 定位权限;
+    private string 摄像机权限;
+    private string 导航消息;
+    private string 截屏消息;
+
+    private bool isBusy;
+    TableLazyHero<PC> list1 { get; set; }
+    private List<string> ComponentItems { get; set; } = new List<string>();
+
+    private CancellationTokenSource AutoRefreshCancelTokenSource { get; set; }
+
+    protected override void OnAfterRender(bool firstRender)
     {
-        [Inject] protected HttpClient Http { get; set; }
-        [Inject] protected ILogger<Index> Logger { get; set; }
-        [Inject] protected WebClientInfoProvider WebClientInfo { get; set; }
-        [Inject] protected ClipboardService ClipboardService { get; set; }
-        [Inject] protected IIPAddressManager IPAddressManager { get; set; }
-        [Inject] protected ITools Tools { get; set; }
-        //[Inject] protected IFreeSql fsql { get; set; }
-
-        private List<PcStatus> pcStatuss;
-        private List<PC> pcs;
-        private List<Item> records;
-        private string 文字;
-        private string Locations;
-        private string PhotoFilename;
-        private string version;
-        private string 定位权限;
-        private string 摄像机权限;
-        private string 导航消息;
-        private string 截屏消息;
-
-        private bool isBusy;
-        TableLazyHero<PC> list1 { get; set; }
-        private List<string> ComponentItems { get; set; } = new List<string>();
-
-        private CancellationTokenSource AutoRefreshCancelTokenSource { get; set; }
-
-        protected override void OnAfterRender(bool firstRender)
+        if (firstRender)
         {
-            if (firstRender)
-            {
-                //worker();
-                //records = fsql.Select<Item>().ToList();
-                version= Tools.GetAppInfo();
-            }
+            //worker();
+            //records = fsql.Select<Item>().ToList();
+            version= Tools.GetAppInfo();
         }
+    }
 
-        /// <summary>
-        /// Dispose 方法
-        /// </summary>
-        public void Dispose()
-        {
-            AutoRefreshCancelTokenSource = null;
-        }
+    /// <summary>
+    /// Dispose 方法
+    /// </summary>
+    public void Dispose()
+    {
+        AutoRefreshCancelTokenSource = null;
+    }
 
-        public void worker()
+    public void worker()
+    {
+        AutoRefreshCancelTokenSource = new CancellationTokenSource();
+        _ = Task.Run(async () =>
         {
-            AutoRefreshCancelTokenSource = new CancellationTokenSource();
-            _ = Task.Run(async () =>
+            try
             {
-                try
+                while (!(AutoRefreshCancelTokenSource?.IsCancellationRequested ?? true))
                 {
-                    while (!(AutoRefreshCancelTokenSource?.IsCancellationRequested ?? true))
+                    await 刷新();
+                    await InvokeAsync(StateHasChanged);
+                    if (list1 != null)
                     {
-                        await 刷新();
-                        await InvokeAsync(StateHasChanged);
-                        if (list1 != null)
-                        {
-                            await InvokeAsync(() => list1?.Load(pcs));
-                        }
-                        await Task.Delay(TimeSpan.FromMinutes(5), AutoRefreshCancelTokenSource?.Token ?? new CancellationToken(true));
+                        await InvokeAsync(() => list1?.Load(pcs));
                     }
+                    await Task.Delay(TimeSpan.FromMinutes(5), AutoRefreshCancelTokenSource?.Token ?? new CancellationToken(true));
                 }
-                catch
-                {
-                }
-            });
+            }
+            catch
+            {
+            }
+        });
 
-        }
+    }
 
-        private Task 刷新()
-        {
-            if (isBusy) return Task.CompletedTask;
-            isBusy = true;
-            Logger.LogInformation($"{DateTime.Now.ToString("HH:mm:ss")} 读API");
-            //var res = await Http?.GetStringAsync("https://xxxxx");
-            var res = @"
+    private Task 刷新()
+    {
+        if (isBusy) return Task.CompletedTask;
+        isBusy = true;
+        Logger.LogInformation($"{DateTime.Now.ToString("HH:mm:ss")} 读API");
+        //var res = await Http?.GetStringAsync("https://xxxxx");
+        var res = @"
                         {
                         ""count"": 13,
                         ""working"": 13,
@@ -130,42 +130,41 @@ namespace BlazorShared.Pages
                         }
                         ]
                         }";
-            var pcStatus = JsonConvert.DeserializeObject<PcStatus>(res);
-            pcStatuss = new List<PcStatus> { pcStatus };
-            pcs = pcStatus.PCs;
-            isBusy = false;
-            return Task.CompletedTask;
-        }
-
-        private async Task 刷新数据()
-        {
-            if (isBusy) return;
-            await 刷新();
-            await list1.Load(pcs);
-        }
-
-        async Task 粘贴()
-        {
-            try
-            {
-                文字 = await ClipboardService.ReadTextAsync();
-            }
-            catch
-            {
-            }
-        }
-        async Task 获取定位() => Locations = await Tools.GetCurrentLocation();
-        async Task TakePhoto() => PhotoFilename = await Tools.TakePhoto();
-        async Task 检查定位权限() => 定位权限 = await Tools.CheckPermissionsLocation();
-        async Task 检查摄像机权限() => 摄像机权限 = await Tools.CheckPermissionsCamera();
-        void ShowSettingsUI() =>   Tools.ShowSettingsUI();
-
-        async Task NavigateToMadrid() => 导航消息 = await Tools.NavigateToMadrid();
-        async Task NavigateToPlazaDeEspana() => 导航消息 = await Tools.NavigateToPlazaDeEspana();
-        async Task NavigateToPlazaDeEspanaByPlacemark() => 导航消息 = await Tools.NavigateToPlazaDeEspanaByPlacemark();
-        async Task DriveToPlazaDeEspana() => 导航消息 = await Tools.DriveToPlazaDeEspana();
-        async Task TakeScreenshotAsync() => 截屏消息 = await Tools.TakeScreenshotAsync();
+        var pcStatus = JsonConvert.DeserializeObject<PcStatus>(res);
+        pcStatuss = new List<PcStatus> { pcStatus };
+        pcs = pcStatus.PCs;
+        isBusy = false;
+        return Task.CompletedTask;
     }
+
+    private async Task 刷新数据()
+    {
+        if (isBusy) return;
+        await 刷新();
+        await list1.Load(pcs);
+    }
+
+    async Task 粘贴()
+    {
+        try
+        {
+            文字 = await ClipboardService.ReadTextAsync();
+        }
+        catch
+        {
+        }
+    }
+    async Task 获取定位() => Locations = await Tools.GetCurrentLocation();
+    async Task TakePhoto() => PhotoFilename = await Tools.TakePhoto();
+    async Task 检查定位权限() => 定位权限 = await Tools.CheckPermissionsLocation();
+    async Task 检查摄像机权限() => 摄像机权限 = await Tools.CheckPermissionsCamera();
+    void ShowSettingsUI() =>   Tools.ShowSettingsUI();
+
+    async Task NavigateToMadrid() => 导航消息 = await Tools.NavigateToMadrid();
+    async Task NavigateToPlazaDeEspana() => 导航消息 = await Tools.NavigateToPlazaDeEspana();
+    async Task NavigateToPlazaDeEspanaByPlacemark() => 导航消息 = await Tools.NavigateToPlazaDeEspanaByPlacemark();
+    async Task DriveToPlazaDeEspana() => 导航消息 = await Tools.DriveToPlazaDeEspana();
+    async Task TakeScreenshotAsync() => 截屏消息 = await Tools.TakeScreenshotAsync();
 }
 
 
