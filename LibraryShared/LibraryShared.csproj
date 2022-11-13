@@ -2,9 +2,16 @@
 
     <PropertyGroup>
         <TargetFrameworks>net7.0;net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
-        <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);net6.0-windows10.0.19041</TargetFrameworks>
+        <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
         <ImplicitUsings>enable</ImplicitUsings>
-        <Configurations>Debug;Release;DebugFsql</Configurations>
+        <SingleProject>true</SingleProject> 
+        <EnableDefaultCssItems>false</EnableDefaultCssItems>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+        <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+        <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -12,13 +19,5 @@
         <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.0" />
         <PackageReference Include="FreeSql.Provider.SqliteCore" Version="3.2.682" />
     </ItemGroup>
-
-    <ItemGroup Condition="'$(Configuration)' != 'DebugFsql'">
-    </ItemGroup>
-
-    <!--<ItemGroup Condition="'$(Configuration)' == 'DebugFsql'">
-		<ProjectReference Include="..\..\FreeSql\FreeSql\FreeSql.csproj" />
-		<ProjectReference Include="..\..\FreeSql\Providers\FreeSql.Provider.Sqlite\FreeSql.Provider.Sqlite.csproj" />
-	</ItemGroup>-->
 
 </Project>
