@@ -37,26 +37,23 @@
 
         <!-- Comment out the line below to display a permission request dialog on Windows instead of handling permissions silently -->
         <DefineConstants Condition="$(TargetFramework.Contains('-windows'))">HANDLE_WEBVIEW2_PERMISSIONS_SILENTLY</DefineConstants>
+        <DefaultLanguage>zh-cn</DefaultLanguage>
 
         <CodesignKey>Apple Development: zhou chuanglin (W9D8HB5VZK)</CodesignKey>
         <CodesignProvision>VS: WildCard Development</CodesignProvision>
-        <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
-        <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
+        <ProvisioningType>automatic</ProvisioningType>
         
         <!--dev mac-->
         <!--<PackageCertificateThumbprint>D4E5589AA51C416803316B8D756DBDEBE48116EF</PackageCertificateThumbprint>-->
         <!--dev gamepc-->
         <!--<PackageCertificateThumbprint>B9114BEA32366AB6BD03E3101F0C223B71CD966F</PackageCertificateThumbprint>-->
-        
-        <PackageCertificateThumbprint>B9114BEA32366AB6BD03E3101F0C223B71CD966F</PackageCertificateThumbprint>
-        <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+
+        <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
         <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
         <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
         <GenerateTestArtifacts>True</GenerateTestArtifacts>
-        <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
         <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
-        <ProvisioningType>automatic</ProvisioningType>
-        <DefaultLanguage>zh-cn</DefaultLanguage>
+        <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
     </PropertyGroup>
 
     <PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows' and '$(RuntimeIdentifierOverride)' != ''">
