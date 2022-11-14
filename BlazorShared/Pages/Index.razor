@@ -23,6 +23,16 @@
         <Button Text="导航到西班牙广场" OnClick="DriveToPlazaDeEspana" /><br /><br />
         <Button Text="截屏" OnClick="TakeScreenshotAsync" /><br /><br />
         <span>@截屏消息</span><br /><br />
+        <br />
+        AppDataDirectory:<br />
+        <span>@Tools.AppDataDirectory()</span>
+        <br />
+        CacheDirectory:<br />
+        <span>@Tools.CacheDirectory()</span>
+        <br />
+        BaseDirectory:
+        <br />
+        @AppDomain.CurrentDomain.BaseDirectory
     </TabItem>
     <TabItem Text="PC">
         <Table TItem="PcStatus"

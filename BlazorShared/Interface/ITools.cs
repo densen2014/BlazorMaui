@@ -24,7 +24,7 @@
         List<string> GetPortlist();
         
         string CacheDirectory();
-
+        string AppDataDirectory();
     }
 
     public class NullService : ITools
@@ -83,6 +83,7 @@
         }
 #endif
         public string CacheDirectory() => AppDomain.CurrentDomain.BaseDirectory;
+        public string AppDataDirectory() => AppDomain.CurrentDomain.BaseDirectory;
 
     }
 }

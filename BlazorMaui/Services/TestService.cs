@@ -509,6 +509,7 @@ namespace LibraryShared
         }
 #endif
         public string CacheDirectory() => FileSystem.CacheDirectory;
+        public string AppDataDirectory() => FileSystem.AppDataDirectory;
         
     }
 
