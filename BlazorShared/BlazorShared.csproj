@@ -26,7 +26,7 @@
         <PackageReference Include="BootstrapBlazor.WebAPI" Version="7.0.0" />
         <PackageReference Include="BootstrapBlazor.Maps" Version="7.0.0" />
         <PackageReference Include="BootstrapBlazor.Bluetooth" Version="7.0.0" />
-        <PackageReference Include="BootstrapBlazor.OCR" Version="7.0.2" />
+        <!--<PackageReference Include="BootstrapBlazor.OCR" Version="7.0.2" />-->
         <PackageReference Include="BootstrapBlazor.OnScreenKeyboard" Version="7.0.0" />
         <PackageReference Include="BootstrapBlazor.SignaturePad" Version="7.0.0" />
         <PackageReference Include="BootstrapBlazor.FileSystem" Version="7.0.0" />
@@ -44,6 +44,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\BootstrapBlazor.OCR\src\BootstrapBlazor.OCR\BootstrapBlazor.OCR.csproj" />
         <ProjectReference Include="..\LibraryShared\LibraryShared.csproj" />
         <!--<ProjectReference Include="..\..\BootstrapBlazor\src\BootstrapBlazor\BootstrapBlazor.csproj" />-->
     </ItemGroup>
