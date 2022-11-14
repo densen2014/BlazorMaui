@@ -18,14 +18,45 @@ namespace BlazorMaui
             var builder = MauiApp.CreateBuilder();
 
             #region Configuration
-            var a = Assembly.GetExecutingAssembly();
-            using var stream = a.GetManifestResourceStream("BlazorMaui.appsettings.json");
-            builder.Configuration.AddJsonStream(stream);
-            var AzureCvKey_Stream = builder.Configuration!["AzureCvKey"];
+            //使用内置资源
+            //需要在项目属性中设置生成操作为嵌入资源
+            //<ItemGroup>
+            //<EmbeddedResource Include="appsettings.json" />
+            //</ItemGroup>            
+            //try
+            //{
+            //    var a = Assembly.GetExecutingAssembly();
+            //    using var stream = a.GetManifestResourceStream("BlazorMaui.appsettings.json");
+            //    if (stream!=null) builder.Configuration.AddJsonStream(stream);
+            //}
+            //catch (Exception e)
+            //{
+            //    Console.WriteLine(e.Message);
+            //}
+
+            //使用 MauiAsset : appsettings.json
+            //文件属性生成操作为 MauiAsset 和 不复制
+            //<ItemGroup>
+            //  <MauiAsset Include="appsettings.json">
+            //    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+            //  </MauiAsset>
+            //</ItemGroup> 
+            //需要在项目属性中 Remove 文件
+            //<ItemGroup>
+            //  <Content Remove="appsettings.json" />
+            //</ItemGroup>
+            try
+            {
+                var stream = LoadMauiAsset().Result; 
+                if (stream!=null) builder.Configuration.AddJsonStream(stream);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
             builder.Configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-            var AzureCvKey_JsonFile = builder.Configuration!["AzureCvKey"];
+            //windows/ssr 平台可用 UserSecrets , 其他平台没用
             builder.Configuration.AddUserSecrets<ConfigFake>();
-            var AzureCvKey_UserSecrets = builder.Configuration!["AzureCvKey"];
             #endregion
 
             builder
@@ -55,6 +86,23 @@ namespace BlazorMaui
             return builder.Build();
         }
 
+        async static Task<Stream> LoadMauiAsset()
+        {
+            try
+            {
 
+                using var stream = await FileSystem.OpenAppPackageFileAsync("appsettings.json");
+                using var reader = new StreamReader(stream);
+
+                var contents = reader.ReadToEnd();
+                Console.WriteLine("OpenAppPackageFileAsync => " + contents);
+                return stream;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("OpenAppPackageFileAsync Exception => " + e.Message);
+            }
+            return null;
+        }
     }
 }

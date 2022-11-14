@@ -4,6 +4,7 @@ using Microsoft.Maui.Controls;
 using Microsoft.Maui.Platform;
 using System;
 using static Microsoft.Maui.ApplicationModel.Permissions;
+using System.IO;
 #if ANDROID
 using AndroidX.Activity;
 #elif WINDOWS
@@ -21,6 +22,7 @@ namespace BlazorMaui
             _blazorWebView.BlazorWebViewInitialized += BlazorWebViewInitialized;
             _blazorWebView.BlazorWebViewInitializing += BlazorWebViewInitializing;
         }
+
 
         private void BlazorWebViewInitialized(object? sender, BlazorWebViewInitializedEventArgs e)
         {
