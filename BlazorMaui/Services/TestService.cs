@@ -508,6 +508,8 @@ namespace LibraryShared
             }
         }
 #endif
+        public string CacheDirectory() => FileSystem.CacheDirectory;
+        
     }
 
 

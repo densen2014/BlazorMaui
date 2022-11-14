@@ -26,6 +26,7 @@ namespace LibraryShared
         {
             return System.IO.Ports.SerialPort.GetPortNames().ToList();
         }
+        public string CacheDirectory() => AppDomain.CurrentDomain.BaseDirectory;
 
     }
 

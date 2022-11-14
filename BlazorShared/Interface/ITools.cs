@@ -22,6 +22,9 @@
         Task<string> DriveToPlazaDeEspana();
         Task<string> TakeScreenshotAsync();
         List<string> GetPortlist();
+        
+        string CacheDirectory();
+
     }
 
     public class NullService : ITools
@@ -79,6 +82,7 @@
             }
         }
 #endif
+        public string CacheDirectory() => AppDomain.CurrentDomain.BaseDirectory;
 
     }
 }
