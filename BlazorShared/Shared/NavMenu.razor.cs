@@ -18,16 +18,25 @@ public partial class NavMenu
             new MenuItem() { Text = "定位 Geolocation", Url = "/geolocations" },
             new MenuItem() { Text = "图片浏览 Viewer", Url = "/viewer" },
             new MenuItem() { Text = "蓝牙和打印 Bluetooth & Printer", Url = "/Bluetooth" },
-            new MenuItem() { Text = "光学字符识别 OCR", Url = "/ocr" },
-            new MenuItem() { Text = "AI表格识别 AI Form", Url = "/aiform" },
             new MenuItem() { Text = "文件系统 FileSystem", Url = "/filesystems" },
             new MenuItem() { Text = "屏幕键盘 OSK", Url = "/onscreenkeyboards" },
-            new MenuItem() { Text = "百度地图 Baidu Map", Url = "/baidumap" },
-            new MenuItem() { Text = "谷歌地图 Maps", Url = "/maps" },
+            new MenuItem() { Text = "环境 Environment", Url = "/EnvironmentInfo" },
             new MenuItem() { Text = "系统信息 System info", Url = "/webapis" },
-            new MenuItem() { Text = "图表", Url = "/charts" },
+            new MenuItem() { Text = "地图" ,Items= new List<MenuItem>
+                {
+                    new MenuItem() { Text = "百度地图 Baidu Map", Url = "/baidumap" },
+                    new MenuItem() { Text = "谷歌地图 Maps", Url = "/maps" },
+                }
+            },
+            new MenuItem() { Text = "云服务" ,Items= new List<MenuItem>
+                {
+                    new MenuItem() { Text = "光学字符识别 OCR", Url = "/ocr" },
+                    new MenuItem() { Text = "AI表格识别 AI Form", Url = "/aiform" },
+                }
+            },
             new MenuItem() { Text = "其他" ,Items= new List<MenuItem>
                 {
+                new MenuItem() { Text = "图表", Url = "/charts" },
                     new MenuItem() { Text = "Barcode", Url = "/barcode" },
                     new MenuItem() { Text = "Upload", Url = "/Upload" },
                     new MenuItem() { Text = "Freesql", Url = "/FreesqlPage" },
@@ -41,6 +50,7 @@ public partial class NavMenu
                 {
                     new MenuItem() { Text = "串口", Url = "/serials" },
                 }
-            }
+            },
+            new MenuItem() { Text = "关于 About", Url = "/AboutMe" },
     };
 }

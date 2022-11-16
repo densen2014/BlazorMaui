@@ -23,16 +23,26 @@
         <Button Text="导航到西班牙广场" OnClick="DriveToPlazaDeEspana" /><br /><br />
         <Button Text="截屏" OnClick="TakeScreenshotAsync" /><br /><br />
         <span>@截屏消息</span><br /><br />
-        <br />
-        AppDataDirectory:<br />
-        <span>@Tools.AppDataDirectory()</span>
-        <br />
-        CacheDirectory:<br />
-        <span>@Tools.CacheDirectory()</span>
-        <br />
-        BaseDirectory:
-        <br />
-        @AppDomain.CurrentDomain.BaseDirectory
+    </TabItem> 
+    <TabItem Text="@version">
+        <Badge Color="Color.Primary">
+            机器码 ID: @IPAddressManager.GetIdentifier();
+        </Badge>
+        <Badge Color="Color.Success">
+            IP: @WebClientInfo.ClientIpAddress;
+        </Badge>
+        <Badge Color="Color.Warning">
+            IP: @IPAddressManager.GetIPAddress();
+        </Badge>
+        @foreach (var item in IPAddressManager.GetIPAddresList())
+        {
+            <Badge Color="Color.Info">
+                IPs: @item;
+            </Badge>
+
+        }
+        <Button Text="粘贴" OnClick="粘贴" />
+        <span>@文字</span>
     </TabItem>
     <TabItem Text="PC">
         <Table TItem="PcStatus"
@@ -55,39 +65,4 @@
                Items="@records"
                AutoGenerateColumns="true" />
     </TabItem>
-    <TabItem Text="其他">
-        <p></p>
-        <h4>Demo for Blazor & BootstrapBlazor</h4>
-        <p></p>
-        <p></p>
-        <p><a href="https://www.cnblogs.com/densen2014/">博客园</a></p>
-        <p><a href="https://toutiao.com/c/user/53462780186/?from=qrcode">头条</a></p>
-        <p><a href="https://blog.csdn.net/alex_zoucn">CSDN</a></p>
-        <p><a href="https://www.zhihu.com/people/alex-chow-54">知乎</a></p>
-        <p><a href="https://github.com/densen2014/Densen.Extensions">GitHub</a></p>
-        <p><a href="https://gitee.com/densen2014/Densen.Extensions">Gitee</a></p>
-        <p><a href="https://github.com/densen2014/BlazorMaui">BlazorMaui</a></p>
-        <p><a href="https://www.nuget.org/profiles/DensenInformatica">Nuget</a></p>
-    </TabItem>
-    <TabItem Text="@version">
-        <Badge Color="Color.Primary">
-            机器码 ID: @IPAddressManager.GetIdentifier();
-        </Badge>
-        <Badge Color="Color.Success">
-            IP: @WebClientInfo.ClientIpAddress;
-        </Badge>
-        <Badge Color="Color.Warning">
-            IP: @IPAddressManager.GetIPAddress();
-        </Badge>
-        @foreach (var item in IPAddressManager.GetIPAddresList())
-        {
-            <Badge Color="Color.Info">
-                IPs: @item;
-            </Badge>
-
-        }
-        <Button Text="粘贴" OnClick="粘贴" />
-        <span>@文字</span>
-    </TabItem>
-
 </Tab>
