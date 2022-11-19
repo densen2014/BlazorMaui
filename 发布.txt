@@ -17,3 +17,7 @@ dotnet publish -f net7.0-windows10.0.19041.0 -c Release
 
 
 dotnet publish -f:net7.0-android -c:Release
+
+https://learn.microsoft.com/zh-cn/dotnet/maui/android/deployment/publish-cli?source=recommendations&view=net-maui-7.0
+
+dotnet publish -f:net7.0-android -c:Release /p:AndroidSigningKeyPass=123456 /p:AndroidSigningStorePass=123456

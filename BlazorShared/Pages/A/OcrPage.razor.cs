@@ -15,7 +15,7 @@ public partial class OcrPage
     {
         if (firstRender)
         {
-            AzureCvKey= config!["AzureCvKey"];
+            AzureCvKey= config!["AzureCvKey"].Substring(0,6);
             StateHasChanged();
         }
     }

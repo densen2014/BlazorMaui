@@ -55,9 +55,22 @@
         <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
         <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
     </PropertyGroup>
-
+    
+    <PropertyGroup Condition="$(TargetFramework.Contains('-android')) and '$(Configuration)' == 'Release'">
+        <AndroidKeyStore>True</AndroidKeyStore>
+        <AndroidSigningKeyStore>myapp.keystore</AndroidSigningKeyStore>
+        <AndroidSigningKeyAlias>key</AndroidSigningKeyAlias>
+        <AndroidSigningKeyPass></AndroidSigningKeyPass>
+        <AndroidSigningStorePass></AndroidSigningStorePass>
+    </PropertyGroup>
+    
     <PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows' and '$(RuntimeIdentifierOverride)' != ''">
         <RuntimeIdentifier>$(RuntimeIdentifierOverride)</RuntimeIdentifier>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(TargetFramework)'=='net7.0-ios'">
+      <CodesignKey>Apple Development: zhou chuanglin (W9D8HB5VZK)</CodesignKey>
+      <CodesignProvision>VS: WildCard Development</CodesignProvision>
     </PropertyGroup>
     
     <ItemGroup>
