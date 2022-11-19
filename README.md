@@ -16,7 +16,10 @@
 > 
 > 在 Windows 上开发 .NET MAUI <https://docs.microsoft.com/zh-cn/dotnet/maui/get-started/installation>
 >
+----
 > 安卓 App https://play.google.com/apps/internaltest/4701712767813053732
+> 
+> APK https://app1.es/maui/net7.0-android/es.app1.BlazorMaui-Signed.apk
 ----
  
 1.Blazor 简介  
