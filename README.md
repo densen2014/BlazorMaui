@@ -15,7 +15,8 @@
 > 在 M1 Mac 上开发 .NET MAUI (iOS) <https://www.cnblogs.com/densen2014/p/16057563.html>
 > 
 > 在 Windows 上开发 .NET MAUI <https://docs.microsoft.com/zh-cn/dotnet/maui/get-started/installation>
-
+>
+> 安卓 App https://play.google.com/apps/internaltest/4701712767813053732
 ----
  
 1.Blazor 简介  
