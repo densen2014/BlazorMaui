@@ -8,8 +8,8 @@ namespace BlazorShared.Pages;
 public sealed partial class BaiduMapPage
 {
 
-    private string message;
-    private BaiduItem baiduItem;
+    private string? message;
+    private BaiduItem? baiduItem;
 
     private Task OnResult(BaiduItem geolocations)
     {

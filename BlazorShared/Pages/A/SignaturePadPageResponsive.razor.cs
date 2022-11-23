@@ -8,14 +8,14 @@ namespace BlazorShared.Pages;
 
 public sealed partial class SignaturePadPageResponsive
 {
-    string SaveResult;
-    [Inject] IHostingEnvironment Environment { get; set; }
-    public async Task<string> SaveImgBaseSixFour(string img)
+    string? SaveResult;
+    [Inject] IHostingEnvironment? Environment { get; set; }
+    public async Task<string?> SaveImgBaseSixFour(string? img)
     {
         try
         {
             //var SignatureDir = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wwwroot", "signature");
-            var SignatureDir = Path.Combine(Environment.ContentRootPath, "wwwroot", "signature");
+            var SignatureDir = Path.Combine(Environment!.ContentRootPath, "wwwroot", "signature");
             if (!Directory.Exists(SignatureDir)) Directory.CreateDirectory(SignatureDir);
 
             if (img == null)

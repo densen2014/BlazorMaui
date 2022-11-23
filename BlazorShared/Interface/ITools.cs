@@ -12,19 +12,19 @@
 
         Task<string> CheckMock();
 
-        double DistanceBetweenTwoLocations();
+        double? DistanceBetweenTwoLocations();
 
         void ShowSettingsUI();
-        string GetAppInfo();
+        string? GetAppInfo();
         Task<string> NavigateToMadrid();
         Task<string> NavigateToPlazaDeEspana();
         Task<string> NavigateToPlazaDeEspanaByPlacemark();
         Task<string> DriveToPlazaDeEspana();
         Task<string> TakeScreenshotAsync();
-        List<string> GetPortlist();
+        List<string>? GetPortlist();
         
-        string CacheDirectory();
-        string AppDataDirectory();
+        string? CacheDirectory();
+        string? AppDataDirectory();
     }
 
     public class NullService : ITools
@@ -33,14 +33,14 @@
         public Task<string> CheckPermissionsLocation() => Task.FromResult("未实现");
         public Task<string> CheckMock() => Task.FromResult("未实现");
 
-        public double DistanceBetweenTwoLocations() => 0;
+        public double? DistanceBetweenTwoLocations() => 0;
 
         public Task<string> GetCachedLocation() => Task.FromResult("未实现");
 
         public Task<string> GetCurrentLocation() => Task.FromResult("未实现");
         public Task<string> TakePhoto() => Task.FromResult("未实现");
         public void ShowSettingsUI() { }
-        public string GetAppInfo() => "未实现";
+        public string? GetAppInfo() => "未实现";
         public Task<string> NavigateToMadrid() => Task.FromResult("未实现");
         public Task<string> NavigateToPlazaDeEspana() => Task.FromResult("未实现");
         public Task<string> NavigateToPlazaDeEspanaByPlacemark() => Task.FromResult("未实现");
@@ -48,12 +48,12 @@
         public Task<string> TakeScreenshotAsync() => Task.FromResult("未实现");
 
 #if WINDOWS
-        public List<string> GetPortlist()
+        public List<string>? GetPortlist()
         {
             return System.IO.Ports.SerialPort.GetPortNames().ToList();
         }
 #elif ANDROID || IOS || MACCATALYST
-        public List<string> GetPortlist()
+        public List<string>? GetPortlist()
         {
             if (OperatingSystem.IsIOS() || OperatingSystem.IsMacCatalyst())
             {
@@ -70,7 +70,7 @@
             
         }
 #else
-        public List<string> GetPortlist()
+        public List<string>? GetPortlist()
         {
             if (OperatingSystem.IsWindows())
             {
@@ -82,8 +82,8 @@
             }
         }
 #endif
-        public string CacheDirectory() => AppDomain.CurrentDomain.BaseDirectory;
-        public string AppDataDirectory() => AppDomain.CurrentDomain.BaseDirectory;
+        public string? CacheDirectory() => AppDomain.CurrentDomain.BaseDirectory;
+        public string? AppDataDirectory() => AppDomain.CurrentDomain.BaseDirectory;
 
     }
 }

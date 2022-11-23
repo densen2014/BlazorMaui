@@ -1,6 +1,7 @@
 ﻿using BlazorShared.Services;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
+using System.Runtime.Versioning;
 #if (ANDROID)
 using System.Net;
 #endif
@@ -13,16 +14,16 @@ namespace Shared.DependencyServices
 {
     public class IPAddressManager : IIPAddressManager
     {
-        public string firstMacAddress()
+        [UnsupportedOSPlatform("browser")]
+        public string? FirstMacAddress()
         {
             try
-            {
-
+            {                
                 return NetworkInterface
                        .GetAllNetworkInterfaces()
                        .Where(nic => nic.OperationalStatus == OperationalStatus.Up && nic.NetworkInterfaceType != NetworkInterfaceType.Loopback)
                        .Select(nic => nic.GetPhysicalAddress().ToString())
-                       .FirstOrDefault();
+                       .FirstOrDefault()?? "UnknowMacAddress";
             }
             catch (Exception)
             {
@@ -33,7 +34,7 @@ namespace Shared.DependencyServices
 
 
 #if (ANDROID)
-        public string GetIPAddress()
+        public string? GetIPAddress()
         {
             IPAddress[] adresses = Dns.GetHostAddresses(Dns.GetHostName());
 
@@ -56,7 +57,8 @@ namespace Shared.DependencyServices
 
 #else
 
-        public string GetIPAddress()
+        [UnsupportedOSPlatform("browser")]
+        public string? GetIPAddress()
         {
             string ipAddress = "";
 
@@ -86,6 +88,7 @@ namespace Shared.DependencyServices
             return ipAddress;
         }
 
+        [UnsupportedOSPlatform("browser")]
         public List<string> GetIPAddresList()
         {
             var ipAddress = new List<string>();
@@ -118,25 +121,25 @@ namespace Shared.DependencyServices
 #endif
 
 #if (ANDROID)
-        public string GetIdentifier()
+        public string? GetIdentifier()
         {
             return Android.Provider.Settings.Secure.GetString(Android.App.Application.Context.ContentResolver, Android.Provider.Settings.Secure.AndroidId);
         }
 
-        public string GetVersion()
+        public string? GetVersion()
         {
             var activity = Android.App.Application.Context;
             return activity.PackageManager.GetPackageInfo(activity.PackageName, 0).VersionName;
         }
 #else
 #if (IOS || MACCATALYST)
-        public string GetIdentifier()
+        public string? GetIdentifier()
         {
             var query = new SecRecord(SecKind.GenericPassword);
             query.Service = NSBundle.MainBundle.BundleIdentifier;
             query.Account = "UniqueID";
 
-            NSData uniqueId = SecKeyChain.QueryAsData(query);
+            NSData? uniqueId = SecKeyChain.QueryAsData(query);
             if (uniqueId == null)
             {
                 query.ValueData = NSData.FromString(System.Guid.NewGuid().ToString());
@@ -152,12 +155,13 @@ namespace Shared.DependencyServices
             }
         }
 
-        public string GetVersion()
+        public string? GetVersion()
         {
             return NSBundle.MainBundle.InfoDictionary["CFBundleShortVersionString"].ToString();
         }
 #else
-        public string GetIdentifier()
+        [UnsupportedOSPlatform("browser")]
+        public string? GetIdentifier()
         {
             try
             {
@@ -167,6 +171,7 @@ namespace Shared.DependencyServices
                                                    nic.NetworkInterfaceType == NetworkInterfaceType.Ethernet))
                                .Select(nic => nic.GetPhysicalAddress())
                                .FirstOrDefault();
+                if (macAddress==null) return "UnknowIdentifier";
                 return string.Join(":", (from ma in macAddress.GetAddressBytes() select ma.ToString("X2")).ToArray());
             }
             catch (Exception)
@@ -175,7 +180,7 @@ namespace Shared.DependencyServices
             }
         }
 
-        public string GetVersion()
+        public string? GetVersion()
         {
             return "1.17";
         }

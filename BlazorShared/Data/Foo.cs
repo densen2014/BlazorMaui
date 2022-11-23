@@ -28,9 +28,7 @@ public class Foo
     [Required(ErrorMessage = "{0}不能为空")]
     [AutoGenerateColumn(Order = 10, Filterable = true, Searchable = true)]
     [Display(Name = "姓名")]
-#nullable enable
     public string? Name { get; set; }
-#nullable disable
 
     /// <summary>
     ///

@@ -12,12 +12,13 @@ using BootstrapBlazor.Components;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BlazorShared.Pages
 {
     public partial class QRCodes
     {
-        [Inject] protected ToastService ToastService { get; set; }
+        [Inject,NotNull] protected ToastService? ToastService { get; set; }
 
         private Task OnGenerated()
         {

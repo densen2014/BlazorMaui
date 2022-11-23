@@ -15,9 +15,9 @@ public partial class TableDemo : ComponentBase
 {
     [Inject]
     [NotNull]
-#nullable enable
+
     private IStringLocalizer<Foo>? Localizer { get; set; }
-#nullable disable 
+
 
     private readonly ConcurrentDictionary<Foo, IEnumerable<SelectedItem>> _cache = new();
 

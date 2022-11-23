@@ -13,15 +13,17 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using LibraryShared;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BlazorShared.Pages
 {
     public partial class FreesqlPage
     {
         List<TaskItem> ItemList = new List<TaskItem>();
-        DataService dataService;
+        [NotNull]
+        DataService? dataService { get; set; }
         string CounterLabel = "Current count: 0";
-        TaskItem ItemSelected;
+        TaskItem? ItemSelected;
         int count = 0;
         protected override void OnInitialized()
         {

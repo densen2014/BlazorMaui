@@ -10,7 +10,7 @@ using System.ComponentModel;
 using System;
 
 namespace BlazorShared.Data;
-#nullable enable
+
 
 /// <summary>
 /// 页面

@@ -13,19 +13,20 @@ using Microsoft.Extensions.Logging;
 using BlazorShared.Models;
 using Newtonsoft.Json;
 using AME.Services;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BlazorShared.Pages
 {
     public partial class Serials
     {
-        [Inject] protected ITools Tools { get; set; }
+        [Inject,NotNull] protected ITools? Tools { get; set; }
 
-        private string Status;
+        private string? Status;
 
         private bool isBusy;
-        List<string> PortList { get; set; }
+        List<string>? PortList { get; set; }
 
-        private CancellationTokenSource AutoRefreshCancelTokenSource { get; set; }
+        private CancellationTokenSource? AutoRefreshCancelTokenSource { get; set; }
 
         protected override void OnAfterRender(bool firstRender)
         {

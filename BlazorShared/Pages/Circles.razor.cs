@@ -17,7 +17,7 @@ namespace BlazorShared.Pages
 {
     public partial class Circles
     {
-        [Inject] protected ToastService ToastService { get; set; }
+        [Inject] protected ToastService? ToastService { get; set; }
 
         private int CircleValue = 0;
 

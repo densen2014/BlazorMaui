@@ -14,7 +14,7 @@ public sealed partial class GeolocationPage
     private string? status { get; set; }
     private Geolocationitem? geolocations { get; set; }
     private List<Geolocationitem> Items { get; set; } = new List<Geolocationitem>() { new Geolocationitem() };
-    private string message;
+    private string? message;
 
     private Task OnResult(Geolocationitem geolocations)
     {

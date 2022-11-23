@@ -34,12 +34,15 @@
         <Badge Color="Color.Warning">
             IP: @IPAddressManager.GetIPAddress();
         </Badge>
-        @foreach (var item in IPAddressManager.GetIPAddresList())
+        @if (IPAddressManager!=null && IPAddressManager?.GetIPAddresList() != null)
         {
-            <Badge Color="Color.Info">
-                IPs: @item;
-            </Badge>
+            foreach (var item in IPAddressManager.GetIPAddresList())
+            {
+                <Badge Color="Color.Info">
+                    IPs: @item;
+                </Badge>
 
+            }
         }
         <Button Text="粘贴" OnClick="粘贴" />
         <span>@文字</span>

@@ -13,12 +13,13 @@ using Microsoft.Extensions.Logging;
 using BlazorShared.Models;
 using Newtonsoft.Json;
 using AME.Services;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BlazorShared.Pages;
 
 public partial class EnvironmentInfo
 {
-    [Inject] protected ITools? Tools { get; set; } 
+    [Inject,NotNull] protected ITools? Tools { get; set; } 
 
     protected override void OnAfterRender(bool firstRender)
     {

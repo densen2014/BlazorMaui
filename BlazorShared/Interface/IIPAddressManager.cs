@@ -2,11 +2,11 @@
 {
     public interface IIPAddressManager
     {
-        string firstMacAddress();
-        string GetIPAddress();
-        List<string> GetIPAddresList();
-        string GetVersion();
-        string GetIdentifier();
+        string? FirstMacAddress();
+        string? GetIPAddress();
+        List<string>? GetIPAddresList();
+        string? GetVersion();
+        string? GetIdentifier();
 
     }
 }

@@ -13,36 +13,37 @@ using Microsoft.Extensions.Logging;
 using BlazorShared.Models;
 using Newtonsoft.Json;
 using AME.Services;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BlazorShared.Pages;
 
 public partial class Index
 {
     [Inject] protected HttpClient? Http { get; set; }
-    [Inject] protected ILogger<Index>? Logger { get; set; }
-    [Inject] protected WebClientInfoProvider? WebClientInfo { get; set; }
-    [Inject] protected ClipboardService? ClipboardService { get; set; }
-    [Inject] protected IIPAddressManager? IPAddressManager { get; set; }
-    [Inject] protected ITools? Tools { get; set; }
+    [Inject,NotNull] protected ILogger<Index>? Logger { get; set; }
+    [Inject,NotNull] protected WebClientInfoProvider? WebClientInfo { get; set; }
+    [Inject,NotNull] protected ClipboardService? ClipboardService { get; set; }
+    [Inject,NotNull] protected IIPAddressManager? IPAddressManager { get; set; }
+    [Inject, NotNull] protected ITools? Tools { get; set; }
     //[Inject] protected IFreeSql fsql { get; set; }
 
-    private List<PcStatus> pcStatuss;
-    private List<PC> pcs;
-    private List<Item> records;
-    private string 文字;
-    private string Locations;
-    private string PhotoFilename;
-    private string version;
-    private string 定位权限;
-    private string 摄像机权限;
-    private string 导航消息;
-    private string 截屏消息;
+    private List<PcStatus>? pcStatuss;
+    private List<PC>? pcs;
+    private List<Item>? records;
+    private string? 文字;
+    private string? Locations;
+    private string? PhotoFilename;
+    private string? version;
+    private string? 定位权限;
+    private string? 摄像机权限;
+    private string? 导航消息;
+    private string? 截屏消息;
 
     private bool isBusy;
-    TableLazyHero<PC> list1 { get; set; }
+    TableLazyHero<PC>? list1 { get; set; }
     private List<string> ComponentItems { get; set; } = new List<string>();
 
-    private CancellationTokenSource AutoRefreshCancelTokenSource { get; set; }
+    private CancellationTokenSource? AutoRefreshCancelTokenSource { get; set; }
 
     protected override void OnAfterRender(bool firstRender)
     {
@@ -75,7 +76,7 @@ public partial class Index
                     await InvokeAsync(StateHasChanged);
                     if (list1 != null)
                     {
-                        await InvokeAsync(() => list1?.Load(pcs));
+                        await InvokeAsync(() => list1!.Load(pcs));
                     }
                     await Task.Delay(TimeSpan.FromMinutes(5), AutoRefreshCancelTokenSource?.Token ?? new CancellationToken(true));
                 }
@@ -131,8 +132,11 @@ public partial class Index
                         ]
                         }";
         var pcStatus = JsonConvert.DeserializeObject<PcStatus>(res);
-        pcStatuss = new List<PcStatus> { pcStatus };
-        pcs = pcStatus.PCs;
+        if (pcStatus != null)
+        {
+            pcStatuss = new List<PcStatus> { pcStatus };
+            pcs = pcStatus.PCs;
+        }
         isBusy = false;
         return Task.CompletedTask;
     }
@@ -141,7 +145,7 @@ public partial class Index
     {
         if (isBusy) return;
         await 刷新();
-        await list1.Load(pcs);
+        if (list1 != null) await list1.Load(pcs);
     }
 
     async Task 粘贴()

@@ -18,7 +18,7 @@ namespace BlazorShared.Pages
     public partial class BarCode
     {
 
-        [Inject] protected ToastService ToastService { get; set; }
+        [Inject] protected ToastService? ToastService { get; set; }
 
         protected override void OnAfterRender(bool firstRender)
         {
@@ -46,13 +46,13 @@ namespace BlazorShared.Pages
 
         private Task OnResult(string barcode)
         {
-            ToastService.Success("Scan result", barcode);
+            ToastService!.Success("Scan result", barcode);
             return Task.CompletedTask;
         }
 
         private Task OnError(string error)
         {
-            ToastService.Error(error);
+            ToastService!.Error(error);
             return Task.CompletedTask;
         }
 

@@ -1,7 +1,7 @@
 ﻿@namespace BlazorShared.Pages
 @page "/viewer"
 @attribute [TabItemOption(Text = "图片浏览器")]
-
+@using System.Diagnostics.CodeAnalysis
 <Tab>
     <TabItem Text="多图片">
         &lt;Viewerjs Images="imagesList" /&gt;
@@ -29,11 +29,14 @@
         <div class="docs-galley22 mb-3">
             <ul id="immmmm" class="docs-pictures22 clearfix">
                 @{
-                    var i = 0;
-                    foreach (var item in imagesList)
+                    if (imagesList != null)
                     {
-                        <li><img src="@item"></li>
-                        i++;
+                        var i = 0;
+                        foreach (var item in imagesList)
+                        {
+                            <li><img src="@item"></li>
+                            i++;
+                        }
                     }
                 }
             </ul>
@@ -41,11 +44,11 @@
         <Viewer ID="immmmm" Images="imagesList" UseBuiltinImageDiv="false" toolbarlite="true" />
     </TabItem>
     <TabItem Text="单图片">
-        &lt;Viewerjs Src="@imagesList[2]" Width="600px" Height="300px" /&gt;
+        &lt;Viewerjs Src="@imagesList![2]" Width="600px" Height="300px" /&gt;
         <Viewer Src="@imagesList[2]" Width="600px" Height="300px" />
     </TabItem>
     <TabItem Text="单图片+简化工具条">
-        &lt;Viewerjs Src="@imagesList[4]" Width="600px" Height="300px" toolbarlite="true" /&gt;
+        &lt;Viewerjs Src="@imagesList![4]" Width="600px" Height="300px" toolbarlite="true" /&gt;
         <Viewer Src="@imagesList[4]" Width="600px" Height="300px" toolbarlite="true" />
     </TabItem>
 </Tab>
@@ -88,7 +91,7 @@
 
 
 @code{
-    List<string> imagesList;
+    List<string>? imagesList;
 
     protected override void OnInitialized()
     {
@@ -120,5 +123,5 @@
             new AttributeItem("Height","高", "400px","string?"),
             new AttributeItem("ID","组件ID", "null","string?"),
             new AttributeItem("Width","宽", "400px","string?"),
-            };
+                };
 }

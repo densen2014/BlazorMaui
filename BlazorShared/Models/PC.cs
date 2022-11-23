@@ -23,11 +23,11 @@ public class PC
     public int ID { get; set; }
 
     [DisplayName("状态")]
-    public string Status { get; set; }
+    public string? Status { get; set; }
 
     [DisplayName("名称")]
     [AutoGenerateColumn(TextWrap = true)]
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
     /// <summary>
     /// 更新时间
@@ -47,17 +47,17 @@ public class PC
     public DateTime? ProfileDate { get; set; }
 
     [AutoGenerateColumn(Ignore = true)]
-    public string GUID { get; set; }
+    public string? GUID { get; set; }
 
     [DisplayName("描述")]
     [AutoGenerateColumn(TextWrap = true)]
-    public string Description { get; set; }
+    public string? Description { get; set; }
 
 #if (WINDOWS && NET6_0_OR_GREATER)
    [Navigate(nameof(Record.PcID))]
 #endif
     [AutoGenerateColumn(Ignore = true)]
-    public virtual List<Record> records { get; set; }
+    public virtual List<Record>? records { get; set; }
 }
 
 [AutoGenerateClass(Searchable = true, Filterable = true, Sortable = true)]
@@ -74,7 +74,7 @@ public class Record
     public int PcID { get; set; }
 
     [DisplayName("名称")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
     /// <summary>
     /// 日期
@@ -85,16 +85,16 @@ public class Record
     public DateTime OrderDate { get; set; } = DateTime.Now;
 
     [DisplayName("状态")]
-    public string Status { get; set; }
+    public string? Status { get; set; }
 
     [DisplayName("描述")]
-    public string Description { get; set; }
+    public string? Description { get; set; }
 
 #if (WINDOWS && NET6_0_OR_GREATER)
 [Navigate(nameof(PcID))]
 #endif
     [AutoGenerateColumn(Ignore = true)]
-    public virtual PC PCs { get; set; }
+    public virtual PC? PCs { get; set; }
 }
 
 public class PcStatus
@@ -115,6 +115,6 @@ public class PcStatus
     public int Offline { get; set; }
 
     [AutoGenerateColumn(Ignore = true)]
-    public List<PC> PCs { get; set; }
+    public List<PC>? PCs { get; set; }
 
 }

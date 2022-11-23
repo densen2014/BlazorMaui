@@ -1,5 +1,6 @@
 ﻿@page "/charts"
 @attribute [TabItemOption(Text = "图表", Icon = "fa fa-chart")]
+@using System.Diagnostics.CodeAnalysis
 
 <PageTitle>图表</PageTitle>
 
@@ -14,6 +15,7 @@
     private int LineDatasetCount = 2;
     private int LineDataCount = 7;
 
+    [NotNull ]
     private Chart? LineChart { get; set; }
 
     private Task<ChartDataSource> OnInit(float tension, bool hasNull)

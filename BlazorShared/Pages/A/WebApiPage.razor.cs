@@ -10,7 +10,7 @@ public sealed partial class WebApiPage
 
     private List<BatteryStatus> batteryStatus { get; set; } = new List<BatteryStatus>() { new BatteryStatus() };
     private List<NetworkInfoStatus> networkInfoStatus { get; set; } = new List<NetworkInfoStatus>() { new NetworkInfoStatus() };
-    private string message;
+    private string? message;
 
     private Task OnBatteryResult(BatteryStatus item)
     {
