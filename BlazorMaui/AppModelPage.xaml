@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:BlazorMaui"
              xmlns:shared="clr-namespace:BlazorShared;assembly=BlazorShared"
-             Title="BlazorUwp"
+             Title="BlazorMaui"
              x:Class="BlazorMaui.AppModelPage"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
 

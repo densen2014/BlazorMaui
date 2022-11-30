@@ -341,7 +341,7 @@ namespace LibraryShared
         /// 此计算距离不考虑道路或其他路径，只是地球表面两点之间的最短距离。
         /// 此计算称为 大圆距离 计算
         /// </summary>
-        public double DistanceBetweenTwoLocations()
+        public double? DistanceBetweenTwoLocations()
         {
             return Location.CalculateDistance(boston, sanFrancisco, DistanceUnits.Miles);
         }
