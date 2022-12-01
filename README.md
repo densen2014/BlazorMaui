@@ -7,6 +7,10 @@
  [工程引用库源码](https://github.com/densen2014?tab=repositories&q=BootstrapBlazor.&type=&language=&sort=)
 
 ----
+> Maui Blazor 中文社区 QQ群：645660665
+>
+> ![image](https://user-images.githubusercontent.com/8428709/205045133-504dbe59-cf08-4638-a2e7-47b5036c4a31.png)
+> 
 > FreeSql QQ群：4336577(已满)、8578575(已满)、52508226(在线)
 > 
 > BA & Blazor QQ群：795206915、675147445
@@ -144,3 +148,7 @@ BlazorMauiDemoWithBootstrapBlazor
 ![image](https://user-images.githubusercontent.com/8428709/196066465-db6581f8-32fd-45d9-88b7-97a26ac4b694.png)
 
 ![image](https://user-images.githubusercontent.com/8428709/196066458-86918351-3915-4798-b65a-ce4911c7e2fd.png)
+
+
+
+
