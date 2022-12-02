@@ -15,7 +15,7 @@
         <UserSecretsId>102ba2ce-c240-49cd-a064-deee597f8998</UserSecretsId>
 
         <!-- Display name -->
-        <ApplicationTitle>BlazorMaui</ApplicationTitle>
+        <ApplicationTitle>MauiBlazorDemo</ApplicationTitle>
 
         <!-- App Identifier -->
         <ApplicationId>es.app1.BlazorMaui</ApplicationId>
