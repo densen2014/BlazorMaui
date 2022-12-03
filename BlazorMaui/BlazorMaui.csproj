@@ -26,7 +26,7 @@
         <ApplicationVersion>1</ApplicationVersion>
 
         <!-- Required for C# Hot Reload -->
-        <UseInterpreter Condition="'$(Configuration)' == 'Debug'">True</UseInterpreter>
+        <UseInterpreter Condition="'$(Configuration)' == 'Debug'">True</UseInterpreter> 
 
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
@@ -38,10 +38,6 @@
         <!-- Comment out the line below to display a permission request dialog on Windows instead of handling permissions silently -->
         <DefineConstants Condition="$(TargetFramework.Contains('-windows'))">HANDLE_WEBVIEW2_PERMISSIONS_SILENTLY</DefineConstants>
         <DefaultLanguage>zh-cn</DefaultLanguage>
-
-        <CodesignKey>Apple Development: zhou chuanglin (W9D8HB5VZK)</CodesignKey>
-        <CodesignProvision>VS: WildCard Development</CodesignProvision>
-        <ProvisioningType>automatic</ProvisioningType>
         
         <!--dev mac-->
         <!--<PackageCertificateThumbprint>D4E5589AA51C416803316B8D756DBDEBE48116EF</PackageCertificateThumbprint>-->
@@ -54,6 +50,7 @@
         <GenerateTestArtifacts>True</GenerateTestArtifacts>
         <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
         <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+        <Configurations>Debug;Release</Configurations>
     </PropertyGroup>
     
     <PropertyGroup Condition="$(TargetFramework.Contains('-android')) and '$(Configuration)' == 'Release'">
@@ -71,6 +68,7 @@
     <PropertyGroup Condition="'$(TargetFramework)'=='net7.0-ios'">
       <CodesignKey>Apple Development: zhou chuanglin (W9D8HB5VZK)</CodesignKey>
       <CodesignProvision>VS: WildCard Development</CodesignProvision>
+        <ProvisioningType>automatic</ProvisioningType>
     </PropertyGroup>
     
     <ItemGroup>
@@ -103,7 +101,12 @@
     </ItemGroup> 
 
     <ItemGroup>
+        <PackageReference Include="BlazorShared" Version="1.0.1" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <!--<ProjectReference Include="..\BlazorShared\BlazorShared.csproj" />-->
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net7.0-android')) != true">
@@ -119,10 +122,6 @@
     <ItemGroup Condition="$(TargetFramework.Contains('-windows')) != true ">
         <Compile Remove="**\*.Windows.cs" />
         <None Include="**\*.Windows.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\BlazorShared\BlazorShared.csproj" />
     </ItemGroup>
 
     <ItemGroup>
