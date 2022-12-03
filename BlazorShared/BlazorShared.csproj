@@ -16,7 +16,7 @@
     </PropertyGroup>
     
     <PropertyGroup>
-        <Version>0.0.1</Version>
+        <Version>0.0.2</Version>
         <PackageProjectUrl>https://github.com/densen2014/BlazorMaui</PackageProjectUrl>
         <RepositoryUrl>https://github.com/densen2014/BlazorMaui</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
