@@ -1,11 +1,73 @@
 ﻿@page "/filesystems"
 @attribute [TabItemOption(Text = "文件系统")]
+@using MiniExcelLibs
 
 <h4>文件系统访问 File System Access</h4>
-<FileSystem />
+<pre>@fileInfos</pre>
+<FileSystem OnFileInfo="OnFileInfo"
+            OnInfo="OnInfo"
+            OnFileText="OnFileText"
+            OnFileStream="OnFileStream"
+            OnDirectory="OnDirectory" />
+<pre>@contentsExcel</pre>
+<hr />
+<pre>@contents</pre>
+<hr />
 
 
 @code{
-    
+    private string fileInfos;
+    private string contents;
+    private string contentsExcel;
+
+    private Task OnFileInfo(FileInfo fileInfo)
+    {
+        this.fileInfos = "name:" + fileInfo.name + Environment.NewLine + "size:" + fileInfo.size + Environment.NewLine + "type:" + fileInfo.type + "kind:" + fileInfo.kind;
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    private Task OnInfo(string contents)
+    {
+        this.contents = contents;
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    private Task OnFileText(string contents)
+    {
+        this.contents = contents;
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    private Task OnFileStream(Stream stream)
+    {
+        try
+        {
+            var rows = stream.Query().ToList();
+            rows.ForEach(a => contentsExcel += Environment.NewLine + string.Join(" | ", a));
+
+        }
+        catch (Exception e)
+        {
+            contents = e.Message;
+        }
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    private Task OnDirectory(List<string> dirs)
+    {
+        if (dirs == null || !dirs.Any()) return Task.CompletedTask;
+        contents += "Dir:" + Environment.NewLine;
+        contents += dirs.First() + Environment.NewLine;
+        foreach (var item in dirs.Skip(1).OrderByDescending(a => a.StartsWith("+")).ThenBy(a => a))
+        {
+            contents += item + Environment.NewLine;
+        }
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
 
 }

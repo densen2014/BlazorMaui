@@ -75,7 +75,6 @@ namespace BlazorMaui
 
             builder.Services.AddMauiBlazorWebView();
             builder.Services.AddSharedExtensions();
-            builder.Services.AddFileSystemExtensions();
 #if (IOS || MACCATALYST)
             string localFilePath = Path.Combine(FileSystem.CacheDirectory);
             builder.Services.AddOcrExtensions(builder.Configuration["AzureCvKey"], builder.Configuration["AzureCvUrl"], localFilePath);

@@ -15,7 +15,7 @@
     </PropertyGroup>
     
     <PropertyGroup>
-        <Version>0.0.1</Version>
+        <Version>0.0.2</Version>
         <PackageProjectUrl>https://github.com/densen2014/BlazorMaui</PackageProjectUrl>
         <RepositoryUrl>https://github.com/densen2014/BlazorMaui</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
@@ -37,16 +37,18 @@
     <PropertyGroup>
         <IsPackable>true</IsPackable>
         <PackageIcon>logo.png</PackageIcon>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
         <None Include="..\logo.png" Pack="true" PackagePath="" />
+        <None Include="README.md" Pack="true" PackagePath="" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="FreeSql" Version="3.2.682" />
+        <PackageReference Include="FreeSql" Version="3.2.684" />
         <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.0" />
-        <PackageReference Include="FreeSql.Provider.SqliteCore" Version="3.2.682" />
+        <PackageReference Include="FreeSql.Provider.SqliteCore" Version="3.2.684" />
     </ItemGroup>
 
 </Project>

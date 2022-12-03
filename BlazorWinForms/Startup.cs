@@ -32,7 +32,6 @@ namespace BlazorWinForms
         {
             services.AddWindowsFormsBlazorWebView();
             services.AddSharedExtensions();
-            services.AddFileSystemExtensions();
             services.AddOcrExtensions(Config["AzureCvKey"], Config["AzureCvUrl"]);
             services.AddAIFormExtensions(Config["AzureAiFormKey"], Config["AzureAiFormUrl"]);
 #if DEBUG

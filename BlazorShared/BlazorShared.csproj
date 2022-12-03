@@ -16,7 +16,7 @@
     </PropertyGroup>
     
     <PropertyGroup>
-        <Version>0.0.2</Version>
+        <Version>0.0.3</Version>
         <PackageProjectUrl>https://github.com/densen2014/BlazorMaui</PackageProjectUrl>
         <RepositoryUrl>https://github.com/densen2014/BlazorMaui</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
@@ -38,15 +38,17 @@
     <PropertyGroup>
         <IsPackable>true</IsPackable>
         <PackageIcon>logo.png</PackageIcon>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
         <None Include="..\logo.png" Pack="true" PackagePath="" />
+        <None Include="README.md" Pack="true" PackagePath="" />
     </ItemGroup>
     
     <ItemGroup>
         <PackageReference Include="AME.Extensions" Version="7.0.2" />
-        <PackageReference Include="BootstrapBlazor" Version="7.0.0" />
+        <PackageReference Include="BootstrapBlazor" Version="7.1.0" />
         <PackageReference Include="BootstrapBlazor.BarCode" Version="7.0.0" />
         <PackageReference Include="BootstrapBlazor.Chart" Version="7.0.0" />
         <PackageReference Include="BootstrapBlazor.FontAwesome" Version="7.0.0" />
@@ -59,10 +61,11 @@
         <PackageReference Include="BootstrapBlazor.OCR" Version="7.0.3" />
         <PackageReference Include="BootstrapBlazor.OnScreenKeyboard" Version="7.0.0" />
         <PackageReference Include="BootstrapBlazor.SignaturePad" Version="7.0.0" />
-        <PackageReference Include="BootstrapBlazor.FileSystem" Version="7.0.0" />
+        <PackageReference Include="BootstrapBlazor.FileSystem" Version="7.0.1" />
         <PackageReference Include="Densen.Component.Blazor" Version="7.0.2" />
-        <PackageReference Include="FreeSql" Version="3.2.682" />
+        <PackageReference Include="FreeSql" Version="3.2.684" />
         <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.0" />
+        <PackageReference Include="MiniExcel" Version="1.29.0" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(Configuration)'!='Preview'">
