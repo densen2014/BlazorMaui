@@ -14,7 +14,36 @@
         <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
     </PropertyGroup>
+    
+    <PropertyGroup>
+        <Version>0.0.1</Version>
+        <PackageProjectUrl>https://github.com/densen2014/BlazorMaui</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/densen2014/BlazorMaui</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>BlazorMaui, 整合Blazor,BootstrapBlazor UI组件库,Maui的共享跨平台工程示例共享库</PackageTags>
+        <Description>BlazorMaui , 整合Blazor,BootstrapBlazor UI组件库,Maui的共享跨平台工程示例共享库</Description>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <Copyright>DensenInformatica</Copyright>
+        <Authors>Alex Chow</Authors>
+        <Company>Densen Informatica</Company>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    </PropertyGroup>
 
+    <PropertyGroup>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <IsPackable>true</IsPackable>
+        <PackageIcon>logo.png</PackageIcon>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="..\logo.png" Pack="true" PackagePath="" />
+    </ItemGroup>
+    
     <ItemGroup>
         <PackageReference Include="AME.Extensions" Version="7.0.2" />
         <PackageReference Include="BootstrapBlazor" Version="7.0.0" />
