@@ -41,6 +41,9 @@ else
 
     protected override async Task OnInitializedAsync()
     {
+#if WINDOWS
+        WinUI.App.SetTitle("MauiApp7test - Fetchdata");
+#endif
         forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
     }
 }

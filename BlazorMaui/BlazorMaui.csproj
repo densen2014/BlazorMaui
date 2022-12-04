@@ -101,12 +101,12 @@
     </ItemGroup> 
 
     <ItemGroup>
-        <PackageReference Include="BlazorShared" Version="1.0.1" />
+        <!--<PackageReference Include="BlazorShared" Version="1.0.1" />-->
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
     </ItemGroup>
 
     <ItemGroup>
-        <!--<ProjectReference Include="..\BlazorShared\BlazorShared.csproj" />-->
+        <ProjectReference Include="..\BlazorShared\BlazorShared.csproj" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net7.0-android')) != true">

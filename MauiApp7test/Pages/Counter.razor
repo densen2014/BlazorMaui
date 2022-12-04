@@ -13,4 +13,11 @@
     {
         currentCount++;
     }
+
+    protected override void OnInitialized()
+    {
+#if WINDOWS
+        WinUI.App.SetTitle("MauiApp7test - Counter");
+#endif
+    }
 }
