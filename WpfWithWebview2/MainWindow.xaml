@@ -1,0 +1,19 @@
+﻿<Window x:Class="WpfWithWebview2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+        xmlns:local="clr-namespace:WpfWithWebview2"
+        mc:Ignorable="d"
+        Title="WpfWithWebview2" Height="800" Width="1000">
+    <DockPanel>
+        <DockPanel DockPanel.Dock="Top">
+            <Button x:Name="ButtonGo" DockPanel.Dock="Right" Click="ButtonGo_Click" Content="Go"/>
+            <TextBox Name = "addressBar"/>
+        </DockPanel>
+        <wv2:WebView2 Name = "webView"
+                  Source = "https://blazor.app1.es"
+    />
+    </DockPanel> 
+</Window>
