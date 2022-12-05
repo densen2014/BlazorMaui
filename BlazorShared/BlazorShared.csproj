@@ -87,6 +87,9 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Content Update="Pages\PlatformFeatures.razor">
+          <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        </Content>
         <Content Update="wwwroot\test.jpg">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>

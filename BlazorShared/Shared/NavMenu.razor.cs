@@ -14,14 +14,19 @@ public partial class NavMenu
     private IEnumerable<MenuItem> Menus { get; set; } = new List<MenuItem>
     {
             new MenuItem() { Text = "首页", Url = "/"  , Match = NavLinkMatch.All},
-            new MenuItem() { Text = "签名 SignaturePad", Url = "/signaturepad" },
-            new MenuItem() { Text = "定位 Geolocation", Url = "/geolocations" },
-            new MenuItem() { Text = "图片浏览 Viewer", Url = "/viewer" },
-            new MenuItem() { Text = "蓝牙和打印 Bluetooth & Printer", Url = "/Bluetooth" },
-            new MenuItem() { Text = "文件系统 FileSystem", Url = "/filesystems" },
-            new MenuItem() { Text = "屏幕键盘 OSK", Url = "/onscreenkeyboards" },
-            new MenuItem() { Text = "环境 Environment", Url = "/EnvironmentInfo" },
-            new MenuItem() { Text = "系统信息 System info", Url = "/webapis" },
+            new MenuItem() { Text = "平台功能", Url = "/PlatformFeatures" },
+            new MenuItem() { Text = "环境", Url = "/EnvironmentInfo" },
+            new MenuItem() { Text = "工具" ,Items= new List<MenuItem>
+                {
+                    new MenuItem() { Text = "签名 SignaturePad", Url = "/signaturepad" },
+                    new MenuItem() { Text = "定位 Geolocation", Url = "/geolocations" },
+                    new MenuItem() { Text = "图片浏览 Viewer", Url = "/viewer" },
+                    new MenuItem() { Text = "蓝牙和打印 Bluetooth & Printer", Url = "/Bluetooth" },
+                    new MenuItem() { Text = "文件系统 FileSystem", Url = "/filesystems" },
+                    new MenuItem() { Text = "屏幕键盘 OSK", Url = "/onscreenkeyboards" },
+                    new MenuItem() { Text = "系统信息 System info", Url = "/webapis" },
+                }
+            },
             new MenuItem() { Text = "地图" ,Items= new List<MenuItem>
                 {
                     new MenuItem() { Text = "百度地图 Baidu Map", Url = "/baidumap" },
@@ -36,11 +41,12 @@ public partial class NavMenu
             },
             new MenuItem() { Text = "其他" ,Items= new List<MenuItem>
                 {
-                new MenuItem() { Text = "图表", Url = "/charts" },
+                    new MenuItem() { Text = "图表", Url = "/charts" },
                     new MenuItem() { Text = "Barcode", Url = "/barcode" },
                     new MenuItem() { Text = "Upload", Url = "/Upload" },
                     new MenuItem() { Text = "Freesql", Url = "/FreesqlPage" },
                     new MenuItem() { Text = "Table", Url = "/table" },
+                    new MenuItem() { Text = "Table2", Url = "/TableDemo2" },
                     new MenuItem() { Text = "二维码", Url = "/qrcode" },
                     new MenuItem() { Text = "进度环", Url = "/circle" },
                     new MenuItem() { Text = "滑块验证码", Url = "/captchass" },

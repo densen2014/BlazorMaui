@@ -1,0 +1,44 @@
+﻿@page "/PlatformFeatures"
+@using BlazorShared.Models
+@attribute [TabItemOption(Text = "平台功能", Icon = "fa fa-fa")]
+
+<Title>Platform Features</Title>
+
+<Button Text="打开设置" OnClick="ShowSettingsUI" />
+<br />
+<br />
+<Button Text="定位权限" OnClick="检查定位权限" />
+<span>@定位权限</span>
+<br />
+<br />
+<Button Text="摄像机权限" OnClick="检查摄像机权限" />
+<span>@摄像机权限</span>
+<br />
+<br />
+<Button Text="定位" OnClick="获取定位" />
+<span>@Locations</span>
+<br />
+<br />
+<Button Text="TakePhoto" OnClick="TakePhoto" />
+<span>@PhotoFilename</span>
+<br />
+<br />
+<Button Text="Navigate To Madrid 马德里" OnClick="NavigateToMadrid" />
+<span>@导航消息</span>
+<br />
+<br />
+<Button Text="Navigate To Plaza de España 西班牙广场" OnClick="NavigateToPlazaDeEspana" />
+<br />
+<br />
+<Button Text="NavigateTo Plaza de España 西班牙广场 ByPlacemark" OnClick="NavigateToPlazaDeEspanaByPlacemark" />
+<br />
+<br />
+<Button Text="导航到西班牙广场" OnClick="DriveToPlazaDeEspana" />
+<br />
+<br />
+<Button Text="截屏" OnClick="TakeScreenshotAsync" />
+<br />
+<br />
+<span>@截屏消息</span>
+<br />
+<br />

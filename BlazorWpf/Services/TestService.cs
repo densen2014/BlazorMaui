@@ -9,7 +9,7 @@ namespace LibraryShared
         public Task<string> CheckPermissionsLocation() => Task.FromResult("未实现");
         public Task<string> CheckMock() => Task.FromResult("未实现");
 
-        public double DistanceBetweenTwoLocations() => 0;
+        public double? DistanceBetweenTwoLocations() => 0;
 
         public Task<string> GetCachedLocation() => Task.FromResult("未实现");
 

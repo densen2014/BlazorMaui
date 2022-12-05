@@ -1,0 +1,31 @@
+﻿@page "/TableDemo2"
+@using BlazorShared.Models
+@attribute [TabItemOption(Text = "表格", Icon = "fa fa-fa")]
+
+<h1>Blazor Demo</h1>
+<Title>BlazorMaui</Title>
+<TimerAme />
+
+<Tab>
+    <TabItem Text="表格例子1">
+        <Table TItem="PcStatus"
+               Items="@pcStatuss"
+               AutoGenerateColumns="true" />
+        <TableLazyHero @ref="list1"
+                       TItem="PC"
+                       ShowColumnList="true"
+                       刷新="刷新数据"
+                       TableSize="TableSize.Normal"
+                       DoubleClickToEdit="false"
+                       HeaderStyle=TableHeaderStyle.None
+                       IsPagination="false"
+                       ShowRefresh="false"
+                       IsStriped="false"
+                       RenderMode="TableRenderMode.Auto" />
+    </TabItem>
+    <TabItem Text="表格例子2">
+        <Table TItem="Item"
+               Items="@records"
+               AutoGenerateColumns="true" />
+    </TabItem>
+</Tab>

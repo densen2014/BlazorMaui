@@ -7,65 +7,61 @@
 <TimerAme />
 
 <Tab>
-    <TabItem Text="平台测试">
-        <Button Text="定位权限" OnClick="检查定位权限" />
-        <span>@定位权限</span><br /><br />
-        <Button Text="摄像机权限" OnClick="检查摄像机权限" />
-        <span>@摄像机权限</span><br /><br />
-        <Button Text="定位" OnClick="获取定位" />
-        <span>@Locations</span><br /><br />
-        <Button Text="TakePhoto" OnClick="TakePhoto" />
-        <span>@PhotoFilename</span><br /><br />
-        <Button Text="Navigate To Madrid 马德里" OnClick="NavigateToMadrid" />
-        <span>@导航消息</span><br /><br />
-        <Button Text="Navigate To Plaza de España 西班牙广场" OnClick="NavigateToPlazaDeEspana" /><br /><br />
-        <Button Text="NavigateTo Plaza de España 西班牙广场 ByPlacemark" OnClick="NavigateToPlazaDeEspanaByPlacemark" /><br /><br />
-        <Button Text="导航到西班牙广场" OnClick="DriveToPlazaDeEspana" /><br /><br />
-        <Button Text="截屏" OnClick="TakeScreenshotAsync" /><br /><br />
-        <span>@截屏消息</span><br /><br />
-    </TabItem> 
-    <TabItem Text="@version">
-        <Badge Color="Color.Primary">
-            机器码 ID: @IPAddressManager.GetIdentifier();
-        </Badge>
-        <Badge Color="Color.Success">
-            IP: @WebClientInfo.ClientIpAddress;
-        </Badge>
-        <Badge Color="Color.Warning">
-            IP: @IPAddressManager.GetIPAddress();
-        </Badge>
-        @if (IPAddressManager!=null && IPAddressManager?.GetIPAddresList() != null)
+    <TabItem Text="环境">
+        <br />
+        <b>
+            版本:
+        </b>
+        <br />
+        @version
+        <br /><br />
+        <b>
+            FriendlyName:
+        </b>
+        <br />
+        @AppDomain.CurrentDomain.FriendlyName
+        <br /><br />
+        <b>
+            TargetFrameworkName:
+        </b>
+        <br />
+        @AppDomain.CurrentDomain.SetupInformation.TargetFrameworkName
+        <br /><br />
+    </TabItem>
+    <TabItem Text="本机IP">
+        <br />
+        <b>
+            机器码 ID:
+        </b>
+        <br />
+        @IPAddressManager.GetIdentifier();
+        <br /><br />
+        IPAddressManager<br />
+        <b>
+            IP:
+        </b><br />
+        @IPAddressManager.GetIPAddress();
+        <br /><br />
+        <b>
+            IPs:
+        </b><br />
+        @if (IPAddressManager != null && IPAddressManager?.GetIPAddresList() != null)
         {
             foreach (var item in IPAddressManager.GetIPAddresList())
             {
-                <Badge Color="Color.Info">
-                    IPs: @item;
-                </Badge>
+                @item;
+                <br />
 
             }
         }
+        <br /><br />
+        WebClientInfo<br />
+        <b>
+            IP:
+        </b><br />
+        @WebClientInfo.ClientIpAddress;
+        <br /><br />
         <Button Text="粘贴" OnClick="粘贴" />
         <span>@文字</span>
-    </TabItem>
-    <TabItem Text="PC">
-        <Table TItem="PcStatus"
-               Items="@pcStatuss"
-               AutoGenerateColumns="true" />
-        <TableLazyHero @ref="list1"
-                       TItem="PC"
-                       ShowColumnList="true"
-                       刷新="刷新数据"
-                       TableSize="TableSize.Normal"
-                       DoubleClickToEdit="false"
-                       HeaderStyle=TableHeaderStyle.None
-                       IsPagination="false"
-                       ShowRefresh="false"
-                       IsStriped="false"
-                       RenderMode="TableRenderMode.Auto" />
-    </TabItem>
-    <TabItem Text="Items">
-        <Table TItem="Item"
-               Items="@records"
-               AutoGenerateColumns="true" />
     </TabItem>
 </Tab>
