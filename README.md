@@ -152,7 +152,7 @@ BlazorMauiDemoWithBootstrapBlazor
 
 
 
-
+---
 #### Blazor 组件
 
 [条码扫描 ZXingBlazor](https://www.nuget.org/packages/ZXingBlazor#readme-body-tab)
