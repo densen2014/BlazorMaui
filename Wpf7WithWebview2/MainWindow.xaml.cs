@@ -8,6 +8,7 @@ using Microsoft.Web.WebView2.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -30,7 +31,6 @@ namespace Wpf7WithWebview2
         public MainWindow()
         {
             InitializeComponent();
-            webView.NavigationStarting += EnsureHttps;
             //使用本机功能将消息从 Web 内容传递到主机
             InitializeAsync();
         }
@@ -38,6 +38,14 @@ namespace Wpf7WithWebview2
         //初始化 CoreWebView2 后，注册要响应WebMessageReceived的事件处理程序。 在 MainWindow.xaml.cs中，使用以下代码更新 InitializeAsync 和添加 UpdateAddressBar
         async void InitializeAsync()
         {
+            //设置web用户文件夹 
+            var browserExecutableFolder =   "c:\\wb2";
+            webView.CreationProperties = new Microsoft.Web.WebView2.Wpf.CoreWebView2CreationProperties()
+            {
+                BrowserExecutableFolder = browserExecutableFolder 
+            };
+
+            webView.NavigationStarting += EnsureHttps;
             await webView.EnsureCoreWebView2Async(null);
             webView.CoreWebView2.WebMessageReceived += UpdateAddressBar;
 
