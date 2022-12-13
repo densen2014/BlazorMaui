@@ -32,6 +32,13 @@ namespace WpfWithWebview2
         //初始化 CoreWebView2 后，注册要响应WebMessageReceived的事件处理程序。 在 MainWindow.xaml.cs中，使用以下代码更新 InitializeAsync 和添加 UpdateAddressBar
         async void InitializeAsync()
         {
+            //设置web用户文件夹 
+            var browserExecutableFolder = "c:\\wb2";
+            webView.CreationProperties = new Microsoft.Web.WebView2.Wpf.CoreWebView2CreationProperties()
+            {
+                BrowserExecutableFolder = browserExecutableFolder
+            };
+
             await webView.EnsureCoreWebView2Async(null);
             webView.CoreWebView2.WebMessageReceived += UpdateAddressBar;
 
