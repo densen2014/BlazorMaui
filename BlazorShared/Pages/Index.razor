@@ -65,3 +65,29 @@
         <span>@文字</span>
     </TabItem>
 </Tab>
+
+
+@inject AppState AppState
+
+
+<p>The current count is <strong>@AppState.Counter</strong></p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Increment</button>
+
+<p>This is a shared component</p>
+
+@code {
+    public int Counter { get; set; } = 1;
+
+
+    void IncrementCount()
+    {
+        AppState.Counter++;
+    }
+
+    [JSInvokable]
+    public static Task<int[]> ReturnArrayAsync()
+    {
+        return Task.FromResult(new int[] { 1, 2, 3 });
+    }
+}

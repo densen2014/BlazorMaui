@@ -4,13 +4,21 @@
 
 <Button Text="列出串口" OnClick="GetPortlist" />
 <Badge IsPill="true">@Status</Badge>
+<ListToList StringList=@PortList />
+<br />
+<br />
 
-@if (PortList != null && PortList.Any())
-{
-    <ul>
-        @foreach (var item in PortList)
-        {
-            <li>@item</li>
-        }
-    </ul>
-}
+<Button Text="打印" OnClick="打印" />
+<StringToList StringList=@打印消息 Style="ListStyle.OrderedList" />
+<br />
+<br />
+
+<Button Text="外屏显示" OnClick="外屏显示" />
+<StringToList StringList=@外屏显示消息 />
+<br />
+<br />
+
+<Button Text="读NFC" OnClick="读NFC" />
+<StringToList StringList=@NFC消息 />
+<br />
+<br />

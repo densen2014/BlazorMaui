@@ -10,7 +10,7 @@ using System.Security.Permissions;
 
 namespace LibraryShared
 {
-    public class TestService : ITools
+    public class MauiService : ITools
     {
 
         //        public async void BlazorWebView_BlazorWebViewInitialized(object sender, Microsoft.AspNetCore.Components.WebView.BlazorWebViewInitializedEventArgs e)
@@ -510,7 +510,21 @@ namespace LibraryShared
 #endif
         public string CacheDirectory() => FileSystem.CacheDirectory;
         public string AppDataDirectory() => FileSystem.AppDataDirectory;
-        
+
+        public Task<string> Print()
+        {
+            return Task.FromResult("未实现");
+        }
+
+        public Task<string> ReadNFC()
+        {
+            return Task.FromResult("未实现");
+        }
+
+        public Task<string> ExtDSP()
+        {
+            return Task.FromResult("未实现");
+        }
     }
 
 

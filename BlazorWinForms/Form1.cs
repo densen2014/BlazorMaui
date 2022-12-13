@@ -23,6 +23,14 @@ namespace BlazorWinForms
                 Services = Startup.Services
             };
 
+            // win7运行失败! [无依赖发布webview2程序] 固定版本运行时环境的方式来实现加载网页
+            ////设置web用户文件夹 
+            //var browserExecutableFolder = "c:\\wb2";
+            //blazor.WebView.CreationProperties = new Microsoft.Web.WebView2.WinForms.CoreWebView2CreationProperties()
+            //{
+            //    BrowserExecutableFolder = browserExecutableFolder
+            //};
+
             blazor.RootComponents.Add<App>("#app");
             Controls.Add(blazor);
             blazor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyUp);

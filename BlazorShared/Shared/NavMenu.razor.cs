@@ -54,6 +54,7 @@ public partial class NavMenu
             },
             new MenuItem() { Text = "硬件" ,Items= new List<MenuItem>
                 {
+                    new MenuItem() { Text = "打印", Url = "/serials" },
                     new MenuItem() { Text = "串口", Url = "/serials" },
                 }
             },

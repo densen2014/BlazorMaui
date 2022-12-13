@@ -4,9 +4,12 @@
 // e-mail:zhouchuanglin@gmail.com 
 // **********************************
 
+using BlazorShared;
 using Microsoft.AspNetCore.ResponseCompression;
 using System.IO.Compression;
+using System.Web.Services.Description;
 
+AppState _appState = new();
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddResponseCompression(options =>
 {
@@ -26,6 +29,7 @@ builder.Services.AddServerSideBlazor();
 builder.Services.AddSharedExtensions();
 builder.Services.AddOcrExtensions(builder.Configuration["AzureCvKey"], builder.Configuration["AzureCvUrl"]);
 builder.Services.AddAIFormExtensions(builder.Configuration["AzureAiFormKey"], builder.Configuration["AzureAiFormUrl"]);
+builder.Services.AddSingleton(_appState);
 
 var app = builder.Build();
 

@@ -1,4 +1,5 @@
-﻿using BlazorShared.Services;
+﻿using BlazorShared;
+using BlazorShared.Services;
 using LibraryShared;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebView.Maui;
@@ -15,6 +16,7 @@ namespace BlazorMaui
         public static MauiApp CreateMauiApp()
         {
 
+            AppState _appState = new();
             var builder = MauiApp.CreateBuilder();
 
             #region Configuration
@@ -74,6 +76,7 @@ namespace BlazorMaui
                 });
 
             builder.Services.AddMauiBlazorWebView();
+            builder.Services.AddSingleton(_appState);
             builder.Services.AddSharedExtensions();
 #if (IOS || MACCATALYST)
             string localFilePath = Path.Combine(FileSystem.CacheDirectory);
@@ -86,7 +89,7 @@ namespace BlazorMaui
 #if DEBUG
             builder.Services.AddBlazorWebViewDeveloperTools();
 #endif
-            builder.Services.AddSingleton<ITools, TestService>();
+            builder.Services.AddSingleton<ITools, MauiService>();
 
             return builder.Build();
         }

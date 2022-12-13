@@ -1,0 +1,53 @@
+﻿@namespace BlazorShared
+
+@if (!string.IsNullOrWhiteSpace(StringList) && StringList.Contains(Separator!))
+{
+    if (Style == ListStyle.OrderedList)
+    {
+
+        <ol>
+            @foreach (var item in StringList.Split(Separator))
+            {
+                <li>@item</li>
+            }
+        </ol>
+
+    }
+    else
+    {
+
+        <ul>
+            @foreach (var item in StringList.Split(Separator))
+            {
+                <li>@item</li>
+            }
+        </ul>
+
+    }
+}
+else
+{
+    <pre>@StringList</pre>
+}
+
+@code {
+
+    /// <summary>
+    /// 字符串列表
+    /// </summary>
+    [Parameter]
+    public string? StringList { get; set; }
+
+    /// <summary>
+    /// 分割符号,默认 换行号
+    /// </summary>
+    [Parameter]
+    public string? Separator { get; set; } = Environment.NewLine;
+
+    /// <summary>
+    /// 列表风格: 无序/有序
+    /// </summary>
+    [Parameter]
+    public ListStyle? Style { get; set; } = ListStyle.UnorderedLists;
+
+}

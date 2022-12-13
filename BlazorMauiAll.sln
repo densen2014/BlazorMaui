@@ -42,7 +42,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BootstrapBlazor.OCR", "..\B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfWithWebview2", "WpfWithWebview2\WpfWithWebview2.csproj", "{CACA862E-568C-451C-AD42-AA1B97CF3AFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf7WithWebview2", "Wpf7WithWebview2\Wpf7WithWebview2.csproj", "{E99A8C29-5683-40C4-B06F-FDEAAFE9C248}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf7WithWebview2", "Wpf7WithWebview2\Wpf7WithWebview2.csproj", "{E99A8C29-5683-40C4-B06F-FDEAAFE9C248}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
