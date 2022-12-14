@@ -1,0 +1,134 @@
+﻿@page "/pdfReaders"
+@attribute [TabItemOption(Text = "PDF阅读器")]
+@namespace BlazorShared.Pages
+
+<a href="https://www.nuget.org/packages/BootstrapBlazor.PdfReader#readme-body-tab"><h4>PDF阅读器 Pdf Reader</h4></a>
+
+<Tab>
+    <TabItem Text="常规">
+        <h6>优先嵌入模式,不支持则回落倒pdf.js模式</h6>
+        <PdfReader PdfFile=@PdfFile
+                   OnInfo="OnInfo"
+                   OnError="OnError" />
+        <pre>@contents</pre>
+    </TabItem>
+    <TabItem Text="流化">
+        <h6>使用流化模式,可跨域读取文件</h6>
+        <div class="row g-3">
+            <div class="col-12">
+                <BootstrapInputGroup>
+                    <BootstrapInput @bind-Value="@UrlBaseStream" />
+                    <BootstrapInput @bind-Value="@PdfFileStream" />
+                    <Button Color="Color.Primary" OnClick="Apply">加载</Button>
+                </BootstrapInputGroup>
+            </div>
+        </div>
+        <PdfReader @ref="pdfReader" UrlBase="@UrlBaseStream" PdfFile="@PdfFileStream" EnableStreamingMode="true" />
+    </TabItem>
+    <TabItem Text="流化+PDF.JS">
+        <h6>使用流化模式,可跨域读取文件</h6>
+        <div class="row g-3">
+            <div class="col-12">
+                <BootstrapInputGroup>
+                    <BootstrapInput @bind-Value="@UrlBaseStream" />
+                    <BootstrapInput @bind-Value="@PdfFileStream" />
+                    <Button Color="Color.Primary" OnClick="Apply">加载</Button>
+                </BootstrapInputGroup>
+            </div>
+        </div>
+        <PdfReader @ref="pdfReader" ForcePDFJS="true" UrlBase="@UrlBaseStream" PdfFile="@PdfFileStream" EnableStreamingMode="true" />
+    </TabItem>
+    <TabItem Text="高级">
+        <h6>强制使用 PDF.js, 使用内置PDF.js浏览器.</h6>
+        <PdfReader @ref="pdfReader2"
+                   PdfFile="@PdfFile"
+                   OnInfo="OnInfo"
+                   OnError="OnError"
+                   ForcePDFJS=@ForcePDFJS
+                   PDFJS_URL=@PDFJS_URL
+                   Page=@Page
+                   View=@View
+                   Pagemode=@Pagemode
+                   Search=@Search />
+        <pre>@contents</pre>
+        <div class="row g-3">
+            <div class="col-5">
+                <BootstrapInputGroup>
+                    <Button Color="Color.Primary" OnClick="Apply1">视图模式</Button>
+                    <Button Color="Color.Primary" OnClick="Apply2">页面模式</Button>
+                    <Button Color="Color.Primary" OnClick="Apply3">页码1</Button>
+                    <Button Color="Color.Primary" OnClick="Apply4">页码+</Button>
+                    <BootstrapInput @bind-Value="@Search" />
+                    <Button Icon="fa-solid fa-magnifying-glass" OnClick="Apply5"></Button>
+                </BootstrapInputGroup>
+            </div>
+            <div class="col-7">
+                <BootstrapInputGroup>
+                    <BootstrapInput @bind-Value="@PdfFile" DisplayText="PDF" ShowLabel="true" />
+                    <BootstrapInput @bind-Value="@PDFJS_URL" DisplayText="Viewer" ShowLabel="true" />
+                    <Checkbox @bind-Value="ForcePDFJS" DisplayText="强制PDF.js " ShowAfterLabel="true" />
+                    <Button Color="Color.Primary" OnClick="Apply5">刷新</Button>
+                </BootstrapInputGroup>
+            </div>
+        </div>
+    </TabItem>
+</Tab>
+
+
+@code{
+    private string contents;
+    private string View { get; set; } = "FitV";
+    private string Pagemode { get; set; } = "thumbs";
+    private string Search { get; set; } = "Performance";
+    private string PDFJS_URL { get; set; } = "/_content/BootstrapBlazor.PdfReader/web/viewer.html";
+    private int Page { get; set; } = 3;
+    private bool ForcePDFJS { get; set; } = true;
+    PdfReader pdfReader;
+    PdfReader pdfReader2;
+    private string PdfFile = "/_content/DemoShared/sample.pdf";
+    private string UrlBaseStream = "https://blazor.app1.es/_content/DemoShared/";
+    private string PdfFileStream = "sample.pdf";
+
+    private Task OnInfo(string contents)
+    {
+        this.contents = contents;
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+    private Task OnError(string contents)
+    {
+        this.contents = contents;
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    private async Task Apply()
+    {
+        await pdfReader.Refresh();
+    }
+    private async Task Apply1()
+    {
+        View = View == "FitV" ? "" : "FitV";
+        await pdfReader2.Refresh();
+    }
+    private async Task Apply2()
+    {
+        Pagemode = Pagemode == "thumbs" ? "" : "thumbs";
+        await pdfReader2.Refresh();
+    }
+    private async Task Apply3()
+    {
+        Page = 1;
+        await pdfReader2.Refresh();
+    }
+    private async Task Apply4()
+    {
+        Page++;
+        await pdfReader2.Refresh();
+    }
+    private async Task Apply5()
+    {
+        await pdfReader2.Refresh();
+    }
+
+}
