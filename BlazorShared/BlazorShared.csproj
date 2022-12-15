@@ -63,41 +63,17 @@
         <PackageReference Include="BootstrapBlazor.SignaturePad" Version="7.*" />
         <PackageReference Include="BootstrapBlazor.FileSystem" Version="7.*" />
         <PackageReference Include="BootstrapBlazor.PdfReader" Version="7.*" />
-        <PackageReference Include="BootstrapBlazor.VideoPlayer" Version="0.0.1" />
+        <PackageReference Include="BootstrapBlazor.VideoPlayer" Version="7.*" />
         <PackageReference Include="Densen.Component.Blazor" Version="7.*" />
         <PackageReference Include="FreeSql" Version="3.2.684" />
+        <PackageReference Include="LibraryShared" Version="0.0.*" />
         <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.*" />
         <PackageReference Include="MiniExcel" Version="1.29.0" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(Configuration)'!='Preview'">
         <PackageReference Include="Densen.Extensions.BootstrapBlazor" Version="7.*" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(Configuration)'=='Preview'">
-        <ProjectReference Include="..\..\Densen.Extensions\Blazor\Densen.Extensions.BootstrapBlazor.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <!--<ProjectReference Include="..\..\BootstrapBlazor.OCR\src\BootstrapBlazor.OCR\BootstrapBlazor.OCR.csproj" />-->
-        <ProjectReference Include="..\LibraryShared\LibraryShared.csproj" />
-        <!--<ProjectReference Include="..\..\BootstrapBlazor\src\BootstrapBlazor\BootstrapBlazor.csproj" />-->
     </ItemGroup>
 
     <ItemGroup>
         <SupportedPlatform Include="browser" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <Content Update="Pages\PlatformFeatures.razor">
-          <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-        </Content>
-        <Content Update="wwwroot\test.jpg">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
-        <Content Update="wwwroot\test.png">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Content>
     </ItemGroup>
 
     <ProjectExtensions>
