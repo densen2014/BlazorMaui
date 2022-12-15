@@ -24,11 +24,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorSSR", "BlazorSSR\Blaz
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.Maui.Graphics", "Console.Maui.Graphics\Console.Maui.Graphics.csproj", "{034E4D84-3DFC-4782-8D63-5C37E7A9EBF3}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "external_src", "external_src", "{58CF3B35-60F9-4BBB-9D55-933A9F080188}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryShared", "LibraryShared\LibraryShared.csproj", "{FE890971-70ED-439F-9956-AB7B1A52DE30}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Densen.Component.Blazor", "..\Densen.Extensions\Densen.Component.Blazor\Densen.Component.Blazor.csproj", "{9547CDFB-559B-4EC4-86F3-FF449CC9F45B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiApp7test", "MauiApp7test\MauiApp7test.csproj", "{04F77C55-E6E9-4A94-B3A7-59AC5E41A50A}"
 EndProject
@@ -220,26 +216,6 @@ Global
 		{FE890971-70ED-439F-9956-AB7B1A52DE30}.Release|x64.Build.0 = Release|Any CPU
 		{FE890971-70ED-439F-9956-AB7B1A52DE30}.Release|x86.ActiveCfg = Release|Any CPU
 		{FE890971-70ED-439F-9956-AB7B1A52DE30}.Release|x86.Build.0 = Release|Any CPU
-		{9547CDFB-559B-4EC4-86F3-FF449CC9F45B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9547CDFB-559B-4EC4-86F3-FF449CC9F45B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9547CDFB-559B-4EC4-86F3-FF449CC9F45B}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{9547CDFB-559B-4EC4-86F3-FF449CC9F45B}.Debug|ARM.Build.0 = Debug|Any CPU
-		{9547CDFB-559B-4EC4-86F3-FF449CC9F45B}.Debug|ARM64.ActiveCfg = Debug|Any CPU
-		{9547CDFB-559B-4EC4-86F3-FF449CC9F45B}.Debug|ARM64.Build.0 = Debug|Any CPU
-		{9547CDFB-559B-4EC4-86F3-FF449CC9F45B}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{9547CDFB-559B-4EC4-86F3-FF449CC9F45B}.Debug|x64.Build.0 = Debug|Any CPU
-		{9547CDFB-559B-4EC4-86F3-FF449CC9F45B}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{9547CDFB-559B-4EC4-86F3-FF449CC9F45B}.Debug|x86.Build.0 = Debug|Any CPU
-		{9547CDFB-559B-4EC4-86F3-FF449CC9F45B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9547CDFB-559B-4EC4-86F3-FF449CC9F45B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9547CDFB-559B-4EC4-86F3-FF449CC9F45B}.Release|ARM.ActiveCfg = Release|Any CPU
-		{9547CDFB-559B-4EC4-86F3-FF449CC9F45B}.Release|ARM.Build.0 = Release|Any CPU
-		{9547CDFB-559B-4EC4-86F3-FF449CC9F45B}.Release|ARM64.ActiveCfg = Release|Any CPU
-		{9547CDFB-559B-4EC4-86F3-FF449CC9F45B}.Release|ARM64.Build.0 = Release|Any CPU
-		{9547CDFB-559B-4EC4-86F3-FF449CC9F45B}.Release|x64.ActiveCfg = Release|Any CPU
-		{9547CDFB-559B-4EC4-86F3-FF449CC9F45B}.Release|x64.Build.0 = Release|Any CPU
-		{9547CDFB-559B-4EC4-86F3-FF449CC9F45B}.Release|x86.ActiveCfg = Release|Any CPU
-		{9547CDFB-559B-4EC4-86F3-FF449CC9F45B}.Release|x86.Build.0 = Release|Any CPU
 		{04F77C55-E6E9-4A94-B3A7-59AC5E41A50A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{04F77C55-E6E9-4A94-B3A7-59AC5E41A50A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04F77C55-E6E9-4A94-B3A7-59AC5E41A50A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
@@ -313,9 +289,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{9547CDFB-559B-4EC4-86F3-FF449CC9F45B} = {58CF3B35-60F9-4BBB-9D55-933A9F080188}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2194F6FA-98D1-44A9-BD68-A84FCBFA6F82}
