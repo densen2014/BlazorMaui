@@ -9,7 +9,7 @@ builder.RootComponents.Add<App>("#app");
 
 builder.Services.AddSharedExtensions();
 builder.Configuration.AddUserSecrets<ConfigFake>();
-builder.Services.AddOcrExtensions(builder.Configuration["AzureCvKey"], builder.Configuration["AzureCvUrl"]);
-builder.Services.AddAIFormExtensions(builder.Configuration["AzureAiFormKey"], builder.Configuration["AzureAiFormUrl"]);
+builder.Services.AddOcrExtensions();
+builder.Services.AddAIFormExtensions();
 builder.Services.AddSingleton(_appState);
 await builder.Build().RunAsync();

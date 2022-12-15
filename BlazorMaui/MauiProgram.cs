@@ -82,10 +82,10 @@ namespace BlazorMaui
             string localFilePath = Path.Combine(FileSystem.CacheDirectory);
             builder.Services.AddOcrExtensions(builder.Configuration["AzureCvKey"], builder.Configuration["AzureCvUrl"], localFilePath);
 #else
-            builder.Services.AddOcrExtensions(builder.Configuration["AzureCvKey"], builder.Configuration["AzureCvUrl"]);
+            builder.Services.AddOcrExtensions();
 #endif
 
-            builder.Services.AddAIFormExtensions(builder.Configuration["AzureAiFormKey"], builder.Configuration["AzureAiFormUrl"]);
+            builder.Services.AddAIFormExtensions();
 #if DEBUG
             builder.Services.AddBlazorWebViewDeveloperTools();
 #endif

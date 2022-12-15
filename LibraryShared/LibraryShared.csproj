@@ -47,7 +47,7 @@
 
     <ItemGroup>
         <PackageReference Include="FreeSql" Version="3.2.684" />
-        <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.1" />
         <PackageReference Include="FreeSql.Provider.SqliteCore" Version="3.2.684" />
     </ItemGroup>
 
