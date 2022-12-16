@@ -56,6 +56,11 @@ Blazor 是一个使用 .NET 生成交互式客户端 Web UI 的框架：
 .NET 多平台应用 UI ( .NET MAUI) 是一个跨平台框架，用于使用 c # 和 XAML 创建本机移动应用和桌面应用。
 使用 .net MAUI，可以开发可在 Android、iOS、macOS 上运行的应用，Windows 以及从单个共享代码库运行的应用。
 
+4.Blazor Hybrid 
+
+用 c # 和 Razor 创建本机移动应用和桌面应用。可以快速开发共享代码库运行于 Windows (Winforms/WPF/UWP)、Android、iOS、macOS 的应用。
+
+Blazor Hybrid 将桌面和移动本机客户端框架与 .NET 和 Blazor 结合使用。在 Blazor Hybrid 应用中，使用 BlazorWebView 控件 Razor 组件在设备上本机运行。 组件通过本地互操作通道呈现到嵌入式 Web View 控件。 组件不在浏览器中运行，并且不涉及 WebAssembly。 Razor 组件可快速加载和执行代码，组件可通过 .NET 平台完全访问设备的本机功能, 可以跨移动设备、桌面设备和 Web 重复使用一组 Web UI 组件, 这种混合方法为你提供了本机和 Web 的最佳方法。 组件可以通过 .NET 平台访问本机功能，并呈现标准 Web UI。 
 
 
 ------------------------------------
