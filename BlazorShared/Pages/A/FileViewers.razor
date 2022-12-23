@@ -19,11 +19,11 @@
     </TabItem>
     <TabItem Text="Load">
         <div class="row g-3">
-            <div class="col-6 col-sm-4 col-md-3 col-xl-4">
+            <div class="col-6 col-sm-4 col-md-3 col-xl-1">
                 <Dropdown TValue="string" Items="Items" OnSelectedItemChanged="@ChangeURL" />
             </div>
             <div class="col-6 col-sm-4 col-md-3 col-xl-6">
-                <BootstrapInput @bind-Value="@Filedocx" />
+                <BootstrapInput @bind-Value="@Url" />
             </div>
             <div class="col-6 col-sm-4 col-md-3 col-xl-auto">
                 <Button Color="Color.Primary" OnClick="Apply">加载</Button>
@@ -75,7 +75,7 @@
         base.OnInitialized();
         for (int i = 0; i < FileList.Count; i++)
         {
-            Items.Add(new SelectedItem { Text = FileList[i], Value = FileList[i] });
+            Items.Add(new SelectedItem { Text = $"File{i}", Value = FileList[i] });
         }
     }
 
