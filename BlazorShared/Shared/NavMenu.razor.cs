@@ -18,6 +18,7 @@ public partial class NavMenu
             new MenuItem() { Text = "环境", Url = "/EnvironmentInfo" },
             new MenuItem() { Text = "工具" ,Items= new List<MenuItem>
                 {
+                    new MenuItem() { Text = "文件预览 FileViewer", Url = "/fileViewers" },
                     new MenuItem() { Text = "PDF阅读器 PDF Reader", Url = "/pdfReaders" },
                     new MenuItem() { Text = "视频播放器 Video Player", Url = "/videoPlayers" },
                     new MenuItem() { Text = "签名 SignaturePad", Url = "/signaturepad" },

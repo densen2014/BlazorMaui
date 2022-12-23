@@ -1,0 +1,94 @@
+﻿@page "/fileViewers"
+@attribute [TabItemOption(Text = "文件预览")]
+
+<a href="https://www.nuget.org/packages/BootstrapBlazor.FileViewer#readme-body-tab"><h4>文件预览 FileViewer</h4></a>
+
+
+<Tab IsOnlyRenderActiveTab>
+    <TabItem Text="Word">
+        <FileViewer Filename=@Filedocx />
+    </TabItem>
+    <TabItem Text="Excel">
+        <FileViewer Filename=@Filexlsx />
+    </TabItem>
+    <TabItem Text="Word url">
+        <FileViewer Filename=@Filedocx2 />
+    </TabItem>
+    <TabItem Text="Excel url">
+        <FileViewer Filename=@Filexlsx2 />
+    </TabItem>
+    <TabItem Text="Load">
+        <div class="row g-3">
+            <div class="col-6 col-sm-4 col-md-3 col-xl-4">
+                <Dropdown TValue="string" Items="Items" OnSelectedItemChanged="@ChangeURL" />
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-xl-6">
+                <BootstrapInput @bind-Value="@Filedocx" />
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-xl-auto">
+                <Button Color="Color.Primary" OnClick="Apply">加载</Button>
+            </div>
+        </div>
+
+        <FileViewer @ref="fileViewer" Filename=@Url />
+    </TabItem>
+</Tab>
+
+@code
+{
+    FileViewer fileViewer;
+
+    private string Filedocx { get; set; } = CombineFilename("sample.docx");
+
+    private string Filexlsx { get; set; } = CombineFilename("sample.xlsx");
+
+    private string Filexlsx2 { get; set; } = "https://localhost:5011/_content/DemoShared/sample.xlsx";
+
+    private string Filedocx2 { get; set; } = "https://localhost:5011/_content/DemoShared/sample.docx";
+
+    private string Url { get; set; } = CombineFilename("sample.docx");
+
+    private static string CombineFilename(string filename)
+    {
+        filename = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wwwroot", filename);
+        return filename;
+    }
+
+    List<string> FileList = new List<string>
+    {
+        CombineFilename("sample.docx"),
+        CombineFilename("sample.xlsx"),
+        "https://localhost:5011/_content/DemoShared/sample.xlsx",
+        "https://localhost:5011/_content/DemoShared/sample.docx",
+        "https://blazor.app1.es/_content/DemoShared/sample.xlsx",
+        "https://blazor.app1.es/_content/DemoShared/sample.docx",
+        "https://densen.es/sample/sample.docx",
+    };
+
+    List<SelectedItem> Items = new List<SelectedItem>();
+
+    /// <summary>
+    /// OnInitialized 方法
+    /// </summary>
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        for (int i = 0; i < FileList.Count; i++)
+        {
+            Items.Add(new SelectedItem { Text = FileList[i], Value = FileList[i] });
+        }
+    }
+
+    private async Task ChangeURL(SelectedItem e)
+    {
+        Url = e.Value;
+        await fileViewer.Reload(e.Value);
+    }
+
+    private async Task Apply()
+    {
+        await fileViewer.Reload(Url);
+    }
+
+
+}

@@ -64,7 +64,8 @@
         <PackageReference Include="BootstrapBlazor.FileSystem" Version="7.*" />
         <PackageReference Include="BootstrapBlazor.PdfReader" Version="7.*" />
         <PackageReference Include="BootstrapBlazor.VideoPlayer" Version="7.*" />
-        <PackageReference Include="Densen.Component.Blazor" Version="7.*" />
+ 		<PackageReference Include="BootstrapBlazor.FileViewer" Version="1.*" />
+       <PackageReference Include="Densen.Component.Blazor" Version="7.*" />
         <PackageReference Include="FreeSql" Version="3.2.684" />
         <PackageReference Include="LibraryShared" Version="0.0.*" />
         <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.*" />
@@ -74,6 +75,15 @@
 
     <ItemGroup>
         <SupportedPlatform Include="browser" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Update="wwwroot\sample.docx">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+      <Content Update="wwwroot\sample.xlsx">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
     <ProjectExtensions>
