@@ -1,4 +1,4 @@
-﻿using BlazorShared.Services;
+﻿using DemoShared.Services;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Runtime.Versioning;
@@ -6,6 +6,7 @@ using System.Runtime.Versioning;
 using System.Net;
 #endif
 #if (IOS || MACCATALYST)
+using Foundation;
 using Security;
 #endif
 

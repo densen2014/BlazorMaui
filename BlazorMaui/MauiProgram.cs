@@ -1,5 +1,5 @@
-﻿using BlazorShared;
-using BlazorShared.Services;
+﻿using DemoShared;
+using DemoShared.Services;
 using LibraryShared;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebView.Maui;

@@ -1,12 +1,12 @@
 ﻿using BootstrapBlazor.Components;
-using BlazorShared.Data;
+using DemoShared.Data;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Localization;
 using System.Collections.Concurrent;
 using System.Diagnostics.CodeAnalysis;
 using LibraryShared;
 
-namespace BlazorShared.Pages;
+namespace DemoShared.Pages;
 
 /// <summary>
 /// 

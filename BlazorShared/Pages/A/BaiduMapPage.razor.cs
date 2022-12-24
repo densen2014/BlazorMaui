@@ -1,6 +1,6 @@
 ﻿using BootstrapBlazor.Components;
 
-namespace BlazorShared.Pages;
+namespace DemoShared.Pages;
 
 /// <summary>
 /// 百度地图 BaiduMap

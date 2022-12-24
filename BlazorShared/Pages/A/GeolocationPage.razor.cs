@@ -1,6 +1,6 @@
 ﻿using BootstrapBlazor.Components;
 
-namespace BlazorShared.Pages;
+namespace DemoShared.Pages;
 
 /// <summary>
 /// Geolocation 地理定位/移动距离追踪

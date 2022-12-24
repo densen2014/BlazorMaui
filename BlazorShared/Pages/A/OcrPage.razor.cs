@@ -6,7 +6,7 @@ using System.Collections;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 
-namespace BlazorShared.Pages;
+namespace DemoShared.Pages;
 
 public partial class OcrPage
 {

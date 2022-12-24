@@ -4,9 +4,9 @@
         <TargetFrameworks>net7.0;net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
         <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
 
+        <!--<UseMaui>true</UseMaui>-->
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <SingleProject>true</SingleProject>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
@@ -75,10 +75,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <SupportedPlatform Include="browser" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Content Update="wwwroot\samples\sample.docx">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
@@ -101,11 +97,5 @@
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
     </ItemGroup>
-
-    <ProjectExtensions>
-        <VisualStudio>
-            <UserProperties wwwroot_4manifest_1json__JsonSchema="" />
-        </VisualStudio>
-    </ProjectExtensions>
 
 </Project>

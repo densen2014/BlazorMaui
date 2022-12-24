@@ -1,6 +1,6 @@
 ﻿using BootstrapBlazor.Components;
 
-namespace BlazorShared.Pages;
+namespace DemoShared.Pages;
 
 /// <summary>
 /// WebApi 浏览器api

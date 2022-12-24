@@ -5,17 +5,17 @@
 // **********************************
 
 using AME.CommonUtils;
-using BlazorShared.Services;
+using DemoShared.Services;
 using AmeApi;
 using AmeBlazor.Components;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Logging;
-using BlazorShared.Models;
+using DemoShared.Models;
 using Newtonsoft.Json;
 using AME.Services;
 using System.Diagnostics.CodeAnalysis;
 
-namespace BlazorShared.Pages;
+namespace DemoShared.Pages;
 
 public partial class EnvironmentInfo
 {

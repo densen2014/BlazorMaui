@@ -5,7 +5,7 @@ VisualStudioVersion = 17.1.31911.260
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorMaui", "BlazorMaui\BlazorMaui.csproj", "{807C9B00-DA74-4DFC-9E4D-4229F066D04C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorShared", "BlazorShared\BlazorShared.csproj", "{1F97EAE8-9334-4196-BEDC-BAF0EC1DD306}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoShared", "BlazorShared\DemoShared.csproj", "{1F97EAE8-9334-4196-BEDC-BAF0EC1DD306}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorSSR", "BlazorSSR\BlazorSSR.csproj", "{A3524F40-C55A-408C-97DA-11617E91CFC2}"
 EndProject

@@ -4,7 +4,7 @@ using Windows.Storage;
 #if ANDROID
 using Android.Webkit;
 #endif
-using BlazorShared.Services;
+using DemoShared.Services;
 
 using System.Security.Permissions;
 

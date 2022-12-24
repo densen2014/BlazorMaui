@@ -3,7 +3,7 @@
 using FreeSql.DataAnnotations;
 #endif
 
-namespace BlazorShared.Models;
+namespace DemoShared.Models;
 
 public class Item
 {

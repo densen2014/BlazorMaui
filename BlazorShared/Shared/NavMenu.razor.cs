@@ -1,14 +1,10 @@
 ﻿using BootstrapBlazor.Components;
 using Microsoft.AspNetCore.Components.Routing;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MenuItem = BootstrapBlazor.Components.MenuItem;
 
-namespace BlazorShared.Shared;
+namespace DemoShared.Shared;
 
-[JSModuleAutoLoader("./_content/BlazorShared/modules/menu.js", ModuleName = "Menu", Relative = false)]
+[JSModuleAutoLoader("/_content/DemoShared/modules/menu.js", ModuleName = "Menu", Relative = false)]
 public partial class NavMenu
 {
     private IEnumerable<MenuItem> Menus { get; set; } = new List<MenuItem>

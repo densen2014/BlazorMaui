@@ -5,7 +5,7 @@
 // **********************************
 
 using AME.CommonUtils;
-using BlazorShared.Services;
+using DemoShared.Services;
 using AmeApi;
 using AmeBlazor.Components;
 using BootstrapBlazor.Components;
@@ -14,7 +14,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System.Diagnostics.CodeAnalysis;
 
-namespace BlazorShared.Pages
+namespace DemoShared.Pages
 {
     public partial class QRCodes
     {

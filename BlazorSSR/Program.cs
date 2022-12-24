@@ -4,11 +4,9 @@
 // e-mail:zhouchuanglin@gmail.com 
 // **********************************
 
-using BlazorShared;
+using DemoShared;
 using Microsoft.AspNetCore.ResponseCompression;
-using Microsoft.AspNetCore.StaticFiles;
 using System.IO.Compression;
-using System.Web.Services.Description;
 
 AppState _appState = new();
 var builder = WebApplication.CreateBuilder(args);
@@ -46,12 +44,6 @@ else
 app.UseResponseCompression();
 
 app.UseHttpsRedirection();
-var provider = new FileExtensionContentTypeProvider { Mappings = { [".properties"] = "application/octet-stream" } };
-
-app.UseStaticFiles(new StaticFileOptions
-{
-    ContentTypeProvider = provider
-});
 app.UseStaticFiles();
 //app.UseDefaultFiles();
 app.UseDirectoryBrowser(new DirectoryBrowserOptions()

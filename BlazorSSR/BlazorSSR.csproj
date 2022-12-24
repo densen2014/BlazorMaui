@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
         <TargetFramework>net7.0</TargetFramework>
@@ -8,11 +8,11 @@
     </PropertyGroup>
 
     <ItemGroup Condition="'$(Configuration)'=='DebugNuget'">
-        <PackageReference Include="BlazorShared" Version="1.*" />
+        <PackageReference Include="DemoShared" Version="1.*" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(Configuration)' != 'DebugNuget'">
-        <ProjectReference Include="..\BlazorShared\BlazorShared.csproj" />
+        <ProjectReference Include="..\BlazorShared\DemoShared.csproj" />
     </ItemGroup>
 
 </Project>

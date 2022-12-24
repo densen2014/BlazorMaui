@@ -4,7 +4,7 @@
 
 using BootstrapBlazor.Components;
 
-namespace BlazorShared;
+namespace DemoShared;
 
 /// <summary>
 /// Chart 工具类

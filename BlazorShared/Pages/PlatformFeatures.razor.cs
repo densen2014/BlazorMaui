@@ -4,11 +4,11 @@
 // e-mail:zhouchuanglin@gmail.com 
 // **********************************
 
-using BlazorShared.Services;
+using DemoShared.Services;
 using Microsoft.AspNetCore.Components;
 using System.Diagnostics.CodeAnalysis;
 
-namespace BlazorShared.Pages;
+namespace DemoShared.Pages;
 
 public partial class PlatformFeatures
 {

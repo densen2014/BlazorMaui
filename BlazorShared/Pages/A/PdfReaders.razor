@@ -1,6 +1,6 @@
 ﻿@page "/pdfReaders"
 @attribute [TabItemOption(Text = "PDF阅读器")]
-@namespace BlazorShared.Pages
+@namespace DemoShared.Pages
 
 <a href="https://www.nuget.org/packages/BootstrapBlazor.PdfReader#readme-body-tab"><h4>PDF阅读器 Pdf Reader</h4></a>
 
@@ -35,8 +35,8 @@
     private bool ForcePDFJS { get; set; } = true;
     PdfReader pdfReader;
     PdfReader pdfReader2;
-    private string Filename = "/_content/BlazorShared/samples/sample.pdf";
-    private string UrlBaseStream = "https://blazor.app1.es/_content/BlazorShared/samples/";
+    private string Filename = "/_content/DemoShared/samples/sample.pdf";
+    private string UrlBaseStream = "https://blazor.app1.es/_content/DemoShared/samples/";
     private string FilenameStream = "sample2.pdf";
 
     private Task OnInfo(string contents)

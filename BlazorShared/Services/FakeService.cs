@@ -1,4 +1,6 @@
-﻿namespace BlazorShared.Services;
+﻿using System.Reflection;
+
+namespace DemoShared.Services;
 
 public class FakeService : ITools
 {
@@ -13,7 +15,6 @@ public class FakeService : ITools
     public Task<string> GetCurrentLocation() => Task.FromResult("未实现");
     public Task<string> TakePhoto() => Task.FromResult("未实现");
     public void ShowSettingsUI() { }
-    public string? GetAppInfo() => "未实现";
     public Task<string> NavigateToMadrid() => Task.FromResult("未实现");
     public Task<string> NavigateToPlazaDeEspana() => Task.FromResult("未实现");
     public Task<string> NavigateToPlazaDeEspanaByPlacemark() => Task.FromResult("未实现");
@@ -21,11 +22,14 @@ public class FakeService : ITools
     public Task<string> TakeScreenshotAsync() => Task.FromResult("未实现");
 
 #if WINDOWS
+    public string? GetAppInfo() => $"{Assembly.GetExecutingAssembly().GetName().Version}";
+
     public List<string>? GetPortlist()
     {
         return System.IO.Ports.SerialPort.GetPortNames().ToList();
     }
 #elif ANDROID || IOS || MACCATALYST
+    public string? GetAppInfo() => $"{Assembly.GetExecutingAssembly().GetName().Version}";
     public List<string>? GetPortlist()
     {
         if (OperatingSystem.IsIOS() || OperatingSystem.IsMacCatalyst())
@@ -43,6 +47,8 @@ public class FakeService : ITools
         
     }
 #else
+    public string? GetAppInfo() => "未实现";
+
     public List<string>? GetPortlist()
     {
         if (OperatingSystem.IsWindows())

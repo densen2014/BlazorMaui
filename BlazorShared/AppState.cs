@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BlazorShared
+namespace DemoShared
 {
     public class AppState
     {

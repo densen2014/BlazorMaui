@@ -4,14 +4,14 @@
 // e-mail:zhouchuanglin@gmail.com 
 // **********************************
 
-using BlazorShared.Services;
-using BlazorShared.Models;
+using DemoShared.Services;
+using DemoShared.Models;
 using Shared.DependencyServices;
 //using System.Data.SQLite;
 using System.Diagnostics;
 using System.Globalization;
 using Microsoft.AspNetCore.Components.Web;
-using BlazorShared.Data;
+using DemoShared.Data;
 using System.Reflection;
 
 namespace Microsoft.Extensions.DependencyInjection;

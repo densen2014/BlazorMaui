@@ -1,4 +1,4 @@
-﻿namespace BlazorShared.Services
+﻿namespace DemoShared.Services
 {
     public interface ITools
     {

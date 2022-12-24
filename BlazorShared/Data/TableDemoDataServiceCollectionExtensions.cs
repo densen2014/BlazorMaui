@@ -4,7 +4,7 @@ using Microsoft.Extensions.Localization;
 using System.Collections.Concurrent;
 using System.Diagnostics.CodeAnalysis;
 
-namespace BlazorShared.Data;
+namespace DemoShared.Data;
 
 /// <summary>
 /// BootstrapBlazor 服务扩展类

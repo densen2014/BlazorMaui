@@ -6,7 +6,7 @@ using BootstrapBlazor.Components;
 using Microsoft.Extensions.Localization;
 using System.ComponentModel.DataAnnotations;
 
-namespace BlazorShared.Data;
+namespace DemoShared.Data;
 
 /// <summary>
 ///

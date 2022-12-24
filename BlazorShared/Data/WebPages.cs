@@ -9,7 +9,7 @@ using FreeSql.DataAnnotations;
 using System.ComponentModel;
 using System;
 
-namespace BlazorShared.Data;
+namespace DemoShared.Data;
 
 
 /// <summary>

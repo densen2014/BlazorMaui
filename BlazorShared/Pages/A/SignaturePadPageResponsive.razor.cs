@@ -4,7 +4,7 @@ using System;
 using System.Collections;
 using System.Diagnostics;
 
-namespace BlazorShared.Pages;
+namespace DemoShared.Pages;
 
 public sealed partial class SignaturePadPageResponsive
 {

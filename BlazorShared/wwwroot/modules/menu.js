@@ -1,5 +1,5 @@
-﻿import BlazorComponent from "../../../_content/BootstrapBlazor/modules/base/blazor-component.js";
-import EventHandler from "../../../_content/BootstrapBlazor/modules/base/event-handler.js";
+﻿import BlazorComponent from "/_content/BootstrapBlazor/modules/base/blazor-component.js";
+import EventHandler from "/_content/BootstrapBlazor/modules/base/event-handler.js";
 
 export class Menu extends BlazorComponent {
     _init() {
@@ -10,6 +10,7 @@ export class Menu extends BlazorComponent {
             this._menu.classList.toggle('show')
         })
         EventHandler.on(this._menu, 'click', '.nav-link', e => {
+            console.log('xxx');
             const link = e.delegateTarget
             const url = link.getAttribute('href');
             if (url !== '#') {

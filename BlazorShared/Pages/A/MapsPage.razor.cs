@@ -1,6 +1,6 @@
 ﻿using BootstrapBlazor.Components;
 
-namespace BlazorShared.Pages;
+namespace DemoShared.Pages;
 
 /// <summary>
 /// 谷歌地图 Maps
