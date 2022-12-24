@@ -24,7 +24,7 @@ namespace BlazorMaui
             //需要在项目属性中设置生成操作为嵌入资源
             //<ItemGroup>
             //<EmbeddedResource Include="appsettings.json" />
-            //</ItemGroup>            
+            //</ItemGroup>
             //try
             //{
             //    var a = Assembly.GetExecutingAssembly();
@@ -42,14 +42,14 @@ namespace BlazorMaui
             //  <MauiAsset Include="appsettings.json">
             //    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
             //  </MauiAsset>
-            //</ItemGroup> 
+            //</ItemGroup>
             //需要在项目属性中 Remove 文件
             //<ItemGroup>
             //  <Content Remove="appsettings.json" />
             //</ItemGroup>
             try
             {
-                var stream = LoadMauiAsset().Result; 
+                var stream = LoadMauiAsset().Result;
                 if (stream!=null) builder.Configuration.AddJsonStream(stream);
             }
             catch (Exception e)
@@ -86,9 +86,9 @@ namespace BlazorMaui
 #endif
 
             builder.Services.AddAIFormExtensions();
+           builder.Services.AddBlazorWebViewDeveloperTools();
 #if DEBUG
-            builder.Services.AddBlazorWebViewDeveloperTools();
-#endif
+ #endif
             builder.Services.AddSingleton<ITools, MauiService>();
 
             return builder.Build();
