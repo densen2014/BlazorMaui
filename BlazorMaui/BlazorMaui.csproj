@@ -102,10 +102,10 @@
     </ItemGroup> 
 
     <ItemGroup Condition="'$(Configuration)'=='DebugNuget'">
-        <PackageReference Include="BlazorShared" Version="*" />
+        <PackageReference Include="BlazorShared" Version="1.*" />
     </ItemGroup> 
 
-    <ItemGroup  Condition="'$(Configuration)' != 'DebugNuget'">
+    <ItemGroup Condition="'$(Configuration)' != 'DebugNuget'">
         <ProjectReference Include="..\BlazorShared\BlazorShared.csproj" />
     </ItemGroup>
     
