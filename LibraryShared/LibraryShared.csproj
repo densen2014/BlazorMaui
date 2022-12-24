@@ -12,10 +12,11 @@
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
         <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+        <Configurations>Debug;Release;DebugNuget</Configurations>
     </PropertyGroup>
     
     <PropertyGroup>
-        <Version>0.0.2</Version>
+        <Version>1.0.0</Version>
         <PackageProjectUrl>https://github.com/densen2014/BlazorMaui</PackageProjectUrl>
         <RepositoryUrl>https://github.com/densen2014/BlazorMaui</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
@@ -46,9 +47,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="FreeSql" Version="3.2.684" />
-        <PackageReference Include="Microsoft.Data.Sqlite" Version="7.0.1" />
-        <PackageReference Include="FreeSql.Provider.SqliteCore" Version="3.2.684" />
+        <PackageReference Include="FreeSql" Version="*" />
+        <PackageReference Include="Microsoft.Data.Sqlite" Version="7.*" />
+        <PackageReference Include="FreeSql.Provider.SqliteCore" Version="*" />
     </ItemGroup>
 
 </Project>

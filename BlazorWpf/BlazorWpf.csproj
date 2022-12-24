@@ -7,12 +7,13 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<RootNamespace>BlazorWpf</RootNamespace>
         <UserSecretsId>102ba2ce-c240-49cd-a064-deee597f8998</UserSecretsId>
+        <Configurations>Debug;Release;DebugNuget</Configurations>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Components.WebView.Wpf" Version="7.0.52" />
-		<PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
-        <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.0.0" />
-        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.WebView.Wpf" Version="7.*" />
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="7.*" />
+        <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.*" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.*" />
     </ItemGroup>
     <ItemGroup>
 	  <ProjectReference Include="..\BlazorShared\BlazorShared.csproj" />

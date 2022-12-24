@@ -5,12 +5,13 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <Configurations>Debug;Release;DebugNuget</Configurations>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="2.88.3" />
-        <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="2.88.3" />
-        <PackageReference Include="Microsoft.Maui.Graphics.Skia" Version="7.0.52" />
-        <PackageReference Include="SkiaSharp" Version="2.88.3" />
+        <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="*" />
+        <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="*" />
+        <PackageReference Include="Microsoft.Maui.Graphics.Skia" Version="7.*" />
+        <PackageReference Include="SkiaSharp" Version="*" />
     </ItemGroup>
 </Project>

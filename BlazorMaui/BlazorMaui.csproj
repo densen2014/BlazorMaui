@@ -26,7 +26,8 @@
         <ApplicationVersion>1</ApplicationVersion>
 
         <!-- Required for C# Hot Reload -->
-        <UseInterpreter Condition="'$(Configuration)' == 'Debug'">True</UseInterpreter> 
+        <UseInterpreter Condition="'$(Configuration)' == 'Debug'">True</UseInterpreter>
+        <UseInterpreter Condition="'$(Configuration)'=='DebugNuget'">True</UseInterpreter> 
 
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
@@ -50,7 +51,7 @@
         <GenerateTestArtifacts>True</GenerateTestArtifacts>
         <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
         <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
-        <Configurations>Debug;Release</Configurations>
+        <Configurations>Debug;Release;DebugNuget</Configurations>
     </PropertyGroup>
     
     <PropertyGroup Condition="$(TargetFramework.Contains('-android')) and '$(Configuration)' == 'Release'">
@@ -100,13 +101,16 @@
       </MauiAsset>
     </ItemGroup> 
 
-    <ItemGroup>
-        <!--<PackageReference Include="BlazorShared" Version="1.0.1" />-->
-        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
-    </ItemGroup>
+    <ItemGroup Condition="'$(Configuration)'=='DebugNuget'">
+        <PackageReference Include="BlazorShared" Version="*" />
+    </ItemGroup> 
 
-    <ItemGroup>
+    <ItemGroup  Condition="'$(Configuration)' != 'DebugNuget'">
         <ProjectReference Include="..\BlazorShared\BlazorShared.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.*" />
     </ItemGroup>
 
     <ItemGroup Condition="$(TargetFramework.StartsWith('net7.0-android')) != true">
