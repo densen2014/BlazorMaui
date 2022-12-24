@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BlazorShared.Shared;
 
-[JSModuleAutoLoader("./_content/BlazorShared/modules/menu.js", ModuleName = "Menu", Relative = false)]
+[JSModuleAutoLoader("/_content/BlazorShared/modules/menu.js", ModuleName = "Menu", Relative = false)]
 public partial class NavMenu
 {
     private IEnumerable<MenuItem> Menus { get; set; } = new List<MenuItem>
