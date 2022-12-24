@@ -26,6 +26,9 @@
 
         <FileViewer @ref="fileViewer" Filename=@Url />
     </TabItem>
+    <TabItem Text="Files">
+        <ListToList StringList="Files" Style="ListStyle.OrderedList" />
+    </TabItem>
 </Tab>
 
 @code
@@ -39,25 +42,19 @@
 
     private string Url { get; set; } = CombineFilename("sample.docx");
 
+    private static string Dir { get; set; } = (!Directory.Exists(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wwwroot", "_content", "BlazorShared"))) ? Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wwwroot") : Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wwwroot", "_content", "BlazorShared");
+
+    private List<string> Files { get; set; } = new List<string>() { Dir };
+
     private static string CombineFilename(string filename)
     {
-#if DEBUG
-        if (OperatingSystem.IsBrowser())
-        {
-            filename = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wwwroot", "samples", filename);
-        }
-        else
-        {
-            filename = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wwwroot", "_content", "BlazorShared", "samples", filename);
-        }
-#else
-        filename = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wwwroot", "_content","BlazorShared","samples", filename);
-#endif
+        //if (OperatingSystem.IsBrowser())
+        filename = Path.Combine(Dir, "samples", filename);
         return filename;
     }
 
     List<string> FileList = new List<string>
-    {
+{
         CombineFilename("sample3.xlsx"),
         CombineFilename("sample2.xlsx"),
         CombineFilename("sample.xlsx"),
@@ -86,6 +83,11 @@
             Items.Add(new SelectedItem { Text = $"File{i}", Value = FileList[i] });
         }
         Url = FileList[0];
+
+        if (Directory.Exists(Dir))
+        {
+            Directory.GetFiles(Dir, string.Empty, SearchOption.AllDirectories).ToList().ForEach (a=> Files.Add(a.Replace (Dir, "")));
+        }
     }
 
     private async Task ChangeURL(SelectedItem e)
