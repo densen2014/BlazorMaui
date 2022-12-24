@@ -94,7 +94,7 @@ namespace BlazorMaui
             return builder.Build();
         }
 
-        async static Task<Stream> LoadMauiAsset()
+        async static Task<Stream?> LoadMauiAsset()
         {
             try
             {
