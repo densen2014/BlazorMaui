@@ -1,17 +1,28 @@
 ﻿@inherits LayoutComponentBase
+@using System.Reflection
 
-<div class="page">
+<section class="section">
     <div class="sidebar">
+        <div class="sidebar-title">
+            <span class="sidebar-text">DEMO</span>
+        </div>
         <NavMenu />
     </div>
+    <div class="main">
+        <div class="content px-3">
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+            <Tab ClickTabToNavigation="true"
+                 ShowExtendButtons="true"
+                 ShowClose="true"
+                 Body=@Body
+                 
+            AdditionalAssemblies="a" />
+
         </div>
+    </div>
+</section>
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
+@code{
+
+        Assembly[] a = new[] { Assembly.Load("BlazorShared") };
+    }

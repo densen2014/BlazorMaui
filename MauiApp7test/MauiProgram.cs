@@ -6,6 +6,7 @@
 
 using MauiApp7test.Data;
 using Microsoft.Extensions.Logging;
+using System.Reflection;
 
 namespace MauiApp7test
 {
@@ -28,6 +29,7 @@ namespace MauiApp7test
 
             builder.Services.AddSingleton<WeatherForecastService>();
             builder.Services.AddSharedExtensions();
+
 
             return builder.Build();
         }

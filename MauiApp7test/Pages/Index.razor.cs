@@ -4,6 +4,8 @@
 // e-mail:zhouchuanglin@gmail.com 
 // **********************************
 
+using System.Reflection;
+
 namespace MauiApp7test.Pages;
 
 public partial class Index
@@ -17,7 +19,13 @@ public partial class Index
         {
 #if WINDOWS
             WinUI.App.SetTitle("MauiApp7test - Index");
-#endif 
+#endif
+
+
+            AppDomain curDomain = AppDomain.CurrentDomain;
+            Console.WriteLine("------------- Inspection Context --------------");
+            var a = Assembly.Load("BlazorShared");
+
         }
     }
   
