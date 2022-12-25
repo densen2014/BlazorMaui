@@ -23,12 +23,11 @@ namespace MauiApp7test
 
             builder.Services.AddMauiBlazorWebView();
 
-#if DEBUG
-		builder.Services.AddBlazorWebViewDeveloperTools();
-		builder.Logging.AddDebug();
-#endif
+            builder.Services.AddBlazorWebViewDeveloperTools();
+            builder.Logging.AddDebug();
 
             builder.Services.AddSingleton<WeatherForecastService>();
+            builder.Services.AddSharedExtensions();
 
             return builder.Build();
         }
