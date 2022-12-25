@@ -1,6 +1,6 @@
 ﻿@page "/videoPlayers"
 @attribute [TabItemOption(Text = "视频播放器")]
-@namespace BlazorShared.Pages
+
 
 <a href="https://www.nuget.org/packages/BootstrapBlazor.Blazor.VideoPlayer#readme-body-tab"><h4>视频播放器 VideoPlayer</h4></a>
 
@@ -62,12 +62,15 @@
     </div>
 </div>
 
-<VideoPlayer @ref="video1" MineType="@SourcesType" Url="@SourcesUrl" Width="400" Height="300" />
+<VideoPlayer @ref="VideoPlayer" MineType="@SourcesType" Url="@SourcesUrl" Width="400" Height="300" />
 
 @code{
     private string SourcesType = "application/x-mpegURL";
+    
     private string SourcesUrl = "https://rtvelivestream.akamaized.net/rtvesec/la1/la1_main.m3u8";
-    VideoPlayer video1;
+
+    [NotNull]
+    VideoPlayer? VideoPlayer { get; set; }
 
     List<string> VideoList = new List<string>
 {
@@ -108,8 +111,8 @@
 
     private async Task Apply()
     {
-        await video1.SetPoster("//vjs.zencdn.net/v/oceans.png");
-        await video1.Reload(SourcesUrl, SourcesType);
+        await VideoPlayer.SetPoster("//vjs.zencdn.net/v/oceans.png");
+        await VideoPlayer.Reload(SourcesUrl, SourcesType);
     }
 
 }

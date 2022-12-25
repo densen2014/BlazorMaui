@@ -1,13 +1,13 @@
 ﻿@page "/pdfReaders"
 @attribute [TabItemOption(Text = "PDF阅读器")]
-@namespace BlazorShared.Pages
+
 
 <a href="https://www.nuget.org/packages/BootstrapBlazor.PdfReader#readme-body-tab"><h4>PDF阅读器 Pdf Reader</h4></a>
 
 <Tab>
     <TabItem Text="常规">
         <PdfReader Filename=@Filename />
-        <pre>@contents</pre>
+        <pre>@Contents</pre>
     </TabItem>
     <TabItem Text="流化">
         <h6>使用流化模式,可跨域读取文件</h6>
@@ -20,65 +20,51 @@
                 </BootstrapInputGroup>
             </div>
         </div>
-        <PdfReader @ref="pdfReader" UrlBase="@UrlBaseStream" Filename="@FilenameStream" StreamMode="true" />
+        <PdfReader @ref="PdfReader" UrlBase="@UrlBaseStream" Filename="@FilenameStream" StreamMode="true" />
     </TabItem>
 </Tab>
 
 
 @code{
-    private string contents;
+    private string? Contents { get; set; }
+
     private string View { get; set; } = "FitV";
+
     private string Pagemode { get; set; } = "thumbs";
+
     private string Search { get; set; } = "Performance";
+
     private string ViewerBase { get; set; } = "/_content/BootstrapBlazor.PdfReader/web/viewer.html";
+
     private int Page { get; set; } = 3;
+
     private bool ForcePDFJS { get; set; } = true;
-    PdfReader pdfReader;
-    PdfReader pdfReader2;
+
+    [NotNull]
+    PdfReader? PdfReader { get; set; }
+
     private string Filename = "/_content/BlazorShared/samples/sample.pdf";
+
     private string UrlBaseStream = "https://blazor.app1.es/_content/BlazorShared/samples/";
+
     private string FilenameStream = "sample2.pdf";
 
     private Task OnInfo(string contents)
     {
-        this.contents = contents;
+        this.Contents = contents;
         StateHasChanged();
         return Task.CompletedTask;
     }
     private Task OnError(string contents)
     {
-        this.contents = contents;
+        this.Contents = contents;
         StateHasChanged();
         return Task.CompletedTask;
     }
 
     private async Task Apply()
     {
-        await pdfReader.Refresh();
-    }
-    private async Task Apply1()
-    {
-        View = View == "FitV" ? "" : "FitV";
-        await pdfReader2.Refresh();
-    }
-    private async Task Apply2()
-    {
-        Pagemode = Pagemode == "thumbs" ? "" : "thumbs";
-        await pdfReader2.Refresh();
-    }
-    private async Task Apply3()
-    {
-        Page = 1;
-        await pdfReader2.Refresh();
-    }
-    private async Task Apply4()
-    {
-        Page++;
-        await pdfReader2.Refresh();
-    }
-    private async Task Apply5()
-    {
-        await pdfReader2.Refresh();
+        await PdfReader.Refresh();
     }
 
 }
