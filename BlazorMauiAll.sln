@@ -34,6 +34,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wpf7WithWebview2", "Wpf7Wit
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LBH.SerialPortTools", "Linux\serialporttools\LBH.SerialPortTools\LBH.SerialPortTools.csproj", "{A6784CFC-2DAB-4076-B1B5-AEB0DD6BE2F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorLinux", "BlazorLinux\BlazorLinux.csproj", "{5DC8100E-F498-467A-8AF2-C3B36D364367}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -443,6 +445,36 @@ Global
 		{A6784CFC-2DAB-4076-B1B5-AEB0DD6BE2F2}.Release|x64.Build.0 = Release|Any CPU
 		{A6784CFC-2DAB-4076-B1B5-AEB0DD6BE2F2}.Release|x86.ActiveCfg = Release|Any CPU
 		{A6784CFC-2DAB-4076-B1B5-AEB0DD6BE2F2}.Release|x86.Build.0 = Release|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.Debug|ARM.Build.0 = Debug|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.Debug|x64.Build.0 = Debug|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.Debug|x86.Build.0 = Debug|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.DebugNuget|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.DebugNuget|Any CPU.Build.0 = Debug|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.DebugNuget|ARM.ActiveCfg = Debug|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.DebugNuget|ARM.Build.0 = Debug|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.DebugNuget|ARM64.ActiveCfg = Debug|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.DebugNuget|ARM64.Build.0 = Debug|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.DebugNuget|x64.ActiveCfg = Debug|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.DebugNuget|x64.Build.0 = Debug|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.DebugNuget|x86.ActiveCfg = Debug|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.DebugNuget|x86.Build.0 = Debug|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.Release|ARM.ActiveCfg = Release|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.Release|ARM.Build.0 = Release|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.Release|ARM64.Build.0 = Release|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.Release|x64.ActiveCfg = Release|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.Release|x64.Build.0 = Release|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.Release|x86.ActiveCfg = Release|Any CPU
+		{5DC8100E-F498-467A-8AF2-C3B36D364367}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
