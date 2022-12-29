@@ -19,10 +19,10 @@ using (var window = new SpiderEye.Window())
 
     // the port number is defined in the angular.json file (under "architect"->"serve"->"options"->"port")
     // note that you have to run the angular dev server first (npm run watch)
-    SpiderEye.Application.UriWatcher = new AngularDevUriWatcher("http://blazor.app1.es");
+    //SpiderEye.Application.UriWatcher = new AngularDevUriWatcher("http://blazor.app1.es");
 
     // this relates to the path defined in the .csproj file
-    SpiderEye.Application.ContentProvider = new EmbeddedContentProvider("Angular\\dist");
+    //SpiderEye.Application.ContentProvider = new EmbeddedContentProvider("Angular\\dist");
 
     // runs the application and opens the window with the given page loaded
     SpiderEye.Application.Run(window, "http://blazor.zone");
@@ -64,8 +64,10 @@ public class DevSettings
     {
         window.EnableDevTools = true;
 
+        var stage = "1";
+
         // this is just to give some suggestions in case something isn't set up correctly for development
-        window.PageLoaded += (s, e) =>
+        window.PageLoaded +=   (s, e) =>
         {
             if (!e.Success)
             {
@@ -77,6 +79,14 @@ public class DevSettings
 
                 SpiderEye.MessageBox.Show(window, message, "Page load failed", MessageBoxButtons.Ok);
             }
+
+            if (stage == "1")
+                //await window.Bridge.InvokeAsync("11",$@"
+                //            console.log(""Hello World"");
+                //            document.querySelectorAll('input[title=""Search""]')[0].value = ""Hello World"";
+                //            document.querySelectorAll('input[value=""Google Search""]')[0].click();");
+
+            stage = "2";
         };
     }
 }
