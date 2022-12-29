@@ -1,0 +1,25 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "windows": {
+        "command": "dotnet build testsp.Windows"
+      },
+      "linux": {
+        "command": "dotnet build testsp.Linux"
+      },
+      "osx": {
+        "command": "dotnet build testsp.Mac"
+      },
+      "type": "shell",
+      "group": "build",
+      "presentation": {
+        "reveal": "silent"
+      },
+      "problemMatcher": "$msCompile"
+    }
+  ]
+}

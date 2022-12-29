@@ -1,0 +1,36 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Start App",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "windows": {
+        "program": "${workspaceFolder}/testsp.Windows/bin/Debug/net6.0/testsp.dll",
+        "cwd": "${workspaceFolder}/testsp.Windows"
+      },
+      "linux": {
+        "program": "${workspaceFolder}/testsp.Linux/bin/Debug/net6.0/testsp.dll",
+        "cwd": "${workspaceFolder}/testsp.Linux"
+      },
+      "osx": {
+        "program": "${workspaceFolder}/testsp.Mac/bin/Debug/net6.0/testsp.dll",
+        "cwd": "${workspaceFolder}/testsp.Mac"
+      },
+      "args": [],
+      "console": "internalConsole",
+      "stopAtEntry": false,
+      "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
+      "name": ".NET Core Attach",
+      "type": "coreclr",
+      "request": "attach",
+      "processId": "${command:pickProcess}"
+    }
+  ]
+}

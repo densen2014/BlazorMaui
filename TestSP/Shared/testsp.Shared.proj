@@ -1,0 +1,11 @@
+﻿<Project>
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <AssemblyName>testsp</AssemblyName>
+    <RootNamespace>testsp</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\testsp.Core\testsp.Core.csproj" />
+  </ItemGroup>
+</Project>
