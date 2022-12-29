@@ -1,4 +1,6 @@
-﻿namespace BlazorShared.Services;
+﻿using System.IO.Ports;
+
+namespace BlazorShared.Services;
 
 public class FakeService : ITools
 {
@@ -23,7 +25,7 @@ public class FakeService : ITools
 #if WINDOWS
     public List<string>? GetPortlist()
     {
-        return System.IO.Ports.SerialPort.GetPortNames().ToList();
+        return SerialPort.GetPortNames().ToList();
     }
 #elif ANDROID || IOS || MACCATALYST
     public List<string>? GetPortlist()
@@ -47,7 +49,7 @@ public class FakeService : ITools
     {
         if (OperatingSystem.IsWindows())
         {
-            return System.IO.Ports.SerialPort.GetPortNames().ToList();
+            return SerialPort.GetPortNames().ToList();
         }
         else
         {

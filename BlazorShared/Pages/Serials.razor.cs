@@ -14,6 +14,7 @@ using BlazorShared.Models;
 using Newtonsoft.Json;
 using AME.Services;
 using System.Diagnostics.CodeAnalysis;
+using System.IO.Ports;
 
 namespace BlazorShared.Pages
 {
@@ -31,7 +32,7 @@ namespace BlazorShared.Pages
 
         Task GetPortlist()
         {
-            PortList = Tools.GetPortlist();
+            PortList = SerialPort.GetPortNames().ToList();
             return Task.CompletedTask;
         }
 

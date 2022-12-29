@@ -28,7 +28,7 @@ namespace LibraryShared
         public Task<string> TakeScreenshotAsync() => Task.FromResult("未实现");
         public List<string> GetPortlist()
         {
-            return System.IO.Ports.SerialPort.GetPortNames().ToList();
+            return SerialPort.GetPortNames().ToList();
         }
         public string CacheDirectory() => AppDomain.CurrentDomain.BaseDirectory;
         public string AppDataDirectory() => AppDomain.CurrentDomain.BaseDirectory;

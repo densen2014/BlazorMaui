@@ -1,5 +1,6 @@
 ﻿using BlazorShared.Services;
 using System.Diagnostics;
+using System.IO.Ports;
 using System.Reflection;
 
 namespace BlazorWinForms
@@ -26,7 +27,7 @@ namespace BlazorWinForms
 
         public List<string> GetPortlist()
         {
-            return System.IO.Ports.SerialPort.GetPortNames().ToList();
+            return SerialPort.GetPortNames().ToList();
         }
         public string CacheDirectory() => AppDomain.CurrentDomain.BaseDirectory;
         public string AppDataDirectory() => AppDomain.CurrentDomain.BaseDirectory;

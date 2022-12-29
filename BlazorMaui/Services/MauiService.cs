@@ -7,6 +7,7 @@ using Android.Webkit;
 using BlazorShared.Services;
 
 using System.Security.Permissions;
+using System.IO.Ports;
 
 namespace LibraryShared
 {
@@ -476,7 +477,7 @@ namespace LibraryShared
 #if WINDOWS
         public List<string> GetPortlist()
         {
-            return System.IO.Ports.SerialPort.GetPortNames().ToList();
+            return SerialPort.GetPortNames().ToList();
         }
 #elif ANDROID || IOS || MACCATALYST
         public List<string> GetPortlist()
@@ -500,7 +501,7 @@ namespace LibraryShared
         {
             if (OperatingSystem.IsWindows())
             {
-                return System.IO.Ports.SerialPort.GetPortNames().ToList();
+                return SerialPort.GetPortNames().ToList();
             }
             else
             {

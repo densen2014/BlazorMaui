@@ -72,6 +72,7 @@
         <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.*" />
         <PackageReference Include="MiniExcel" Version="*" />
         <PackageReference Include="Densen.Extensions.BootstrapBlazor" Version="7.*" />
+        <PackageReference Include="System.IO.Ports" Version="7.0.0" />
     </ItemGroup>
 
     <ItemGroup>
