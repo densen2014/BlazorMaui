@@ -2,6 +2,12 @@
 
 https://learn.microsoft.com/zh-cn/windows/android/wsa/
 
+### 使用 WSA 优点
+
+1. 随意更改尺寸, 测试方便
+2. 启动快捷,资源占用少
+
+
 ### WSAPatch , Windows10中安装安卓子系统
 
 https://github.com/cinit/WSAPatch
