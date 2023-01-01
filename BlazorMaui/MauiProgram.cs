@@ -54,12 +54,16 @@ namespace BlazorMaui
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                //TODO : ios error 'Stream was not readable'
+                Console.WriteLine("builder.Configuration.AddJsonStream error=> " + e.Message);
             }
+#if WINDOWS
             builder.Configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
             //windows/ssr 平台可用 UserSecrets , 其他平台没用
             builder.Configuration.AddUserSecrets<ConfigFake>();
-            #endregion
+#endif
+
+#endregion
 
             builder
                 .UseMauiApp<App>()
@@ -80,6 +84,7 @@ namespace BlazorMaui
             builder.Services.AddSharedExtensions();
 #if (IOS || MACCATALYST)
             string localFilePath = Path.Combine(FileSystem.CacheDirectory);
+            Console.WriteLine("AzureCvKey:" + builder.Configuration["AzureCvKey"]);
             builder.Services.AddOcrExtensions(builder.Configuration["AzureCvKey"], builder.Configuration["AzureCvUrl"], localFilePath);
 #else
             builder.Services.AddOcrExtensions();
@@ -104,7 +109,9 @@ namespace BlazorMaui
 
                 var contents = reader.ReadToEnd();
                 Console.WriteLine("OpenAppPackageFileAsync => " + contents);
-                return stream;
+                var memoryStream = new MemoryStream();
+                stream.CopyTo(memoryStream);
+                return memoryStream;
             }
             catch (Exception e)
             {
