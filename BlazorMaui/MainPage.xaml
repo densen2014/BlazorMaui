@@ -9,7 +9,8 @@
 
     <BlazorWebView x:Name="_blazorWebView" HostPage="wwwroot/index.html">
         <BlazorWebView.RootComponents>
-            <RootComponent Selector="#app" ComponentType="{x:Type shared:App}" />
+            <RootComponent Selector="#app" ComponentType="{x:Type local:Main}" />
+            <!--<RootComponent Selector="#app" ComponentType="{x:Type shared:App}" />-->
         </BlazorWebView.RootComponents>
     </BlazorWebView> 
 

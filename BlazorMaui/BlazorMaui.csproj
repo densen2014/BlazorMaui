@@ -13,8 +13,7 @@
         <Nullable>enable</Nullable>
         <EnableDefaultCssItems>false</EnableDefaultCssItems>
 
-        <UserSecretsId>102ba2ce-c240-49cd-a064-deee597f8998</UserSecretsId>
-
+ 
         <!-- Display name -->
         <ApplicationTitle>MauiBlazorDemo</ApplicationTitle>
 
@@ -104,11 +103,7 @@
 
     <ItemGroup Condition="'$(Configuration)'=='DebugNuget'">
         <PackageReference Include="BlazorShared" Version="1.*" />
-    </ItemGroup> 
-
-    <ItemGroup Condition="'$(Configuration)' != 'DebugNuget'">
-        <ProjectReference Include="..\BlazorShared\BlazorShared.csproj" />
-    </ItemGroup>
+    </ItemGroup>  
     
     <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.*" />

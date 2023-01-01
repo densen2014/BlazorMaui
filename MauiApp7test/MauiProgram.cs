@@ -6,6 +6,9 @@
 
 using MauiApp7test.Data;
 using Microsoft.Extensions.Logging;
+using BlazorShared;
+using BlazorShared.Services;
+
 
 namespace MauiApp7test
 {
@@ -13,6 +16,7 @@ namespace MauiApp7test
     {
         public static MauiApp CreateMauiApp()
         {
+            AppState _appState = new();
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
@@ -28,6 +32,7 @@ namespace MauiApp7test
 
             builder.Services.AddSingleton<WeatherForecastService>();
             builder.Services.AddSharedExtensions();
+            builder.Services.AddSingleton(_appState);
 
             return builder.Build();
         }
