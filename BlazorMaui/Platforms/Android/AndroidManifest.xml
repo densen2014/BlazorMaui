@@ -32,11 +32,12 @@
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
   <uses-permission android:name="android.permission.BATTERY_STATS" />
-  <queries>
+  <!--测试 w10 wsa Windows 安卓子系统,需要注释掉这个配置
+    <queries>
     <intent>
       <action android:name="android.media.action.IMAGE_CAPTURE" />
       <action android:name="android.intent.action.VIEW" />
       <data android:scheme="geo"/>
     </intent>
-  </queries>
+  </queries>-->
 </manifest>
