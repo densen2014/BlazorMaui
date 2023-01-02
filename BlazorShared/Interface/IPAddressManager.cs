@@ -18,12 +18,12 @@ namespace Shared.DependencyServices
         public string? FirstMacAddress()
         {
             try
-            {                
+            {
                 return NetworkInterface
                        .GetAllNetworkInterfaces()
                        .Where(nic => nic.OperationalStatus == OperationalStatus.Up && nic.NetworkInterfaceType != NetworkInterfaceType.Loopback)
                        .Select(nic => nic.GetPhysicalAddress().ToString())
-                       .FirstOrDefault()?? "UnknowMacAddress";
+                       .FirstOrDefault() ?? "UnknowMacAddress";
             }
             catch (Exception)
             {
@@ -36,21 +36,36 @@ namespace Shared.DependencyServices
 #if (ANDROID)
         public string? GetIPAddress()
         {
-            IPAddress[] adresses = Dns.GetHostAddresses(Dns.GetHostName());
+            try
+            {
+                IPAddress[] adresses = Dns.GetHostAddresses(Dns.GetHostName());
 
-            if (adresses != null && adresses[0] != null)
-            {
-                return adresses[0].ToString();
+                if (adresses != null && adresses[0] != null)
+                {
+                    return adresses[0].ToString();
+                }
+                else
+                {
+                    return null;
+                }
             }
-            else
+            catch (Exception)
             {
-                return null;
-            }
+                return "UnknowIPAddress";
+            } 
         }
+
         public List<string> GetIPAddresList()
         {
-            IPAddress[] adresses = Dns.GetHostAddresses(Dns.GetHostName());
-            return adresses?.Where(a => a != null).Select(a => a.ToString()).ToList();
+            try
+            {
+                IPAddress[] adresses = Dns.GetHostAddresses(Dns.GetHostName());
+                return adresses?.Where(a => a != null).Select(a => a.ToString()).ToList();
+            }
+            catch (Exception)
+            {
+                return new List<string> { "UnknowIPAddresList" };
+            }
 
         }
 
@@ -128,31 +143,48 @@ namespace Shared.DependencyServices
 
         public string? GetVersion()
         {
-            var activity = Android.App.Application.Context;
-            return activity.PackageManager.GetPackageInfo(activity.PackageName, 0).VersionName;
+            try
+            {
+
+                var activity = Android.App.Application.Context;
+                return activity.PackageManager.GetPackageInfo(activity.PackageName, 0).VersionName;
+            }
+            catch (Exception)
+            {
+                return "UnknowVersion";
+            }
+
         }
 #else
 #if (IOS || MACCATALYST)
         public string? GetIdentifier()
         {
-            var query = new SecRecord(SecKind.GenericPassword);
-            query.Service = NSBundle.MainBundle.BundleIdentifier;
-            query.Account = "UniqueID";
-
-            NSData? uniqueId = SecKeyChain.QueryAsData(query);
-            if (uniqueId == null)
+            try
             {
-                query.ValueData = NSData.FromString(System.Guid.NewGuid().ToString());
-                var err = SecKeyChain.Add(query);
-                if (err != SecStatusCode.Success && err != SecStatusCode.DuplicateItem)
-                    throw new Exception("Cannot store Unique ID");
+                var query = new SecRecord(SecKind.GenericPassword);
+                query.Service = NSBundle.MainBundle.BundleIdentifier;
+                query.Account = "UniqueID";
 
-                return query.ValueData.ToString();
+                NSData? uniqueId = SecKeyChain.QueryAsData(query);
+                if (uniqueId == null)
+                {
+                    query.ValueData = NSData.FromString(System.Guid.NewGuid().ToString());
+                    var err = SecKeyChain.Add(query);
+                    if (err != SecStatusCode.Success && err != SecStatusCode.DuplicateItem)
+                        throw new Exception("Cannot store Unique ID");
+
+                    return query.ValueData.ToString();
+                }
+                else
+                {
+                    return uniqueId.ToString();
+                }
             }
-            else
+            catch (Exception)
             {
-                return uniqueId.ToString();
+                return "UnknowIdentifier";
             }
+
         }
 
         public string? GetVersion()
