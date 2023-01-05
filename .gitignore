@@ -363,3 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 BlazorSSR/sqliteSample.db
 /BlazorMaui/myapp.keystore
+BlazorLinux/sqliteSample.db

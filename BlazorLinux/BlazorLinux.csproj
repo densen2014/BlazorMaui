@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFrameworks>net7.0;net7.0-windows10.0.17763</TargetFrameworks>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<OutputType Condition="$(TargetFramework.Contains('-windows'))">WinExe</OutputType>
+		<UseWindowsForms Condition="$(TargetFramework.Contains('-windows'))">true</UseWindowsForms>
+		<ApplicationIcon>icon.ico</ApplicationIcon>
+		<DefineConstants Condition="$(TargetFramework.Contains('-maccatalyst'))">$(DefineConstants);MAC"</DefineConstants>
+		<DefineConstants Condition="$(TargetFramework.Contains('-windows'))">$(DefineConstants);WIN</DefineConstants>
+		<DefineConstants Condition="$(TargetFramework.Contains('-linux'))">$(DefineConstants);LINUX</DefineConstants>
+		<UserSecretsId>50703830-1636-4d04-b7a6-9e7af4381fb6</UserSecretsId>
+		<EnableWindowsTargeting>true</EnableWindowsTargeting>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="Bildstein.SpiderEye.Core" Version="1.0.0-beta.5" />
+		<PackageReference Include="Bildstein.SpiderEye.Linux" Version="1.0.0-beta.5" />
+		<PackageReference Include="Bildstein.SpiderEye.Mac" Version="1.0.0-beta.5" />
+		<PackageReference Condition="$(TargetFramework.Contains('-windows'))" Include="Bildstein.SpiderEye.Windows" Version="1.0.0-beta.5" />
+		<PackageReference Include="System.IO.Ports" Version="7.0.0" />
+		<PackageReference Include="GtkSharp" Version="3.24.24.38" />
+        <!--<PackageReference Include="BlazorShared" Version="1.1.3" />-->
+    </ItemGroup>
+    
+    <ItemGroup>
+        <ProjectReference Include="..\BlazorShared\BlazorShared.csproj" />
+    </ItemGroup>
+	
+	<ItemGroup>
+		<None Update="icon.icns">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="icon.ico">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="icon.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+</Project>

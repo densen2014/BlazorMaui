@@ -61,6 +61,7 @@ public partial class NavMenu
                     new MenuItem() { Text = "串口", Url = "/serials" },
                 }
             },
+            new MenuItem() { Text = "Linux平台", Url = "/LinuxPage" },
             new MenuItem() { Text = "关于 About", Url = "/AboutMe" },
     };
 }

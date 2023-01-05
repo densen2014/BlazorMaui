@@ -1,4 +1,5 @@
 ﻿using System.IO.Ports;
+using System.Reflection;
 
 namespace BlazorShared.Services;
 
@@ -15,8 +16,8 @@ public class FakeService : ITools
     public Task<string> GetCurrentLocation() => Task.FromResult("未实现");
     public Task<string> TakePhoto() => Task.FromResult("未实现");
     public void ShowSettingsUI() { }
-    public string? GetAppInfo() => "未实现";
-    public Task<string> NavigateToMadrid() => Task.FromResult("未实现");
+    //public string? GetAppInfo() => "未实现";
+    public string GetAppInfo() => $"{Assembly.GetExecutingAssembly().GetName().Name}-{Assembly.GetExecutingAssembly().GetName().Version}"; public Task<string> NavigateToMadrid() => Task.FromResult("未实现");
     public Task<string> NavigateToPlazaDeEspana() => Task.FromResult("未实现");
     public Task<string> NavigateToPlazaDeEspanaByPlacemark() => Task.FromResult("未实现");
     public Task<string> DriveToPlazaDeEspana() => Task.FromResult("未实现");
@@ -47,7 +48,7 @@ public class FakeService : ITools
 #else
     public List<string>? GetPortlist()
     {
-        if (OperatingSystem.IsWindows())
+        if (!OperatingSystem.IsBrowser())
         {
             return SerialPort.GetPortNames().ToList();
         }

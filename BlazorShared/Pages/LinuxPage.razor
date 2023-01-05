@@ -1,0 +1,33 @@
+﻿@page "/LinuxPage"
+
+<PageTitle>BlazorLinux (Linux/Win/Mac)</PageTitle>
+
+<h1>你好, word!</h1>
+
+欢迎来到新的 Blazor Linux 世界.
+
+<div>
+    <button class="btn btn-primary" @onclick="StartLongRunningTask">后台任务</button>
+
+    <p role="status">状态: @LongRunningTaskState</p>
+
+    <br />
+
+    <button class="btn btn-primary" @onclick="GetData">读取平台服务数据</button>
+
+    <p role="status">数据: @DataState</p>
+
+    <br />
+
+    <button class="btn btn-primary" @onclick="ShowWindow">打开新窗口</button>
+
+    <br /> 
+
+    <p role="status">Api数据: @RawData</p>
+
+    @if (!string.IsNullOrWhiteSpace(Error))
+    {
+        <p style="color:orangered">错误: @Error </p>
+    }
+
+</div>
