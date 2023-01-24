@@ -14,3 +14,44 @@ cd BlazorMaui
 dotnet publish -f net7.0-windows10.0.19041.0 -c Release
 
 发布应用生成和打包，将签名包复制到 bin\Release\net7.0-windows10.0.19041.0\win10-x64\AppPackages\<appname>\ 文件夹。 其中 <appname> 是一个以项目和版本命名的文件夹。 在此文件夹中，有 一个 msix 文件，即应用包。
+
+
+
+----------------
+
+### WSA Microsoft 官方说明
+
+https://learn.microsoft.com/zh-cn/windows/android/wsa/
+
+### 使用 WSA 优点
+
+1. 随意更改尺寸, 测试方便
+2. 启动快捷,资源占用少
+
+
+### WSAPatch , Windows10中安装安卓子系统
+
+https://github.com/cinit/WSAPatch
+
+### MagiskOnWSALocal
+
+https://github.com/LSPosed/MagiskOnWSALocal
+
+### 手把手教你在Windows10中安装安卓子系统
+
+https://www.zkcee.com/5301.html
+
+### MAUI安卓子系统调试方法
+
+https://blog.csdn.net/sD7O95O/article/details/121724117
+
+### 调试连接命令
+
+cd "C:\Program Files (x86)\Android\android-sdk\platform-tools\"
+adb connect 127.0.0.1:58526
+
+C:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe
+
+### About
+
+Android is a trademark of Google LLC. Windows is a trademark of Microsoft LLC.

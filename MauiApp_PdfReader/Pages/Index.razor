@@ -2,4 +2,31 @@
 
 @using BootstrapBlazor.Components
 
-<PdfReader Filename="https://blazor.app1.es/_content/DemoShared/samples/sample.pdf" StreamMode="true" />
+<pre style="overflow:scroll">@filename</pre>
+
+
+<p>
+    @fileExist()
+</p>
+
+
+@*<PdfReader FileName="https://0.0.0.0/sample2.pdf" Height="300" />
+
+<PdfReader FileName="/sample2.pdf" Height="300" />
+
+<PdfReader Stream="stream" Height="300" />*@
+
+<PdfReader FileName="https://blazor.app1.es/_content/DemoShared/samples/sample2.pdf" StreamMode="true" Height="300" />
+
+
+@code{
+    string filename = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wwwroot", "sample2.pdf");
+
+    Stream stream;
+
+    string fileExist()
+    {
+        if (File.Exists(filename)) stream = File.OpenRead(filename);
+        return File.Exists(filename) ? "Exists" : "Not Exists";
+    }
+}
