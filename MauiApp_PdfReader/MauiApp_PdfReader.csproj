@@ -60,7 +60,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\BootstrapBlazor.PdfReader\src\BootstrapBlazor.PdfReader\BootstrapBlazor.PdfReader.csproj" />
+      <!--<ProjectReference Include="..\..\BootstrapBlazor.PdfReader\src\BootstrapBlazor.PdfReader\BootstrapBlazor.PdfReader.csproj" />-->
     </ItemGroup>
 
     <ItemGroup>
