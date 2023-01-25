@@ -1,70 +1,84 @@
 ﻿@page "/pdfReaders"
 @attribute [TabItemOption(Text = "PDF阅读器")]
-
+@using System.ComponentModel
 
 <a href="https://www.nuget.org/packages/BootstrapBlazor.PdfReader#readme-body-tab"><h4>PDF阅读器 Pdf Reader</h4></a>
 
-<Tab>
+<Tab IsOnlyRenderActiveTab>
     <TabItem Text="常规">
-        <PdfReader Filename=@Filename />
-        <pre>@Contents</pre>
+        <PdfReader FileName=@FileName />
     </TabItem>
     <TabItem Text="流化">
         <h6>使用流化模式,可跨域读取文件</h6>
         <div class="row g-3">
             <div class="col-12">
                 <BootstrapInputGroup>
-                    <BootstrapInput @bind-Value="@UrlBaseStream" />
-                    <BootstrapInput @bind-Value="@FilenameStream" />
+                    <BootstrapInput @bind-Value="@FileNameStream" />
                     <Button Color="Color.Primary" OnClick="Apply">加载</Button>
                 </BootstrapInputGroup>
             </div>
         </div>
-        <PdfReader @ref="PdfReader" UrlBase="@UrlBaseStream" Filename="@FilenameStream" StreamMode="true" />
+        <PdfReader @ref="pdfReader" FileName="@FileNameStream" StreamMode />
+    </TabItem>
+    <TabItem Text="兼容模式">
+        <h6>兼容旧版浏览器</h6>
+        <PdfReader FileName=@FileName CompatibilityMode />
+    </TabItem>
+    <TabItem Text="高级">
+        <div class="row mb-3">
+            <div class="col-12">
+                <BootstrapInputGroup>
+                    <Button Color="Color.Primary" OnClick="ApplyZoom">视图模式</Button>
+                    <Button Color="Color.Primary" OnClick="ApplyPagemode">页面模式</Button>
+                    <Button Color="Color.Primary" OnClick="ApplyPagePrevious">页码-</Button>
+                    <Button Color="Color.Primary" OnClick="ApplyPageNext">页码+</Button>
+                    <BootstrapInput @bind-Value="@Page" />
+                    <Button OnClick="ApplyPage">跳转</Button>
+                </BootstrapInputGroup>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12">
+                <BootstrapInputGroup>
+                    <BootstrapInputGroupLabel @bind-Value="@Search" />
+                    <BootstrapInput @bind-Value="@Search" />
+                    <Button Icon="fa-solid fa-magnifying-glass" OnClick="ApplySearch"></Button>
+                </BootstrapInputGroup>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12">
+                <BootstrapInputGroup>
+                    <BootstrapInputGroupLabel @bind-Value="@FileName" />
+                    <BootstrapInput @bind-Value="@FileName" />
+                    <Button Color="Color.Primary" OnClick="ApplySearch">刷新</Button>
+                </BootstrapInputGroup>
+            </div>
+        </div>
+        <div class="row mb-3 form-inline">
+            <div class="col-6 col-sm-4 col-md-3 col-lg-auto">
+                <Switch @bind-Value="@StreamMode" ShowLabel="true" OnValueChanged="_=>ApplySearch()" />
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-auto">
+                <Switch @bind-Value="@ReadOnly" ShowLabel="true" ShowLabelTooltip="true" OnValueChanged="_=>ApplySearch()" />
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-auto">
+                <Switch @bind-Value="@Debug" ShowLabel="true" />
+            </div>
+            <BootstrapInput @bind-Value="@Watermark" />
+        </div>
+
+        <PdfReader @ref="pdfReader2"
+                   FileName="@(StreamMode?FileNameStream:FileName)"
+                   StreamMode="StreamMode"
+                   Page=@Page
+                   Zoom=@Zoom
+                   Pagemode=@Pagemode
+                   Search=@Search
+                   Width="80%"
+                   Height="500px"
+                   Debug="Debug"
+                   ReadOnly="ReadOnly"
+                   Watermark="@Watermark" />
     </TabItem>
 </Tab>
-
-
-@code{
-    private string? Contents { get; set; }
-
-    private string View { get; set; } = "FitV";
-
-    private string Pagemode { get; set; } = "thumbs";
-
-    private string Search { get; set; } = "Performance";
-
-    private string ViewerBase { get; set; } = "/_content/BootstrapBlazor.PdfReader/web/viewer.html";
-
-    private int Page { get; set; } = 3;
-
-    private bool ForcePDFJS { get; set; } = true;
-
-    [NotNull]
-    PdfReader? PdfReader { get; set; }
-
-    private string Filename = "/_content/BlazorShared/samples/sample.pdf";
-
-    private string UrlBaseStream = "https://blazor.app1.es/_content/BlazorShared/samples/";
-
-    private string FilenameStream = "sample2.pdf";
-
-    private Task OnInfo(string contents)
-    {
-        this.Contents = contents;
-        StateHasChanged();
-        return Task.CompletedTask;
-    }
-    private Task OnError(string contents)
-    {
-        this.Contents = contents;
-        StateHasChanged();
-        return Task.CompletedTask;
-    }
-
-    private async Task Apply()
-    {
-        await PdfReader.Refresh();
-    }
-
-}
