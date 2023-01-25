@@ -1,0 +1,29 @@
+﻿@page "/screencapture"
+@attribute [TabItemOption(Text = "截屏/录像")]
+
+<a href="https://www.nuget.org/packages/BootstrapBlazor.WebAPI#readme-body-tab"><h3>截屏/录像</h3></a>
+
+<p>@message</p>
+
+<Tab IsOnlyRenderActiveTab="true">
+    <TabItem Text="摄像头">
+        <Capture OnCaptureResult="@OnCaptureResult" OnError="@OnError" />
+    </TabItem>
+    <TabItem Text="窗口">
+        <Capture OnCaptureResult="@OnCaptureResult" OnError="@OnError" Camera="false" />
+    </TabItem>
+    <TabItem Text="摄像头连续截图">
+        <Capture OnCaptureResult="@OnCaptureResult" OnError="@OnError" Continuous="true" />
+    </TabItem>
+    <TabItem Text="窗口连续截图">
+        <Capture OnCaptureResult="@OnCaptureResult" OnError="@OnError"  Camera="false" Continuous="true" />
+    </TabItem>
+</Tab>
+
+<p></p><p></p>
+<p>附加OCR演示:</p>
+
+<OCR @ref="OCR" ShowUI="false" Debug="true" OnResult="OnResult" />
+
+<AttributeTable Items="@GetAttributes()" />
+

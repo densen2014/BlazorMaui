@@ -28,7 +28,8 @@ public partial class NavMenu
                     new MenuItem() { Text = "文件系统 FileSystem", Url = "/filesystems" },
                     new MenuItem() { Text = "屏幕键盘 OSK", Url = "/onscreenkeyboards" },
                     new MenuItem() { Text = "系统信息 System info", Url = "/webapis" },
-                }
+                     new MenuItem() { Text = "截屏/录像 Screen Capture", Url = "/screencapture" },
+               }
             },
             new MenuItem() { Text = "地图" ,Items= new List<MenuItem>
                 {
