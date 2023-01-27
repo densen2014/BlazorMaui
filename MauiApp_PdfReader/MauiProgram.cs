@@ -16,6 +16,9 @@ namespace MauiApp_PdfReader
             string UploadPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "uploads");
             if (!Directory.Exists(UploadPath)) Directory.CreateDirectory(UploadPath);
 
+            File.WriteAllText(Path.Combine(UploadPath, $"{DateTime.Now:yyyyMMdd_hhmmss}.txt"), DateTime.Now.ToString());
+            Console.WriteLine($"写入文件完成");
+
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()

@@ -87,6 +87,10 @@
                 //不用组件就自己处理
                 //ImagePreview = PopulateImageFromStream(File.OpenRead(filename));
             }
+            else if (extension == ".txt" || extension == ".csv")
+            {
+                Message = File.ReadAllText(filename);
+            }
             else
             {
                 Message = $"目前还无法预览{extension}类型文件";
@@ -112,15 +116,18 @@
     {
         if (firstRender)
         {
-            if (Directory.Exists(UploadPath) && Directory.GetFiles(UploadPath).Length ==0)
+            if (Directory.Exists(UploadPath) && Directory.GetFiles(UploadPath).Length <5)
             {
                 var url1 = "https://blazor.app1.es/_content/DemoShared/samples/sample3.xlsx";
 
                 using (HttpClient client = new HttpClient())
                 {
+                    Console.WriteLine($"下载文件 {url1}");
                     HttpResponseMessage response = await client.GetAsync(url1);
                     byte[] content = await response.Content.ReadAsByteArrayAsync();
-                    await File.WriteAllBytesAsync(Path.Combine(UploadPath, "sample3.xlsx"), content );
+                    Console.WriteLine($"下载文件完成");
+                    await File.WriteAllBytesAsync(Path.Combine(UploadPath, $"{DateTime.Now:yyyyMMdd_hhmmss}_sample3.xlsx"), content );
+                    Console.WriteLine($"写入文件完成");
                 }
 
             }
