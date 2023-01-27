@@ -66,6 +66,8 @@
     @*
         ios
 
+        GetTempPath: /var/containers/Bundle/Application/guid/MauiApp_PdfReader.app/tmp
+
         BaseDirectory,ApplicationBase:
 
         /var/containers/Bundle/Application/guid/MauiApp_PdfReader.app
@@ -81,13 +83,14 @@
 
         android 五个都一致
 
-        BaseDirectory,ApplicationBase: /data/user/0/PdfReader/files
+        BaseDirectory,ApplicationBase: /data/user/0/es.app1.pdfReader/files
 
-        CacheDirectory: /data/user/0/es.app1.pdfReader/cache
+        CacheDirectory,GetTempPath: /data/user/0/es.app1.pdfReader/cache
+
 
         wwwroot文件夹实体不存在:
 
-        /data/user/0/PdfReader/files/wwwroot/sample2.pdf
+        /data/user/0/es.app1.pdfReader/files/wwwroot/sample2.pdf
 
 
         WinUI3
