@@ -1,4 +1,4 @@
-﻿@page "/"
+﻿@page "/AppFiles"
 
 @using BootstrapBlazor.Components
 
@@ -9,12 +9,13 @@
 
         <pre>
             @{
-                var files = Directory.GetFiles(UploadPath);
+                var files1 = Directory.GetFiles(UploadPath);
+                var files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory.Replace("/files", ""), "*.*", SearchOption.AllDirectories);
                 int i = 0;
                 foreach (var item in files)
                 {
                     i++;
-                    <button class="btn btn-link" @onclick="(async()=>await PreviewFile(item))">@($"{i}.{Path.GetFileName(item)}")</button><br />
+                    <button class="btn btn-link" @onclick="(async()=>await PreviewFile(item))">@($"{i}.{item}")</button><br />
                 }
             }
         </pre>

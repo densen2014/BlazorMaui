@@ -81,7 +81,7 @@
         {
             i++;
             //文件名自己处理一下
-            var filename = $"{DateTime.Now:yyyyMMdd_hhmmss}_{item.Name}";
+            var filename = $"{DateTime.Now:MMdd_hhmmss}_{item.Name}";
             await OnSubmit(item, filename);
             uploadstatus += Environment.NewLine + $"[{i}]: " + item.Name;
             await FileChanged.InvokeAsync(filename);

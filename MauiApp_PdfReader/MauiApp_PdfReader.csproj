@@ -13,10 +13,10 @@
         <EnableDefaultCssItems>false</EnableDefaultCssItems>
 
         <!-- Display name -->
-        <ApplicationTitle>MauiApp_PdfReader</ApplicationTitle>
+        <ApplicationTitle>PdfReader</ApplicationTitle>
 
         <!-- App Identifier -->
-        <ApplicationId>com.companyname.mauiapp_pdfreader</ApplicationId>
+        <ApplicationId>es.app1.pdfReader</ApplicationId>
         <ApplicationIdGuid>14D51C3A-50C0-49CA-BEBC-473DFFDFE3E6</ApplicationIdGuid>
 
         <!-- Versions -->

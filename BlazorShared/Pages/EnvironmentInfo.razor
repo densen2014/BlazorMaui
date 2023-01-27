@@ -17,6 +17,12 @@
     @Tools.CacheDirectory()
     <br /><br />
     <b>
+        TempPath:
+    </b>
+    <br />
+    @Path.GetTempPath()
+    <br /><br />
+    <b>
         BaseDirectory:
     </b>
     <br />
@@ -51,16 +57,60 @@
     </b>
     <br />
     <b>
-        LocalApplicationData:
-    </b>
-    <br />
-    @Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)
-    <br /><br />
-    <b>
         ApplicationData:
     </b>
     <br />
     @Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
+    <br /><br />
+
+    @*
+        ios
+
+        BaseDirectory,ApplicationBase:
+
+        /var/containers/Bundle/Application/guid/MauiApp_PdfReader.app
+
+        以下三个都一致:
+
+        /var/mobile/Containers/Data/Application/guid/Documents
+
+        wwwroot文件夹实体存在:
+
+        /var/containers/Bundle/Application/guid/MauiApp_PdfReader.app/wwwroot/sample2.pdf
+
+
+        android 五个都一致
+
+        BaseDirectory,ApplicationBase: /data/user/0/PdfReader/files
+
+        CacheDirectory: /data/user/0/es.app1.pdfReader/cache
+
+        wwwroot文件夹实体不存在:
+
+        /data/user/0/PdfReader/files/wwwroot/sample2.pdf
+
+
+        WinUI3
+
+        BaseDirectory,ApplicationBase:
+
+        C:\Repos\BlazorMaui\MauiApp_PdfReader\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppX\
+
+        ApplicationData: C:\Users\Alex\AppData\Roaming
+
+        LocalApplicationData: C:\Users\Alex\AppData\Local
+
+        MyDocuments,Personal: C:\Users\Alex\Documents
+        wwwroot文件夹:
+
+        C:\Repos\BlazorMaui\MauiApp_PdfReader\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppX\wwwroot\sample2.pdf
+    *@
+
+    <b>
+        LocalApplicationData:
+    </b>
+    <br />
+    @Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)
     <br /><br />
     <b>
         MyDocuments:
