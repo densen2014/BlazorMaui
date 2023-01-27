@@ -105,7 +105,7 @@
                 //不用组件就自己处理
                 //ImagePreview = PopulateImageFromStream(File.OpenRead(filename));
             }
-            else if (extension == ".txt" || extension == ".csv" || extension == ".xml" || extension == ".log")
+            else if (extension == ".txt" || extension == ".csv" || extension == ".xml" || extension == ".log" || extension == ".htm" || extension == ".html" || extension == ".css" || extension == ".js")
             {
                 Message = File.ReadAllText(filename);
             }
