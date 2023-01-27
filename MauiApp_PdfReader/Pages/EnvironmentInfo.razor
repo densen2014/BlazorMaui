@@ -1,0 +1,69 @@
+﻿@page "/EnvironmentInfo" 
+
+<h3>环境</h3>
+<div>     
+    <b>
+        BaseDirectory:
+    </b>
+    <br />
+    @AppDomain.CurrentDomain.BaseDirectory
+    <br /><br />
+    <b>
+        DynamicDirectory:
+    </b>
+    <br />
+    @AppDomain.CurrentDomain.DynamicDirectory
+    <br /><br />
+    <b>
+        FriendlyName:
+    </b>
+    <br />
+    @AppDomain.CurrentDomain.FriendlyName
+    <br /><br />
+    <b>
+        ApplicationBase:
+    </b>
+    <br />
+    @AppDomain.CurrentDomain.SetupInformation.ApplicationBase
+    <br /><br />
+    <b>
+        TargetFrameworkName:
+    </b>
+    <br />
+    @AppDomain.CurrentDomain.SetupInformation.TargetFrameworkName
+    <br /><br />
+    <b>
+        Environment.SpecialFolder
+    </b>
+    <br />
+    <b>
+        LocalApplicationData:
+    </b>
+    <br />
+    @Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)
+    <br /><br />
+    <b>
+        ApplicationData:
+    </b>
+    <br />
+    @Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)
+    <br /><br />
+    <b>
+        MyDocuments:
+    </b>
+    <br />
+    @Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+    <br /><br />
+    <b>
+        Personal:
+    </b>
+    <br />
+    @Environment.GetFolderPath(Environment.SpecialFolder.Personal)
+    <br /><br />
+    <b>
+        Resources:
+    </b>
+    <br />
+    @Environment.GetFolderPath(Environment.SpecialFolder.Resources)
+    <br /><br />
+</div>

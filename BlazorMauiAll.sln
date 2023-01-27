@@ -42,6 +42,46 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiApp_PdfReader", "MauiAp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B5AEA3A5-DB85-4777-89C3-C1E3B60206EE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iOS", "iOS", "{7A9A9964-3657-42AE-A265-A5F57AE8F099}"
+	ProjectSection(SolutionItems) = preProject
+		Screenshot\iOS\Readme.md = Screenshot\iOS\Readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Android", "Android", "{2D8DCC5F-1298-4A25-A7F6-8843AA148472}"
+	ProjectSection(SolutionItems) = preProject
+		Screenshot\Android\Readme.md = Screenshot\Android\Readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSA", "WSA", "{92408BFB-1FAF-469C-B8E5-32E994950432}"
+	ProjectSection(SolutionItems) = preProject
+		Screenshot\WSA(Windows Subsystem_for_Android)\Readme.md = Screenshot\WSA(Windows Subsystem_for_Android)\Readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Linux", "Linux", "{B7FD8094-83A8-442A-8EC6-BB8C3EF78FB7}"
+	ProjectSection(SolutionItems) = preProject
+		Screenshot\Linux\Readme.md = Screenshot\Linux\Readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MacCatalyst", "MacCatalyst", "{AB6068B1-4490-485B-A616-5EBB0A4F904D}"
+	ProjectSection(SolutionItems) = preProject
+		Screenshot\mac\Readme.md = Screenshot\mac\Readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WinUI3", "WinUI3", "{BD9A9B85-DDA0-4433-8F43-162C8205198D}"
+	ProjectSection(SolutionItems) = preProject
+		Screenshot\WinUI3\Readme.md = Screenshot\WinUI3\Readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WinForms", "WinForms", "{2E0F33DC-1010-4BD0-8844-D5816E74E708}"
+	ProjectSection(SolutionItems) = preProject
+		Screenshot\WinForms\Readme.md = Screenshot\WinForms\Readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wpf", "Wpf", "{87970436-FA98-4034-81DD-ED1C53D4672F}"
+	ProjectSection(SolutionItems) = preProject
+		Screenshot\Wpf\Readme.md = Screenshot\Wpf\Readme.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -547,6 +587,14 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{47286A0B-AE29-45BF-8C6F-699CCAB3B257} = {15875269-8681-4438-9468-E44A6AD6411D}
+		{7A9A9964-3657-42AE-A265-A5F57AE8F099} = {CB664A7C-FE30-4373-AC38-9243034FC9F2}
+		{2D8DCC5F-1298-4A25-A7F6-8843AA148472} = {CB664A7C-FE30-4373-AC38-9243034FC9F2}
+		{92408BFB-1FAF-469C-B8E5-32E994950432} = {CB664A7C-FE30-4373-AC38-9243034FC9F2}
+		{B7FD8094-83A8-442A-8EC6-BB8C3EF78FB7} = {CB664A7C-FE30-4373-AC38-9243034FC9F2}
+		{AB6068B1-4490-485B-A616-5EBB0A4F904D} = {CB664A7C-FE30-4373-AC38-9243034FC9F2}
+		{BD9A9B85-DDA0-4433-8F43-162C8205198D} = {CB664A7C-FE30-4373-AC38-9243034FC9F2}
+		{2E0F33DC-1010-4BD0-8844-D5816E74E708} = {CB664A7C-FE30-4373-AC38-9243034FC9F2}
+		{87970436-FA98-4034-81DD-ED1C53D4672F} = {CB664A7C-FE30-4373-AC38-9243034FC9F2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2194F6FA-98D1-44A9-BD68-A84FCBFA6F82}

@@ -2,31 +2,131 @@
 
 @using BootstrapBlazor.Components
 
-<pre style="overflow:scroll">@filename</pre>
+<div class="row">
+    <div class="col-4">
+        Files:
+
+        <pre>
+            @{
+                var files = Directory.GetFiles(UploadPath);
+                int i = 0;
+                foreach (var item in files)
+                {
+                    i++;
+                    <button class="btn btn-link" @onclick="_=>PreviewFile(item)">@($"[{i}] {Path.GetFileName(item)}")</button><br />
+                }
+            }
+        </pre>
+
+        <FileUpload ShowFileList="false" Lite FileChanged="_=>StateHasChanged()" />
+
+    </div>
+
+    <div class="col-8">
+        @if (stream != null)
+        {
+            <PdfReader Stream="stream" @key="stream" />
+        }
+        else if (FilePreview != null)
+        {
+            <FileViewer Filename="@FilePreview" @key="FilePreview" />
+        }
+        else if (ImagePreview != null)
+        {
+            <Viewer Src="@ImagePreview" Width="600px" Height="300px" LocalFileToStream />
+
+            @*<img src="@ImagePreview">*@
+        }
+        else
+        {
+            @Message;
+        }
+    </div>
+</div>
 
 
-<p>
-    @fileExist()
-</p>
 
-
-<PdfReader FileName="https://0.0.0.0/sample2.pdf" Height="300px" AutoStreamMode="false"/>
-
-<PdfReader FileName="/sample2.pdf" Height="300px" />
-
-<PdfReader Stream="stream" Height="300px" />
-
-<PdfReader FileName="https://blazor.app1.es/_content/DemoShared/samples/sample2.pdf" Height="300px" />
 
 
 @code{
-    string filename = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "wwwroot", "sample2.pdf");
 
-    Stream stream;
+    protected string UploadPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "uploads");
 
-    string fileExist()
+    Stream stream { get; set; }
+
+    string FilePreview { get; set; }
+
+    string ImagePreview { get; set; }
+
+    string Message { get; set; }
+
+    void PreviewFile(string filename)
     {
-        if (File.Exists(filename)) stream = File.OpenRead(filename);
-        return File.Exists(filename) ? "Exists" : "Not Exists";
+        stream = null;
+        FilePreview = null;
+        ImagePreview = null;
+        Message = null;
+
+        filename = Path.Combine(UploadPath, filename);
+
+        if (File.Exists(filename))
+        {
+            var extension = Path.GetExtension(filename);
+            if (extension == ".pdf")
+            {
+                stream = File.OpenRead(filename);
+            }
+            else if (extension == ".xlsx" || extension == ".docx")
+            {
+                FilePreview = filename;
+            }
+            else if (extension == ".png" || extension == ".jpg" || extension == ".gif" || extension == ".bmp")
+            {
+                ImagePreview = filename;
+
+                //不用组件就自己处理
+                //ImagePreview = PopulateImageFromStream(File.OpenRead(filename));
+            }
+            else
+            {
+                Message = $"目前还无法预览{extension}类型文件";
+            }
+        }
+        else
+        {
+            stream = null;
+            FilePreview = null;
+        }
     }
+
+    private string PopulateImageFromStream(Stream stream)
+    {
+        MemoryStream ms = new MemoryStream();
+        stream.CopyTo(ms);
+        byte[] byteArray = ms.ToArray();
+        var b64String = Convert.ToBase64String(byteArray);
+        return "data:image/png;base64," + b64String;
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            if (Directory.Exists(UploadPath) && Directory.GetFiles(UploadPath).Length ==0)
+            {
+                var url1 = "https://blazor.app1.es/_content/DemoShared/samples/sample3.xlsx";
+
+                using (HttpClient client = new HttpClient())
+                {
+                    HttpResponseMessage response = await client.GetAsync(url1);
+                    byte[] content = await response.Content.ReadAsByteArrayAsync();
+                    await File.WriteAllBytesAsync(Path.Combine(UploadPath, "sample3.xlsx"), content );
+                }
+
+            }
+
+            StateHasChanged();
+        }
+    }
+
 }
