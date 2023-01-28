@@ -39,6 +39,14 @@
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
       <CreatePackage>false</CreatePackage>
     </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios|AnyCPU'">
+      <CreatePackage>false</CreatePackage>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst' and '$(Configuration)' == 'Debug'">
+       <CodeSignEntitlements>Platforms/MacCatalyst/Entitlements.Debug.plist</CodeSignEntitlements>
+    </PropertyGroup>
+
     <ItemGroup>
         <!-- App Icon -->
         <MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
@@ -47,7 +55,6 @@
         <MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
 
         <!-- Images -->
-        <MauiImage Include="Resources\Images\*" />
         <MauiFont Include="Resources\Fonts\*" />
 
         <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
@@ -71,4 +78,13 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <MauiImage Remove="Resources\Images\dotnet_bot.svg" />
+    </ItemGroup>
+    <ItemGroup>
+      <BundleResource Include="Resources\Images\dotnet_bot.svg" />
+    </ItemGroup>
+    <ItemGroup>
+      <!--<ProjectReference Include="..\..\BootstrapBlazor.FileViewer\src\BootstrapBlazor.FileViewer\BootstrapBlazor.FileViewer.csproj" />-->
+    </ItemGroup>
 </Project>

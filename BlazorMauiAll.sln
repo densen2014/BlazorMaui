@@ -16,15 +16,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorWpf", "BlazorWpf\Blaz
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorMaui", "BlazorMaui\BlazorMaui.csproj", "{807C9B00-DA74-4DFC-9E4D-4229F066D04C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorPWA", "BlazorPWA\BlazorPWA.csproj", "{C4B8F1CA-C280-4776-AAA5-27282ADE50C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorPWA", "BlazorPWA\BlazorPWA.csproj", "{C4B8F1CA-C280-4776-AAA5-27282ADE50C6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorShared", "BlazorShared\BlazorShared.csproj", "{1F97EAE8-9334-4196-BEDC-BAF0EC1DD306}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorShared", "BlazorShared\BlazorShared.csproj", "{1F97EAE8-9334-4196-BEDC-BAF0EC1DD306}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorSSR", "BlazorSSR\BlazorSSR.csproj", "{A3524F40-C55A-408C-97DA-11617E91CFC2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Console.Maui.Graphics", "Console.Maui.Graphics\Console.Maui.Graphics.csproj", "{034E4D84-3DFC-4782-8D63-5C37E7A9EBF3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console.Maui.Graphics", "Console.Maui.Graphics\Console.Maui.Graphics.csproj", "{034E4D84-3DFC-4782-8D63-5C37E7A9EBF3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibraryShared", "LibraryShared\LibraryShared.csproj", "{FE890971-70ED-439F-9956-AB7B1A52DE30}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibraryShared", "LibraryShared\LibraryShared.csproj", "{FE890971-70ED-439F-9956-AB7B1A52DE30}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiApp7test", "MauiApp7test\MauiApp7test.csproj", "{04F77C55-E6E9-4A94-B3A7-59AC5E41A50A}"
 EndProject
@@ -38,7 +38,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorLinux", "BlazorLinux\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demo1by1", "demo1by1", "{15875269-8681-4438-9468-E44A6AD6411D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiApp_PdfReader", "MauiApp_PdfReader\MauiApp_PdfReader.csproj", "{47286A0B-AE29-45BF-8C6F-699CCAB3B257}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiApp_PdfReader", "MauiApp_PdfReader\MauiApp_PdfReader.csproj", "{47286A0B-AE29-45BF-8C6F-699CCAB3B257}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B5AEA3A5-DB85-4777-89C3-C1E3B60206EE}"
 EndProject
@@ -54,7 +54,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Android", "Android", "{2D8D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSA", "WSA", "{92408BFB-1FAF-469C-B8E5-32E994950432}"
 	ProjectSection(SolutionItems) = preProject
-		Screenshot\WSA(Windows Subsystem_for_Android)\Readme.md = Screenshot\WSA(Windows Subsystem_for_Android)\Readme.md
+		Screenshot\WSA%28Windows Subsystem_for_Android%29\Readme.md = Screenshot\WSA%28Windows Subsystem_for_Android%29\Readme.md
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Linux", "Linux", "{B7FD8094-83A8-442A-8EC6-BB8C3EF78FB7}"
@@ -81,6 +81,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Wpf", "Wpf", "{87970436-FA9
 	ProjectSection(SolutionItems) = preProject
 		Screenshot\Wpf\Readme.md = Screenshot\Wpf\Readme.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BootstrapBlazor.FileViewer", "..\BootstrapBlazor.FileViewer\src\BootstrapBlazor.FileViewer\BootstrapBlazor.FileViewer.csproj", "{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -581,6 +583,36 @@ Global
 		{47286A0B-AE29-45BF-8C6F-699CCAB3B257}.Release|x86.ActiveCfg = Release|Any CPU
 		{47286A0B-AE29-45BF-8C6F-699CCAB3B257}.Release|x86.Build.0 = Release|Any CPU
 		{47286A0B-AE29-45BF-8C6F-699CCAB3B257}.Release|x86.Deploy.0 = Release|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.Debug|ARM.Build.0 = Debug|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.Debug|x64.Build.0 = Debug|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.Debug|x86.Build.0 = Debug|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.DebugNuget|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.DebugNuget|Any CPU.Build.0 = Debug|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.DebugNuget|ARM.ActiveCfg = Debug|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.DebugNuget|ARM.Build.0 = Debug|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.DebugNuget|ARM64.ActiveCfg = Debug|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.DebugNuget|ARM64.Build.0 = Debug|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.DebugNuget|x64.ActiveCfg = Debug|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.DebugNuget|x64.Build.0 = Debug|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.DebugNuget|x86.ActiveCfg = Debug|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.DebugNuget|x86.Build.0 = Debug|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.Release|ARM.ActiveCfg = Release|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.Release|ARM.Build.0 = Release|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.Release|ARM64.Build.0 = Release|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.Release|x64.ActiveCfg = Release|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.Release|x64.Build.0 = Release|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.Release|x86.ActiveCfg = Release|Any CPU
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -595,6 +627,7 @@ Global
 		{BD9A9B85-DDA0-4433-8F43-162C8205198D} = {CB664A7C-FE30-4373-AC38-9243034FC9F2}
 		{2E0F33DC-1010-4BD0-8844-D5816E74E708} = {CB664A7C-FE30-4373-AC38-9243034FC9F2}
 		{87970436-FA98-4034-81DD-ED1C53D4672F} = {CB664A7C-FE30-4373-AC38-9243034FC9F2}
+		{1E4602F4-B6F4-41DA-B45A-14BA086E1B59} = {B5AEA3A5-DB85-4777-89C3-C1E3B60206EE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2194F6FA-98D1-44A9-BD68-A84FCBFA6F82}
