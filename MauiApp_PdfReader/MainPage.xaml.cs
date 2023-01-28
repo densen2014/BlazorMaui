@@ -4,6 +4,8 @@
 // e-mail:zhouchuanglin@gmail.com 
 // **********************************
 
+using Microsoft.AspNetCore.Components.WebView;
+
 namespace MauiApp_PdfReader
 {
     public partial class MainPage : ContentPage
@@ -11,6 +13,16 @@ namespace MauiApp_PdfReader
         public MainPage()
         {
             InitializeComponent();
+
+            blazorWebView.UrlLoading +=
+            (sender, urlLoadingEventArgs) =>
+            {
+                if (urlLoadingEventArgs.Url.Host != "0.0.0.0")
+                {
+                    urlLoadingEventArgs.UrlLoadingStrategy =
+                        UrlLoadingStrategy.OpenInWebView;
+                }
+            };
         }
     }
 }
