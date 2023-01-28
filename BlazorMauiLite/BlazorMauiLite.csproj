@@ -54,6 +54,7 @@
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios15.2|AnyCPU'">
       <ApplicationId>es.app1.blazormauilite</ApplicationId>
+      <CreatePackage>false</CreatePackage>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net7.0-ios15.2|AnyCPU'">
@@ -83,7 +84,7 @@
     </ItemGroup>
     
     <ItemGroup>
-        <PackageReference Include="BlazorShared" Version="1.1.3" />
+        <PackageReference Include="BlazorShared" Version="1.1.5" />
     </ItemGroup>
 
     <ItemGroup>
