@@ -14,6 +14,8 @@
 		<EnableWindowsTargeting>true</EnableWindowsTargeting>
 	</PropertyGroup>
 	
+	<PropertyGroup Condition=" '$(RunConfiguration)' == 'Win' " />
+	<PropertyGroup Condition=" '$(RunConfiguration)' == 'Mac' " />
 	<ItemGroup>
 		<PackageReference Include="Bildstein.SpiderEye.Core" Version="1.0.0-beta.5" />
 		<PackageReference Include="Bildstein.SpiderEye.Linux" Version="1.0.0-beta.5" />
