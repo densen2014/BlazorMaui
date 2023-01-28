@@ -9,12 +9,12 @@
     @fileExist()
 </p>
 
-@*ios,不显示*@
+@*ios,mac不显示*@
 <PdfReader FileName="https://0.0.0.0/sample2.pdf" Height="300px" AutoStreamMode="false" />
 
 <PdfReader FileName="/sample2.pdf" Height="300px" />
 
-@*android,不显示*@
+@*android,mac不显示*@
 <PdfReader Stream="stream" Height="300px" />
 
 <PdfReader FileName="https://blazor.app1.es/_content/DemoShared/samples/sample2.pdf" Height="300px" />
@@ -30,7 +30,7 @@
     安卓,不存在 /data/user/0/es.app1.pdfReader/files/wwwroot/sample2.pdf
     iOS,存在 /var/containers/Bundle/Application/guid/MauiApp_PdfReader.app/wwwroot/sample2.pdf
     WinUI3,存在 C:\Repos\BlazorMaui\MauiApp_PdfReader\bin\Debug\net7.0-windows10.0.19041.0\win10-x64\AppX\wwwroot\sample2.pdf
-
+    mac，不存在 /Users/alex/Documents/GitHub/BlazorMaui/MauiApp_PdfReader/bin/Debug/net7.0-maccatalyst/maccatalyst-x64/MauiApp_PdfReader.app/Contents/MonoBundle/wwwroot/sample2.pdf 
 
     */
     string fileExist()
