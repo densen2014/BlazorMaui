@@ -1,0 +1,9 @@
+blank_issues_enabled: true
+
+contact_links:
+  - name: 使用问题 🗨️
+    url: https://github.com/densen2014/BlazorMaui/discussions
+    about: 使用过程中的疑问请发布到这里
+  - name: BootstrapBlazor错误 📚
+    url: https://github.com/dotnetcore/BootstrapBlazor/issues/new/choose
+    about: 关于BootstrapBlazor相关的错误请提交到这里
