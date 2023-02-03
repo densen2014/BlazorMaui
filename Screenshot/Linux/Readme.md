@@ -2,6 +2,12 @@
 
 https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps
 
+### 更新系统
+sudo apt update
+
+### 安装gedit附带安装必须环境
+sudo apt install gedit -y
+
 ### 中文字体安装
 sudo apt-get install fonts-arphic-ukai fonts-arphic-uming fonts-ipafont-mincho fonts-ipafont-gothic fonts-unfonts-core
 
