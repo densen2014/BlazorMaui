@@ -55,6 +55,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WSA", "WSA", "{92408BFB-1FAF-469C-B8E5-32E994950432}"
 	ProjectSection(SolutionItems) = preProject
 		Screenshot\WSA(Windows Subsystem_for_Android)\Readme.md = Screenshot\WSA(Windows Subsystem_for_Android)\Readme.md
+		adb_connect.bat = adb_connect.bat
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Linux", "Linux", "{B7FD8094-83A8-442A-8EC6-BB8C3EF78FB7}"
