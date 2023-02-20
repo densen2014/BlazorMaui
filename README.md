@@ -158,6 +158,7 @@ BlazorMauiDemoWithBootstrapBlazor
 
 提交 BlazorLinux 
 
+![image](https://user-images.githubusercontent.com/8428709/220075839-e098015d-2289-495f-a1ef-b9873082a3ba.png)
 
 ---
 #### Blazor 组件
