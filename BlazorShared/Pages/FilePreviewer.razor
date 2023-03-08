@@ -1,0 +1,125 @@
+﻿@using BootstrapBlazor.Components
+
+
+
+@Status
+
+@if (stream != null)
+{
+    <PdfReader Stream="stream"  />
+}
+else if (FilePreview != null)
+{
+    <FileViewer Filename="@FilePreview"  />
+}
+else if (ImagePreview != null)
+{
+    <Viewer Src="@ImagePreview" Width="600px" Height="300px" LocalFileToStream  />
+
+    @*<img src="@ImagePreview">*@
+}
+else
+{
+    @Message
+}
+
+
+
+@code{
+
+    [Parameter]
+    public string FileName { get; set; } = "";
+
+    protected string UploadPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "uploads");
+
+    Stream? stream { get; set; }
+
+    string? FilePreview { get; set; }
+
+    string? ImagePreview { get; set; }
+
+    string? Message { get; set; }
+
+    string? Status { get; set; }
+
+    string AceptedImageTypes { get; set; } = ".png,.jpg,.jpeg,.gif,.bmp,.ico";
+
+    string AceptedFileTypes { get; set; } = ".txt,.csv,.xml,.log,.htm,.html,.css,.js,.json,.md,.bcmap";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+        await PreviewFile(FileName);
+    }
+
+    public async Task PreviewFile(string filename)
+    {
+        if (string.IsNullOrWhiteSpace(filename)) return;
+        Reset();
+
+        Status = "处理中";
+        StateHasChanged();
+        await Task.Delay(100);
+
+        filename = Path.Combine(UploadPath, filename);
+
+        if (File.Exists(filename))
+        {
+            var extension = Path.GetExtension(filename);
+            if (extension == ".pdf")
+            {
+                stream = File.OpenRead(filename);
+            }
+            else if (extension == ".xlsx" || extension == ".docx")
+            {
+                FilePreview = filename;
+            }
+            else if (AceptedImageTypes.Split(',').Contains(extension))
+            {
+                ImagePreview = filename;
+
+                //不用组件就自己处理
+                //ImagePreview = PopulateImageFromStream(File.OpenRead(filename));
+            }
+            else if (AceptedFileTypes.Split(',').Contains(extension))
+            {
+                Message = File.ReadAllText(filename);
+            }
+            else
+            {
+                Message = $"目前还无法预览{extension}类型文件";
+            }
+        }
+        else
+        {
+            stream = null;
+            FilePreview = null;
+        }
+
+        Status = null;
+        StateHasChanged();
+
+    }
+
+
+    public void Reset()
+    {
+        stream = null;
+        FilePreview = null;
+        ImagePreview = null;
+        Message = null;
+        Status = null;
+    }
+
+
+
+    private string PopulateImageFromStream(Stream stream)
+    {
+        MemoryStream ms = new MemoryStream();
+        stream.CopyTo(ms);
+        byte[] byteArray = ms.ToArray();
+        var b64String = Convert.ToBase64String(byteArray);
+        return "data:image/png;base64," + b64String;
+    }
+
+}

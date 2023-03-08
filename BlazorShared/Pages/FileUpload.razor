@@ -1,0 +1,103 @@
+﻿@page "/FileUpload"
+
+<PageTitle>FileUpload</PageTitle>
+
+
+<div>
+    上传文件(Max100)
+    <InputFile OnChange="OnChange" style="max-width:400px" class="form-control" multiple />
+</div>
+@if (!Lite)
+{
+    <div style="padding-top:20px">
+        上传图片
+        <InputFile OnChange="OnChange" style="max-width: 400px" class="form-control" multiple accept='image/*' />
+    </div>
+    <div style="padding-top:30px">
+        <a class="btn btn-primary" href="/">
+            <span class="oi oi-file" aria-hidden="true"></span> 浏览文件
+        </a>
+    </div>
+
+<pre>
+<code>
+        @uploadstatus
+</code>
+</pre>
+
+}
+
+@if (ShowFileList) {
+
+    <span>Files:</span>
+    <br />
+    <pre>
+
+    @{
+        var files = Directory.GetFiles(UploadPath);
+        int i = 0;
+        foreach (var item in files)
+        {
+            i++;
+
+            @($"[{i}]: {item}{Environment.NewLine}")
+        }
+    }
+    </pre>
+
+}
+
+@code{
+
+    protected string UploadPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "uploads");
+
+    protected string? tempfilename = null;
+    protected bool displayProgress;
+    protected string? uploadstatus;
+    long maxFileSize = 1024 * 1024 * 15;
+
+
+    [Parameter]
+    public bool Lite { get; set; }
+
+    [Parameter]
+    public bool ShowFileList { get; set; }
+
+    [Parameter] public EventCallback<string> FileChanged { get; set; }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (!firstRender) return;
+        if (!Directory.Exists(UploadPath)) Directory.CreateDirectory(UploadPath);
+
+        StateHasChanged();
+    }
+
+    protected async Task OnChange(InputFileChangeEventArgs e)
+    {
+        int i = 0;
+        var selectedFiles = e.GetMultipleFiles(100);
+        foreach (var item in selectedFiles)
+        {
+            i++;
+            //文件名自己处理一下
+            var filename = $"{DateTime.Now:MMdd_hhmmss}_{item.Name}";
+            await OnSubmit(item, filename);
+            uploadstatus += Environment.NewLine + $"[{i}]: " + item.Name;
+            await FileChanged.InvokeAsync(filename);
+        }
+    }
+
+    protected async Task OnSubmit(IBrowserFile efile, string? filename = null)
+    {
+        if (efile == null) return;
+        var tempfilename = Path.Combine(UploadPath, filename ?? efile.Name);
+        await using FileStream fs = new(tempfilename, FileMode.Create);
+        using var stream = efile.OpenReadStream(maxFileSize);
+        displayProgress = true;
+        await stream.CopyToAsync(fs);
+        displayProgress = false;
+        StateHasChanged();
+    }
+
+}

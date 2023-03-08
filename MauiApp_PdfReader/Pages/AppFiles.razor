@@ -3,7 +3,7 @@
 @using BootstrapBlazor.Components
 
 <div class="row">
-    <div class="col-12 col-m-5 col-x-4 col-xl-3">
+    <div class="col-12 col-m-5 col-x-4 col-xl-4" style="height : 700px;overflow :scroll ">
 
         Files:
 
@@ -15,7 +15,7 @@
                 foreach (var item in files)
                 {
                     i++;
-                    <button class="btn btn-link" @onclick="(async()=>await PreviewFile(item))">@($"{i}.{item}")</button><br />
+                    <button class="btn btn1 btn-link" @onclick="(async()=>await PreviewFile(item))">@($"{i}.{item.Replace (AppDomain.CurrentDomain.BaseDirectory.Replace("/files", ""), "")}")</button><br />
                 }
             }
         </pre>
@@ -34,7 +34,7 @@
 
     </div>
 
-    <div class="col-12 col-m-7 col-x-8 col-xl-9">
+    <div class="col-12 col-m-7 col-x-8 col-xl-8" style="height : 700px; max-width:1000px; overflow :scroll ">
 
         @Status
 
@@ -59,23 +59,36 @@
     </div>
 </div>
 
+<style >
+    .btn1 {
+        width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+        height: auto;
+        overflow: hidden;
+    } 
+</style>
 
-
-
+@AppDomain.CurrentDomain.BaseDirectory
 
 @code{
 
     protected string UploadPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "uploads");
 
-    Stream stream { get; set; }
+    Stream? stream { get; set; }
 
-    string FilePreview { get; set; }
+    string? FilePreview { get; set; }
 
-    string ImagePreview { get; set; }
+    string? ImagePreview { get; set; }
 
-    string Message { get; set; }
+    string? Message { get; set; }
 
-    string Status { get; set; }
+    string? Status { get; set; }
+
+    string AceptedImageTypes { get; set; } = ".png,.jpg,.jpeg,.gif,.bmp,.ico";
+
+    string AceptedFileTypes { get; set; } = ".txt,.csv,.xml,.log,.htm,.html,.css,.js,.json,.md,.bcmap";
 
     async Task PreviewFile(string filename)
     {
@@ -98,14 +111,14 @@
             {
                 FilePreview = filename;
             }
-            else if (extension == ".png" || extension == ".jpg" || extension == ".jpeg" || extension == ".gif" || extension == ".bmp")
+            else if (AceptedImageTypes.Split(',').Contains(extension))
             {
                 ImagePreview = filename;
 
                 //不用组件就自己处理
                 //ImagePreview = PopulateImageFromStream(File.OpenRead(filename));
             }
-            else if (extension == ".txt" || extension == ".csv" || extension == ".xml" || extension == ".log" || extension == ".htm" || extension == ".html" || extension == ".css" || extension == ".js")
+            else if (AceptedFileTypes.Split(',').Contains(extension))
             {
                 Message = File.ReadAllText(filename);
             }
@@ -180,7 +193,7 @@
     {
         Reset();
 
-        Directory.GetFiles(UploadPath).ToList().ForEach(file =>File.Delete(file));
+        Directory.GetFiles(UploadPath).ToList().ForEach(file => File.Delete(file));
 
         Status = "已清空文件.";
     }

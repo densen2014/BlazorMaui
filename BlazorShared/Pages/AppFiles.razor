@@ -1,20 +1,21 @@
-﻿@page "/"
+﻿@page "/AppFiles"
 
 @using BootstrapBlazor.Components
 
 <div class="row">
-    <div class="col-12 col-m-5 col-x-4 col-xl-3">
+    <div class="col-12 col-m-5 col-x-4 col-xl-4" style="height : 700px;overflow :scroll ">
 
         Files:
 
         <pre>
             @{
-                var files = Directory.GetFiles(UploadPath);
+                var files1 = Directory.GetFiles(UploadPath);
+                var files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory.Replace("/files", ""), "*.*", SearchOption.AllDirectories);
                 int i = 0;
                 foreach (var item in files)
                 {
                     i++;
-        <button class="btn btn-link" @onclick="(async()=>await PreviewFile(item))">@($"{i}.{Path.GetFileName(item)}")</button><br />
+        <button class="btn btn1 btn-link" @onclick="(()=>SelectItem=item)">@($"{i}.{item.Replace (AppDomain.CurrentDomain.BaseDirectory.Replace("/files", ""), "")}")</button><br />
                 }
             }
         </pre>
@@ -33,41 +34,37 @@
 
     </div>
 
-    <div class="col-12 col-m-7 col-x-8 col-xl-9">
+    <div class="col-12 col-m-7 col-x-8 col-xl-8" style="height : 700px; max-width:1000px; overflow :scroll ">
 
-        @Status
+        <FilePreviewer FileName="@SelectItem" @key="SelectItem" />
 
-        @if (stream != null)
-        {
-            <PdfReader Stream="stream" @key="stream" />
-        }
-        else if (FilePreview != null)
-        {
-            <FileViewer Filename="@FilePreview" @key="FilePreview" />
-        }
-        else if (ImagePreview != null)
-        {
-            <Viewer Src="@ImagePreview" Width="600px" Height="300px" LocalFileToStream @key="ImagePreview" />
-
-            @*<img src="@ImagePreview">*@
-        }
-        else
-        {
-            @Message
-        }
     </div>
 </div>
 
+<style>
+    .btn1 {
+        width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+        height: auto;
+        overflow: hidden;
+    }
+</style>
 
-
-@UploadPath
+@AppDomain.CurrentDomain.BaseDirectory
 
 
 @code{
 
+    [NotNull]
+    FilePreviewer? FilePreviewer { get; set; }
+
     protected string UploadPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "uploads");
 
     Stream? stream { get; set; }
+
+    string? SelectItem { get; set; }
 
     string? FilePreview { get; set; }
 
@@ -77,52 +74,10 @@
 
     string? Status { get; set; }
 
-    async Task PreviewFile(string filename)
-    {
-        Reset();
+    string AceptedImageTypes { get; set; } = ".png,.jpg,.jpeg,.gif,.bmp,.ico";
 
-        Status = "处理中";
-        StateHasChanged();
-        await Task.Delay(100);
+    string AceptedFileTypes { get; set; } = ".txt,.csv,.xml,.log,.htm,.html,.css,.js,.json,.md,.bcmap";
 
-        filename = Path.Combine(UploadPath, filename);
-
-        if (File.Exists(filename))
-        {
-            var extension = Path.GetExtension(filename);
-            if (extension == ".pdf")
-            {
-                stream = File.OpenRead(filename);
-            }
-            else if (extension == ".xlsx" || extension == ".docx")
-            {
-                FilePreview = filename;
-            }
-            else if (extension == ".png" || extension == ".jpg" || extension == ".jpeg" || extension == ".gif" || extension == ".bmp")
-            {
-                ImagePreview = filename;
-
-                //不用组件就自己处理
-                //ImagePreview = PopulateImageFromStream(File.OpenRead(filename));
-            }
-            else if (extension == ".txt" || extension == ".csv" || extension == ".xml" || extension == ".log" || extension == ".htm" || extension == ".html" || extension == ".css" || extension == ".js")
-            {
-                Message = File.ReadAllText(filename);
-            }
-            else
-            {
-                Message = $"目前还无法预览{extension}类型文件";
-            }
-        }
-        else
-        {
-            stream = null;
-            FilePreview = null;
-        }
-
-        Status = null;
-
-    }
 
     private string PopulateImageFromStream(Stream stream)
     {
@@ -133,18 +88,10 @@
         return "data:image/png;base64," + b64String;
     }
 
-    void Reset()
-    {
-        stream = null;
-        FilePreview = null;
-        ImagePreview = null;
-        Message = null;
-        Status = null;
-    }
 
     async Task DownloadDemoFiles()
     {
-        Reset();
+        FilePreviewer.Reset();
 
         Status = "下载演示文件中";
         StateHasChanged();
@@ -178,7 +125,7 @@
 
     void EmptyFiles()
     {
-        Reset();
+        FilePreviewer.Reset();
 
         Directory.GetFiles(UploadPath).ToList().ForEach(file => File.Delete(file));
 

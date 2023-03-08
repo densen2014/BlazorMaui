@@ -1,4 +1,4 @@
-﻿@page "/"
+﻿@page "/Files"
 
 @using BootstrapBlazor.Components
 
@@ -14,7 +14,7 @@
                 foreach (var item in files)
                 {
                     i++;
-        <button class="btn btn-link" @onclick="(async()=>await PreviewFile(item))">@($"{i}.{Path.GetFileName(item)}")</button><br />
+                    <button class="btn btn-link" @onclick="(()=>SelectItem=item)">@($"{i}.{Path.GetFileName(item)}")</button><br />
                 }
             }
         </pre>
@@ -35,37 +35,21 @@
 
     <div class="col-12 col-m-7 col-x-8 col-xl-9">
 
-        @Status
+        <FilePreviewer FileName="@SelectItem" @key="SelectItem" />
 
-        @if (stream != null)
-        {
-            <PdfReader Stream="stream" @key="stream" />
-        }
-        else if (FilePreview != null)
-        {
-            <FileViewer Filename="@FilePreview" @key="FilePreview" />
-        }
-        else if (ImagePreview != null)
-        {
-            <Viewer Src="@ImagePreview" Width="600px" Height="300px" LocalFileToStream @key="ImagePreview" />
-
-            @*<img src="@ImagePreview">*@
-        }
-        else
-        {
-            @Message
-        }
     </div>
 </div>
 
-
-
 @UploadPath
+
+
 
 
 @code{
 
     protected string UploadPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "uploads");
+
+    string? SelectItem { get; set; }
 
     Stream? stream { get; set; }
 
@@ -180,7 +164,7 @@
     {
         Reset();
 
-        Directory.GetFiles(UploadPath).ToList().ForEach(file => File.Delete(file));
+        Directory.GetFiles(UploadPath).ToList().ForEach(file =>File.Delete(file));
 
         Status = "已清空文件.";
     }
