@@ -1,6 +1,7 @@
 ﻿using BlazorShared.Services;
 using Extensions;
 using System.Diagnostics;
+using System.IO.Ports;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
