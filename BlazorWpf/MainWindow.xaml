@@ -15,7 +15,7 @@
     <DockPanel>
         <Button DockPanel.Dock="Top" Content="Show counter" Click="Button_Click_1"></Button>
         <Button DockPanel.Dock="Top" Content="Webview alert" Click="Button_Click"></Button>
-        <b:BlazorWebView x:Name = "mainBlazorWebView" HostPage="wwwroot/index.html" Services="{StaticResource services}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+        <b:BlazorWebView x:Name = "blazorWebView" HostPage="wwwroot/index.html" Services="{StaticResource services}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
 			<b:BlazorWebView.RootComponents>
                 <b:RootComponent ComponentType="{x:Type shared:App}" Selector="#app"/>
 			</b:BlazorWebView.RootComponents>
