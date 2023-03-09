@@ -13,7 +13,7 @@
             <TextBox Name = "addressBar"/>
         </DockPanel>
         <wv2:WebView2 Name = "webView"
-                  Source = "https://blazor.app1.es"
+                  Source = "https://dotnet.microsoft.com/zh-cn/download/dotnet-framework/thank-you/net48-web-installer?WT.mc_id=DT-MVP-5005078"
     />
     </DockPanel>
 </Window>

@@ -51,23 +51,37 @@ namespace Wpf7WithWebview2
 
             await webView.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync("window.chrome.webview.postMessage(window.document.URL);");
             await webView.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync("window.chrome.webview.addEventListener(\'message\', event => alert(event.data));");
+
+            webView.CoreWebView2.DownloadStarting += CoreWebView2_DownloadStarting; 
+
+            //指定下载保存位置
+            webView.CoreWebView2.Profile.DefaultDownloadFolderPath = @"C:\mytargetdowloadpath";
         }
 
         void UpdateAddressBar(object sender, CoreWebView2WebMessageReceivedEventArgs args)
         {
-            String uri = args.TryGetWebMessageAsString();
+            var uri = args.TryGetWebMessageAsString();
             addressBar.Text = uri;
             webView.CoreWebView2.PostWebMessageAsString(uri);
         }
 
         void EnsureHttps(object sender, CoreWebView2NavigationStartingEventArgs args)
         {
-            String uri = args.Uri;
+            var uri = args.Uri;
             if (!uri.StartsWith("https://"))
             {
                 args.Cancel = true;
             }
         }
+
+        private void CoreWebView2_DownloadStarting(object sender, CoreWebView2DownloadStartingEventArgs e)
+        {
+            var downloadOperation = e.DownloadOperation;
+
+            //指定下载后保存位置
+            //e.ResultFilePath = @"C:\mytargetdowloadpath\mydownloadedfile.zip";
+        }
+
 
         private void ButtonGo_Click(object sender, RoutedEventArgs e)
         {

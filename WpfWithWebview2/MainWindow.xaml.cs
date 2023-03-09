@@ -48,14 +48,14 @@ namespace WpfWithWebview2
         
         void UpdateAddressBar(object sender, CoreWebView2WebMessageReceivedEventArgs args)
         {
-            String uri = args.TryGetWebMessageAsString();
+            var uri = args.TryGetWebMessageAsString();
             addressBar.Text = uri;
             webView.CoreWebView2.PostWebMessageAsString(uri);
         }
         
         void EnsureHttps(object sender, CoreWebView2NavigationStartingEventArgs args)
         {
-            String uri = args.Uri;
+            var uri = args.Uri;
             if (!uri.StartsWith("https://"))
             {
                 args.Cancel = true;
