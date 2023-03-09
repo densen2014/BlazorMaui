@@ -31,6 +31,7 @@ namespace MauiApp_PdfReader
             {
                 if (urlLoadingEventArgs.Url.Host != "0.0.0.0")
                 {
+                    //外部链接WebView内打开,例如pdf浏览器
                     urlLoadingEventArgs.UrlLoadingStrategy =
                         UrlLoadingStrategy.OpenInWebView;
                 }
@@ -55,9 +56,11 @@ namespace MauiApp_PdfReader
             e.WebView.Download +=(async (s,e)=> await WebView_DownloadAsync(s,e));
             //e.WebView.SetWebChromeClient(new PermissionManagingBlazorWebChromeClient(e.WebView.WebChromeClient!, activity));
 #elif WINDOWS
-            e.WebView.CoreWebView2.DownloadStarting += (async (s, e) => await CoreWebView2_DownloadStartingAsync(s, e)); 
+            e.WebView.CoreWebView2.DownloadStarting += (async (s, e) => await CoreWebView2_DownloadStartingAsync(s, e));
+#elif IOS
 #endif
         }
+
 #if WINDOWS
         private async Task CoreWebView2_DownloadStartingAsync(object sender, CoreWebView2DownloadStartingEventArgs e)
         {
@@ -89,7 +92,10 @@ namespace MauiApp_PdfReader
 
         private void BlazorWebViewInitializing(object? sender, BlazorWebViewInitializingEventArgs e)
         {
-
+#if IOS || MACCATALYST
+            e.Configuration.AllowsInlineMediaPlayback = true;
+            e.Configuration.MediaTypesRequiringUserActionForPlayback = WebKit.WKAudiovisualMediaTypes.None;
+#endif
         }
     }
 }
