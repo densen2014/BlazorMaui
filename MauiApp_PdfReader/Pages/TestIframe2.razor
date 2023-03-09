@@ -1,0 +1,39 @@
+﻿@page "/TestIframe2"
+
+@using BootstrapBlazor.Components
+
+
+<iframe @ref="Element"
+        allow="fullscreen"
+        style="@($"border: none; width: {Width}; height: {Height};{StyleString}")"
+        src=@Url 
+        sandbox="allow-downloads"/>
+
+@code{
+    private ElementReference Element { get; set; }
+
+    /// <summary>
+    /// 获得/设置 宽 单位(px|%) 默认 100%
+    /// </summary>
+    [Parameter]
+    public string Width { get; set; } = "100%";
+
+    /// <summary>
+    /// 获得/设置 高 单位(px|%) 默认 500px
+    /// </summary>
+    [Parameter]
+    public string Height { get; set; } = "700px";
+
+    /// <summary>
+    /// 获得/设置 组件外观 Css Style
+    /// </summary>
+    [Parameter]
+    public string StyleString { get; set; }
+
+    /// <summary>
+    /// 获得/设置 组件Url
+    /// </summary>
+    [Parameter]
+    public string Url { get; set; } = "https://dotnet.microsoft.com/zh-cn/download/dotnet-framework/net48?WT.mc_id=DT-MVP-5005078";
+
+}

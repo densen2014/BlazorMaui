@@ -9,7 +9,7 @@
 
         <pre>
             @{
-                var files1 = Directory.GetFiles(UploadPath);
+                //var webViewCachedir = AppDomain.CurrentDomain.BaseDirectory.Replace("/files", "") + "/cache/WebView/Default/HTTP Cache/Cache_Data";
                 var files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory.Replace("/files", ""), "*.*", SearchOption.AllDirectories);
                 int i = 0;
                 foreach (var item in files)
