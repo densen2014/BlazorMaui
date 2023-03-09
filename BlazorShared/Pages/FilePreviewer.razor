@@ -87,7 +87,8 @@ else
             }
             else
             {
-                Message = $"目前还无法预览{extension}类型文件";
+                var fileinfo = new System.IO.FileInfo(filename);
+                Message = $"目前还无法预览{extension}类型文件, {fileinfo.Length / 1024}k,{fileinfo.LastWriteTime}";
             }
         }
         else
