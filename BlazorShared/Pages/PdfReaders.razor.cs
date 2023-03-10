@@ -21,7 +21,7 @@ public sealed partial class PdfReaders
     [DisplayName("文件相对路径或者URL")]
     private string FileName { get; set; } = "/_content/BlazorShared/samples/sample.pdf";
 
-    private string FileNameStream { get; set; } = "https://blazor.app1.es/_content/DemoShared/samples/sample.pdf";
+    private string FileNameStream { get; set; } = "https://blazor.app1.es/samples/sample.pdf";
 
     [DisplayName("流模式")]
     private bool StreamMode { get; set; }

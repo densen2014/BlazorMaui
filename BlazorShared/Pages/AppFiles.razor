@@ -109,7 +109,7 @@
             foreach (var item in url1.ToList())
             {
                 System.Diagnostics.Debug.WriteLine($"下载文件 {item}");
-                HttpResponseMessage response = await client.GetAsync("https://blazor.app1.es/_content/DemoShared/samples/" + item);
+                HttpResponseMessage response = await client.GetAsync("https://blazor.app1.es/samples/" + item);
                 byte[] content = await response.Content.ReadAsByteArrayAsync();
                 await File.WriteAllBytesAsync(Path.Combine(UploadPath, item), content);
                 await File.WriteAllBytesAsync(Path.Combine(Path.GetTempPath(), item), content);

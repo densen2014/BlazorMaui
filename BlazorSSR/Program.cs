@@ -46,7 +46,7 @@ else
 app.UseResponseCompression();
 
 app.UseHttpsRedirection();
-var provider = new FileExtensionContentTypeProvider { Mappings = { [".properties"] = "application/octet-stream" } };
+var provider = new FileExtensionContentTypeProvider { Mappings = { [".properties"] = "application/octet-stream" , [".mp4"] = "application/octet-stream" } };
 
 app.UseStaticFiles(new StaticFileOptions
 {
