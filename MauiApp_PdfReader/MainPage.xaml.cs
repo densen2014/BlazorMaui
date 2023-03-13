@@ -4,11 +4,7 @@
 // e-mail:zhouchuanglin@gmail.com 
 // **********************************
 
-using Foundation;
 using Microsoft.AspNetCore.Components.WebView;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.Compatibility.Platform.iOS;
-using Microsoft.Maui.Controls.Platform;
 using Microsoft.Maui.Platform;
 #if ANDROID
 using Android.Webkit;
@@ -16,8 +12,10 @@ using AndroidX.Activity;
 #elif WINDOWS
 using Microsoft.Web.WebView2.Core;
 #elif IOS || MACCATALYST
+using Foundation;
 using WebKit;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Microsoft.Maui.Controls.Compatibility.Platform.iOS;
 #endif
 
 namespace MauiApp_PdfReader;
