@@ -4,13 +4,20 @@
 // e-mail:zhouchuanglin@gmail.com 
 // **********************************
 
+using Foundation;
 using Microsoft.AspNetCore.Components.WebView;
+using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Compatibility.Platform.iOS;
+using Microsoft.Maui.Controls.Platform;
 using Microsoft.Maui.Platform;
 #if ANDROID
 using Android.Webkit;
 using AndroidX.Activity;
 #elif WINDOWS
 using Microsoft.Web.WebView2.Core;
+#elif IOS || MACCATALYST
+using WebKit;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 #endif
 
 namespace MauiApp_PdfReader
@@ -32,10 +39,18 @@ namespace MauiApp_PdfReader
                 if (urlLoadingEventArgs.Url.Host != "0.0.0.0")
                 {
                     //外部链接WebView内打开,例如pdf浏览器
+                    Console.WriteLine(urlLoadingEventArgs.Url);
                     urlLoadingEventArgs.UrlLoadingStrategy =
                         UrlLoadingStrategy.OpenInWebView;
+
+                    //拦截可处理 IOS || MACCATALYST 下载文件, 简单测试一下
+                    if (urlLoadingEventArgs.Url.ToString().EndsWith(".exe"))
+                    {
+                        Task.Run(async () => await DownloadAsync(urlLoadingEventArgs.Url));
+                    }
                 }
             };
+
         }
 
         private void BlazorWebViewInitialized(object? sender, BlazorWebViewInitializedEventArgs e)
@@ -57,9 +72,12 @@ namespace MauiApp_PdfReader
             //e.WebView.SetWebChromeClient(new PermissionManagingBlazorWebChromeClient(e.WebView.WebChromeClient!, activity));
 #elif WINDOWS
             e.WebView.CoreWebView2.DownloadStarting += (async (s, e) => await CoreWebView2_DownloadStartingAsync(s, e));
-#elif IOS
+#elif IOS || MACCATALYST
+            e.WebView.NavigationDelegate = new NavigationDelegate();
 #endif
+
         }
+
 
 #if WINDOWS
         private async Task CoreWebView2_DownloadStartingAsync(object sender, CoreWebView2DownloadStartingEventArgs e)
@@ -81,14 +99,25 @@ namespace MauiApp_PdfReader
             //attachment; filename=ndp48-web.exe; filename*=UTF-8''ndp48-web.exe
             //var file = e.ContentDisposition;
             Uri uri = new Uri(e.Url);
+            await DownloadAsync(e.Url);
+        }
+#endif
+
+        private async Task DownloadAsync(string url)
+        {
+            Uri uri = new Uri(url);
+            await DownloadAsync(uri);
+        }
+
+        private async Task DownloadAsync(Uri uri)
+        {
             string fileName = Path.GetFileName(uri.LocalPath);
             var httpClient = new HttpClient();
             var filePath = Path.Combine(UploadPath, fileName);
-            byte[] fileBytes = await httpClient.GetByteArrayAsync(e.Url);
+            byte[] fileBytes = await httpClient.GetByteArrayAsync(uri);
             File.WriteAllBytes(filePath, fileBytes);
             await DisplayAlert("提示", $"下载文件完成 {fileName}", "OK");
         }
-#endif
 
         private void BlazorWebViewInitializing(object? sender, BlazorWebViewInitializingEventArgs e)
         {
@@ -97,5 +126,30 @@ namespace MauiApp_PdfReader
             e.Configuration.MediaTypesRequiringUserActionForPlayback = WebKit.WKAudiovisualMediaTypes.None;
 #endif
         }
+
+
+#if IOS || MACCATALYST
+
+
+        public class NavigationDelegate : NSObject, IWKNavigationDelegate
+        {
+
+            [Export("webView:didFinishNavigation:")]
+
+            public async void DidFinishNavigation(WKWebView webView, WKNavigation navigation)
+
+            {
+
+                var content = await webView.EvaluateJavaScriptAsync("(function() { return (''+document.getElementsByTagName('html')[0].innerHTML+''); })();");
+
+                var html = FromObject(content);
+
+                Console.WriteLine((html.ToString()).Substring(0, 40));
+
+            }
+
+        }
+
+#endif
     }
 }
