@@ -51,6 +51,8 @@ namespace MauiApp_PdfReader
                 }
             };
 
+            //Window secondWindow = new Window(new MainPage());
+            //Application.Current.OpenWindow(secondWindow);
         }
 
         private void BlazorWebViewInitialized(object? sender, BlazorWebViewInitializedEventArgs e)
