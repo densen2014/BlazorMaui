@@ -62,7 +62,8 @@ public partial class NavMenu
                     new MenuItem() { Text = "文件", Url = "/Files" },
                     new MenuItem() { Text = "上传文件", Url = "/FileUpload" },
                     new MenuItem() { Text = "文件夹", Url = "/AppFiles" },
-                }
+                    new MenuItem() { Text = "下载", Url = "/Downloads" },
+               }
             },
             new MenuItem() { Text = "测试" ,Items= new List<MenuItem>
                 {

@@ -1,0 +1,51 @@
+﻿@page "/Downloads"
+
+@using BootstrapBlazor.Components
+
+Files:
+
+<pre>
+@{
+    var files = Directory.GetFiles(UploadPath);
+    int i = 0;
+    foreach (var item in files)
+    {
+        i++;
+        <button class="btn btn-link" @onclick="(()=>DownloadBlob.DownloadFileFromStream(item))">@($"{i}.{Path.GetFileName(item)}")</button><br />
+        }
+    }
+</pre>
+
+<p>@Message</p>
+
+<DownloadBlob OnError="@OnError" @ref="DownloadBlob" />
+
+<button class="btn btn-primary" @onclick="(()=>DownloadTest())">Download File From Stream</button>
+<br />
+
+
+@code{
+
+    protected string UploadPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "uploads");
+
+    string? Message { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.NotNull]
+    DownloadBlob? DownloadBlob { get; set; }
+
+
+    private Task OnError(string message)
+    {
+        this.Message = message;
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    private async Task DownloadTest()
+    {
+        //生成随机文本内存流
+        var stream = new MemoryStream(System.Text.Encoding.Default.GetBytes($"Log from blazor {DateTime.Now:F}"));
+        var filename= "test.txt";
+        await DownloadBlob.DownloadFileFromStream(filename, stream);
+    }
+}
