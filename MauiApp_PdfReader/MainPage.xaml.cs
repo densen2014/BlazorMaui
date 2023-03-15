@@ -101,8 +101,6 @@ public partial class MainPage : ContentPage
 #if ANDROID
     private async Task WebView_DownloadAsync(object sender, DownloadEventArgs e)
     {
-        //attachment; filename=ndp48-web.exe; filename*=UTF-8''ndp48-web.exe
-        var file = e.ContentDisposition;
         Uri uri = new Uri(e.Url);
         await DownloadAsync(uri, e.Mimetype);
     }
@@ -122,8 +120,6 @@ public partial class MainPage : ContentPage
 #if ANDROID
         if (uri.Scheme== "data")
         {
-            //"data:text/html;base64,77u/PCFET0NUWVBFIGh0bWw+DQo8aHRtbCBsYW5nPSJlbiI+DQo8aGVhZD4NCiAgICA8bWV0YSBjaGFyc2V0PSJ1dGYtOCIgLz4NCiAgICA8bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLCBpbml0aWFsLXNjYWxlPTEuMCwgbWF4aW11bS1zY2FsZT0xLjAsIHVzZXItc2NhbGFibGU9bm8sIHZpZXdwb3J0LWZpdD1jb3ZlciIgLz4NCiAgICA8dGl0bGU+UGRmUmVhZGVyPC90aXRsZT4NCiAgICA8YmFzZSBocmVmPSIvIiAvPg0KICAgIDxsaW5rIHJlbD0ic3R5bGVzaGVldCIgaHJlZj0iY3NzL2Jvb3RzdHJhcC9ib290c3RyYXAubWluLmNzcyIgLz4NCiAgICA8bGluayBocmVmPSJjc3MvYXBwLmNzcyIgcmVsPSJzdHlsZXNoZWV0IiAvPg0KICAgIDxsaW5rIGhyZWY9Ik1hdWlBcHBfUGRmUmVhZGVyLnN0eWxlcy5jc3MiIHJlbD0ic3R5bGVzaGVldCIgLz4NCjwvaGVhZD4NCg0KPGJvZHk+DQoNCiAgICA8ZGl2IGNsYXNzPSJzdGF0dXMtYmFyLXNhZmUtYXJlYSI+PC9kaXY+DQoNCiAgICA8ZGl2IGlkPSJhcHAiPkxvYWRpbmcuLi48L2Rpdj4NCg0KICAgIDxkaXYgaWQ9ImJsYXpvci1lcnJvci11aSI+DQogICAgICAgIEFuIHVuaGFuZGxlZCBlcnJvciBoYXMgb2NjdXJyZWQuDQogICAgICAgIDxhIGhyZWY9IiIgY2xhc3M9InJlbG9hZCI+UmVsb2FkPC9hPg0KICAgICAgICA8YSBjbGFzcz0iZGlzbWlzcyI+8J+XmTwvYT4NCiAgICA8L2Rpdj4NCg0KICAgIDxzY3JpcHQgc3JjPSJfZnJhbWV3b3JrL2JsYXpvci53ZWJ2aWV3LmpzIiBhdXRvc3RhcnQ9ImZhbHNlIj48L3NjcmlwdD4NCg0KPC9ib2R5Pg0KDQo8L2h0bWw+"
-
             fileName =DataUrl2Filename( uri.OriginalString);
             filePath = Path.Combine(UploadPath,$"{DateTime.Now.ToString("yyyy-MM-dd-hhmmss")}-{fileName}");
             var bytes = DataUrl2Bytes(uri.OriginalString);
@@ -136,6 +132,7 @@ public partial class MainPage : ContentPage
         File.WriteAllBytes(filePath, fileBytes);
         await DisplayAlert("提示", $"下载文件完成 {fileName}", "OK");
     }
+
     public static string DataUrl2Filename(string base64encodedstring)
     {
         var filename = Regex.Match(base64encodedstring, @"data:text/(?<filename>.+?);(?<type2>.+?),(?<data>.+)").Groups["filename"].Value;
@@ -153,35 +150,7 @@ public partial class MainPage : ContentPage
         var base64Data = Regex.Match(base64encodedstring, @"data:text/(?<type>.+?),(?<data>.+)").Groups["data"].Value;
         var bytes = Convert.FromBase64String(base64Data); 
         return bytes;
-    }
-
-    /// <summary>
-    /// 从 DataUrl 转换为 Stream
-    /// <para>Convert from a DataUrl to an Stream</para>
-    /// </summary>
-    /// <param name="base64encodedstring"></param>
-    /// <returns></returns>
-    public static Stream DataUrl2Stream(string base64encodedstring)
-    {
-        var base64Data = Regex.Match(base64encodedstring, @"data:text/(?<type>.+?),(?<data>.+)").Groups["data"].Value;
-        var bytes = Convert.FromBase64String(base64Data);
-        var stream = new MemoryStream(bytes);
-        return stream;
-    }
-
-
-    /// <summary>
-    /// 从 base64 转换为 Stream
-    /// <para>Convert from a base64 to an Stream</para>
-    /// </summary>
-    /// <param name="base64encodedstring"></param>
-    /// <returns></returns>
-    public static Stream Base642Stream(string base64encodedstring)
-    {
-        var bytes = Convert.FromBase64String(base64encodedstring);
-        var stream = new MemoryStream(bytes);
-        return stream;
-    }
+    } 
 
     private void BlazorWebViewInitializing(object? sender, BlazorWebViewInitializingEventArgs e)
     {

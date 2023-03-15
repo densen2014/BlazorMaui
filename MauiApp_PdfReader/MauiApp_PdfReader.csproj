@@ -62,7 +62,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <!--<PackageReference Include="BootstrapBlazor.WebAPI" Version="7.0.4" />-->
+        <PackageReference Include="BootstrapBlazor.WebAPI" Version="7.0.5" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
         <PackageReference Include="BootstrapBlazor.PdfReader" Version="7.1.8" />
         <PackageReference Include="BootstrapBlazor.Viewer" Version="7.0.2" />
@@ -77,9 +77,5 @@
 
     <ItemGroup>
       <MauiImage Remove="Resources\Images\dotnet_bot.svg" />
-    </ItemGroup>
-    <ItemGroup><!--<ProjectReference Include="..\..\BootstrapBlazor.FileViewer\src\BootstrapBlazor.FileViewer\BootstrapBlazor.FileViewer.csproj" />-->
-    
-      <ProjectReference Include="..\..\BootstrapBlazor.WebAPI\src\BootstrapBlazor.WebAPI\BootstrapBlazor.WebAPI.csproj" />
     </ItemGroup>
 </Project>

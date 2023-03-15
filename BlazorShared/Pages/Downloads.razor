@@ -11,7 +11,7 @@ Files:
     foreach (var item in files)
     {
         i++;
-        <button class="btn btn-link" @onclick="(()=>DownloadBlob.DownloadFileFromStream(item))">@($"{i}.{Path.GetFileName(item)}")</button><br />
+        <button class="btn btn-link" @onclick="(()=>DownloadBlob.DownloadFileFromStream(item,isAndroid:isAndroid))">@($"{i}.{Path.GetFileName(item)}")</button><br />
         }
     }
 </pre>
@@ -20,7 +20,8 @@ Files:
 
 <DownloadBlob OnError="@OnError" @ref="DownloadBlob" />
 
-<button class="btn btn-primary" @onclick="(()=>DownloadTest())">Download File From Stream</button>
+<button class="btn btn-primary" @onclick="(async()=>await DownloadTest())">Download File From Stream</button>
+<button class="btn btn-secondary" @onclick="StateHasChanged">Reload</button>
 <br />
 
 
@@ -32,6 +33,12 @@ Files:
 
     [System.Diagnostics.CodeAnalysis.NotNull]
     DownloadBlob? DownloadBlob { get; set; }
+
+#if ANDROID
+    bool isAndroid = true;
+#else
+    bool isAndroid = false;
+#endif
 
 
     private Task OnError(string message)
@@ -45,7 +52,13 @@ Files:
     {
         //生成随机文本内存流
         var stream = new MemoryStream(System.Text.Encoding.Default.GetBytes($"Log from blazor {DateTime.Now:F}"));
-        var filename= "test.txt";
-        await DownloadBlob.DownloadFileFromStream(filename, stream);
+        var filename= $"test_{Guid.NewGuid()}.txt";
+        this.Message = await DownloadBlob.DownloadFileFromStream(filename, stream, isAndroid);
+        _ = Task.Run (async() =>
+        {
+            await Task.Delay(500);
+            await InvokeAsync(StateHasChanged);
+        });
     }
+
 }
