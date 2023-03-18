@@ -13,7 +13,7 @@
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
         <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
-        <Configurations>Debug;Release;DebugNuget</Configurations>
+        <Configurations>Debug;Release</Configurations>
     </PropertyGroup>
     
     <PropertyGroup>
@@ -77,9 +77,6 @@
 
 
     <ItemGroup>
-      <Content Update="Pages\Downloads.razor">
-        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      </Content>
       <Content Update="wwwroot\samples\sample.docx">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
@@ -102,11 +99,5 @@
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
     </ItemGroup>
-
-    <ProjectExtensions>
-        <VisualStudio>
-            <UserProperties wwwroot_4manifest_1json__JsonSchema="" />
-        </VisualStudio>
-    </ProjectExtensions>
 
 </Project>

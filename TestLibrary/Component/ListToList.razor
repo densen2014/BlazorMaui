@@ -1,0 +1,43 @@
+﻿@namespace BlazorShared
+
+@if (StringList != null && StringList.Any())
+{
+    if (Style == ListStyle.OrderedList)
+    {
+
+        <ol>
+            @foreach (var item in StringList)
+            {
+                <li>@item</li>
+            }
+        </ol>
+
+    }
+    else
+    {
+
+<ul>
+    @foreach (var item in StringList)
+    {
+        <li>@item</li>
+    }
+</ul>
+
+    } 
+}
+
+@code {
+
+    /// <summary>
+    /// 列表
+    /// </summary>
+    [Parameter]
+    public List<string>? StringList { get; set; }
+
+
+    /// <summary>
+    /// 列表风格: 无序/有序
+    /// </summary>
+    [Parameter]
+    public ListStyle? Style { get; set; } = ListStyle.UnorderedLists;
+}

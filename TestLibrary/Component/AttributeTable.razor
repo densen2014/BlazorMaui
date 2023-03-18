@@ -1,0 +1,68 @@
+﻿@namespace BlazorShared.Pages
+<br />
+<br />
+<br />
+<br />
+<div class="table-attr d-none d-md-block">
+
+    <h4>@Title</h4>
+
+    <div class="table-container">
+
+        <div class="table-toolbar">
+        </div>
+
+        <div class="table-wrapper">
+            <table class="table is-single table-demo">
+                <colgroup>
+                    <col>
+                    <col>
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th><div class="table-cell"><span class="table-text">参数/Parameter</span></div></th>
+                        <th><div class="table-cell"><span class="table-text">说明/Description</span></div></th>
+                        <th><div class="table-cell"><span class="table-text">类型/Type</span></div></th>
+                        <th><div class="table-cell"><span class="table-text">默认值/DefaultValue</span></div></th>
+                        <th><div class="table-cell"><span class="table-text">可选值/ValueList</span></div></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Items)
+                    {
+                        <tr>
+                            <td><div class="table-cell">@item.Name</div></td>
+                            <td><div class="table-cell">@item.Description</div></td>
+                            <td><div class="table-cell">@item.Type</div></td>
+                            <td><div class="table-cell">@item.DefaultValue</div></td>
+                            <td><div class="table-cell">@item.ValueList</div></td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="table-filter">
+        </div>
+
+    </div>
+</div>
+
+@code{
+
+    /// <summary>
+    /// 获得/设置 项目
+    /// </summary>
+    [Parameter]
+    public IEnumerable<AttributeItem> Items { get; set; } = new AttributeItem[] { };
+
+    /// <summary>
+    ///
+    /// </summary>
+    [Parameter]
+    public string? Title { get; set; } = "事件 Events";
+
+
+} 
