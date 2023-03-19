@@ -4,6 +4,11 @@
 
 @(TestLibrary.Class1.Test())
 
+@code{
+    List<string> testlist=new List<string>() { "1","2","3" };
+}
+<BlazorShared.ListToList StringList="testlist" />
+
 <div class="row">
     <div class="col-12 col-m-5 col-x-4 col-xl-3">
 
