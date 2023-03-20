@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net7.0-windows</TargetFramework>
+        <Nullable>enable</Nullable>
+        <UseWPF>true</UseWPF>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AME.Extensions" Version="7.*" />
+        <PackageReference Include="BootstrapBlazor" Version="7.*" />
+        <PackageReference Include="BootstrapBlazor.FontAwesome" Version="7.*" />
+        <PackageReference Include="Densen.FreeSql.Extensions.BootstrapBlazor" Version="7.2.3" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Wpf" Version="7.*" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.*" />
+        <PackageReference Include="Microsoft.Windows.Compatibility" Version="7.*" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.*" />
+        <PackageReference Include="BootstrapBlazor.WebAPI" Version="7.0.5" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+        <PackageReference Include="BootstrapBlazor.PdfReader" Version="7.1.10" />
+        <PackageReference Include="BootstrapBlazor.Viewer" Version="7.0.2" />
+        <PackageReference Include="BootstrapBlazor.FileViewer" Version="7.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Update="appsettings.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Content Update="wwwroot\css\app.css">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Update="wwwroot\index.html">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+</Project>

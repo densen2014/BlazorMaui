@@ -1,0 +1,14 @@
+﻿@inherits BootstrapModuleComponentBase
+
+<div class="navbar d-flex d-md-none px-3" id="@Id">
+    <a class="navbar-brand" href="">Demo</a>
+    <button class="navbar-toggler" aria-label="toggle">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+<div class="sidebar-content collapse d-md-block">
+    <div class="scroll">
+        <Menu Items="@Menus" IsVertical="true" IsAccordion="true" IsExpandAll="true" />
+    </div>
+</div>

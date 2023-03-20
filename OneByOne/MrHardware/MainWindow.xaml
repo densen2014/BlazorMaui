@@ -1,0 +1,21 @@
+﻿<Window x:Class="MrHardware.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:b="clr-namespace:Microsoft.AspNetCore.Components.WebView.Wpf;assembly=Microsoft.AspNetCore.Components.WebView.Wpf"
+        xmlns:local="clr-namespace:MrHardware"
+        mc:Ignorable="d"
+        Title="MrHardware 硬件助手"
+        Top="10"
+        Left="10"
+        Height="900"
+        Width="1300">
+    <Grid>
+        <b:BlazorWebView HostPage="wwwroot/index.html" Services="{StaticResource services}">
+            <b:BlazorWebView.RootComponents>
+                <b:RootComponent ComponentType="{x:Type local:Main}" Selector="#app"/>
+            </b:BlazorWebView.RootComponents>
+        </b:BlazorWebView>
+    </Grid>
+</Window>

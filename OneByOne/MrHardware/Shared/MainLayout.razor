@@ -1,0 +1,20 @@
+﻿@inherits LayoutComponentBase
+@using System.Reflection
+
+<section class="section">
+    <div class="sidebar">
+        <div class="sidebar-title">
+            <span class="sidebar-text">DEMO</span>
+        </div>
+        <NavMenu />
+    </div>
+    <div class="main">
+        <div class="content px-3">
+            <Tab ClickTabToNavigation="true"
+                 ShowExtendButtons="true"
+                 ShowClose="true"
+                 Body=@Body
+                 AdditionalAssemblies=' new[] { Assembly.Load("BlazorShared")! }' />
+        </div>
+    </div>
+</section>

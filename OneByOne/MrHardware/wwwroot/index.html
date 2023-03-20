@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Blazor app</title>
+    <base href="/" />
+    <link href="_content/BootstrapBlazor.FontAwesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="_content/BootstrapBlazor/css/bootstrap.blazor.bundle.min.css" rel="stylesheet">
+    <link href="_content/BootstrapBlazor/css/motronic.min.css" rel="stylesheet">
+    <link href="_content/BootstrapBlazor.Chart/css/bootstrap.blazor.chart.bundle.min.css" rel="stylesheet">
+    <link href="_content/MrHardware/css/app.css" rel="stylesheet" />
+    <link href="MrHardware.styles.css" rel="stylesheet" />
+    <script>
+        function showAlert() {
+
+            DotNet
+                .invokeMethodAsync("MrHardware", "ReturnArrayAsync")
+                .then(res => {
+                    alert(`Hello from Blazor Component: ${JSON.stringify(res)}`)
+                })
+
+        }
+    </script>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+
+    <script src="_framework/blazor.webview.js"></script>
+    <script src="_content/BootstrapBlazor/js/bootstrap.blazor.bundle.min.js"></script>
+</body>
+
+</html>
