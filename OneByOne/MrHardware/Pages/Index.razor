@@ -1,30 +1,7 @@
 ﻿@page "/"
 @attribute [TabItemOption(Text = "首页", Icon = "fa fa-fa")]
 
-<h1>Blazor Demo</h1>
-<Title>BlazorMaui</Title>
-<TimerAme />
+<Tree ClickToggleNode="true" Items="@DensenTools_Load()" />
 
-<Tab>
-    <TabItem Text="环境">
-        <br />
-        <b>
-            版本:
-        </b>
-        <br />
-        @version
-        <br /><br />
-        <b>
-            FriendlyName:
-        </b>
-        <br />
-        @AppDomain.CurrentDomain.FriendlyName
-        <br /><br />
-        <b>
-            TargetFrameworkName:
-        </b>
-        <br />
-        @AppDomain.CurrentDomain.SetupInformation.TargetFrameworkName
-        <br /><br />
-    </TabItem>
-</Tab>
+
+

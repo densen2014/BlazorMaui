@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Components.Routing;
 
 namespace MrHardware.Shared;
 
-[JSModuleAutoLoader("/_content/MrHardware/modules/menu.js", ModuleName = "Menu", Relative = false)]
+[JSModuleAutoLoader("/modules/menu.js", ModuleName = "Menu", Relative = false)]
 public partial class NavMenu
 {
     private IEnumerable<MenuItem> Menus { get; set; } = new List<MenuItem>

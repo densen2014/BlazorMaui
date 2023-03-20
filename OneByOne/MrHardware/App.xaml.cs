@@ -7,16 +7,16 @@
 using System.Windows;
 using static MrHardware.Startup;
 
-namespace MrHardware;
-
-/// <summary>
-/// Interaction logic for App.xaml
-/// </summary>
-public partial class App : Application
+namespace MrHardware
 {
-    public App()
+    /// <summary>
+    /// Interaction logic for App.xaml
+    /// </summary>
+    public partial class App : Application
     {
-        Init();
+        public App()
+        {
+            Init();
+        }
     }
-
 }
