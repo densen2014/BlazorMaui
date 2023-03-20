@@ -62,9 +62,10 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="FreeSql.Provider.Sqlite" Version="3.*" />
         <PackageReference Include="BootstrapBlazor.WebAPI" Version="7.0.5" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
-        <PackageReference Include="BootstrapBlazor.PdfReader" Version="7.1.8" />
+        <PackageReference Include="BootstrapBlazor.PdfReader" Version="7.1.10" />
         <PackageReference Include="BootstrapBlazor.Viewer" Version="7.0.2" />
         <PackageReference Include="BootstrapBlazor.FileViewer" Version="7.0.3" />
     </ItemGroup>

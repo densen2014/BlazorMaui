@@ -80,9 +80,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Content Update="Pages\Downloads.razor">
-        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      </Content>
       <Content Update="wwwroot\samples\sample.docx">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
