@@ -2,6 +2,8 @@
 
 用 c # 和 Razor 创建本机移动应用和桌面应用。可以快速开发共享代码库运行于 Windows (Winforms/WPF/WinUI3)、Android、iOS、macOS 和 Linux 的应用。
 
+[![Alex Chow's GitHub stats](https://github-readme-stats.vercel.app/api?username=anuraghazra)](https://github.com/anuraghazra/github-readme-stats)
+
  [GitHub](https://github.com/densen2014/BlazorMaui) | [Gitee(仅副本)](https://gitee.com/alexchow/BlazorMaui)
  
  [工程引用库源码](https://github.com/densen2014?tab=repositories&q=BootstrapBlazor.&type=&language=&sort=)
