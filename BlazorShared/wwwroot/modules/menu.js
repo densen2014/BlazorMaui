@@ -10,7 +10,6 @@ export class Menu extends BlazorComponent {
             this._menu.classList.toggle('show')
         })
         EventHandler.on(this._menu, 'click', '.nav-link', e => {
-            console.log('xxx');
             const link = e.delegateTarget
             const url = link.getAttribute('href');
             if (url !== '#') {
