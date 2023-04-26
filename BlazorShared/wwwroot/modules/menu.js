@@ -1,25 +1,32 @@
-﻿import BlazorComponent from "/_content/BootstrapBlazor/modules/base/blazor-component.js";
-import EventHandler from "/_content/BootstrapBlazor/modules/base/event-handler.js";
+﻿import Data from "../../../_content/BootstrapBlazor/modules/data.js";
+import EventHandler from "../../../_content/BootstrapBlazor/modules/event-handler.js";
 
-export class Menu extends BlazorComponent {
-    _init() {
-        this._navbar = document.querySelector('.navbar-toggler')
-        this._menu = document.querySelector('.sidebar-content')
-
-        EventHandler.on(this._navbar, 'click', () => {
-            this._menu.classList.toggle('show')
-        })
-        EventHandler.on(this._menu, 'click', '.nav-link', e => {
-            const link = e.delegateTarget
-            const url = link.getAttribute('href');
-            if (url !== '#') {
-                this._menu.classList.remove('show')
-            }
-        })
+export function init(id) {
+    var el = document.getElementById(id)
+    if (el === null) {
+        return
     }
+    const navbar = el.querySelector('.navbar-toggler')
+    const menu = el.querySelector('.sidebar-content')
+    const nav = { navbar, menu }
+    Data.set(id, nav)
 
-    _dispose() {
-        EventHandler.off(this._navbar, 'click');
-        EventHandler.off(this._menu, 'click', '.nav-link');
+    EventHandler.on(navbar, 'click', () => {
+        menu.classList.toggle('show')
+    })
+    EventHandler.on(menu, 'click', '.nav-link', e => {
+        const link = e.delegateTarget
+        const url = link.getAttribute('href');
+        if (url !== '#') {
+            menu.classList.remove('show')
+        }
+    })
+}
+
+export function dispose(id) {
+    const nav = Data.get(id)
+    if (nav) {
+        EventHandler.off(nav.navbar, 'click');
+        EventHandler.off(nav.menu, 'click', '.nav-link');
     }
 }
