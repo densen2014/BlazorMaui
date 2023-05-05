@@ -49,7 +49,7 @@
     
     <ItemGroup>
         <PackageReference Include="AME.Extensions" Version="7.*" />
-        <PackageReference Include="BootstrapBlazor" Version="7.*" />
+        <PackageReference Include="BootstrapBlazor" Version="7.5.7" />
         <PackageReference Include="BootstrapBlazor.BarCode" Version="7.*" />
         <PackageReference Include="BootstrapBlazor.Chart" Version="7.*" />
         <PackageReference Include="BootstrapBlazor.FontAwesome" Version="7.*" />

@@ -9,7 +9,7 @@
 
     <ItemGroup>
         <PackageReference Include="AME.Extensions" Version="7.4.1" />
-        <PackageReference Include="BootstrapBlazor" Version="7.*" />
+        <PackageReference Include="BootstrapBlazor" Version="7.5.7" />
         <PackageReference Include="BootstrapBlazor.FontAwesome" Version="7.*" />
         <PackageReference Include="Costura.Fody" Version="5.7.0">
           <PrivateAssets>all</PrivateAssets>
