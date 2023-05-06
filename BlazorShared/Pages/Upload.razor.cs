@@ -149,7 +149,7 @@ namespace BlazorShared.Pages
                 var fileName = Path.Combine(uploaderFolder, file.FileName);
 
                 ReadToken ??= new CancellationTokenSource();
-                ret = await file.SaveToFile(fileName, MaxFileLength, ReadToken.Token);
+                ret = await file.SaveToFileAsync(fileName, MaxFileLength, ReadToken.Token);
 
                 if (ret)
                 {
