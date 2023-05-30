@@ -12,17 +12,7 @@
     <link href="_content/BootstrapBlazor.Chart/css/bootstrap.blazor.chart.bundle.min.css" rel="stylesheet">
     <link href="_content/BlazorShared/css/app.css" rel="stylesheet" />
     <link href="BlazorWpf.styles.css" rel="stylesheet" />
-    <script>
-        function showAlert() {
 
-            DotNet
-                .invokeMethodAsync("BlazorShared", "ReturnArrayAsync")
-                .then(res => {
-                    alert(`Hello from Blazor Component: ${JSON.stringify(res)}`)
-                })
-
-        }
-    </script>
 </head>
 
 <body>

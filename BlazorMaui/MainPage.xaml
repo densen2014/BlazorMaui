@@ -6,11 +6,18 @@
              Title="MauiBlazorDemo"
              x:Class="BlazorMaui.MainPage"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
-
-    <BlazorWebView x:Name="_blazorWebView" HostPage="wwwroot/index.html">
+    <StackLayout>
+        <StackLayout Orientation="Horizontal" BackgroundColor="White" >
+            <Button Text="Show counter"  Clicked="ButtonShowCounter_Click" Padding ="10"></Button>
+            <Button Text="Webview alert" Clicked="ButtonWebviewAlert_Click" Padding ="10"></Button>
+            <Button Text="Home" Clicked="ButtonHome_Click" Padding ="10"></Button>
+        </StackLayout>
+        <BlazorWebView x:Name="_blazorWebView" HostPage="wwwroot/index.html"  BackgroundColor="Tomato"  
+               VerticalOptions="FillAndExpand" >
         <BlazorWebView.RootComponents>
             <RootComponent Selector="#app" ComponentType="{x:Type shared:App}" />
         </BlazorWebView.RootComponents>
-    </BlazorWebView> 
+        </BlazorWebView>
+    </StackLayout>
 
 </ContentPage>
