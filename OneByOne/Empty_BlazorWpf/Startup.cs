@@ -1,4 +1,4 @@
-// ********************************** 
+﻿// ********************************** 
 // Densen Informatica 中讯科技 
 // 作者：Alex Chow
 // e-mail:zhouchuanglin@gmail.com 
@@ -7,27 +7,26 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Empty_BlazorWpf
+namespace Empty_BlazorWpf;
+
+public static class Startup
 {
-    public static class Startup
+    public static IServiceProvider? Services { get; private set; }
+
+    public static void Init()
     {
-        public static IServiceProvider? Services { get; private set; }
+        var host = Host.CreateDefaultBuilder()
+                       .ConfigureServices(WireupServices)
+                       .Build();
+        Services = host.Services;
+    }
 
-        public static void Init()
-        {
-            var host = Host.CreateDefaultBuilder()
-                           .ConfigureServices(WireupServices)
-                           .Build();
-            Services = host.Services;
-        }
-
-        private static void WireupServices(HostBuilderContext context, IServiceCollection services)
-        {
-            services.AddWpfBlazorWebView();
+    private static void WireupServices(HostBuilderContext context, IServiceCollection services)
+    {
+        services.AddWpfBlazorWebView();
 
 #if DEBUG
-        services.AddBlazorWebViewDeveloperTools();
+    services.AddBlazorWebViewDeveloperTools();
 #endif
-        }
     }
 }
