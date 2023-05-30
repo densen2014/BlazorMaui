@@ -8,6 +8,7 @@ namespace BlazorWinFormsBrowseApp;
 
 internal static class Program
 {
+    public static Form1 form1=new Form1();
     /// <summary>
     ///  The main entry point for the application.
     /// </summary>
@@ -16,6 +17,6 @@ internal static class Program
     {
         Startup.Init();
         ApplicationConfiguration.Initialize();
-        Application.Run(new Form1());
+        Application.Run(form1);
     }
 }

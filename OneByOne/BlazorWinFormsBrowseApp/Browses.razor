@@ -1,0 +1,17 @@
+﻿@page "/browser"
+
+<h1>Browser</h1>
+
+<div>
+	<p>The current count is: @currentCount</p>
+	<button class="btn btn-primary" @onclick="IncrementCount">Count</button>
+</div>
+
+@code {
+	int currentCount = 0;
+
+	void IncrementCount()
+	{
+		currentCount++;
+	}
+}

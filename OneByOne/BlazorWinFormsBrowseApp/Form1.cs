@@ -93,6 +93,18 @@ public partial class Form1 : Form
     private void ButtonGo_Click(object sender, EventArgs e)
     {
         blazorWebView.WebView.CoreWebView2.Navigate(comboBoxUrl.Text);
-        comboBoxUrl.Items.Add (comboBoxUrl.Text);
+        comboBoxUrl.Items.Add(comboBoxUrl.Text);
+    }
+
+    private async void ButtonNewTab_Click(object sender, EventArgs e)
+    {
+        browserComponent1.Visible = true;
+        await browserComponent1.NavigateTo(comboBoxUrl.Text);
+    }
+
+    public async Task<bool> NavigateTo(string url)
+    {
+        browserComponent1.Visible = true;
+        return await browserComponent1.NavigateTo(url);
     }
 }

@@ -37,8 +37,10 @@ namespace BlazorWinFormsBrowseApp
             flowLayoutPanel1 = new FlowLayoutPanel();
             buttonWebviewAlert = new Button();
             buttonHome = new Button();
-            buttonGo = new Button();
             comboBoxUrl = new ComboBox();
+            buttonGo = new Button();
+            buttonOpenInNewTab = new Button();
+            browserComponent1 = new BrowserComponent();
             flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -48,6 +50,7 @@ namespace BlazorWinFormsBrowseApp
             flowLayoutPanel1.Controls.Add(buttonHome);
             flowLayoutPanel1.Controls.Add(comboBoxUrl);
             flowLayoutPanel1.Controls.Add(buttonGo);
+            flowLayoutPanel1.Controls.Add(buttonOpenInNewTab);
             flowLayoutPanel1.Dock = DockStyle.Top;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -74,6 +77,14 @@ namespace BlazorWinFormsBrowseApp
             buttonHome.UseVisualStyleBackColor = true;
             buttonHome.Click += ButtonHome_Click;
             // 
+            // comboBoxUrl
+            // 
+            comboBoxUrl.FormattingEnabled = true;
+            comboBoxUrl.Location = new Point(369, 3);
+            comboBoxUrl.Name = "comboBoxUrl";
+            comboBoxUrl.Size = new Size(858, 36);
+            comboBoxUrl.TabIndex = 5;
+            // 
             // buttonGo
             // 
             buttonGo.Location = new Point(1233, 3);
@@ -84,19 +95,31 @@ namespace BlazorWinFormsBrowseApp
             buttonGo.UseVisualStyleBackColor = true;
             buttonGo.Click += ButtonGo_Click;
             // 
-            // comboBoxUrl
+            // buttonOpenInNewTab
             // 
-            comboBoxUrl.FormattingEnabled = true;
-            comboBoxUrl.Location = new Point(369, 3);
-            comboBoxUrl.Name = "comboBoxUrl";
-            comboBoxUrl.Size = new Size(858, 36);
-            comboBoxUrl.TabIndex = 5;
+            buttonOpenInNewTab.Location = new Point(1403, 3);
+            buttonOpenInNewTab.Name = "buttonOpenInNewTab";
+            buttonOpenInNewTab.Size = new Size(231, 40);
+            buttonOpenInNewTab.TabIndex = 6;
+            buttonOpenInNewTab.Text = "Open in new tab";
+            buttonOpenInNewTab.UseVisualStyleBackColor = true;
+            buttonOpenInNewTab.Click += ButtonNewTab_Click;
+            // 
+            // browserComponent1
+            // 
+            browserComponent1.Dock = DockStyle.Bottom;
+            browserComponent1.Location = new Point(0, 464);
+            browserComponent1.Name = "browserComponent1";
+            browserComponent1.Size = new Size(1831, 641);
+            browserComponent1.TabIndex = 3;
+            browserComponent1.Visible = false;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1831, 1105);
+            Controls.Add(browserComponent1);
             Controls.Add(flowLayoutPanel1);
             Name = "Form1";
             Text = "Form1";
@@ -111,5 +134,7 @@ namespace BlazorWinFormsBrowseApp
         private Button buttonHome;
         private Button buttonGo;
         private ComboBox comboBoxUrl;
+        private Button buttonOpenInNewTab;
+        private BrowserComponent browserComponent1;
     }
 }

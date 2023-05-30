@@ -1,3 +1,15 @@
 ﻿@page "/"
 
 <Counter />
+
+<input type="text" @bind-value="@url" style="width:80%" />
+
+<button @onclick="GO">GO</button>
+
+@code{
+    string url = "https://github.com/densen2014/BlazorMaui";
+    private async void GO()
+    {
+        await Program.form1.NavigateTo(url);
+    }
+}
