@@ -1,21 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Web.WebView2.Core;
+using System.IO;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Microsoft.Web.WebView2.Core;
 
 namespace WpfWithWebview2
 {
+
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
@@ -33,7 +22,15 @@ namespace WpfWithWebview2
         async void InitializeAsync()
         {
             //设置web用户文件夹 
-            var browserExecutableFolder = "c:\\wb2";
+            var browserExecutableFolder = Path.Combine(Path.GetFullPath(".."), "WebView2.FixedVersionRuntime");
+#if DEBUG
+            browserExecutableFolder = @"C:\WebView2.FixedVersionRuntime";
+#endif
+            if (!Directory.Exists(browserExecutableFolder))
+            {
+                MessageBox.Show($"请先下载并解压缩 WebView2.FixedVersionRuntime.rar 到 {browserExecutableFolder} 文件夹", "提示");
+                return;
+            }
             webView.CreationProperties = new Microsoft.Web.WebView2.Wpf.CoreWebView2CreationProperties()
             {
                 BrowserExecutableFolder = browserExecutableFolder
@@ -45,14 +42,14 @@ namespace WpfWithWebview2
             await webView.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync("window.chrome.webview.postMessage(window.document.URL);");
             await webView.CoreWebView2.AddScriptToExecuteOnDocumentCreatedAsync("window.chrome.webview.addEventListener(\'message\', event => alert(event.data));");
         }
-        
+
         void UpdateAddressBar(object sender, CoreWebView2WebMessageReceivedEventArgs args)
         {
             var uri = args.TryGetWebMessageAsString();
             addressBar.Text = uri;
             webView.CoreWebView2.PostWebMessageAsString(uri);
         }
-        
+
         void EnsureHttps(object sender, CoreWebView2NavigationStartingEventArgs args)
         {
             var uri = args.Uri;
@@ -61,7 +58,7 @@ namespace WpfWithWebview2
                 args.Cancel = true;
             }
         }
-        
+
         private void ButtonGo_Click(object sender, RoutedEventArgs e)
         {
             if (webView != null && webView.CoreWebView2 != null)
