@@ -25,9 +25,10 @@ https://www.zkcee.com/5301.html
 https://blog.csdn.net/sD7O95O/article/details/121724117
 
 ### 调试连接命令
-
+```
 cd "C:\Program Files (x86)\Android\android-sdk\platform-tools\"
 adb connect 127.0.0.1:58526
+```
 
 C:\Program Files (x86)\Android\android-sdk\platform-tools\adb.exe
 
