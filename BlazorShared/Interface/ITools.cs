@@ -17,6 +17,7 @@
         void ShowSettingsUI();
         string? GetAppInfo();
         Task<string> NavigateToMadrid();
+        Task<string> NavigateTo(double latitude, double longitude, string? name = null);
         Task<string> NavigateToPlazaDeEspana();
         Task<string> NavigateToPlazaDeEspanaByPlacemark();
         Task<string> DriveToPlazaDeEspana();

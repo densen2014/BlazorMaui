@@ -14,13 +14,13 @@ public partial class PlatformFeatures
 {
     [Inject, NotNull] protected ITools? Tools { get; set; }
 
-    private string? Locations;
-    private string? PhotoFilename;
-    private string? 定位权限;
-    private string? 摄像机权限;
-    private string? 导航消息;
-    private string? 截屏消息;
- 
+    private string? Locations { get; set; }
+    private string? PhotoFilename { get; set; }
+    private string? 定位权限 { get; set; }
+    private string? 摄像机权限 { get; set; }
+    private string? 导航消息 { get; set; }
+    private string? 截屏消息 { get; set; }
+
     async Task 获取定位() => Locations = await Tools.GetCurrentLocation();
     async Task TakePhoto() => PhotoFilename = await Tools.TakePhoto();
     async Task 检查定位权限() => 定位权限 = await Tools.CheckPermissionsLocation();

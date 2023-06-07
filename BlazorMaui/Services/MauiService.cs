@@ -371,6 +371,30 @@ namespace LibraryShared
         }
 
         /// <summary>
+        /// 导航到位置
+        /// </summary>
+        /// <param name="location">new Location(40.4381311, -3.8196197)</param>
+        /// <returns></returns>
+        public async Task<string> NavigateTo(double latitude, double longitude, string? name=null)
+        {
+            var location = new Location(latitude, longitude);
+            var options = new MapLaunchOptions { Name = name?? $"{location.Latitude},{location.Longitude}"};
+
+            try
+            {
+                if (await Map.Default.TryOpenAsync(location, options) == false)
+                {
+                    return "Map failed to open";
+                }
+                return "ok";
+            }
+            catch (Exception ex)
+            {
+                return $"No map application available to open, Message: {ex.Message}";
+            }
+        }
+
+        /// <summary>
         /// 使用 a Placemark 打开地图时，需要更多信息。 此信息可帮助地图应用搜索要查找的位置。
         /// </summary>
         /// <returns></returns>
