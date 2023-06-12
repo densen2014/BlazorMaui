@@ -7,6 +7,7 @@ using System.Net;
 #endif
 #if (IOS || MACCATALYST)
 using Security;
+using Foundation;
 #endif
 
 

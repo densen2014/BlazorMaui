@@ -109,4 +109,9 @@
         </VisualStudio>
     </ProjectExtensions>
 
+    <PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst' or $([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">
+        <UseMaui>true</UseMaui>
+        <SingleProject>true</SingleProject>
+    </PropertyGroup>
+
 </Project>

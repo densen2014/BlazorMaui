@@ -1,5 +1,6 @@
 ﻿using BootstrapBlazor.Components;
 using Microsoft.AspNetCore.Components.Routing;
+using MenuItem = BootstrapBlazor.Components.MenuItem;
 
 namespace BlazorShared.Shared;
 

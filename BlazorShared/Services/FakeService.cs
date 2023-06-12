@@ -75,4 +75,9 @@ public class FakeService : ITools
     {
         return Task.FromResult("未实现");
     }
+
+    public Task<string> NavigateTo(double latitude, double longitude, string? name = null)
+    {
+        throw new NotImplementedException();
+    }
 }

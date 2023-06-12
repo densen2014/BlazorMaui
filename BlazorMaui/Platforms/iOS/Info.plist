@@ -41,12 +41,10 @@
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Fill in a reason why your app needs access to location.</string>
 	<key>NSLocationTemporaryUsageDescriptionDictionary</key>
-	<array>
 		<dict>
 			<key>TemporaryFullAccuracyUsageDescription</key>
 			<string>Fill in a reason why your app needs full accuracy</string>
 		</dict>
-	</array>
 	<key>UIRequiresFullScreen</key>
 	<true/>
 	<key>UIStatusBarHidden</key>
