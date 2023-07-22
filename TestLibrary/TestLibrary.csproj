@@ -19,14 +19,12 @@
     
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0" />
-        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="7.0" />
-        <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0" />
     </ItemGroup>
 
     <PropertyGroup>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-    </PropertyGroup>
+</PropertyGroup>
     
     <PropertyGroup>
         <LangVersion>latest</LangVersion>
