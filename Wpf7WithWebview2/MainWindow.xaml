@@ -7,13 +7,20 @@
         xmlns:local="clr-namespace:Wpf7WithWebview2"
         mc:Ignorable="d"
         Title="Wpf7WithWebview2" Height="800" Width="1000">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="Help_Executed"  />
+        <CommandBinding Command="ApplicationCommands.Close" Executed="Close_Executed"  />
+        <CommandBinding Command="ApplicationCommands.Open" Executed="Open_Executed"  />
+    </Window.CommandBindings>
     <DockPanel>
         <DockPanel DockPanel.Dock="Top">
             <Button x:Name="ButtonGo" DockPanel.Dock="Right" Click="ButtonGo_Click" Content="Go"/>
             <TextBox Name = "addressBar"/>
         </DockPanel>
         <wv2:WebView2 Name = "webView"
-                  Source = "https://dotnet.microsoft.com/zh-cn/download/dotnet-framework/thank-you/net48-web-installer?WT.mc_id=DT-MVP-5005078"
-    />
+                  Source = "https://blazor.app1.es/openai"/>
+        <!--<wv2:WebView2 Name = "webView"
+                  Source = "https://dotnet.microsoft.com/zh-cn/download/dotnet-framework/thank-you/net48-web-installer?WT.mc_id=DT-MVP-5005078"-->
+    
     </DockPanel>
 </Window>

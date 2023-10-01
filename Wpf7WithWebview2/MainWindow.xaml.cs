@@ -7,6 +7,7 @@
 using Microsoft.Web.WebView2.Core;
 using System.IO;
 using System.Windows;
+using System.Windows.Input;
 
 namespace Wpf7WithWebview2;
 
@@ -18,6 +19,14 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+ 
+        var FullScreenKeyBinding = new KeyBinding(ApplicationCommands.Help, new KeyGesture(Key.F12));
+        var CloseKeyBinding = new KeyBinding(ApplicationCommands.Close, new KeyGesture(Key.F11));
+        var LoginKeyBinding = new KeyBinding(ApplicationCommands.Open, new KeyGesture(Key.Enter));
+
+        this.InputBindings.Add(FullScreenKeyBinding);
+        this.InputBindings.Add(CloseKeyBinding);
+        this.InputBindings.Add(LoginKeyBinding);
         //使用本机功能将消息从 Web 内容传递到主机
         InitializeAsync();
     }
@@ -85,4 +94,24 @@ public partial class MainWindow : Window
             webView.CoreWebView2.Navigate(addressBar.Text);
         }
     }
+
+    private void Open_Executed(object sender, RoutedEventArgs e)
+    {
+        MessageBox.Show("Login executed");
+    }
+
+    private void Close_Executed(object sender, RoutedEventArgs e)
+    {
+        MessageBox.Show("Close executed");
+        this.Close();
+    }
+
+    private void Help_Executed(object sender, RoutedEventArgs e)
+    {
+        //MessageBox.Show("Full screen executed");
+        this.WindowStyle = this.WindowStyle == WindowStyle.None? WindowStyle.ThreeDBorderWindow: WindowStyle.None;
+        this.WindowState = this.WindowState == WindowState.Maximized?WindowState.Normal: WindowState.Maximized;
+
+    }
+
 }
