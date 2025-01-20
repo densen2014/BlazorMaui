@@ -1,6 +1,6 @@
     BlazorMaui , 整合Blazor,BootstrapBlazor UI组件库,Maui的共享跨平台工程示例
 
-*由于此工程比较杂乱,新开了一个项目 [BlazorHybrid](https://github.com/densen2014/BlazorHybrid?WT.mc_id=DT-MVP-5005078) , 请感兴趣的同学移步参观.*
+*转移到新项目 [BlazorHybrid](https://github.com/densen2014/BlazorHybrid?WT.mc_id=DT-MVP-5005078) , 请感兴趣的同学移步参观.*
 
 用 c # 和 Razor 创建本机移动应用和桌面应用。可以快速开发共享代码库运行于 Windows (Winforms/WPF/WinUI3)、Android、iOS、macOS 和 Linux 的应用。
 
